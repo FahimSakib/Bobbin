@@ -22,5 +22,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::get('home','Frontend\HomeController@index');
+
+Route::get('wishlist','Frontend\WishlistController@index');
+
 Route::get('blog','Frontend\BlogController@index');
+
 
