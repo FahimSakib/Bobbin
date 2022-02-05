@@ -26,5 +26,6 @@ Route::get('home','Frontend\HomeController@index');
 Route::get('wishlist','Frontend\WishlistController@index');
 
 Route::get('blog','Frontend\BlogController@index');
+Route::get('cart','Frontend\CartController@index');
 
 
