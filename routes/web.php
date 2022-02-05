@@ -28,5 +28,7 @@ Route::get('wishlist','Frontend\WishlistController@index');
 Route::get('blog','Frontend\BlogController@index');
 Route::get('cart','Frontend\CartController@index');
 Route::get('checkout','Frontend\CheckoutController@index');
+Route::get('category','Frontend\CategoryController@index');
+
 
 
