@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,6 +33,11 @@ Route::get('coming-soon','Frontend\Coming_soonController@index');
 
 Route::get('checkout','Frontend\CheckoutController@index');
 Route::get('category','Frontend\CategoryController@index');
+
+// backend routes:
+Route::group(['prefix' => 'admin'], function(){
+Route::get('dashboard','Backend\DashboardController@index');
+});
 
 
 
