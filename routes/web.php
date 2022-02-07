@@ -38,10 +38,19 @@ Route::get('coming-soon','Frontend\Coming_soonController@index');
 Route::get('checkout','Frontend\CheckoutController@index');
 Route::get('category','Frontend\CategoryController@index');
 Route::get('product-gallery','Frontend\ProductgalleryController@index');
+Route::get('product','Frontend\ProductController@index');
+Route::get('product-category-boxed','Frontend\ProductcategoryController@index');
+Route::get('product-category-fullwidth','Frontend\ProductcategoryfullwidthController@index');
+Route::get('product-extended','Frontend\ProductextendedController@index');
+
 
 // backend routes:
 Route::group(['prefix' => 'admin'], function(){
 Route::get('dashboard','Backend\DashboardController@index');
+Route::get('product-edit','Backend\ProducteditController@index');
+Route::get('product-show','Backend\ProductshowController@index');
+Route::get('product-upload','Backend\ProductuploadController@index');
+Route::resource('product', 'Backend\Product');
 });
 
 

@@ -20,6 +20,16 @@
             </li>
             <li class="dropdown">
                 <a href="#" class="menu-toggle nav-link has-dropdown"><i
+                        data-feather="shopping-bag"></i><span>Products</span></a>
+                <ul class="dropdown-menu">
+                    <li><a class="nav-link" href="admin/product-index">Index</a></li>    
+                    <li><a class="nav-link" href="admin/product-show">Show</a></li>    
+                    <li><a class="nav-link" href="admin/product-upload">Uploads</a></li>
+                     <li><a class="nav-link" href="admin/product-edit">Edit</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="menu-toggle nav-link has-dropdown"><i
                         data-feather="command"></i><span>Apps</span></a>
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="chat.html">Chat</a></li>
