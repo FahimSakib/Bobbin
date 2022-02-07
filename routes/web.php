@@ -38,6 +38,7 @@ Route::get('coming-soon','Frontend\Coming_soonController@index');
 Route::get('checkout','Frontend\CheckoutController@index');
 Route::get('category','Frontend\CategoryController@index');
 Route::get('product','Frontend\ProductController@index');
+Route::get('product-category-boxed','Frontend\ProductcategoryController@index');
 
 // backend routes:
 Route::group(['prefix' => 'admin'], function(){
