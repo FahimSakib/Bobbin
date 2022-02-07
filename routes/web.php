@@ -40,6 +40,7 @@ Route::get('category','Frontend\CategoryController@index');
 Route::get('product','Frontend\ProductController@index');
 Route::get('product-category-boxed','Frontend\ProductcategoryController@index');
 Route::get('product-category-fullwidth','Frontend\ProductcategoryfullwidthController@index');
+Route::get('product-extended','Frontend\ProductextendedController@index');
 
 // backend routes:
 Route::group(['prefix' => 'admin'], function(){
