@@ -2,7 +2,7 @@
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
             <a href="index.html"> <img alt="image" src="asset/backend/assets/img/logo.png" class="header-logo" /> <span
-                    class="logo-name">Otika</span>
+                    class="logo-name">BOBBIN</span>
             </a>
         </div>
         <ul class="sidebar-menu">
