@@ -43,9 +43,9 @@
                 <a href="#" class="menu-toggle nav-link has-dropdown"><i
                         data-feather="droplet"></i><span>Sizes</span></a>
                 <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="{{ route('admin.color.index') }}">Index</a></li>    
+                    <li><a class="nav-link" href="{{ route('admin.size.index') }}">Index</a></li>    
                        
-                    <li><a class="nav-link" href="{{ route('admin.color.create') }}">Create</a></li>
+                    <li><a class="nav-link" href="{{ route('admin.size.create') }}">Create</a></li>
                     
                 </ul>
              </li>

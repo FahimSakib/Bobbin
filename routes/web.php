@@ -53,6 +53,7 @@ Route::get('product-show','Backend\ProductshowController@index');
 Route::get('product-upload','Backend\ProductuploadController@index');
 Route::resource('product', 'Backend\Product');
 Route::resource('color', 'Backend\ColorController');
+Route::resource('size', 'Backend\SizeController');
 });
 
 
