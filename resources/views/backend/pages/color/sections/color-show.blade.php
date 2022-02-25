@@ -41,11 +41,12 @@
                                      
                                       <tr>
                                           <th>Created at</th>
-                                          <td>{{ $color->created_at}}</td>
+                                          {{-- <td>{{ $color->created_at}}</td> --}}
+                                          <td>{!! date('d - M - Y', strtotime($color->created_at)) !!}</td>
                                       </tr>
                                       <tr>
                                           <th>Updated at</th>
-                                          <td>{{ $color->updated_at}}</td>
+                                          <td>{!! date('d - M - Y', strtotime($color->updated_at)) !!}</td>
                                       </tr>
                                   </tbody>
                               </table>
