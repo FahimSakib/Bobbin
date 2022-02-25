@@ -45,12 +45,14 @@ Route::get('product-extended','Frontend\ProductextendedController@index');
 
 
 // backend routes:
-Route::group(['prefix' => 'admin'], function(){
+// Route::group(['prefix' => 'admin'], function(){
+    Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
 Route::get('dashboard','Backend\DashboardController@index');
 Route::get('product-edit','Backend\ProducteditController@index');
 Route::get('product-show','Backend\ProductshowController@index');
 Route::get('product-upload','Backend\ProductuploadController@index');
 Route::resource('product', 'Backend\Product');
+Route::resource('color', 'Backend\ColorController');
 });
 
 
