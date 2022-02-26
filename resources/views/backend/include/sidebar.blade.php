@@ -2,7 +2,7 @@
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
             <a href="index.html"> <img alt="image" src="asset/backend/assets/img/logo.png" class="header-logo" /> <span
-                    class="logo-name">Otika</span>
+                    class="logo-name">BOBBIN</span>
             </a>
         </div>
         <ul class="sidebar-menu">
@@ -28,7 +28,28 @@
                      <li><a class="nav-link" href="admin/product-edit">Edit</a></li>
                 </ul>
             </li>
+
             <li class="dropdown">
+                <a href="#" class="menu-toggle nav-link has-dropdown"><i
+                        data-feather="droplet"></i><span>Colors</span></a>
+                <ul class="dropdown-menu">
+                    <li><a class="nav-link" href="{{ route('admin.color.index') }}">Index</a></li>    
+                       
+                    <li><a class="nav-link" href="{{ route('admin.color.create') }}">Create</a></li>
+                    
+                </ul>
+             </li>
+               <li class="dropdown">
+                <a href="#" class="menu-toggle nav-link has-dropdown"><i
+                        data-feather="droplet"></i><span>Sizes</span></a>
+                <ul class="dropdown-menu">
+                    <li><a class="nav-link" href="{{ route('admin.size.index') }}">Index</a></li>    
+                       
+                    <li><a class="nav-link" href="{{ route('admin.size.create') }}">Create</a></li>
+                    
+                </ul>
+             </li>
+           {{-- <li class="dropdown">
                 <a href="#" class="menu-toggle nav-link has-dropdown"><i
                         data-feather="command"></i><span>Apps</span></a>
                 <ul class="dropdown-menu">
@@ -219,7 +240,7 @@
                         </ul>
                     </li>
                 </ul>
-            </li>
+            </li> --}}
         </ul>
     </aside>
 </div>
