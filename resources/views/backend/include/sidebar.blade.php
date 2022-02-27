@@ -49,6 +49,16 @@
                     
                 </ul>
              </li>
+                  <li class="dropdown">
+                <a href="#" class="menu-toggle nav-link has-dropdown"><i
+                        data-feather="tag"></i><span>Category</span></a>
+                <ul class="dropdown-menu">
+                    <li><a class="nav-link" href="{{ route('admin.category.index') }}">Index</a></li>    
+                       
+                    <li><a class="nav-link" href="{{ route('admin.category.create') }}">Create</a></li>
+                    
+                </ul>
+             </li>
            {{-- <li class="dropdown">
                 <a href="#" class="menu-toggle nav-link has-dropdown"><i
                         data-feather="command"></i><span>Apps</span></a>
