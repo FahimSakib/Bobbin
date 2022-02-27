@@ -34,6 +34,7 @@
                                 </div>
                             </div>
                             @endif
+                            @if (!$products->isEmpty())
                             <div class="table-responsive">
                                 <table class="table table-striped" id="table-1">
                                     <thead>
@@ -135,9 +136,25 @@
                                     </tbody>
                                 </table>
                             </div>
+                            @else
+                            <div class="row justify-content-center">
+                                <div class="col-md-12">
+                                    <p class="text-center">
+                                        <img src="asset/backend/assets/img/created/open-box.png" alt="empty-box"
+                                            style="width: 300px;height:300px">
+                                    </p>
+                                </div>
+                                <div class="alert alert-info alert-has-icon col-md-6">
+                                    <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
+                                    <div class="alert-body">
+                                        <div class="alert-title">Info</div>
+                                        There is no product available! please create a new product to show in the list.
+                                    </div>
+                                </div>
+                                @endif
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
     </section>
     @include('backend.include.setting-sidebar')
