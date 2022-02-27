@@ -7,7 +7,7 @@
 <!-- Template JS File -->
 <script src="asset/backend/assets/js/scripts.js"></script>
 <!-- Custom JS File -->
-<script src="asset/backend/assets/js/custom.js"></script>
+  <script src="asset/backend/assets/js/custom.js"></script>
   <script src="asset/backend/assets/bundles/cleave-js/dist/cleave.min.js"></script>
   <script src="asset/backend/assets/bundles/cleave-js/dist/addons/cleave-phone.us.js"></script>
   <script src="asset/backend/assets/bundles/jquery-pwstrength/jquery.pwstrength.min.js"></script>
@@ -21,6 +21,5 @@
   <script src="asset/backend/assets/js/page/forms-advanced-forms.js"></script>
   <!-- Template JS File -->
   <script src="asset/backend/assets/js/scripts.js"></script>
-  <!-- Custom JS File -->
-  <script src="asset/backend/assets/js/custom.js"></script>
+  @stack('script')
 
