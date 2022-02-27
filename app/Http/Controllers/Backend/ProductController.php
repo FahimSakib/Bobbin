@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class Product extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +17,7 @@ class Product extends Controller
         $data = [
             'title' => 'Product-Index'
         ];
-
-        return view('backend.pages.product.index.index', $data);
+        return view('backend.pages.products.index',$data);
     }
 
     /**
@@ -28,7 +27,10 @@ class Product extends Controller
      */
     public function create()
     {
-        //
+        $data = [
+            'title' => 'Product-Create'
+        ];
+        return view('backend.pages.products.create',$data);
     }
 
     /**
@@ -39,7 +41,7 @@ class Product extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request->all());
     }
 
     /**
