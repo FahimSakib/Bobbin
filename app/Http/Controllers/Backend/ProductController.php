@@ -99,7 +99,7 @@ class ProductController extends Controller
             $product->sizes()->sync($sizes);
             $product->colors()->sync($colors);
 
-            return redirect()->route('admin.product.index');
+            return redirect()->route('admin.product.index')->with('success','Item added successfully');
         }
         
 
@@ -157,7 +157,7 @@ class ProductController extends Controller
     {
         Product::find($id)->delete();
 
-        return redirect()->route('admin.product.index');
+        return redirect()->route('admin.product.index')->with('danger','An item has been deleted');
     }
 
     private function fileUpload($file, $name){

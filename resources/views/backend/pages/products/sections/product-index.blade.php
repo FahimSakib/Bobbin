@@ -14,6 +14,26 @@
                             </div>
                         </div>
                         <div class="card-body">
+                            @if ($message = Session::get('success'))
+                            <div class="alert alert-success alert-dismissible show fade">
+                                <div class="alert-body">
+                                    <button class="close" data-dismiss="alert">
+                                        <span>&times;</span>
+                                    </button>
+                                    {{ $message }}
+                                </div>
+                            </div>
+                            @endif
+                            @if ($message = Session::get('danger'))
+                            <div class="alert alert-danger alert-dismissible show fade">
+                                <div class="alert-body">
+                                    <button class="close" data-dismiss="alert">
+                                        <span>&times;</span>
+                                    </button>
+                                    {{ $message }}
+                                </div>
+                            </div>
+                            @endif
                             <div class="table-responsive">
                                 <table class="table table-striped" id="table-1">
                                     <thead>
@@ -102,7 +122,8 @@
                                                                 @method('DELETE')
                                                                 <i class="fas fa-trash-alt"></i> <button type="submit"
                                                                     class="btn" aria-hidden="true"
-                                                                    style="background-color:transparent; margin-right:50px;">Delete</button>
+                                                                    style="background-color:transparent; margin-right:50px;"
+                                                                    onclick="return confirm('Are you sure want to delete the product?')">Delete</button>
                                                             </form>
                                                         </div>
 
