@@ -51,7 +51,8 @@
                                                 {{ $product->qty }}
                                             </td>
                                             <td>
-
+                                                <img src="{{ asset('storage/Product_image/'.$product->image1) }}"
+                                                    alt="{{ $product->image1 }}" style="height:50px;width:65px">
                                             </td>
                                             <td>
                                                 {{ $product->category->title }}
