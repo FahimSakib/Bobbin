@@ -115,7 +115,13 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = [
+            'title' => 'Product-Single-Show'
+        ];
+
+        $product = Product::find($id);
+
+        return view('backend.pages.products.show', $data, compact('product'));
     }
 
     /**
