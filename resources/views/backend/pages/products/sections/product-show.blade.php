@@ -1,16 +1,23 @@
 <!-- Main Content -->
 <div class="main-content">
     <section class="section">
-        <h2>Product details</h2>
         <div class="section-body">
             <div class="row">
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <div class="pull-left ">
+                            <div class="col-md-10 d-flex mt-2">
+                                <div class="preview d-flex">
+                                    <div class="icon-preview" style="margin-top: 2px;">
+                                        <i class="fas fa-info-circle"></i>
+                                    </div>
+                                    <div class="icon-class" style="font-size: 25px;">Product Details</div>
+                                </div>
+                            </div>
+                            <div>
                                 <a class="btn btn-icon icon-left btn-success"
                                     href="{{ route('admin.product.index') }}"><i class="fas fa-list-alt"></i>List of
-                                    Products</a>
+                                    products</a>
                             </div>
                         </div>
                         <div class="card-body">

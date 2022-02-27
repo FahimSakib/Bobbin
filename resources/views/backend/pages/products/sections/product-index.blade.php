@@ -1,13 +1,20 @@
 <!-- Main Content -->
 <div class="main-content">
     <section class="section">
-        {{-- <h2>Products</h2> --}}
         <div class="section-body">
             <div class="row">
                 <div class="col-12">
                     <div class="card">
-                        <div class="card-header">
-                            <div class="pull-left ">
+                        <div class="card-header row">
+                            <div class="col-md-10 d-flex mt-2">
+                                <div class="preview d-flex">
+                                    <div class="icon-preview" style="margin-top: 2px;">
+                                        <i class="fas fa-table"></i>
+                                    </div>
+                                    <div class="icon-class" style="font-size: 25px;">Index of Products</div>
+                                </div>
+                            </div>
+                            <div class="pull-right">
                                 <a class="btn btn-icon icon-left btn-warning"
                                     href="{{ route('admin.product.create') }}"><i class="fas fa-plus-circle"></i>Create
                                     An product</a>
@@ -151,7 +158,8 @@
                                             <h3>Info</h3>
                                         </div>
                                         <h5>
-                                            There is no product available! please create a new product to show in the list.
+                                            There is no product available! please create a new product to show in the
+                                            list.
                                         </h5>
                                     </div>
                                 </div>
@@ -164,8 +172,9 @@
     @include('backend.include.setting-sidebar')
 
     @push('style')
-        <link rel="stylesheet" href="asset/backend/assets/bundles/datatables/datatables.min.css">
-        <link rel="stylesheet" href="asset/backend/assets/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="asset/backend/assets/bundles/datatables/datatables.min.css">
+    <link rel="stylesheet"
+        href="asset/backend/assets/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css">
     @endpush
 
     @push('script')
