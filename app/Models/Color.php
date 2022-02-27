@@ -9,4 +9,8 @@ class Color extends Model
 {
     use HasFactory;
     protected $fillable =['title','status'];
+
+    public function products(){
+        return $this->belongsToMany(Product::class)->withTimestamps();
+    }
 }

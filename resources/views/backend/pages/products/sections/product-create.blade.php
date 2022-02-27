@@ -16,71 +16,121 @@
                             <form action="{{ route('admin.product.store') }}" method="POST"
                                 enctype="multipart/form-data">
                                 @csrf
-                                <div class="form-group">
+                                <div class="row">
+                                <div class="form-group col-md-6">
                                     <label>Name</label>
-                                    <input type="text" class="form-control " value="" name="name">
+                                    <input type="text" class="form-control @error('name') is-invalid @enderror"
+                                        name="name" value="{{old('name')}}">
+                                    @error('name')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group col-md-6">
                                     <label>Price</label>
-                                    <input type="number" class="form-control " value="" name="price">
+                                    <input type="number" class="form-control @error('price') is-invalid @enderror"
+                                        name="price" value="{{old('price')}}">
+                                    @error('price')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group col-md-6">
                                     <label>Quantity</label>
-                                    <input type="number" class="form-control " value="" name="qty">
+                                    <input type="number" class="form-control @error('qty') is-invalid @enderror"
+                                        name="qty" value="{{old('qty')}}">
+                                    @error('qty')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group col-md-6">
                                     <label>Short Description</label>
-                                    <input type="email" class="form-control" name="short_description">
+                                    <input type="text"
+                                        class="form-control @error('short_description') is-invalid @enderror"
+                                        name="short_description" value="{{old('short_description')}}">
+                                    @error('short_description')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
-                                <div class="form-group mb-0">
+                                <div class="form-group col-md-12 mb-4">
                                     <label>Description</label>
-                                    <textarea class="form-control " name="description"></textarea>
+                                    <textarea class="form-control @error('description') is-invalid @enderror"
+                                        name="description" value="{{old('description')}}"></textarea>
+                                    @error('description')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label>Image 1</label>
+                                    <input type="file" class="form-control @error('image1') is-invalid @enderror"
+                                        name="image1">
+                                    @error('image1')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label>Image 2</label>
+                                    <input type="file" class="form-control @error('image2') is-invalid @enderror"
+                                        name="image2">
+                                    @error('image2')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
 
                                 </div>
-                                <div class="form-group">
-                                    <label>Image 1</label>
-                                    <input type="file" class="form-control" name="image1">
-                                </div>
-                                <div class="form-group">
-                                    <label>Image 2</label>
-                                    <input type="file" class="form-control" name="image2">
-                                </div>
-                                <div class="form-group">
+                                <div class="form-group col-md-6">
                                     <label>Image 3</label>
-                                    <input type="file" class="form-control" name="image3">
+                                    <input type="file" class="form-control @error('image3') is-invalid @enderror"
+                                        name="image3">
+                                    @error('image3')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
+
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group col-md-6">
                                     <label>Image 4</label>
-                                    <input type="file" class="form-control" name="image4">
+                                    <input type="file" class="form-control @error('image4') is-invalid @enderror"
+                                        name="image4">
+                                    @error('image4')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group col-md-6">
                                     <label>Category</label>
-                                    <select class="form-control" name="category_id">
-                                        <option>Option 1</option>
-                                        <option>Option 2</option>
-                                        <option>Option 3</option>
+                                    <select class="form-control @error('category_id') is-invalid @enderror"
+                                        name="category_id" value="{{old('category_id')}}">
+                                        <option value="">Select Please</option>
+                                        @foreach ($categories as $category)
+                                        <option value="{{ $category->id }}" @if ($category->id == old('category_id'))
+                                            selected @endif>{{ $category->title }}</option>
+                                        @endforeach
                                     </select>
+                                    @error('category_id')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group col-md-6">
                                     <label>Available Sizes</label>
-                                    <select class="form-control select2" multiple="" name="size_id[]">
-                                        <option value="1">S</option>
-                                        <option value="2">M</option>
-                                        <option value="3">L</option>
-                                        <option value="4">XL</option>
-                                        <option value="5">XLL</option>
+                                    <select class="form-control select2  @error('size_id') is-invalid @enderror"
+                                        multiple="" name="size_id[]">
+                                        @foreach ($sizes as $size)
+                                        <option value="{{ $size->id }}">{{ $size->title }}</option>
+                                        @endforeach
                                     </select>
+                                    @error('size_id')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group col-md-6">
                                     <label>Available Colors</label>
-                                    <select class="form-control select2" multiple="" name="color_id[]">
-                                        <option value="1">S</option>
-                                        <option value="2">M</option>
-                                        <option value="3">L</option>
-                                        <option value="4">XL</option>
-                                        <option value="5">XLL</option>
+                                    <select class="form-control select2 @error('color_id') is-invalid @enderror"
+                                        multiple="" name="color_id[]">
+                                        @foreach ($colors as $color)
+                                        <option value="{{ $color->id }}">{{ $color->title }}</option>
+                                        @endforeach            
                                     </select>
+                                    @error('color_id')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
+                            </div>
                                 <div class="card-footer text-right">
                                     <button class="btn btn-primary">Submit</button>
                                 </div>
