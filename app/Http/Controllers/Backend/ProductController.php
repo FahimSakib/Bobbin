@@ -21,7 +21,9 @@ class ProductController extends Controller
         $data = [
             'title' => 'Product-Index'
         ];
-        return view('backend.pages.products.index',$data);
+        $products = Product::with('sizes','colors','category')->get();
+
+        return view('backend.pages.products.index',$data, compact('products'));
     }
 
     /**
@@ -59,6 +61,7 @@ class ProductController extends Controller
             'short_description' => 'required',
             'description'       => 'required',
             'category_id'       => 'required',
+            'status'            => 'required',
             'size_id'           => 'required',
             'color_id'          => 'required'
         ]);
@@ -68,9 +71,12 @@ class ProductController extends Controller
         if ($product->save()) {
             $sizes = $request->size_id;
             $colors = $request->color_id;
+
             $product = Product::with('sizes','colors')->latest()->first();
+
             $product->sizes()->sync($sizes);
             $product->colors()->sync($colors);
+
             return redirect()->route('admin.product.index');
         }
         

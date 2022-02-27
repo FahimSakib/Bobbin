@@ -107,6 +107,18 @@
                                     @enderror
                                 </div>
                                 <div class="form-group col-md-6">
+                                    <label for="status">Status</label>
+                                    <select class="form-control select2 @error('status') is-invalid @enderror"
+                                        name="status" id="status">
+                                        <option value="">Select Please</option>
+                                        <option value="1">Active</option>
+                                        <option value="0">Deactive</option>
+                                    </select>
+                                    @error('status')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div class="form-group col-md-6">
                                     <label>Available Sizes</label>
                                     <select class="form-control select2  @error('size_id') is-invalid @enderror"
                                         multiple="" name="size_id[]">

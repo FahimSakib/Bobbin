@@ -16,10 +16,14 @@ class Product extends Model
      */
     protected $guarded = [];
 
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
+
     public function sizes(){
         return $this->belongsToMany(Size::class)->withTimestamps();
     }
-    
+
     public function colors(){
         return $this->belongsToMany(Color::class)->withTimestamps();
     }
