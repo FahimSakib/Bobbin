@@ -1,7 +1,7 @@
 <!-- Main Content -->
 <div class="main-content">
     <section class="section">
-        <h2>Products</h2>
+        {{-- <h2>Products</h2> --}}
         <div class="section-body">
             <div class="row">
                 <div class="col-12">
@@ -144,11 +144,15 @@
                                             style="width: 300px;height:300px">
                                     </p>
                                 </div>
-                                <div class="alert alert-info alert-has-icon col-md-6">
-                                    <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
+                                <div class="alert alert-info alert-has-icon col-md-8">
+                                    <div class="alert-icon"><i class="fa fa-2x fa-lightbulb"></i></div>
                                     <div class="alert-body">
-                                        <div class="alert-title">Info</div>
-                                        There is no product available! please create a new product to show in the list.
+                                        <div class="alert-title">
+                                            <h3>Info</h3>
+                                        </div>
+                                        <h5>
+                                            There is no product available! please create a new product to show in the list.
+                                        </h5>
                                     </div>
                                 </div>
                                 @endif
@@ -158,3 +162,17 @@
                 </div>
     </section>
     @include('backend.include.setting-sidebar')
+
+    @push('style')
+        <link rel="stylesheet" href="asset/backend/assets/bundles/datatables/datatables.min.css">
+        <link rel="stylesheet" href="asset/backend/assets/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css">
+    @endpush
+
+    @push('script')
+    <!-- JS Libraies -->
+    <script src="asset/backend/assets/bundles/datatables/datatables.min.js"></script>
+    <script src="asset/backend/assets/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
+    <script src="asset/backend/assets/bundles/jquery-ui/jquery-ui.min.js"></script>
+    <!-- Page Specific JS File -->
+    <script src="asset/backend/assets/js/page/datatables.js"></script>
+    @endpush
