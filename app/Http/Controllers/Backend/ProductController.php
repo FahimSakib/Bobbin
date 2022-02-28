@@ -82,7 +82,6 @@ class ProductController extends Controller
         $file =  $request->file('image4');
         $uploadName4 = $this->fileUpload($file,'image4');
 
-
         $product = new Product($request->except('size_id', 'color_id'));
 
         $product->image1 = $uploadName1;
@@ -101,10 +100,6 @@ class ProductController extends Controller
 
             return redirect()->route('admin.product.index')->with('success','Item added successfully');
         }
-        
-
-
-
     }
 
     /**
@@ -138,12 +133,6 @@ class ProductController extends Controller
 
         $product = Product::find($id);
 
-        // return view('backend.pages.products.edit', $data, compact('product'));
-
-        // $data = [
-        //     'title' => 'Product-Create'
-        // ];
-
         $categories = Category::get();
 
         $sizes = Size::get();
@@ -160,7 +149,7 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
         $request->validate([
             'name'              => 'required',
@@ -168,42 +157,42 @@ class ProductController extends Controller
             'qty'               => 'required|numeric',
             'short_description' => 'required',
             'description'       => 'required',
-            'image1'            => 'required|image|mimes:png,jpeg,jpg',
-            'image2'            => 'required|image|mimes:png,jpeg,jpg',
-            'image3'            => 'required|image|mimes:png,jpeg,jpg',
-            'image4'            => 'required|image|mimes:png,jpeg,jpg',
+            'image1'            => 'nullable|image|mimes:png,jpeg,jpg',
+            'image2'            => 'nullable|image|mimes:png,jpeg,jpg',
+            'image3'            => 'nullable|image|mimes:png,jpeg,jpg',
+            'image4'            => 'nullable|image|mimes:png,jpeg,jpg',
             'category_id'       => 'required',
             'status'            => 'required',
             'size_id'           => 'required',
             'color_id'          => 'required'
         ]);
 
-        $file =  $request->file('image1');
-        $uploadName1 = $this->fileUpload($file,'image1');
-        
-        $file =  $request->file('image2');
-        $uploadName2 = $this->fileUpload($file,'image2');
+        $product = Product::find($id);
 
-        $file =  $request->file('image3');
-        $uploadName3 = $this->fileUpload($file,'image3');
+        $picture1 = $this->fileUpload($request->file('image1'),'image1');
+        if(empty($picture1))$picture1 = $product->image1;
 
-        $file =  $request->file('image4');
-        $uploadName4 = $this->fileUpload($file,'image4');
+        $picture2 = $this->fileUpload($request->file('image2'),'image2');
+        if(empty($picture2))$picture2 = $product->image2;
 
+        $picture3 = $this->fileUpload($request->file('image3'),'image3');
+        if(empty($picture3))$picture3 = $product->image3;
 
-        $product->update($request->except('size_id', 'color_id'));
+        $picture4 = $this->fileUpload($request->file('image4'),'image4');
+        if(empty($picture4))$picture4 = $product->image4;
 
-        $product->image1 = $uploadName1;
-        $product->image2 = $uploadName2;
-        $product->image3 = $uploadName3;
-        $product->image4 = $uploadName4;
-        
-        $product->update($request->all());
-        if ($product->update()) {
+        $product->fill($request->except('size_id', 'color_id'));
+
+        $product->image1 = $picture1;
+        $product->image2 = $picture2;
+        $product->image3 = $picture3;
+        $product->image4 = $picture4;
+
+        $product->save();
+
+        if ($product->save()) {
             $sizes = $request->size_id;
             $colors = $request->color_id;
-
-            $product = Product::with('sizes','colors')->latest()->first();
 
             $product->sizes()->sync($sizes);
             $product->colors()->sync($colors);
