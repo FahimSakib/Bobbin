@@ -1,15 +1,22 @@
 <div class="main-content">
     <section class="section">
-        <h2>Create</h2>
         <div class="section-body">
             <div class="row">
                 <div class="col-12 col-md-12 col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <div class="pull-left ">
-                                <a class="btn btn-icon icon-left btn-success"
-                                    href="{{ route('admin.category.index') }}"><i class="fas fa-list-alt"></i>List of
-                                    Category</a>
+                            <div class="col-md-10 d-flex mt-2">
+                                <div class="preview d-flex">
+                                    <div class="icon-preview" style="margin-top: 2px;">
+                                        <i class="fas fa-plus"></i>
+                                    </div>
+                                    <div class="icon-class" style="font-size: 25px;">Create a Category</div>
+                                </div>
+                            </div>
+                            <div>
+                                <a class="btn btn-icon icon-left btn-success" href="{{ route('admin.category.index') }}"><i
+                                        class="fas fa-list-alt"></i>List of
+                                    categories</a>
                             </div>
                         </div>
                         <div class="card-body">
