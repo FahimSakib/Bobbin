@@ -1,7 +1,7 @@
 <div class="main-sidebar sidebar-style-2">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-            <a href="index.html"> <img alt="image" src="asset/backend/assets/img/logo.png" class="header-logo" /> <span
+            <a href="index.html"> <img alt="image" src="asset/backend/assets/img/blb.png" class="header-logo" /> <span
                     class="logo-name">BOBBIN</span>
             </a>
         </div>
