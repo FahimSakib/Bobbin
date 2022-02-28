@@ -39,7 +39,7 @@
              </li>
                <li class="dropdown">
                 <a href="#" class="menu-toggle nav-link has-dropdown"><i
-                        data-feather="droplet"></i><span>Sizes</span></a>
+                        data-feather="scissors"></i><span>Sizes</span></a>
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="{{ route('admin.size.index') }}">Index</a></li>    
                        
