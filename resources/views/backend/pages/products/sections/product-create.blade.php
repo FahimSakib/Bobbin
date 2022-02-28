@@ -29,7 +29,7 @@
                                         <input type="text" class="form-control @error('name') is-invalid @enderror"
                                             name="name" value="{{old('name')}}">
                                         @error('name')
-                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        <div class="alert alert-danger mt-1">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="form-group col-md-6">
@@ -37,7 +37,7 @@
                                         <input type="number" class="form-control @error('price') is-invalid @enderror"
                                             name="price" value="{{old('price')}}">
                                         @error('price')
-                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        <div class="alert alert-danger mt-1">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="form-group col-md-6">
@@ -45,7 +45,7 @@
                                         <input type="number" class="form-control @error('qty') is-invalid @enderror"
                                             name="qty" value="{{old('qty')}}">
                                         @error('qty')
-                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        <div class="alert alert-danger mt-1">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="form-group col-md-6">
@@ -54,7 +54,7 @@
                                             class="form-control @error('short_description') is-invalid @enderror"
                                             name="short_description" value="{{old('short_description')}}">
                                         @error('short_description')
-                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        <div class="alert alert-danger mt-1">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="form-group col-md-12 mb-4">
@@ -62,7 +62,7 @@
                                         <textarea class="form-control @error('description') is-invalid @enderror"
                                             name="description">{{old('description')}}</textarea>
                                         @error('description')
-                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        <div class="alert alert-danger mt-1">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="form-group col-md-6">
@@ -70,7 +70,7 @@
                                         <input type="file" class="form-control @error('image1') is-invalid @enderror"
                                             name="image1">
                                         @error('image1')
-                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        <div class="alert alert-danger mt-1">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="form-group col-md-6">
@@ -78,7 +78,7 @@
                                         <input type="file" class="form-control @error('image2') is-invalid @enderror"
                                             name="image2">
                                         @error('image2')
-                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        <div class="alert alert-danger mt-1">{{ $message }}</div>
                                         @enderror
 
                                     </div>
@@ -87,7 +87,7 @@
                                         <input type="file" class="form-control @error('image3') is-invalid @enderror"
                                             name="image3">
                                         @error('image3')
-                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        <div class="alert alert-danger mt-1">{{ $message }}</div>
                                         @enderror
 
                                     </div>
@@ -96,7 +96,7 @@
                                         <input type="file" class="form-control @error('image4') is-invalid @enderror"
                                             name="image4">
                                         @error('image4')
-                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        <div class="alert alert-danger mt-1">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="form-group col-md-6">
@@ -111,7 +111,7 @@
                                             @endforeach
                                         </select>
                                         @error('category_id')
-                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        <div class="alert alert-danger mt-1">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="form-group col-md-6">
@@ -119,11 +119,11 @@
                                         <select class="form-control select2 @error('status') is-invalid @enderror"
                                             name="status" id="status">
                                             <option value="">Select Please</option>
-                                            <option value="1" @if (old('status') == 1) selected @endif>Active</option>
+                                            <option value="1" @if (old('status')==1) selected @endif>Active</option>
                                             <option value="0">Deactive</option>
                                         </select>
                                         @error('status')
-                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        <div class="alert alert-danger mt-1">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="form-group col-md-6">
@@ -135,7 +135,7 @@
                                             @endforeach
                                         </select>
                                         @error('size_id')
-                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        <div class="alert alert-danger mt-1">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="form-group col-md-6">
@@ -147,7 +147,7 @@
                                             @endforeach
                                         </select>
                                         @error('color_id')
-                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        <div class="alert alert-danger mt-1">{{ $message }}</div>
                                         @enderror
                                     </div>
                                 </div>

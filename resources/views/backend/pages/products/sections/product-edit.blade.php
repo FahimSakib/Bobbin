@@ -20,7 +20,8 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('admin.product.update',$product->id) }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('admin.product.update',$product->id) }}" method="POST"
+                                enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
 
@@ -33,7 +34,7 @@
                                             <input type="text" class="form-control @error('name') is-invalid @enderror"
                                                 name="name" value="{{$product->name}}">
                                             @error('name')
-                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            <div class="alert alert-danger mt-1">{{ $message }}</div>
                                             @enderror
                                         </div>
                                         <div class="form-group col-md-6">
@@ -42,7 +43,7 @@
                                                 class="form-control @error('price') is-invalid @enderror" name="price"
                                                 value="{{$product->price}}">
                                             @error('price')
-                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            <div class="alert alert-danger mt-1">{{ $message }}</div>
                                             @enderror
                                         </div>
                                         <div class="form-group col-md-6">
@@ -50,7 +51,7 @@
                                             <input type="number" class="form-control @error('qty') is-invalid @enderror"
                                                 name="qty" value="{{$product->qty}}">
                                             @error('qty')
-                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            <div class="alert alert-danger mt-1">{{ $message }}</div>
                                             @enderror
                                         </div>
                                         <div class="form-group col-md-6">
@@ -59,7 +60,7 @@
                                                 class="form-control @error('short_description') is-invalid @enderror"
                                                 name="short_description" value="{{$product->short_description}}">
                                             @error('short_description')
-                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            <div class="alert alert-danger mt-1">{{ $message }}</div>
                                             @enderror
                                         </div>
                                         <div class="form-group col-md-12 mb-4">
@@ -67,7 +68,7 @@
                                             <textarea class="form-control @error('description') is-invalid @enderror"
                                                 name="description">{{$product->description}}</textarea>
                                             @error('description')
-                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            <div class="alert alert-danger mt-1">{{ $message }}</div>
                                             @enderror
                                         </div>
                                         <div class="form-group col-md-6">
@@ -76,7 +77,7 @@
                                                 class="form-control @error('image1') is-invalid @enderror"
                                                 name="image1">
                                             @error('image1')
-                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            <div class="alert alert-danger mt-1">{{ $message }}</div>
                                             @enderror
                                         </div>
                                         <div class="form-group col-md-6">
@@ -85,7 +86,7 @@
                                                 class="form-control @error('image2') is-invalid @enderror"
                                                 name="image2">
                                             @error('image2')
-                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            <div class="alert alert-danger mt-1">{{ $message }}</div>
                                             @enderror
                                         </div>
                                         <div class="form-group col-md-6">
@@ -94,7 +95,7 @@
                                                 class="form-control @error('image3') is-invalid @enderror"
                                                 name="image3">
                                             @error('image3')
-                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            <div class="alert alert-danger mt-1">{{ $message }}</div>
                                             @enderror
                                         </div>
                                         <div class="form-group col-md-6">
@@ -103,27 +104,35 @@
                                                 class="form-control @error('image4') is-invalid @enderror"
                                                 name="image4">
                                             @error('image4')
-                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            <div class="alert alert-danger mt-1">{{ $message }}</div>
                                             @enderror
                                         </div>
-                                        <div class="form-group col-md-10 ml-5 row" style="border-style: dashed;">
-                                            <div class="col-md-3 mt-3"><h6>Previous images gallery</h6></div>
-                                            <div class="gallery col-md-8">
-                                                <div class="gallery-item"
-                                                    data-image="{{ asset('storage/Product_image/'.$product->image1) }}"
-                                                    data-title="Image 1">
-                                                </div>
-                                                <div class="gallery-item"
-                                                    data-image="{{ asset('storage/Product_image/'.$product->image2) }}"
-                                                    data-title="Image 2">
-                                                </div>
-                                                <div class="gallery-item"
-                                                    data-image="{{ asset('storage/Product_image/'.$product->image3) }}"
-                                                    data-title="Image 3">
-                                                </div>
-                                                <div class="gallery-item"
-                                                    data-image="{{ asset('storage/Product_image/'.$product->image4) }}"
-                                                    data-title="Image 4">
+                                        <div class="alert alert-light alert-has-icon col-md-12 dash-border">
+                                            <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
+                                            <div class="alert-body">
+                                                <div class="alert-title">Info</div>
+                                                If you want to change or update the images of the current product, then
+                                                upload the new ones; <br> otherwise, keep the image field blank. See the
+                                                gallery for current product images.
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="gallery mt-3">
+                                                    <div class="gallery-item"
+                                                        data-image="{{ asset('storage/Product_image/'.$product->image1) }}"
+                                                        data-title="Image 1">
+                                                    </div>
+                                                    <div class="gallery-item"
+                                                        data-image="{{ asset('storage/Product_image/'.$product->image2) }}"
+                                                        data-title="Image 2">
+                                                    </div>
+                                                    <div class="gallery-item"
+                                                        data-image="{{ asset('storage/Product_image/'.$product->image3) }}"
+                                                        data-title="Image 3">
+                                                    </div>
+                                                    <div class="gallery-item"
+                                                        data-image="{{ asset('storage/Product_image/'.$product->image4) }}"
+                                                        data-title="Image 4">
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -139,7 +148,7 @@
                                                 @endforeach
                                             </select>
                                             @error('category_id')
-                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            <div class="alert alert-danger mt-1">{{ $message }}</div>
                                             @enderror
                                         </div>
                                         <div class="form-group col-md-6">
@@ -153,7 +162,7 @@
                                                 </option>
                                             </select>
                                             @error('status')
-                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            <div class="alert alert-danger mt-1">{{ $message }}</div>
                                             @enderror
                                         </div>
                                         <div class="form-group col-md-6">
@@ -165,8 +174,16 @@
                                                 @endforeach
                                             </select>
                                             @error('size_id')
-                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            <div class="alert alert-danger mt-1">{{ $message }}</div>
                                             @enderror
+                                            <div class="alert alert-light mt-2 dash-border">
+                                                <div class="alert-title">Selected sizes for current product</div>
+                                                <ul class="list-group list-group-horizontal">
+                                                    @foreach ($product->sizes as $size)
+                                                    <li class="list-group-item border-0">{{ $size->title }}</li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label>Available Colors</label>
@@ -177,8 +194,16 @@
                                                 @endforeach
                                             </select>
                                             @error('color_id')
-                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            <div class="alert alert-danger mt-1">{{ $message }}</div>
                                             @enderror
+                                            <div class="alert alert-light mt-2 dash-border">
+                                                <div class="alert-title">Selected colors for current product</div>
+                                                <ul class="list-group list-group-horizontal">
+                                                    @foreach ($product->colors as $color)
+                                                    <li class="list-group-item border-0">{{ $color->title }}</li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="card-footer text-right">
