@@ -106,7 +106,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-md-12">
                                     <p class="text-center">
-                                        <img src="asset/backend/assets/img/created/open-box.png" alt="empty-box"
+                                        <img src="asset/backend/assets/img/created/up.png" alt="empty-box"
                                             style="width: 300px;height:300px">
                                     </p>
                                 </div>
