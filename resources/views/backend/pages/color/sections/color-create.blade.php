@@ -1,20 +1,29 @@
 <div class="main-content">
     <section class="section">
-    <h2>Create</h2>
         <div class="section-body">
-             <div class="row">
-            <div class="col-12 col-md-12 col-lg-12">
-                <div class="card">
-                    <div class="card-header">
-                        <div class="pull-left ">
-                            <a class="btn btn-icon icon-left btn-success" href="{{ route('admin.color.index') }}"><i
-                                    class="fas fa-list-alt"></i>List of Color</a>
+            <div class="row">
+                <div class="col-12 col-md-12 col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="col-md-10 d-flex mt-2">
+                                <div class="preview d-flex">
+                                    <div class="icon-preview" style="margin-top: 2px;">
+                                        <i class="fas fa-plus"></i>
+                                    </div>
+                                    <div class="icon-class" style="font-size: 25px;">Create a Color</div>
+                                </div>
+                            </div>
+                            <div>
+                                <a class="btn btn-icon icon-left btn-success"
+                                    href="{{ route('admin.color.index') }}"><i class="fas fa-list-alt"></i>List of
+                                    Colors</a>
+                            </div>
                         </div>
-                    </div>
                     <div class="card-body">
                         <form action="{{ route('admin.color.store') }}" method="POST">
                             @csrf
-                            <div class="form-group">
+                            <div class="row">
+                            <div class="form-group col-md-6">
                                 <label for="inputTitle">Title</label>
                                 <input class="form-control @error('title') is-invalid @enderror" id="inputTitle"
                                     name="title" value="{{old('title')}}" type="text" placeholder="Enter your title" />
@@ -22,7 +31,7 @@
                                 <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <div class="form-group">
+                            <div class="form-group col-md-6">
                                 <label for="status">Status</label>
                                 <select class="form-control select2 @error('status') is-invalid @enderror" name="status"
                                     id="status" ">
@@ -33,6 +42,8 @@
                                 <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
+                            </div>
+
                             <div class="card-footer text-right">
                                 <button class="btn btn-primary">Submit</button>
                             </div>
