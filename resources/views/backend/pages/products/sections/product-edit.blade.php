@@ -106,6 +106,27 @@
                                             <div class="alert alert-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
+                                        <div class="form-group col-md-12 row">
+                                            <div class="col-md-3 mt-3"><h6>Previous images gallery</h6></div>
+                                            <div class="gallery col-md-8">
+                                                <div class="gallery-item"
+                                                    data-image="{{ asset('storage/Product_image/'.$product->image1) }}"
+                                                    data-title="Image 1">
+                                                </div>
+                                                <div class="gallery-item"
+                                                    data-image="{{ asset('storage/Product_image/'.$product->image2) }}"
+                                                    data-title="Image 2">
+                                                </div>
+                                                <div class="gallery-item"
+                                                    data-image="{{ asset('storage/Product_image/'.$product->image4) }}"
+                                                    data-title="Image 3">
+                                                </div>
+                                                <div class="gallery-item"
+                                                    data-image="{{ asset('storage/Product_image/'.$product->image4) }}"
+                                                    data-title="Image 4">
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="form-group col-md-6">
                                             <label>Category</label>
                                             <select class="form-control @error('category_id') is-invalid @enderror"
@@ -126,8 +147,10 @@
                                             <select class="form-control select2 @error('status') is-invalid @enderror"
                                                 name="status" id="status">
                                                 <option value="">Select Please</option>
-                                                <option value="1" @if ($product->status == 1) selected @endif>Active</option>
-                                                <option value="0" @if ($product->status == 0) selected @endif>Deactive</option>
+                                                <option value="1" @if ($product->status == 1) selected @endif>Active
+                                                </option>
+                                                <option value="0" @if ($product->status == 0) selected @endif>Deactive
+                                                </option>
                                             </select>
                                             @error('status')
                                             <div class="alert alert-danger">{{ $message }}</div>
@@ -173,3 +196,13 @@
 </section>
 @include('backend.include.setting-sidebar')
 </div>
+
+@push('style')
+<link rel="stylesheet" href="asset/backend/assets/bundles/chocolat/dist/css/chocolat.css">
+@endpush
+
+@push('script')
+<script src="asset/backend/assets/bundles/chocolat/dist/js/jquery.chocolat.min.js"></script>
+<!-- Page Specific JS File -->
+<script src="asset/backend/assets/js/page/gallery1.js"></script>
+@endpush
