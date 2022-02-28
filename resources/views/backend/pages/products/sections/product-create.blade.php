@@ -60,7 +60,7 @@
                                     <div class="form-group col-md-12 mb-4">
                                         <label>Description</label>
                                         <textarea class="form-control @error('description') is-invalid @enderror"
-                                            name="description" value="{{old('description')}}"></textarea>
+                                            name="description">{{old('description')}}</textarea>
                                         @error('description')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
@@ -119,7 +119,7 @@
                                         <select class="form-control select2 @error('status') is-invalid @enderror"
                                             name="status" id="status">
                                             <option value="">Select Please</option>
-                                            <option value="1">Active</option>
+                                            <option value="1" @if (old('status') == 1) selected @endif>Active</option>
                                             <option value="0">Deactive</option>
                                         </select>
                                         @error('status')
@@ -130,7 +130,7 @@
                                         <label>Available Sizes</label>
                                         <select class="form-control select2  @error('size_id') is-invalid @enderror"
                                             multiple="" name="size_id[]">
-                                            @foreach ($sizes as $size)
+                                            @foreach ($sizes as $key => $size)
                                             <option value="{{ $size->id }}">{{ $size->title }}</option>
                                             @endforeach
                                         </select>
