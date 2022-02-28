@@ -82,7 +82,6 @@ class ProductController extends Controller
         $file =  $request->file('image4');
         $uploadName4 = $this->fileUpload($file,'image4');
 
-
         $product = new Product($request->except('size_id', 'color_id'));
 
         $product->image1 = $uploadName1;
@@ -101,10 +100,6 @@ class ProductController extends Controller
 
             return redirect()->route('admin.product.index')->with('success','Item added successfully');
         }
-        
-
-
-
     }
 
     /**
@@ -137,12 +132,6 @@ class ProductController extends Controller
         ];
 
         $product = Product::find($id);
-
-        // return view('backend.pages.products.edit', $data, compact('product'));
-
-        // $data = [
-        //     'title' => 'Product-Create'
-        // ];
 
         $categories = Category::get();
 
@@ -178,18 +167,6 @@ class ProductController extends Controller
             'color_id'          => 'required'
         ]);
 
-        // $file =  $request->file('image1');
-        // $uploadName1 = $this->fileUpload($file,'image1u');
-        
-        // $file =  $request->file('image2');
-        // $uploadName2 = $this->fileUpload($file,'image2u');
-
-        // $file =  $request->file('image3');
-        // $uploadName3 = $this->fileUpload($file,'image3u');
-
-        // $file =  $request->file('image4');
-        // $uploadName4 = $this->fileUpload($file,'image4u');
-
         $product = Product::find($id);
 
         $picture1 = $this->fileUpload($request->file('image1'),'image1');
@@ -205,18 +182,13 @@ class ProductController extends Controller
         if(empty($picture4))$picture4 = $product->image4;
 
         $product->fill($request->except('size_id', 'color_id'));
+
         $product->image1 = $picture1;
         $product->image2 = $picture2;
         $product->image3 = $picture3;
         $product->image4 = $picture4;
+
         $product->save();
-
-        // $product->update($request->except('size_id', 'color_id'));
-
-        // $product->image1 = $uploadName1;
-        // $product->image2 = $uploadName2;
-        // $product->image3 = $uploadName3;
-        // $product->image4 = $uploadName4;
 
         if ($product->save()) {
             $sizes = $request->size_id;

@@ -20,7 +20,7 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('admin.product.update',$product->id) }}" method="POST">
+                            <form action="{{ route('admin.product.update',$product->id) }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
 
@@ -106,7 +106,7 @@
                                             <div class="alert alert-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
-                                        <div class="form-group col-md-12 row">
+                                        <div class="form-group col-md-10 ml-5 row" style="border-style: dashed;">
                                             <div class="col-md-3 mt-3"><h6>Previous images gallery</h6></div>
                                             <div class="gallery col-md-8">
                                                 <div class="gallery-item"
@@ -118,7 +118,7 @@
                                                     data-title="Image 2">
                                                 </div>
                                                 <div class="gallery-item"
-                                                    data-image="{{ asset('storage/Product_image/'.$product->image4) }}"
+                                                    data-image="{{ asset('storage/Product_image/'.$product->image3) }}"
                                                     data-title="Image 3">
                                                 </div>
                                                 <div class="gallery-item"
