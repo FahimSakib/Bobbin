@@ -47,7 +47,7 @@ Route::get('product-extended','Frontend\ProductextendedController@index');
 // backend routes:
 // Route::group(['prefix' => 'admin'], function(){
     Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
-    Route::get('dashboard','Backend\DashboardController@index');
+    Route::get('/','Backend\DashboardController@index');
     Route::resource('product','Backend\ProductController');
     Route::resource('color', 'Backend\ColorController');
     Route::resource('size', 'Backend\SizeController');
