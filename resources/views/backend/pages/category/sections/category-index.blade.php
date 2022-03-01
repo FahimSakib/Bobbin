@@ -110,7 +110,7 @@
                                             style="width: 300px;height:300px">
                                     </p>
                                 </div>
-                                <div class="alert alert-info alert-has-icon col-md-8">
+                                <div class="alert alert-info alert-has-icon col-md-9">
                                     <div class="alert-icon"><i class="fa fa-2x fa-lightbulb"></i></div>
                                     <div class="alert-body">
                                         <div class="alert-title">

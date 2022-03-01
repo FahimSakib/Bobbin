@@ -122,6 +122,6 @@ class SizeController extends Controller
     {
         $size->delete();
     
-        return redirect()->route('admin.color.index')->with('danger','Item deleted successfully');
+        return redirect()->route('admin.size.index')->with('danger','Item deleted successfully');
     }
 }

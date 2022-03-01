@@ -89,7 +89,7 @@
                                                                 @csrf
                                                                 @method('DELETE')
                                                                 <i class="fas fa-trash-alt"></i> <button type="submit"
-                                                                    class="btn" aria-hidden="true"
+                                                                    class="btn delete_confirm" aria-hidden="true"
                                                                     style="background-color:transparent; margin-right:50px;">Delete</button>
                                                             </form>
                                                         </div>
