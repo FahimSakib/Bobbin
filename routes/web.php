@@ -52,6 +52,7 @@ Route::get('product-extended','Frontend\ProductextendedController@index');
     Route::resource('color', 'Backend\ColorController');
     Route::resource('size', 'Backend\SizeController');
     Route::resource('category', 'Backend\CategoryController');
+    Route::resource('slider', 'Backend\SliderController');
 });
 
 
