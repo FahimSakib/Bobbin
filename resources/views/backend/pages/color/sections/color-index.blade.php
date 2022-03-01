@@ -134,7 +134,6 @@
     <link rel="stylesheet"
         href="asset/backend/assets/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css">
     @endpush
-
     @push('script')
     <!-- JS Libraies -->
     <script src="asset/backend/assets/bundles/datatables/datatables.min.js"></script>
@@ -142,4 +141,34 @@
     <script src="asset/backend/assets/bundles/jquery-ui/jquery-ui.min.js"></script>
     <!-- Page Specific JS File -->
     <script src="asset/backend/assets/js/page/datatables.js"></script>
+    <!-- SweetAlert JS Libraies -->
+    <script src="asset/backend/assets/bundles/sweetalert/sweetalert.min.js"></script>
+
+    <script>
+        $('.delete_confirm').click(function (event) {
+            var form = $(this).closest("form");
+            event.preventDefault();
+            swal({
+                    title: "Are you sure you want to delete this record?",
+                    text: "If you delete this, it will be gone forever.",
+                    icon: "warning",
+                    dangerMode: true,
+                    buttons: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        form.submit();
+                        swal('Poof! An item has been deleted!', {
+                            icon: 'success',
+                            timer: 3000,
+                        });
+                    } else {
+                        swal('Your data is safe!',{
+                            timer: 3000,
+                        });
+                    }
+                });
+        });
+
+    </script>
     @endpush
