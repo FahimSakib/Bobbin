@@ -1,5 +1,6 @@
 <div class="intro-section">
     <div class="intro-section-slider">
+     @foreach ($slider as $item)
         <div class="container">
             <div class="intro-slider-container slider-container-ratio mb-0">
                 <div class="intro-slider owl-carousel owl-simple owl-light" data-toggle="owl"
@@ -17,13 +18,13 @@
                         <figure class="slide-image">
                             <picture>
                                 <source media="(max-width: 480px)"
-                                    srcset="asset/frontend/assets/images/demos/demo-9/slider/slide-1-480w.jpg">
-                                <img src="asset/frontend/assets/images/demos/demo-9/slider/slide-1.jpg" alt="Image Desc">
+                                    srcset="{{ asset('storage/Banner_image/'.$item->image) }}">
+                                <img src="{{ asset('storage/Banner_image/'.$item->image) }}"  alt="Image Desc">
                             </picture>
                         </figure><!-- End .slide-image -->
 
                         <div class="intro-content">
-                            <h3 class="intro-subtitle">New Collection</h3><!-- End .h3 intro-subtitle -->
+                            <h3 class="intro-subtitle">{{$item->title}}</h3><!-- End .h3 intro-subtitle -->
                             <h1 class="intro-title text-white">Women’s <br>Sportswear & Joggers</h1>
                             <!-- End .intro-title -->
 
@@ -35,7 +36,7 @@
                         </div><!-- End .intro-content -->
                     </div><!-- End .intro-slide -->
 
-                    <div class="intro-slide">
+                    {{-- <div class="intro-slide">
                         <figure class="slide-image">
                             <picture>
                                 <source media="(max-width: 480px)"
@@ -76,9 +77,9 @@
                                 <span>SHOP NOW</span>
                             </a>
                         </div><!-- End .intro-content -->
-                    </div><!-- End .intro-slide -->
+                    </div><!-- End .intro-slide --> --}}
                 </div><!-- End .intro-slider owl-carousel owl-simple -->
-
+@endforeach
                 <span class="slider-loader"></span><!-- End .slider-loader -->
             </div><!-- End .intro-slider-container -->
         </div><!-- End .container -->

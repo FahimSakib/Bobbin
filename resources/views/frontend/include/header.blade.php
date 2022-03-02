@@ -73,7 +73,7 @@
             </div>
             <div class="header-center">
                 <a href="index.html" class="logo">
-                    <img src="asset/frontend/assets/images/demos/demo-9/logo.png" alt="Molla Logo" width="82" height="20">
+                    <img src="asset/frontend/assets/images/bobbin-logo.png"  alt="Bobbin Logo" width="180" height="35">
                 </a>
             </div><!-- End .header-left -->
 
@@ -160,9 +160,9 @@
                 <nav class="main-nav">
                     <ul class="menu sf-arrows">
                         <li class="megamenu-container active">
-                            <a href="index.html" class="sf-with-ul">Home</a>
+                            <a href="{{ route('home') }}" >Home</a>
 
-                            <div class="megamenu demo">
+                            {{-- <div class="megamenu demo">
                                 <div class="menu-col">
                                     <div class="menu-title">Choose your demo</div><!-- End .menu-title -->
 
@@ -368,9 +368,9 @@
                                                 All Demos</span><i class="icon-long-arrow-right"></i></a>
                                     </div><!-- End .text-center -->
                                 </div><!-- End .menu-col -->
-                            </div><!-- End .megamenu -->
+                            </div><!-- End .megamenu --> --}}
                         </li>
-                        <li>
+                        {{-- <li>
                             <a href="category.html" class="sf-with-ul">Shop</a>
 
                             <div class="megamenu megamenu-md">
@@ -446,11 +446,11 @@
                                     </div><!-- End .col-md-4 -->
                                 </div><!-- End .row -->
                             </div><!-- End .megamenu megamenu-md -->
-                        </li>
+                        </li> --}}
                         <li>
-                            <a href="product.html" class="sf-with-ul">Product</a>
+                            <a href="{{ route('product') }}" >Product</a>
 
-                            <div class="megamenu megamenu-sm">
+                            {{-- <div class="megamenu megamenu-sm">
                                 <div class="row no-gutters">
                                     <div class="col-md-6">
                                         <div class="menu-col">
@@ -484,9 +484,9 @@
                                         </div><!-- End .banner -->
                                     </div><!-- End .col-md-6 -->
                                 </div><!-- End .row -->
-                            </div><!-- End .megamenu megamenu-sm -->
+                            </div><!-- End .megamenu megamenu-sm --> --}}
                         </li>
-                        <li>
+                        {{-- <li>
                             <a href="#" class="sf-with-ul">Pages</a>
 
                             <ul>
@@ -511,11 +511,11 @@
                                 <li><a href="404.html">Error 404</a></li>
                                 <li><a href="coming-soon.html">Coming Soon</a></li>
                             </ul>
-                        </li>
+                        </li> --}}
                         <li>
-                            <a href="blog.html" class="sf-with-ul">Blog</a>
+                            <a href="{{ route('blog') }}" >Blog</a>
 
-                            <ul>
+                            {{-- <ul>
                                 <li><a href="blog.html">Classic</a></li>
                                 <li><a href="blog-listing.html">Listing</a></li>
                                 <li>
@@ -552,10 +552,10 @@
                                         </li>
                                     </ul>
                                 </li>
-                            </ul>
+                            </ul> --}}
                         </li>
-                        <li>
-                            <a href="elements-list.html" class="sf-with-ul">Elements</a>
+                        {{-- <li>
+                            <a href="elements-list.html" >Elements</a>
 
                             <ul>
                                 <li><a href="elements-products.html">Products</a></li>
@@ -573,7 +573,7 @@
                                 <li><a href="elements-cta.html">Call to Action</a></li>
                                 <li><a href="elements-icon-boxes.html">Icon Boxes</a></li>
                             </ul>
-                        </li>
+                        </li> --}}
                     </ul><!-- End .menu -->
                 </nav><!-- End .main-nav -->
 
