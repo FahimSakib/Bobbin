@@ -19,7 +19,8 @@ class SliderController extends Controller
             'title' => 'Slider-Index'
         ];
 
-         $slider = Slider::all();
+        $slider = Slider::all();
+
         return view('backend.pages.slider.index',$data,compact('slider'));
     }
 
@@ -33,6 +34,7 @@ class SliderController extends Controller
         $data = [
             'title' => 'Slider-Create'
         ];
+
         return view('backend.pages.slider.create',$data);
     }
 
@@ -46,15 +48,18 @@ class SliderController extends Controller
     {
         $request->validate([
             'title'     => 'required',
-            'sub_title'     => 'required',
+            'sub_title' => 'required',
             'offer'     => 'required',
-            'image'            => 'required|image|mimes:png,jpeg,jpg',
-
+            'image'     => 'required|image|mimes:png,jpeg,jpg'
         ]);
-        $file =  $request->file('image');
+
+        $file       = $request->file('image');
         $uploadName = $this->fileUpload($file,'image');
-        $slider = new Slider($request->all());
+
+        $slider     = new Slider($request->all());
+
         $slider->image = $uploadName;
+
         if($slider->save())
         {
             return redirect()->route('admin.slider.index')->with('success','Item added successfully');
@@ -68,10 +73,12 @@ class SliderController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Slider $slider)
-    {   $data = [
-        'title' => 'Slider-Create'
-    ];
-    return view('backend.pages.slider.show',$data, compact('slider'));
+    {
+        $data = [
+            'title' => 'Slider-Create'
+        ];
+
+        return view('backend.pages.slider.show',$data, compact('slider'));
     }
 
     /**
@@ -85,6 +92,7 @@ class SliderController extends Controller
         $data = [
             'title' => 'Slider-Edit'
         ];
+
         return view('backend.pages.slider.edit', $data , compact('slider'));
     }
 
@@ -99,17 +107,21 @@ class SliderController extends Controller
     {
         $request->validate([
             'title'     => 'required',
-            'sub_title'     => 'required',
+            'sub_title' => 'required',
             'offer'     => 'required',
-            'image'            => 'required|image|mimes:png,jpeg,jpg',
-
+            'image'     => 'nullable|image|mimes:png,jpeg,jpg',
         ]);
-        $slider = Slider::find($id);
+
+        $slider  = Slider::find($id);
         $picture = $this->fileUpload($request->file('image'),'image');
-        if(empty($picture))$picture = $product->image;
+
+        if(empty($picture))$picture = $slider->image;
+
         $slider->fill($request->all());
         $slider->image = $picture;
+
         $slider->save();
+
         if($slider->save()){
             return redirect()->route('admin.slider.index')->with('success','Item Updated successfully');
         }
@@ -124,6 +136,7 @@ class SliderController extends Controller
     public function destroy($id)
     {
         Slider::find($id)->delete();
+        
         return redirect()->route('admin.slider.index')->with('danger','An item has been deleted');
 
     }
