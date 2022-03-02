@@ -137,7 +137,7 @@ class SliderController extends Controller
     {
         Slider::find($id)->delete();
         
-        return redirect()->route('admin.slider.index')->with('danger','An item has been deleted');
+        return back()->with('danger','An item has been deleted');
 
     }
 

@@ -42,13 +42,12 @@
                                         <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="inputOffer">Offer</label>
-                                        <input class="form-control @error('offer') is-invalid @enderror" id="inputOffer"
-                                            name="offer" value="{{old('offer')}}" type="text"
-                                            placeholder="Enter your offer" />
+                                    <div class="form-group col-md-12">
+                                        <label>Offer</label>
+                                        <textarea class="form-control @error('offer') is-invalid @enderror" name="offer"
+                                            placeholder="Enter your offer">{{old('offer')}}</textarea>
                                         @error('offer')
-                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        <div class="alert alert-danger mt-1">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="form-group col-md-6">

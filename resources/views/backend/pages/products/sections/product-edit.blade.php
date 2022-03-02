@@ -224,19 +224,13 @@
 
 @push('style')
 <link rel="stylesheet" href="asset/backend/assets/bundles/chocolat/dist/css/chocolat.css">
+<link rel="stylesheet" href="asset/backend/assets/bundles/select2/dist/css/select2.min.css">
 @endpush
 
 @push('script')
 <script src="asset/backend/assets/bundles/chocolat/dist/js/jquery.chocolat.min.js"></script>
 <!-- Page Specific JS File -->
 <script src="asset/backend/assets/js/page/gallery1.js"></script>
-@endpush
-
-@push('style')
-<link rel="stylesheet" href="asset/backend/assets/bundles/select2/dist/css/select2.min.css">
-@endpush
-
-@push('script')
 <script src="asset/backend/assets/bundles/select2/dist/js/select2.full.min.js"></script>
 <!-- Page Specific JS File -->
 <script src="asset/backend/assets/js/page/forms-advanced-forms.js"></script>

@@ -163,7 +163,7 @@
                             timer: 3000,
                         });
                     } else {
-                        swal('Your data is safe!',{
+                        swal('Your data is safe!', {
                             timer: 3000,
                         });
                     }

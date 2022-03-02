@@ -14,17 +14,18 @@
                                 </div>
                             </div>
                             <div>
-                                <a class="btn btn-icon icon-left btn-success" href="{{ route('admin.slider.index') }}"><i
-                                        class="fas fa-list-alt"></i>List of
+                                <a class="btn btn-icon icon-left btn-success"
+                                    href="{{ route('admin.slider.index') }}"><i class="fas fa-list-alt"></i>List of
                                     sliders</a>
                             </div>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('admin.slider.update',$slider->id) }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('admin.slider.update',$slider->id) }}" method="POST"
+                                enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
                                 <div class="row">
-                                   
+
                                     <div class="form-group col-md-6">
                                         <label for="inputTitle">Title</label>
                                         <input class="form-control @error('title') is-invalid @enderror" id="inputTitle"
@@ -35,49 +36,62 @@
                                         <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
-                                     <div class="form-group col-md-6">
+                                    <div class="form-group col-md-6">
                                         <label for="inputSubTitle">Sub Title</label>
-                                        <input class="form-control @error('sub_title') is-invalid @enderror" id="inputSubTitle"
-                                            name="sub_title" value="{{$slider->sub_title}}" type="text"
-                                            placeholder="Enter your subtitle" />
+                                        <input class="form-control @error('sub_title') is-invalid @enderror"
+                                            id="inputSubTitle" name="sub_title" value="{{$slider->sub_title}}"
+                                            type="text" placeholder="Enter your subtitle" />
 
                                         @error('sub_title')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
-                                     <div class="form-group col-md-6">
-                                        <label for="inputOffer">Offer</label>
-                                        <input class="form-control @error('offer') is-invalid @enderror" id="inputOffer"
-                                            name="offer" value="{{$slider->offer}}" type="text"
-                                            placeholder="Enter your offer" />
-
+                                    <div class="form-group col-md-12 mb-4">
+                                        <label>Offer</label>
+                                        <textarea class="form-control @error('offer') is-invalid @enderror" name="offer"
+                                            placeholder="Enter your offer">{{$slider->offer}}</textarea>
                                         @error('offer')
-                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        <div class="alert alert-danger mt-1">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="form-group col-md-6">
-                                            <label>Image</label>
-                                            <input type="file"
-                                                class="form-control @error('image') is-invalid @enderror"
-                                                name="image">
-                                            @error('image')
-                                            <div class="alert alert-danger mt-1">{{ $message }}</div>
-                                            @enderror
+                                        <label>Image</label>
+                                        <input type="file" class="form-control @error('image') is-invalid @enderror"
+                                            name="image">
+                                        @error('image')
+                                        <div class="alert alert-danger mt-1">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                    <div class="alert alert-light alert-has-icon col-md-6 dash-border">
+                                        <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
+                                        <div class="alert-body">
+                                            <div class="alert-title">Info</div>
+                                            If you want to change or update the image then upload the new ones;
+                                            otherwise, keep the image field blank.
                                         </div>
-                                        <div class="form-group col-md-6">
-                                            <label for="status">Status</label>
-                                            <select class="form-control select2 @error('status') is-invalid @enderror"
-                                                name="status" id="status">
-                                                <option value="">Select Please</option>
-                                                <option value="1" @if ($slider->status == 1) selected @endif>Active
-                                                </option>
-                                                <option value="0" @if ($slider->status == 0) selected @endif>Deactive
-                                                </option>
-                                            </select>
-                                            @error('status')
-                                            <div class="alert alert-danger mt-1">{{ $message }}</div>
-                                            @enderror
+                                        <div class="col-md-2">
+                                            <div class="gallery mt-3">
+                                                <div class="gallery-item"
+                                                    data-image="{{ asset('storage/Banner_Image/'.$slider->image) }}"
+                                                    data-title="Image">
+                                                </div>
+                                            </div>
                                         </div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="status">Status</label>
+                                        <select class="form-control select2 @error('status') is-invalid @enderror"
+                                            name="status" id="status">
+                                            <option value="">Select Please</option>
+                                            <option value="1" @if ($slider->status == 1) selected @endif>Active
+                                            </option>
+                                            <option value="0" @if ($slider->status == 0) selected @endif>Deactive
+                                            </option>
+                                        </select>
+                                        @error('status')
+                                        <div class="alert alert-danger mt-1">{{ $message }}</div>
+                                        @enderror
+                                    </div>
                                 </div>
                                 <div class="card-footer text-right">
                                     <button class="btn btn-primary" type="submit">Submit</button>
@@ -94,9 +108,13 @@
 
 @push('style')
 <link rel="stylesheet" href="asset/backend/assets/bundles/select2/dist/css/select2.min.css">
+<link rel="stylesheet" href="asset/backend/assets/bundles/chocolat/dist/css/chocolat.css">
 @endpush
 
 @push('script')
+<script src="asset/backend/assets/bundles/chocolat/dist/js/jquery.chocolat.min.js"></script>
+<!-- Page Specific JS File -->
+<script src="asset/backend/assets/js/page/gallery1.js"></script>
 <script src="asset/backend/assets/bundles/select2/dist/js/select2.full.min.js"></script>
 <!-- Page Specific JS File -->
 <script src="asset/backend/assets/js/page/forms-advanced-forms.js"></script>

@@ -15,8 +15,8 @@
                                 </div>
                             </div>
                             <div>
-                                <a class="btn btn-icon icon-left btn-success" href="{{ route('admin.slider.index') }}"><i
-                                        class="fas fa-list-alt"></i>List of
+                                <a class="btn btn-icon icon-left btn-success"
+                                    href="{{ route('admin.slider.index') }}"><i class="fas fa-list-alt"></i>List of
                                     sliders</a>
                             </div>
                         </div>
@@ -36,20 +36,18 @@
                                             <th>Title</th>
                                             <td>{{ $slider->title }}</td>
                                         </tr>
-                                         <tr>
+                                        <tr>
                                             <th>Sub Title</th>
                                             <td>{{ $slider->sub_title }}</td>
                                         </tr>
-                                         <tr>
+                                        <tr>
                                             <th>Offer</th>
                                             <td>{{ $slider->offer }}</td>
                                         </tr>
-                                         <tr>
+                                        <tr>
                                             <th>Image</th>
-                                            <td><img
-                                                            src="{{ asset('storage/Banner_image/'.$slider->image) }}"
-                                                            alt="{{ $slider->image }}"
-                                                            style="height:80px;width:120px"></td>
+                                            <td><img src="{{ asset('storage/Banner_image/'.$slider->image) }}"
+                                                    alt="{{ $slider->image }}" style="height:80px;width:120px"></td>
                                         </tr>
                                         <tr>
                                             <th>Status</th>
@@ -69,7 +67,7 @@
                                         </tr>
                                         <tr>
                                             <th>Updated at</th>
-                                            <td>{!! date('d - M - Y - h : i : s A', strtotime($slider->created_at)) !!}
+                                            <td>{!! date('d - M - Y - h : i : s A', strtotime($slider->updated_at)) !!}
                                         </tr>
                                     </tbody>
                                 </table>
@@ -80,4 +78,3 @@
             </div>
     </section>
     @include('backend.include.setting-sidebar')
-
