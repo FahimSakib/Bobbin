@@ -64,17 +64,20 @@
                                             <div class="alert alert-danger mt-1">{{ $message }}</div>
                                             @enderror
                                         </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="status">Status</label>
-                                        <select class="form-control select2 @error('status') is-invalid @enderror"
-                                            name="status" value="{{$slider->status}}" id="status" ">
-                                        <option value=" 1">Active</option>
-                                            <option value="0">Deactive</option>
-                                        </select>
-                                        @error('status')
-                                        <div class="alert alert-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="status">Status</label>
+                                            <select class="form-control select2 @error('status') is-invalid @enderror"
+                                                name="status" id="status">
+                                                <option value="">Select Please</option>
+                                                <option value="1" @if ($slider->status == 1) selected @endif>Active
+                                                </option>
+                                                <option value="0" @if ($slider->status == 0) selected @endif>Deactive
+                                                </option>
+                                            </select>
+                                            @error('status')
+                                            <div class="alert alert-danger mt-1">{{ $message }}</div>
+                                            @enderror
+                                        </div>
                                 </div>
                                 <div class="card-footer text-right">
                                     <button class="btn btn-primary" type="submit">Submit</button>
