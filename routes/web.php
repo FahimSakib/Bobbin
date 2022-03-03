@@ -38,10 +38,10 @@ Route::get('coming-soon','Frontend\Coming_soonController@index');
 Route::get('checkout','Frontend\CheckoutController@index');
 Route::get('category','Frontend\CategoryController@index');
 Route::get('product-gallery','Frontend\ProductgalleryController@index');
-Route::get('product','Frontend\ProductController@index')->name('product');
+Route::get('product','Frontend\ProductController@index');
 Route::get('product-category-boxed','Frontend\ProductcategoryController@index');
 Route::get('product-category-fullwidth','Frontend\ProductcategoryfullwidthController@index');
-Route::get('product-extended','Frontend\ProductextendedController@index');
+Route::get('product-extended/{id}','Frontend\ProductextendedController@index')->name('product-extended');
 
 
 // backend routes:

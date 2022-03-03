@@ -43,7 +43,8 @@
                         <div class="col-sm-6 col-lg-12">
                             <div class="banner banner-overlay">
                                 <a href="#">
-                                    <img src="asset/frontend/assets/images/demos/demo-9/banners/banner-2.jpg" alt="Banner">
+                                    <img src="asset/frontend/assets/images/demos/demo-9/banners/banner-2.jpg"
+                                        alt="Banner">
                                 </a>
 
                                 <div class="banner-content">
@@ -59,7 +60,8 @@
                         <div class="col-sm-6 col-lg-12">
                             <div class="banner banner-overlay">
                                 <a href="#">
-                                    <img src="asset/frontend/assets/images/demos/demo-9/banners/banner-3.jpg" alt="Banner">
+                                    <img src="asset/frontend/assets/images/demos/demo-9/banners/banner-3.jpg"
+                                        alt="Banner">
                                 </a>
 
                                 <div class="banner-content">
@@ -156,8 +158,8 @@
         <div class="tab-content tab-content-carousel">
             <div class="tab-pane p-0 fade show active" id="trending-women-tab" role="tabpanel"
                 aria-labelledby="trending-women-link">
-                <div class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow"
-                    data-toggle="owl" data-owl-options='{
+                <div class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow" data-toggle="owl"
+                    data-owl-options='{
                            "nav": false, 
                            "dots": true,
                            "margin": 20,
@@ -181,14 +183,14 @@
                                }
                            }
                        }'>
-                       @foreach($product as $item)
+                    @foreach($product as $item)
                     <div class="product product-7 text-center">
                         <figure class="product-media">
-                            <a href="{{route('product',$item->id)}}">
-                                <img src="{{ asset('storage/Product_image/'.$item->image1) }}"
-                                    alt="Product image" class="product-image">
-                                <img src="{{ asset('storage/Product_image/'.$item->image2) }}"
-                                    alt="Product image" class="product-image-hover">
+                            <a href="{{route('product-extended',$item->id)}}">
+                                <img src="{{ asset('storage/Product_image/'.$item->image1) }}" alt="Product image"
+                                    class="product-image">
+                                <img src="{{ asset('storage/Product_image/'.$item->image2) }}" alt="Product image"
+                                    class="product-image-hover">
                             </a>
 
                             <div class="product-action-vertical">
@@ -204,10 +206,10 @@
                         </figure><!-- End .product-media -->
 
                         <div class="product-body">
-                            <h3 class="product-title"><a href="{{route('product',$item->id)}}">{{$item->name}}</a></h3>
+                            <h3 class="product-title"><a href="{{route('product-extended',$item->id)}}">{{$item->name}}</a></h3>
                             <!-- End .product-title -->
                             <div class="product-price">
-                               {{$item->price}}
+                                {{$item->price}}
                             </div><!-- End .product-price -->
 
                             <div class="ratings-container">
@@ -220,16 +222,13 @@
 
                             <div class="product-nav product-nav-thumbs">
                                 <a href="#" class="active">
-                                    <img src="{{ asset('storage/Product_image/'.$item->image2) }}"
-                                        alt="product desc">
+                                    <img src="{{ asset('storage/Product_image/'.$item->image2) }}" alt="product desc">
                                 </a>
                                 <a href="#">
-                                    <img src="{{ asset('storage/Product_image/'.$item->image3) }}"
-                                        alt="product desc">
+                                    <img src="{{ asset('storage/Product_image/'.$item->image3) }}" alt="product desc">
                                 </a>
                                 <a href="#">
-                                    <img src="{{ asset('storage/Product_image/'.$item->image4) }}"
-                                        alt="product desc">
+                                    <img src="{{ asset('storage/Product_image/'.$item->image4) }}" alt="product desc">
                                 </a>
                             </div><!-- End .product-nav -->
                         </div><!-- End .product-body -->
@@ -237,10 +236,9 @@
                     @endforeach
                 </div><!-- End .owl-carousel -->
             </div><!-- .End .tab-pane -->
-            <div class="tab-pane p-0 fade" id="trending-men-tab" role="tabpanel"
-                aria-labelledby="trending-men-link">
-                <div class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow"
-                    data-toggle="owl" data-owl-options='{
+            <div class="tab-pane p-0 fade" id="trending-men-tab" role="tabpanel" aria-labelledby="trending-men-link">
+                <div class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow" data-toggle="owl"
+                    data-owl-options='{
                            "nav": false, 
                            "dots": true,
                            "margin": 20,

@@ -448,7 +448,7 @@
                             </div><!-- End .megamenu megamenu-md -->
                         </li> --}}
                         <li>
-                            <a href="{{ route('product') }}" >Product</a>
+                            <a href="#" >Product</a>
 
                             {{-- <div class="megamenu megamenu-sm">
                                 <div class="row no-gutters">
