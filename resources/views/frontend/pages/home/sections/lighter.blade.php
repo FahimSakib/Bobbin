@@ -139,7 +139,7 @@
 
             <div class="heading-right">
                 <ul class="nav nav-pills nav-border-anim justify-content-center" role="tablist">
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link active" id="trending-women-link" data-toggle="tab"
                             href="#trending-women-tab" role="tab" aria-controls="trending-women-tab"
                             aria-selected="true">Women's Clothing</a>
@@ -148,7 +148,7 @@
                         <a class="nav-link" id="trending-men-link" data-toggle="tab"
                             href="#trending-men-tab" role="tab" aria-controls="trending-men-tab"
                             aria-selected="false">Men's Clothing</a>
-                    </li>
+                    </li> --}}
                 </ul>
             </div><!-- End .heading-right -->
         </div><!-- End .heading -->
@@ -217,7 +217,7 @@
                                 <span class="ratings-text">( 6 Reviews )</span>
                             </div><!-- End .rating-container -->
 
-                            <div class="product-nav product-nav-thumbs">
+                            {{-- <div class="product-nav product-nav-thumbs">
                                 <a href="#" class="active">
                                     <img src="asset/frontend/assets/images/demos/demo-9/products/product-1-thumb.jpg"
                                         alt="product desc">
@@ -230,11 +230,11 @@
                                     <img src="asset/frontend/assets/images/demos/demo-9/products/product-1-3-thumb.jpg"
                                         alt="product desc">
                                 </a>
-                            </div><!-- End .product-nav -->
+                            </div><!-- End .product-nav --> --}}
                         </div><!-- End .product-body -->
                     </div><!-- End .product -->
 
-                    <div class="product product-7 text-center">
+                    {{-- <div class="product product-7 text-center">
                         <figure class="product-media">
                             <a href="product.html">
                                 <img src="asset/frontend/assets/images/demos/demo-9/products/product-2-1.jpg"
@@ -411,7 +411,7 @@
                                 </a>
                             </div><!-- End .product-nav -->
                         </div><!-- End .product-body -->
-                    </div><!-- End .product -->
+                    </div><!-- End .product --> --}}
                 </div><!-- End .owl-carousel -->
             </div><!-- .End .tab-pane -->
             <div class="tab-pane p-0 fade" id="trending-men-tab" role="tabpanel"
