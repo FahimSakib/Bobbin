@@ -42,6 +42,7 @@ Route::get('product','Frontend\ProductController@index');
 Route::get('product-category-boxed','Frontend\ProductcategoryController@index');
 Route::get('product-category-fullwidth','Frontend\ProductcategoryfullwidthController@index');
 Route::get('product-extended/{id}','Frontend\ProductextendedController@index')->name('product-extended');
+Route::get('products','Frontend\ProductsController@index')->name('products');
 
 
 // backend routes:
