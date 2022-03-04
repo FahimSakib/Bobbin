@@ -22,7 +22,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::get('home','Frontend\HomeController@index');
+Route::get('home','Frontend\HomeController@index')->name('home');
 
 Route::get('wishlist','Frontend\WishlistController@index');
 Route::get('contact','Frontend\ContactController@index');
@@ -30,7 +30,7 @@ Route::get('dashboard','Frontend\DashboardController@index');
 Route::get('faq','Frontend\FaqController@index');
 Route::get('single-fullwidth','Frontend\SingleFullWidthController@index');
 
-Route::get('blog','Frontend\BlogController@index');
+Route::get('blog','Frontend\BlogController@index')->name('blog');
 Route::get('cart','Frontend\CartController@index');
 
 Route::get('coming-soon','Frontend\Coming_soonController@index');
@@ -41,7 +41,7 @@ Route::get('product-gallery','Frontend\ProductgalleryController@index');
 Route::get('product','Frontend\ProductController@index');
 Route::get('product-category-boxed','Frontend\ProductcategoryController@index');
 Route::get('product-category-fullwidth','Frontend\ProductcategoryfullwidthController@index');
-Route::get('product-extended','Frontend\ProductextendedController@index');
+Route::get('product-extended/{id}','Frontend\ProductextendedController@index')->name('product-extended');
 
 
 // backend routes:

@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Blog;
+use App\Models\Product;
+use App\Models\Slider;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -11,6 +14,8 @@ class HomeController extends Controller
         $data = [
             'title' => 'Home'
         ];
-        return view('frontend.pages.home.home', $data);
+        $product = Product::all()->where('status','1');
+        $slider = Slider::all()->where('status','1');
+        return view('frontend.pages.home.home', $data,compact('slider','product'));
     }
 }

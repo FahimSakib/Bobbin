@@ -13,29 +13,30 @@
                                }
                            }
                        }'>
+                       @foreach($slider as $item)
                     <div class="intro-slide">
                         <figure class="slide-image">
                             <picture>
                                 <source media="(max-width: 480px)"
-                                    srcset="asset/frontend/assets/images/demos/demo-9/slider/slide-1-480w.jpg">
-                                <img src="asset/frontend/assets/images/demos/demo-9/slider/slide-1.jpg" alt="Image Desc">
+                                    srcset="{{ asset('storage/Banner_image/'.$item->image) }}">
+                                <img src="{{ asset('storage/Banner_image/'.$item->image) }}"  alt="Image Desc">
                             </picture>
                         </figure><!-- End .slide-image -->
 
                         <div class="intro-content">
-                            <h3 class="intro-subtitle">New Collection</h3><!-- End .h3 intro-subtitle -->
-                            <h1 class="intro-title text-white">Women’s <br>Sportswear & Joggers</h1>
+                            <h3 class="intro-subtitle">{{$item->title}}</h3><!-- End .h3 intro-subtitle -->
+                            <h1 class="intro-title text-white">{{$item->sub_title}}</h1>
                             <!-- End .intro-title -->
 
-                            <div class="intro-text text-white">2019</div><!-- End .intro-text -->
+                            <div class="intro-text text-white">{{$item->offer}} Discount</div><!-- End .intro-text -->
 
-                            <a href="category.html" class="btn btn-primary">
+                            {{-- <a href="category.html" class="btn btn-primary">
                                 <span>DISCOVER NOW</span>
-                            </a>
+                            </a> --}}
                         </div><!-- End .intro-content -->
                     </div><!-- End .intro-slide -->
-
-                    <div class="intro-slide">
+                        @endforeach
+                    {{-- <div class="intro-slide">
                         <figure class="slide-image">
                             <picture>
                                 <source media="(max-width: 480px)"
@@ -53,30 +54,9 @@
                                 <span>DISCOVER NOW</span>
                             </a>
                         </div><!-- End .intro-content -->
-                    </div><!-- End .intro-slide -->
+                    </div><!-- End .intro-slide --> --}}
 
-                    <div class="intro-slide">
-                        <figure class="slide-image">
-                            <picture>
-                                <source media="(max-width: 480px)"
-                                    srcset="asset/frontend/assets/images/demos/demo-9/slider/slide-3-480w.jpg">
-                                <img src="asset/frontend/assets/images/demos/demo-9/slider/slide-3.jpg" alt="Image Desc">
-                            </picture>
-                        </figure><!-- End .slide-image -->
-
-                        <div class="intro-content">
-                            <h3 class="intro-subtitle">Deals and Promotions</h3>
-                            <!-- End .h3 intro-subtitle -->
-                            <h1 class="intro-title text-white">Sneakers & Athletic Shoes</h1>
-                            <!-- End .intro-title -->
-
-                            <div class="intro-text text-white">from $9.99</div><!-- End .intro-text -->
-
-                            <a href="category.html" class="btn btn-primary">
-                                <span>SHOP NOW</span>
-                            </a>
-                        </div><!-- End .intro-content -->
-                    </div><!-- End .intro-slide -->
+                   
                 </div><!-- End .intro-slider owl-carousel owl-simple -->
 
                 <span class="slider-loader"></span><!-- End .slider-loader -->

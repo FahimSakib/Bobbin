@@ -3,16 +3,19 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-    <link rel="apple-touch-icon" sizes="180x180" href="asset/frontend/assets/images/icons/apple-touch-icon.png">
+    {{-- <link rel="apple-touch-icon" sizes="180x180" href="asset/frontend/assets/images/icons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="asset/frontend/assets/images/icons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="asset/frontend/assets/images/icons/favicon-16x16.png">
-    <link rel="manifest" href="asset/frontend/assets/images/icons/site.html">
-    <link rel="mask-icon" href="asset/frontend/assets/images/icons/safari-pinned-tab.svg" color="#666666">
-    <link rel="shortcut icon" href="asset/frontend/assets/images/icons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="asset/frontend/assets/images/icons/favicon-16x16.png"> --}}
+    <link rel="apple-touch-icon" sizes="180x180" href="asset/frontend/assets/images/icon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="asset/frontend/assets/images/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="asset/frontend/assets/images/icon/favicon-16x16.png">
+    <link rel="manifest" href="asset/frontend/assets/images/icon/site.html">
+    <link rel="mask-icon" href="asset/frontend/assets/images/icon/safari-pinned-tab.svg" color="#666666">
+    <link rel="shortcut icon" href="asset/frontend/assets/images/icon/favicon.ico">
     <meta name="apple-mobile-web-app-title" content="Molla">
     <meta name="application-name" content="Molla">
     <meta name="msapplication-TileColor" content="#cc9966">
-    <meta name="msapplication-config" content="asset/frontend/assets/images/icons/browserconfig.xml">
+    <meta name="msapplication-config" content="asset/frontend/assets/images/icon/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="asset/frontend/assets/vendor/line-awesome/line-awesome/line-awesome/css/line-awesome.min.css">
     <!-- Plugins CSS File -->

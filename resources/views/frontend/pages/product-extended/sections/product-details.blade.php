@@ -5,7 +5,7 @@
                             <div class="col-md-6">
                                 <div class="product-gallery">
                                     <figure class="product-main-image">
-                                        <img id="product-zoom" src="asset/frontend/assets/images/products/single/extended/3.jpg" data-zoom-image="asset/frontend/assets/images/products/single/extended/3-big.jpg" alt="product image">
+                                        <img id="product-zoom" src="{{ asset('storage/Product_image/'.$product->image4) }}" data-zoom-image="{{ asset('storage/Product_image/'.$product->image4) }}" alt="product image">
 
                                         <a href="#" id="btn-product-gallery" class="btn-product-gallery">
                                             <i class="icon-arrows"></i>
@@ -13,7 +13,7 @@
                                     </figure><!-- End .product-main-image -->
 
                                     <div id="product-zoom-gallery" class="product-image-gallery">
-                                        <a class="product-gallery-item" href="#" data-image="asset/frontend/assets/images/products/single/extended/1.jpg" data-zoom-image="asset/frontend/assets/images/products/single/extended/1-big.jpg">
+                                        <a class="product-gallery-item" href="#" data-image="asset/frontend/assets/images/products/single/extended/3.jpg" data-zoom-image="asset/frontend/assets/images/products/single/extended/1-big.jpg">
                                             <img src="asset/frontend/assets/images/products/single/extended/1-small.jpg" alt="product side">
                                         </a>
 
