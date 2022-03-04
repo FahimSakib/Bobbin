@@ -1,6 +1,6 @@
 <div class="page-header text-center" style="background-image: url('asset/frontend/assets/images/page-header-bg.jpg')">
     <div class="container">
-        <h1 class="page-title">Products<span>All Catgeroies</span></h1>
+        <h1 class="page-title">Products<span>All Categories</span></h1>
     </div><!-- End .container -->
 </div><!-- End .page-header -->
 <nav aria-label="breadcrumb" class="breadcrumb-nav">
