@@ -1,3 +1,6 @@
+<style>
+
+</style>
 <div class="page-content">
                 <div class="container">
                     <div class="product-details-top mb-2">
@@ -5,7 +8,7 @@
                             <div class="col-md-6">
                                 <div class="product-gallery">
                                     <figure class="product-main-image">
-                                        <img id="product-zoom" src="{{ asset('storage/Product_image/'.$product->image4) }}" data-zoom-image="{{ asset('storage/Product_image/'.$product->image4) }}" alt="product image">
+                                        <img id="product-zoom" src="{{ asset('storage/Product_image/'.$product->image1) }}" data-zoom-image="{{ asset('storage/Product_image/'.$product->image1) }}" alt="product image">
 
                                         <a href="#" id="btn-product-gallery" class="btn-product-gallery">
                                             <i class="icon-arrows"></i>
@@ -13,20 +16,20 @@
                                     </figure><!-- End .product-main-image -->
 
                                     <div id="product-zoom-gallery" class="product-image-gallery">
-                                        <a class="product-gallery-item" href="#" data-image="asset/frontend/assets/images/products/single/extended/3.jpg" data-zoom-image="asset/frontend/assets/images/products/single/extended/1-big.jpg">
-                                            <img src="asset/frontend/assets/images/products/single/extended/1-small.jpg" alt="product side">
+                                        <a class="product-gallery-item" href="#" data-image="{{ asset('storage/Product_image/'.$product->image1) }}" data-zoom-image="{{ asset('storage/Product_image/'.$product->image1) }}">
+                                            <img src="{{ asset('storage/Product_image/'.$product->image1) }}" alt="product side">
                                         </a>
 
-                                        <a class="product-gallery-item" href="#" data-image="asset/frontend/assets/images/products/single/extended/2.jpg" data-zoom-image="asset/frontend/assets/images/products/single/extended/2-big.jpg">
-                                            <img src="asset/frontend/assets/images/products/single/extended/2-small.jpg" alt="product cross">
+                                        <a class="product-gallery-item" href="#" data-image="{{ asset('storage/Product_image/'.$product->image2) }}" data-zoom-image="{{ asset('storage/Product_image/'.$product->image2) }}">
+                                            <img src="{{ asset('storage/Product_image/'.$product->image2) }}" alt="product cross">
                                         </a>
 
-                                        <a class="product-gallery-item active" href="#" data-image="asset/frontend/assets/images/products/single/extended/3.jpg" data-zoom-image="asset/frontend/assets/images/products/single/extended/3-big.jpg">
-                                            <img src="asset/frontend/assets/images/products/single/extended/3-small.jpg" alt="product with model">
+                                        <a class="product-gallery-item active" href="#" data-image="{{ asset('storage/Product_image/'.$product->image3) }}" data-zoom-image="{{ asset('storage/Product_image/'.$product->image3) }}">
+                                            <img src="{{ asset('storage/Product_image/'.$product->image3) }}" alt="product with model">
                                         </a>
 
-                                        <a class="product-gallery-item" href="#" data-image="asset/frontend/assets/images/products/single/extended/4.jpg" data-zoom-image="asset/frontend/assets/images/products/single/extended/4-big.jpg">
-                                            <img src="asset/frontend/assets/images/products/single/extended/4-small.jpg" alt="product back">
+                                        <a class="product-gallery-item" href="#" data-image="{{ asset('storage/Product_image/'.$product->image4) }}" data-zoom-image="{{ asset('storage/Product_image/'.$product->image4) }}">
+                                            <img src="{{ asset('storage/Product_image/'.$product->image4) }}" alt="product back">
                                         </a>
 
                                     </div><!-- End .product-image-gallery -->
@@ -35,7 +38,7 @@
 
                             <div class="col-md-6">
                                 <div class="product-details">
-                                    <h1 class="product-title">Yellow tie strap block heel sandals</h1><!-- End .product-title -->
+                                    <h1 class="product-title">{{$product->name}}</h1><!-- End .product-title -->
 
                                     <div class="ratings-container">
                                         <div class="ratings">
@@ -45,11 +48,11 @@
                                     </div><!-- End .rating-container -->
 
                                     <div class="product-price">
-                                        $70.00
+                                        {{$product->price}}
                                     </div><!-- End .product-price -->
 
                                     <div class="product-content">
-                                        <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing. Sed lectus. </p>
+                                        <p>{{$product->short_description}} </p>
                                     </div><!-- End .product-content -->
 
                                     <div class="details-filter-row details-row-size">
@@ -134,3 +137,6 @@
                             </li>
                         </ul>
                     </div><!-- End .container -->
+@push('style')
+<link rel="stylesheet" href="asset/frontend/assets/css/style1.css">
+@endpush
