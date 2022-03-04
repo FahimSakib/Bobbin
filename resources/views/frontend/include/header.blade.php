@@ -159,7 +159,7 @@
             <div class="header-left">
                 <nav class="main-nav">
                     <ul class="menu sf-arrows">
-                        <li class="megamenu-container active">
+                        <li class="{{ (request()->is('home')) ? 'active' : '' }}">
                             <a href="{{ route('home') }}" >Home</a>
 
                             {{-- <div class="megamenu demo">
@@ -447,8 +447,8 @@
                                 </div><!-- End .row -->
                             </div><!-- End .megamenu megamenu-md -->
                         </li> --}}
-                        <li>
-                            <a href="#" >Product</a>
+                        <li class="{{ (request()->is('products')) ? 'active' : '' }}">
+                            <a href="{{ route('products') }}" >Product</a>
 
                             {{-- <div class="megamenu megamenu-sm">
                                 <div class="row no-gutters">
@@ -512,7 +512,7 @@
                                 <li><a href="coming-soon.html">Coming Soon</a></li>
                             </ul>
                         </li> --}}
-                        <li>
+                        <li class="{{ (request()->is('blog')) ? 'active' : '' }}">
                             <a href="{{ route('blog') }}" >Blog</a>
 
                             {{-- <ul>
