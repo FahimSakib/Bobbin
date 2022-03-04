@@ -7,3 +7,7 @@
 </main>
 
 @endsection
+
+@push('scripts')
+<script src="asset/frontend/assets/js/superfish.min.js"></script>
+@endpush
