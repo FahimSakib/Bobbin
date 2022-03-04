@@ -25,9 +25,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::get('home','Frontend\HomeController@index')->name('home');
 
 Route::get('wishlist','Frontend\WishlistController@index');
-Route::get('contact','Frontend\ContactController@index');
-Route::get('dashboard','Frontend\DashboardController@index');
-Route::get('faq','Frontend\FaqController@index');
+Route::get('contact','Frontend\ContactController@index')->name('contact');
+Route::get('dashboard','Frontend\DashboardController@index')->name('dashboard');
+Route::get('faq','Frontend\FaqController@index')->name('faq');
 Route::get('single-fullwidth','Frontend\SingleFullWidthController@index');
 
 Route::get('blog','Frontend\BlogController@index')->name('blog');
