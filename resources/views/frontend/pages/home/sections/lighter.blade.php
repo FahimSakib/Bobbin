@@ -184,12 +184,12 @@
                            }
                        }'>
                     @foreach($product as $item)
-                    <div class="product product-7 text-center">
-                        <figure class="product-media">
+                    <div class="product product-7 text-center" >
+                        <figure class="product-media" style="width:276.2px;height:375.9px;">
                             <a href="{{route('product-extended',$item->id)}}">
-                                <img src="{{ asset('storage/Product_image/'.$item->image1) }}" alt="Product image"
+                                <img src="{{ asset('storage/Product_image/'.$item->image2) }}"   alt="Product image"
                                     class="product-image">
-                                <img src="{{ asset('storage/Product_image/'.$item->image2) }}" alt="Product image"
+                                <img src="{{ asset('storage/Product_image/'.$item->image3) }}" alt="Product image"
                                     class="product-image-hover">
                             </a>
 
