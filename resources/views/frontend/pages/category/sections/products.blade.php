@@ -67,5 +67,6 @@
             @endif
 
         </div><!-- End .row -->
+        {{ $products->links('vendor.pagination.custom') }}
     </div><!-- End .container -->
 </div>

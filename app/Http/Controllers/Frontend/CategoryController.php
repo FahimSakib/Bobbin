@@ -12,7 +12,8 @@ class CategoryController extends Controller
         $data = [
             'title' => 'Category'
         ];
-        $products = Product::where('category_id',$category)->get();
+        
+        $products = Product::where('category_id',$category)->paginate(1); //pagination = 1 is for test only normal value will be 16
 
         return view('frontend.pages.category.category', $data, compact('products'));
     } 
