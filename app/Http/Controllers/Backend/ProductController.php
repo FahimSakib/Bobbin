@@ -54,10 +54,15 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        
         $request->validate([
             'name'              => 'required',
             'price'             => 'required|numeric',
-            'qty'               => 'required|numeric',
+            's_qty'               => 'nullable|numeric',
+            'm_qty'               => 'nullable|numeric',
+            'l_qty'               => 'nullable|numeric',
+            'xl_qty'               => 'nullable|numeric',
+            'xxl_qty'               => 'nullable|numeric',
             'short_description' => 'required',
             'description'       => 'required',
             'image1'            => 'required|image|mimes:png,jpeg,jpg',
@@ -66,7 +71,7 @@ class ProductController extends Controller
             'image4'            => 'required|image|mimes:png,jpeg,jpg',
             'category_id'       => 'required',
             'status'            => 'required',
-            'size_id'           => 'required',
+            
             'color_id'          => 'required'
         ]);
 
@@ -82,20 +87,29 @@ class ProductController extends Controller
         $file =  $request->file('image4');
         $uploadName4 = $this->fileUpload($file,'image4');
 
-        $product = new Product($request->except('size_id', 'color_id'));
+        $product = new Product($request->except('color_id'));
 
         $product->image1 = $uploadName1;
         $product->image2 = $uploadName2;
         $product->image3 = $uploadName3;
         $product->image4 = $uploadName4;
+        
+        $s_qty = $request->get('s_qty');
+        $m_qty = $request->get('m_qty');
+        $l_qty = $request->get('l_qty');
+        $xl_qty = $request->get('xl_qty');
+        $xxl_qty = $request->get('xxl_qty');
+      
+        $total_quantity = $s_qty + $m_qty+ $l_qty + $xl_qty + $xxl_qty; 
+        $product->total_qty = $total_quantity;
 
         if ($product->save()) {
             $sizes = $request->size_id;
             $colors = $request->color_id;
 
-            $product = Product::with('sizes','colors')->latest()->first();
+            $product = Product::with('colors')->latest()->first();
 
-            $product->sizes()->sync($sizes);
+            
             $product->colors()->sync($colors);
 
             return redirect()->route('admin.product.index')->with('success','Item added successfully');
@@ -135,11 +149,11 @@ class ProductController extends Controller
 
         $categories = Category::get();
 
-        $sizes = Size::get();
+        // $sizes = Size::get();
 
         $colors = Color::get();
 
-        return view('backend.pages.products.edit',$data, compact('categories','sizes','colors','product'));
+        return view('backend.pages.products.edit',$data, compact('categories','colors','product'));
     }
 
     /**
@@ -154,7 +168,11 @@ class ProductController extends Controller
         $request->validate([
             'name'              => 'required',
             'price'             => 'required|numeric',
-            'qty'               => 'required|numeric',
+            's_qty'               => 'nullable|numeric',
+            'm_qty'               => 'nullable|numeric',
+            'l_qty'               => 'nullable|numeric',
+            'xl_qty'               => 'nullable|numeric',
+            'xxl_qty'               => 'nullable|numeric',
             'short_description' => 'required',
             'description'       => 'required',
             'image1'            => 'nullable|image|mimes:png,jpeg,jpg',
@@ -163,7 +181,7 @@ class ProductController extends Controller
             'image4'            => 'nullable|image|mimes:png,jpeg,jpg',
             'category_id'       => 'required',
             'status'            => 'required',
-            'size_id'           => 'required',
+            // 'size_id'           => 'required',
             'color_id'          => 'required'
         ]);
 
@@ -181,20 +199,28 @@ class ProductController extends Controller
         $picture4 = $this->fileUpload($request->file('image4'),'image4');
         if(empty($picture4))$picture4 = $product->image4;
 
-        $product->fill($request->except('size_id', 'color_id'));
+        $product->fill($request->except('color_id'));
 
         $product->image1 = $picture1;
         $product->image2 = $picture2;
         $product->image3 = $picture3;
         $product->image4 = $picture4;
 
+        $s_qty = $request->get('s_qty');
+        $m_qty = $request->get('m_qty');
+        $l_qty = $request->get('l_qty');
+        $xl_qty = $request->get('xl_qty');
+        $xxl_qty = $request->get('xxl_qty');
+      
+        $total_quantity = $s_qty + $m_qty+ $l_qty + $xl_qty + $xxl_qty; 
+        $product->total_qty = $total_quantity;
         $product->save();
 
         if ($product->save()) {
-            $sizes = $request->size_id;
+            // $sizes = $request->size_id;
             $colors = $request->color_id;
 
-            $product->sizes()->sync($sizes);
+            // $product->sizes()->sync($sizes);
             $product->colors()->sync($colors);
 
             return redirect()->route('admin.product.index')->with('success','Item Updated successfully');

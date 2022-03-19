@@ -17,7 +17,12 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('name');
             $table->float('price');
-            $table->integer('qty');
+            $table->integer('s_qty')->default(0);
+            $table->integer('m_qty')->default(0);
+            $table->integer('l_qty')->default(0);
+            $table->integer('xl_qty')->default(0);
+            $table->integer('xxl_qty')->default(0);
+            $table->integer('total_qty')->default(0);
             $table->longText('short_description');
             $table->longText('description');
             $table->string('image1');
