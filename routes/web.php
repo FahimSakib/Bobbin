@@ -36,7 +36,7 @@ Route::get('cart','Frontend\CartController@index');
 Route::get('coming-soon','Frontend\Coming_soonController@index');
 
 Route::get('checkout','Frontend\CheckoutController@index');
-Route::get('category','Frontend\CategoryController@index');
+Route::get('category/{category}','Frontend\CategoryController@index')->name('category');
 Route::get('product-gallery','Frontend\ProductgalleryController@index');
 Route::get('product','Frontend\ProductController@index');
 Route::get('product-category-boxed','Frontend\ProductcategoryController@index');

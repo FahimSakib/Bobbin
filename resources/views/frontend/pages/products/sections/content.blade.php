@@ -24,12 +24,14 @@
 
                     <div class="product-body">
                         <div class="product-action">
-                            <a href="{{route('product-extended',$product->id)}}" class="btn-product btn-cart"><span>add to cart</span></a>
+                            <a href="{{route('product-extended',$product->id)}}" class="btn-product btn-cart"><span>add
+                                    to cart</span></a>
                         </div><!-- End .product-action -->
                         <div class="product-cat">
                             <a href="#">{{ $product->category->title }}</a>
                         </div><!-- End .product-cat -->
-                        <h3 class="product-title"><a href="{{route('product-extended',$product->id)}}">{{ $product->name }}</a></h3>
+                        <h3 class="product-title"><a
+                                href="{{route('product-extended',$product->id)}}">{{ $product->name }}</a></h3>
                         <!-- End .product-title -->
                         <div class="product-price">
                             <span class="new-price">{{ $product->price }}</span>
@@ -46,17 +48,14 @@
 
                         <div class="product-nav product-nav-thumbs">
                             <a href="{{route('product-extended',$product->id)}}" class="active">
-                                <img src="{{ asset('storage/Product_image/'.$product->image2) }}"
-                                    alt="product desc">
+                                <img src="{{ asset('storage/Product_image/'.$product->image2) }}" alt="product desc">
                             </a>
                             <a href="{{route('product-extended',$product->id)}}">
-                                <img src="{{ asset('storage/Product_image/'.$product->image3) }}"
-                                    alt="product desc">
+                                <img src="{{ asset('storage/Product_image/'.$product->image3) }}" alt="product desc">
                             </a>
 
                             <a href="{{route('product-extended',$product->id)}}">
-                                <img src="{{ asset('storage/Product_image/'.$product->image4) }}"
-                                    alt="product desc">
+                                <img src="{{ asset('storage/Product_image/'.$product->image4) }}" alt="product desc">
                             </a>
                         </div><!-- End .product-nav -->
                     </div><!-- End .product-footer -->
@@ -68,4 +67,10 @@
             @endif
 
         </div><!-- End .row -->
+
+        <nav aria-label="Page navigation">
+            {{ $products->links('vendor.pagination.custom') }}
+        </nav>
     </div><!-- End .container -->
+
+</div>

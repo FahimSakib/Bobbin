@@ -14,7 +14,7 @@ class ProductsController extends Controller
             'title' => 'Products'
         ];
 
-        $products = Product::with('sizes','colors','category')->get();
+        $products = Product::with('sizes','colors','category')->paginate(1); //pagination = 1 is for test only normal value will be 16
         
         return view('frontend.pages.products.products',$data,compact('products'));
     }
