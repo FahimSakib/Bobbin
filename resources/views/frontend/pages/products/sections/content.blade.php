@@ -68,5 +68,11 @@
             @endif
 
         </div><!-- End .row -->
+    
+        <nav aria-label="Page navigation">
+            {{ $products->links('vendor.pagination.custom') }}
+        </nav>
     </div><!-- End .container -->
+  
+   
 </div>
