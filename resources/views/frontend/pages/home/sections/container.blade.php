@@ -1,6 +1,6 @@
 @foreach ($categories as $category)
 @php
-    $products = App\Models\Product::all()->where('category_id',$category->id) 
+    $products = App\Models\Product::where('category_id',$category->id)->limit(5)->get()
 @endphp
 @php
      $single_product = App\Models\Product::where('category_id',$category->id)->inRandomOrder()->first()
