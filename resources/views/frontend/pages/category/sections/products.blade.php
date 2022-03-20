@@ -28,7 +28,7 @@
                                     to cart</span></a>
                         </div><!-- End .product-action -->
                         <div class="product-cat">
-                            <a href="#">{{ $product->category->title }}</a>
+                            <a href="{{ route('category',$product->category_id) }}">{{ $product->category->title }}</a>
                         </div><!-- End .product-cat -->
                         <h3 class="product-title"><a
                                 href="{{route('product-extended',$product->id)}}">{{ $product->name }}</a></h3>

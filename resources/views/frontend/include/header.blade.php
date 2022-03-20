@@ -1,3 +1,6 @@
+@php
+$categories = App\Models\Category::all()
+@endphp
 <header class="header header-6">
     <div class="header-top">
         <div class="container">
@@ -65,15 +68,15 @@
                         <div class="header-search-wrapper search-wrapper-wide">
                             <label for="q" class="sr-only">Search</label>
                             <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
-                            <input type="search" class="form-control" name="q" id="q"
-                                placeholder="Search product ..." required>
+                            <input type="search" class="form-control" name="q" id="q" placeholder="Search product ..."
+                                required>
                         </div><!-- End .header-search-wrapper -->
                     </form>
                 </div><!-- End .header-search -->
             </div>
             <div class="header-center">
                 <a href="index.html" class="logo">
-                    <img src="asset/frontend/assets/images/bobbin-logo.png"  alt="Bobbin Logo" width="180" height="35">
+                    <img src="asset/frontend/assets/images/bobbin-logo.png" alt="Bobbin Logo" width="180" height="35">
                 </a>
             </div><!-- End .header-left -->
 
@@ -85,8 +88,8 @@
                 </a>
 
                 <div class="dropdown cart-dropdown">
-                    <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false" data-display="static">
+                    <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false" data-display="static">
                         <i class="icon-shopping-cart"></i>
                         <span class="cart-count">2</span>
                         <span class="cart-txt">$ 164,00</span>
@@ -108,11 +111,11 @@
 
                                 <figure class="product-image-container">
                                     <a href="product.html" class="product-image">
-                                        <img src="asset/frontend/assets/images/products/cart/product-1.jpg" alt="product">
+                                        <img src="asset/frontend/assets/images/products/cart/product-1.jpg"
+                                            alt="product">
                                     </a>
                                 </figure>
-                                <a href="#" class="btn-remove" title="Remove Product"><i
-                                        class="icon-close"></i></a>
+                                <a href="#" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>
                             </div><!-- End .product -->
 
                             <div class="product">
@@ -129,11 +132,11 @@
 
                                 <figure class="product-image-container">
                                     <a href="product.html" class="product-image">
-                                        <img src="asset/frontend/assets/images/products/cart/product-2.jpg" alt="product">
+                                        <img src="asset/frontend/assets/images/products/cart/product-2.jpg"
+                                            alt="product">
                                     </a>
                                 </figure>
-                                <a href="#" class="btn-remove" title="Remove Product"><i
-                                        class="icon-close"></i></a>
+                                <a href="#" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>
                             </div><!-- End .product -->
                         </div><!-- End .cart-product -->
 
@@ -160,7 +163,7 @@
                 <nav class="main-nav">
                     <ul class="menu sf-arrows">
                         <li class="{{ (request()->is('home')) ? 'active' : '' }}">
-                            <a href="{{ route('home') }}" >Home</a>
+                            <a href="{{ route('home') }}">Home</a>
 
                             {{-- <div class="megamenu demo">
                                 <div class="menu-col">
@@ -448,7 +451,7 @@
                             </div><!-- End .megamenu megamenu-md -->
                         </li> --}}
                         <li class="{{ (request()->is('products')) ? 'active' : '' }}">
-                            <a href="{{ route('products') }}" >Product</a>
+                            <a href="{{ route('products') }}">Products</a>
 
                             {{-- <div class="megamenu megamenu-sm">
                                 <div class="row no-gutters">
@@ -486,34 +489,17 @@
                                 </div><!-- End .row -->
                             </div><!-- End .megamenu megamenu-sm --> --}}
                         </li>
-                        {{-- <li>
-                            <a href="#" class="sf-with-ul">Pages</a>
+                        <li class="{{ (request()->is('category/*')) ? 'active' : '' }}">
+                            <a href="javascript:void(0)" class="sf-with-ul">Categories</a>
 
                             <ul>
-                                <li>
-                                    <a href="about.html" class="sf-with-ul">About</a>
-
-                                    <ul>
-                                        <li><a href="about.html">About 01</a></li>
-                                        <li><a href="about-2.html">About 02</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="contact.html" class="sf-with-ul">Contact</a>
-
-                                    <ul>
-                                        <li><a href="contact.html">Contact 01</a></li>
-                                        <li><a href="contact-2.html">Contact 02</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="login.html">Login</a></li>
-                                <li><a href="faq.html">FAQs</a></li>
-                                <li><a href="404.html">Error 404</a></li>
-                                <li><a href="coming-soon.html">Coming Soon</a></li>
+                                @foreach ($categories as $category)
+                                <li><a href="{{ route('category',$category->id) }}">{{ $category->title }}</a></li>
+                                @endforeach
                             </ul>
-                        </li> --}}
+                        </li>
                         <li class="{{ (request()->is('blog')) ? 'active' : '' }}">
-                            <a href="{{ route('blog') }}" >Blog</a>
+                            <a href="{{ route('blog') }}">Blog</a>
 
                             {{-- <ul>
                                 <li><a href="blog.html">Classic</a></li>
