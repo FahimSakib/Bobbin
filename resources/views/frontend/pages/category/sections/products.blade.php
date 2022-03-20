@@ -7,7 +7,7 @@
             <div class="col-6 col-md-4 col-lg-3">
                 <div class="product product-3">
                     <figure class="product-media">
-                        <span class="product-label">Sale</span>
+                        <span class="product-label label-sale">Sale</span>
                         <a href="{{route('product-extended',$product->id)}}">
                             <img src="{{ asset('storage/Product_image/'.$product->image1) }}" alt="Product image"
                                 class="product-image">
