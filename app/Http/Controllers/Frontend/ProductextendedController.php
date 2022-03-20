@@ -12,7 +12,7 @@ class ProductextendedController extends Controller
         $data = [
             'title' => 'Product'
         ];
-        $product = Product::find($id);
+        $product = Product::with('category')->find($id);
         return view('frontend.pages.product-extended.product-extended', $data,compact('product'));
     }
 }
