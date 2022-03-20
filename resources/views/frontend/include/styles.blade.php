@@ -27,5 +27,6 @@
     <link rel="stylesheet" href="asset/frontend/assets/css/style.css">
     <link rel="stylesheet" href="asset/frontend/assets/css/skins/skin-demo-9.css">
     <link rel="stylesheet" href="asset/frontend/assets/css/demos/demo-9.css">
+    <link rel="stylesheet" href="asset/frontend/assets/css/custom.css">
 
     @stack('style')
