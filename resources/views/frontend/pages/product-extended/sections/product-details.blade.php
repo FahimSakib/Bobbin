@@ -12,7 +12,7 @@
                                         </a>
                                     </figure><!-- End .product-main-image -->
 
-                                    <div id="product-zoom-gallery" class="product-image-gallery" style="width:500px;height:300px;">
+                                    <div id="product-zoom-gallery" class="product-image-gallery">
                                         <a class="product-gallery-item" href="#" data-image="{{ asset('storage/Product_image/'.$product->image4) }}" data-zoom-image="{{ asset('storage/Product_image/'.$product->image4) }}">
                                             <img src="{{ asset('storage/Product_image/'.$product->image4) }}" alt="product side">
                                         </a>
@@ -96,10 +96,7 @@
                                     <div class="product-details-footer">
                                         <div class="product-cat">
                                             <span>Category:</span>
-                                            <a href="#">Women</a>,
-                                            <a href="#">Shoes</a>,
-                                            <a href="#">Sandals</a>,
-                                            <a href="#">Yellow</a>
+                                            <a href="{{ route('category',$product->category_id) }}">{{ $product->category->title }}</a>
                                         </div><!-- End .product-cat -->
 
                                         <div class="social-icons social-icons-sm">
