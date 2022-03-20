@@ -7,7 +7,7 @@
             <div class="col-6 col-md-4 col-lg-3">
                 <div class="product product-3">
                     <figure class="product-media">
-                        <span class="product-label">Sale</span>
+                        <span class="product-label label-sale">Sale</span>
                         <a href="{{route('product-extended',$product->id)}}">
                             <img src="{{ asset('storage/Product_image/'.$product->image1) }}" alt="Product image"
                                 class="product-image">
@@ -28,7 +28,7 @@
                                     to cart</span></a>
                         </div><!-- End .product-action -->
                         <div class="product-cat">
-                            <a href="#">{{ $product->category->title }}</a>
+                            <a href="{{ route('category',$product->category_id) }}">{{ $product->category->title }}</a>
                         </div><!-- End .product-cat -->
                         <h3 class="product-title"><a
                                 href="{{route('product-extended',$product->id)}}">{{ $product->name }}</a></h3>

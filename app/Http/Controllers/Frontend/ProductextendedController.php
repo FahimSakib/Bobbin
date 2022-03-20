@@ -12,7 +12,11 @@ class ProductextendedController extends Controller
         $data = [
             'title' => 'Product'
         ];
-        $product = Product::find($id);
-        return view('frontend.pages.product-extended.product-extended', $data,compact('product'));
+
+        $product = Product::with('category')->find($id);
+
+        $prducts_random = Product::with('category')->inRandomOrder()->limit(6)->get();
+
+        return view('frontend.pages.product-extended.product-extended', $data,compact('product','prducts_random'));
     }
 }
