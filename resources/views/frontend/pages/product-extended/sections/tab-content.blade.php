@@ -2,12 +2,12 @@
                     <div class="tab-content">
                         <div class="tab-pane fade show active" id="product-desc-tab" role="tabpanel" aria-labelledby="product-desc-link">
                             <div class="product-desc-content">
-                                <div class="product-desc-row bg-image"  style="background-image: url('asset/frontend/assets/images/products/single/extended/bg-1.jpg')">
+                                <div class="product-desc-row bg-image"  style="background-image: url('{{ asset('storage/Product_image/'.$product->image2) }}'); height:500px; object-fit: cover">
                                     <div class="container">
                                         <div class="row justify-content-end">
-                                            <div class="col-sm-6 col-lg-4">
-                                                <h2>Product Information</h2>
-                                                <ul>
+                                            <div class="col-sm-6 col-lg-6 bg-op">
+                                                <h2 class="text-white">Product Information</h2>
+                                                <ul class="text-white">
                                                     <li>Faux suede fabric upper</li>
                                                     <li>Tie strap buckle detail</li>
                                                     <li>Block heel</li>
@@ -19,38 +19,23 @@
                                     </div><!-- End .container -->
                                 </div><!-- End .product-desc-row -->
 
-                                <div class="product-desc-row bg-image text-white"  style="background-image: url('asset/frontend/assets/images/products/single/extended/bg-2.jpg')">
+                                <div class="product-desc-row bg-image text-white"  style="background-image: url('{{ asset('storage/Product_image/'.$product->image4) }}'); height:500px; object-fit: cover">
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <h2>Design</h2>
-                                                <p>The perfect choice for the summer months. These wedges are perfect for holidays and home, with the thick cross-over strap design and heel strap with an adjustable buckle fastening. Featuring chunky soles with an espadrille and cork-style wedge. </p>
+                                                <p class="text-white">The perfect choice for the summer months. These wedges are perfect for holidays and home, with the thick cross-over strap design and heel strap with an adjustable buckle fastening. Featuring chunky soles with an espadrille and cork-style wedge. </p>
                                             </div><!-- End .col-md-6 -->
 
                                             <div class="col-md-6">
                                                 <h2>Fabric & care</h2>
-                                                <p>As part of our Forever Comfort collection, these wedges have ultimate cushioning with soft padding and flexi soles. Perfect for strolls into the old town on holiday or a casual wander into the village.</p>
+                                                <p class="text-white">As part of our Forever Comfort collection, these wedges have ultimate cushioning with soft padding and flexi soles. Perfect for strolls into the old town on holiday or a casual wander into the village.</p>
                                             </div><!-- End .col-md-6 -->
                                         </div><!-- End .row -->
 
                                         <div class="mb-5"></div><!-- End .mb-3 -->
 
                                         <img src="asset/frontend/assets/images/products/single/extended/sign.png" alt="" class="ml-auto mr-auto">
-                                    </div><!-- End .container -->
-                                </div><!-- End .product-desc-row -->
-
-                                <div class="product-desc-row bg-image"  style="background-image: url('asset/frontend/assets/images/products/single/extended/bg-3.jpg')">
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-lg-5">
-                                                <blockquote>
-                                                    <p>“ Everything is important - <br>that success is in the details. ”</p>
-
-                                                    <cite>– Steve Jobs</cite>
-                                                </blockquote>
-                                                <p>Nullam mollis. Ut justo. Suspendisse potenti. Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. </p>
-                                            </div><!-- End .col-lg-5 -->
-                                        </div><!-- End .row -->
                                     </div><!-- End .container -->
                                 </div><!-- End .product-desc-row -->
                             </div><!-- End .product-desc-content -->
