@@ -76,7 +76,7 @@
                                                 {{ $product->price }}
                                             </td>
                                             <td>
-                                                {{ $product->qty }}
+                                                {{ $product->total_qty }}
                                             </td>
                                             <td>
                                                 <img src="{{ asset('storage/Product_image/'.$product->image1) }}"

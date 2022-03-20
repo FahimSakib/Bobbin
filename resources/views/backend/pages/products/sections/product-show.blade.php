@@ -14,6 +14,7 @@
                                     <div class="icon-class" style="font-size: 25px;">Product Details</div>
                                 </div>
                             </div>
+                           
                             <div>
                                 <a class="btn btn-icon icon-left btn-success"
                                     href="{{ route('admin.product.index') }}"><i class="fas fa-list-alt"></i>List of
@@ -42,7 +43,7 @@
                                         </tr>
                                         <tr>
                                             <th>Quantity</th>
-                                            <td>{{ $product->qty }}</td>
+                                            <td>{{ $product->total_qty }}</td>
                                         </tr>
                                         <tr>
                                             <th>Short Description</th>
@@ -92,12 +93,48 @@
                                             @endif
                                         </tr>
                                         <tr>
-                                            <th>Available Sizes</th>
+                                            <th>Available Sizes with Quantity</th>
                                             <td>
                                                 <ul class="list-group list-group-horizontal">
-                                                    @foreach ($product->sizes as $size)
-                                                    <li class="list-group-item border-0">{{ $size->title }}</li>
-                                                    @endforeach
+
+                                                   
+
+                                                    <table class="table table-sm">
+                                                        <thead>
+                                                            <tr>
+
+                                                                <th scope="col">Sizes</th>
+                                                                <th scope="col">Quantity</th>
+
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+
+                                                                <th scope="row">S</th>
+                                                                <td>{{ $product->s_qty}}</td>
+                                                            </tr>
+                                                            <tr>
+
+                                                                <th scope="row">M</th>
+                                                                <td>{{ $product->m_qty}}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th scope="row">L</th>
+                                                                <td>{{ $product->l_qty}}</td>
+                                                            </tr>
+                                                                <tr>
+                                                                <th scope="row">XL</th>
+                                                                <td>{{ $product->xl_qty}}</td>
+
+                                                            </tr>
+                                                                <tr>
+                                                                <th scope="row">XXL</th>
+                                                                <td>{{ $product->xxl_qty}}</td>
+
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
                                                 </ul>
                                             </td>
                                         </tr>

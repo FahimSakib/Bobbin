@@ -40,14 +40,68 @@
                                         <div class="alert alert-danger mt-1">{{ $message }}</div>
                                         @enderror
                                     </div>
-                                    <div class="form-group col-md-6">
+                                    {{-- <div class="form-group col-md-6">
                                         <label>Quantity</label>
                                         <input type="number" class="form-control @error('qty') is-invalid @enderror"
                                             name="qty" value="{{old('qty')}}">
                                         @error('qty')
                                         <div class="alert alert-danger mt-1">{{ $message }}</div>
                                         @enderror
+                                    </div> --}}
+
+                                    {{-- Quantity of S Size --}}
+                                      <div class="form-group col-md-6">
+                                        <label>Quantity of S Size</label>
+                                        <input type="number" class="form-control @error('s_qty') is-invalid @enderror qty"
+                                            name="s_qty" onkeyup="calculateTotal('qty')"  class="qty"  value="{{old('s_qty') ? old('s_qty') : 0 }}">
+                                        @error('s_qty')
+                                        <div class="alert alert-danger mt-1">{{ $message }}</div>
+                                        @enderror
                                     </div>
+                                    {{-- Quantity of M Size --}}
+                                      <div class="form-group col-md-6">
+                                        <label>Quantity of M Size</label>
+                                        <input type="number" class="form-control @error('m_qty') is-invalid @enderror qty"
+                                            name="m_qty" onkeyup="calculateTotal('qty')"   value="{{old('m_qty') ? old('m_qty') : 0 }}">
+                                        @error('m_qty')
+                                        <div class="alert alert-danger mt-1">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                    {{-- Quantity of L Size --}}
+                                      <div class="form-group col-md-6">
+                                        <label>Quantity of L Size</label>
+                                        <input type="number" class="form-control @error('l_qty') is-invalid @enderror qty"
+                                            name="l_qty" onkeyup="calculateTotal('qty')"   value="{{old('l_qty') ? old('l_qty') : 0 }}">
+                                        @error('l_qty')
+                                        <div class="alert alert-danger mt-1">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                    {{-- Quantity of XL Size --}}
+                                       <div class="form-group col-md-6">
+                                        <label>Quantity of XL Size</label>
+                                        <input type="number" class="form-control @error('xl_qty') is-invalid @enderror qty"
+                                            name="xl_qty" onkeyup="calculateTotal('qty')"    value="{{old('xl_qty') ? old('xl_qty') : 0 }}">
+                                        @error('xl_qty')
+                                        <div class="alert alert-danger mt-1">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                    {{-- Quantity of XXL Size --}}
+                                        <div class="form-group col-md-6">
+                                        <label>Quantity of XXL Size</label>
+                                        <input type="number" class="form-control @error('xxl_qty') is-invalid @enderror qty"
+                                            name="xxl_qty" onkeyup="calculateTotal('qty')"    value="{{old('xxl_qty') ? old('xxl_qty') : 0 }}">
+                                        @error('xxl_Quantity')
+                                        <div class="alert alert-danger mt-1">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                        <div class="form-group col-md-6">
+                                        <label> Total Quantity </label>
+                                        <input class="form-control" id="total" type="text" readonly >
+                                       
+                                       
+                                      
+                                     </div>         
+
                                     <div class="form-group col-md-6">
                                         <label>Short Description</label>
                                         <input type="text"
@@ -126,18 +180,27 @@
                                         <div class="alert alert-danger mt-1">{{ $message }}</div>
                                         @enderror
                                     </div>
-                                    <div class="form-group col-md-6">
+                                    
+
+                                    {{-- test --}}
+                                      {{-- <div class="form-group col-md-6">
                                         <label>Available Sizes</label>
-                                        <select class="form-control select2  @error('size_id') is-invalid @enderror"
+                                        <select class="form-control select2 @error('size_id') is-invalid @enderror"
                                             multiple="" name="size_id[]">
-                                            @foreach ($sizes as $key => $size)
-                                            <option value="{{ $size->id }}">{{ $size->title }}</option>
+                                            @foreach ($sizes as $size)
+                                            <option value="{{  ?$size->id: }}">{{ $size->title }}</option>
                                             @endforeach
                                         </select>
                                         @error('size_id')
                                         <div class="alert alert-danger mt-1">{{ $message }}</div>
                                         @enderror
-                                    </div>
+                                    </div> --}}
+
+
+
+                                    {{-- test --}}
+                                   
+
                                     <div class="form-group col-md-6">
                                         <label>Available Colors</label>
                                         <select class="form-control select2 @error('color_id') is-invalid @enderror"
@@ -175,4 +238,22 @@
 <script src="asset/backend/assets/bundles/select2/dist/js/select2.full.min.js"></script>
 <!-- Page Specific JS File -->
 <script src="asset/backend/assets/js/page/forms-advanced-forms.js"></script>
+
+
 @endpush
+<script>
+		function calculateTotal(className) {
+			let total = 0;
+			let target_id = document.getElementById('total');
+
+			if (className == "qty") {
+
+				$("." + className).each(function () {
+					total += parseFloat(Number($(this).val()));
+					{{-- console.log(total); --}}
+				});
+
+				target_id.value = total;
+			}
+        }
+</script>
