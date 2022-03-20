@@ -1,39 +1,59 @@
+@php
+$random_1 = App\Models\Product::with('category')->where('status','1')->inRandomOrder()->first();
+$random_2 = App\Models\Product::with('category')->where('status','1')->inRandomOrder()->first();
+$random_3 = App\Models\Product::with('category')->where('status','1')->inRandomOrder()->first();
+$random_4 = App\Models\Product::with('category')->where('status','1')->inRandomOrder()->first();
+@endphp
 <div class="pt-3 pb-3">
     <div class="container">
         <div class="banner-group">
             <div class="row">
                 <div class="col-sm-6 col-lg-4">
                     <div class="banner banner-overlay banner-lg">
-                        <a href="#">
-                            <img src="asset/frontend/assets/images/demos/demo-9/banners/banner-1.jpg" alt="Banner">
+                        <a href="{{ route('category',$random_1->category->id) }}">
+                            <img src="{{ asset('storage/Product_image/'.$random_1->image1) }}" alt="Banner"
+                                style="width: 376px; height:500px; object-fit: cover">
                         </a>
 
                         <div class="banner-content banner-content-bottom">
-                            <h4 class="banner-subtitle text-white"><a href="#">Clearance</a></h4>
+                            <h4 class="banner-subtitle text-white"><a
+                                    href="{{ route('category',$random_1->category->id) }}">Clearance</a></h4>
                             <!-- End .banner-subtitle -->
-                            <h3 class="banner-title text-white"><a href="#">Waterproof</a></h3>
+                            <h3 class="banner-title text-white"><a
+                                    href="{{ route('category',$random_1->category->id) }}">{{ $random_1->category->title }}</a>
+                            </h3>
                             <!-- End .banner-title -->
-                            <div class="banner-text text-white"><a href="#">from $19.00</a></div>
+                            <div class="banner-text text-white"><a
+                                    href="{{ route('category',$random_1->category->id) }}">from
+                                    ${{ $random_1->price }}</a></div>
                             <!-- End .banner-text -->
-                            <a href="#" class="btn btn-outline-white banner-link">Discover Now</a>
+                            <a href="{{ route('category',$random_1->category->id) }}"
+                                class="btn btn-outline-white banner-link">Discover Now</a>
                         </div><!-- End .banner-content -->
                     </div><!-- End .banner -->
                 </div><!-- End .col-lg-4 -->
 
                 <div class="col-sm-6 col-lg-4 order-lg-last">
                     <div class="banner banner-overlay banner-lg">
-                        <a href="#">
-                            <img src="asset/frontend/assets/images/demos/demo-9/banners/banner-4.jpg" alt="Banner">
+                        <a href="{{ route('category',$random_4->category->id) }}">
+                            <img src="{{ asset('storage/Product_image/'.$random_4->image4) }}" alt="Banner"
+                                style="width: 376px; height:500px; object-fit: cover">
                         </a>
 
                         <div class="banner-content banner-content-top">
-                            <h4 class="banner-subtitle text-white"><a href="#">On Sale</a></h4>
+                            <h4 class="banner-subtitle text-white"><a
+                                    href="{{ route('category',$random_4->category->id) }}">On Sale</a></h4>
                             <!-- End .banner-subtitle -->
-                            <h3 class="banner-title text-white"><a href="#">Women's<br>Sportswear</a></h3>
+                            <h3 class="banner-title text-white"><a
+                                    href="{{ route('category',$random_4->category->id) }}">{{ $random_4->category->title }}</a>
+                            </h3>
                             <!-- End .banner-title -->
-                            <div class="banner-text text-white"><a href="#">from $39.00</a></div>
+                            <div class="banner-text text-white"><a
+                                    href="{{ route('category',$random_4->category->id) }}">from
+                                    ${{ $random_4->price }}</a></div>
                             <!-- End .banner-text -->
-                            <a href="#" class="btn btn-outline-white banner-link">Discover Now</a>
+                            <a href="{{ route('category',$random_4->category->id) }}"
+                                class="btn btn-outline-white banner-link">Discover Now</a>
                         </div><!-- End .banner-content -->
                     </div><!-- End .banner -->
                 </div><!-- End .col-lg-4 -->
@@ -42,34 +62,41 @@
                     <div class="row">
                         <div class="col-sm-6 col-lg-12">
                             <div class="banner banner-overlay">
-                                <a href="#">
-                                    <img src="asset/frontend/assets/images/demos/demo-9/banners/banner-2.jpg"
-                                        alt="Banner">
+                                <a href="{{ route('category',$random_2->category->id) }}">
+                                    <img src="{{ asset('storage/Product_image/'.$random_2->image2) }}" alt="Banner"
+                                        style="width: 376px; height:240px; object-fit: cover">
                                 </a>
 
                                 <div class="banner-content">
-                                    <h4 class="banner-subtitle text-white"><a href="#">New Arrivals</a></h4>
+                                    <h4 class="banner-subtitle text-white"><a
+                                            href="{{ route('category',$random_2->category->id) }}">New Arrivals</a></h4>
                                     <!-- End .banner-subtitle -->
-                                    <h3 class="banner-title text-white"><a href="#">Accessories<br>and
-                                            Shoes</a></h3><!-- End .banner-title -->
-                                    <a href="#" class="btn btn-outline-white banner-link">Shop Now</a>
+                                    <h3 class="banner-title text-white"><a
+                                            href="{{ route('category',$random_2->category->id) }}">{{ $random_2->category->title }}</a>
+                                    </h3><!-- End .banner-title -->
+                                    <a href="{{ route('category',$random_2->category->id) }}"
+                                        class="btn btn-outline-white banner-link">Shop Now</a>
                                 </div><!-- End .banner-content -->
                             </div><!-- End .banner -->
                         </div><!-- End .col-sm-6 col-lg-12 -->
 
                         <div class="col-sm-6 col-lg-12">
                             <div class="banner banner-overlay">
-                                <a href="#">
-                                    <img src="asset/frontend/assets/images/demos/demo-9/banners/banner-3.jpg"
-                                        alt="Banner">
+                                <a href="{{ route('category',$random_3->category->id) }}">
+                                    <img src="{{ asset('storage/Product_image/'.$random_3->image3) }}" alt="Banner"
+                                        style="width: 376px; height:240px; object-fit: cover">
                                 </a>
 
                                 <div class="banner-content">
-                                    <h4 class="banner-subtitle text-white"><a href="#">New Arrivals</a></h4>
+                                    <h4 class="banner-subtitle text-white"><a
+                                            href="{{ route('category',$random_3->category->id) }}">New Arrivals</a></h4>
                                     <!-- End .banner-subtitle -->
-                                    <h3 class="banner-title text-white"><a href="#">Spring 2019</a></h3>
+                                    <h3 class="banner-title text-white"><a
+                                            href="{{ route('category',$random_3->category->id) }}">{{ $random_3->category->title }}</a>
+                                    </h3>
                                     <!-- End .banner-title -->
-                                    <a href="#" class="btn btn-outline-white banner-link">Shop Now</a>
+                                    <a href="{{ route('category',$random_3->category->id) }}"
+                                        class="btn btn-outline-white banner-link">Shop Now</a>
                                 </div><!-- End .banner-content -->
                             </div><!-- End .banner -->
                         </div><!-- End .col-sm-6 col-lg-12 -->
@@ -184,10 +211,10 @@
                            }
                        }'>
                     @foreach($product as $item)
-                    <div class="product product-7 text-center" >
+                    <div class="product product-7 text-center">
                         <figure class="product-media" style="width:276.2px;height:375.9px;">
                             <a href="{{route('product-extended',$item->id)}}">
-                                <img src="{{ asset('storage/Product_image/'.$item->image2) }}"   alt="Product image"
+                                <img src="{{ asset('storage/Product_image/'.$item->image2) }}" alt="Product image"
                                     class="product-image">
                                 <img src="{{ asset('storage/Product_image/'.$item->image3) }}" alt="Product image"
                                     class="product-image-hover">
@@ -206,7 +233,8 @@
                         </figure><!-- End .product-media -->
 
                         <div class="product-body">
-                            <h3 class="product-title"><a href="{{route('product-extended',$item->id)}}">{{$item->name}}</a></h3>
+                            <h3 class="product-title"><a
+                                    href="{{route('product-extended',$item->id)}}">{{$item->name}}</a></h3>
                             <!-- End .product-title -->
                             <div class="product-price">
                                 {{$item->price}}

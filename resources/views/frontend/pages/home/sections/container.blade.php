@@ -1,9 +1,7 @@
 @foreach ($categories as $category)
 @php
-$products = App\Models\Product::where('category_id',$category->id)->limit(5)->get()
-@endphp
-@php
-$single_product = App\Models\Product::where('category_id',$category->id)->inRandomOrder()->first()
+$products = App\Models\Product::where('category_id',$category->id)->limit(5)->get();
+$single_product = App\Models\Product::where('category_id',$category->id)->inRandomOrder()->first();
 @endphp
 @if (!empty($single_product))
 <div class="container featured mt-4 pb-2">
@@ -26,7 +24,7 @@ $single_product = App\Models\Product::where('category_id',$category->id)->inRand
             <div class="banner banner-overlay product-banner">
                 <a href="{{route('product-extended',$single_product->id)}}">
                     <img src="{{ asset('storage/Product_image/'.$single_product->image1) }}" alt="banner image"
-                        style="height: 530px;width:376">
+                        style="height: 530px;width:376; object-fit: cover">
                 </a>
                 <div class="banner-content">
                     <div class="banner-top">
