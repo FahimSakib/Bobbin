@@ -5,6 +5,7 @@ $products = App\Models\Product::where('category_id',$category->id)->limit(5)->ge
 @php
 $single_product = App\Models\Product::where('category_id',$category->id)->inRandomOrder()->first()
 @endphp
+@if (!empty($single_product))
 <div class="container featured mt-4 pb-2">
     <div class="heading heading-flex mb-3">
         <div class="heading-left">
@@ -127,4 +128,5 @@ $single_product = App\Models\Product::where('category_id',$category->id)->inRand
 <div class="container">
     <hr class="mt-3 mb-4">
 </div><!-- End .container -->
+@endif
 @endforeach

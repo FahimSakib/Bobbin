@@ -28,7 +28,7 @@
                             <h1 class="intro-title text-white">{{$item->sub_title}}</h1>
                             <!-- End .intro-title -->
 
-                            <div class="intro-text text-white">{{$item->offer}} Discount</div><!-- End .intro-text -->
+                            <div class="intro-text text-white">{{$item->offer}}</div><!-- End .intro-text -->
 
                             {{-- <a href="category.html" class="btn btn-primary">
                                 <span>DISCOVER NOW</span>
