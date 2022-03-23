@@ -34,7 +34,7 @@
 
                             <div class="col-md-6">
                                 <div class="product-details">
-                                    <h1 class="product-title">Yellow tie strap block heel sandals</h1><!-- End .product-title -->
+                                    <h1 class="product-title">{{$product->name}}</h1><!-- End .product-title -->
 
                                     <div class="ratings-container">
                                         <div class="ratings">
@@ -44,11 +44,11 @@
                                     </div><!-- End .rating-container -->
 
                                     <div class="product-price">
-                                        $70.00
+                                        {{$product->price}}
                                     </div><!-- End .product-price -->
 
                                     <div class="product-content">
-                                        <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing. Sed lectus. </p>
+                                        <p>{{$product->short_description}} </p>
                                     </div><!-- End .product-content -->
 
                                     <div class="details-filter-row details-row-size">
@@ -83,7 +83,7 @@
                                             <input type="number" id="qty" class="form-control" value="1" min="1" max="10" step="1" data-decimals="0" required>
                                         </div><!-- End .product-details-quantity -->
                                     </div><!-- End .details-filter-row -->
-
+                                         {{-- add to cart --}}
                                     <div class="product-details-action">
                                         <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
 
