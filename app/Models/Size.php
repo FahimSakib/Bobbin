@@ -13,4 +13,7 @@ class Size extends Model
     public function products(){
         return $this->belongsToMany(Product::class)->withTimestamps();
     }
+    public function tests(){
+        return $this->belongsToMany(Test::class)->withPivot(['qty'])->withTimestamps();
+    }
 }

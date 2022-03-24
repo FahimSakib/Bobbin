@@ -212,6 +212,28 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="required" for="sizes">Available Sizes</label>
+                                        <table>
+                                            @foreach ($sizes as $size)
+                                            <tr>
+                                                <td>
+                                                    <input data-id="{{ $size->id }}" type="checkbox" class="size-enable" {{ $size->value ? 'checked' : null }}>
+                                                </td>
+                                                <td>
+                                                    <label class="form-check-label">{{ $size->title }}</label>
+                                                </td>
+                                                <td>
+                                                    <input data-id="{{ $size->id }}" type="number" name="sizes[{{ $size->id }}]"
+                                                        class="form-control size-qty" placeholder="Quantity" min="1" value="{{ $size->value ?? null }}" {{ $size->value ? null : 'disabled' }}>
+                                                </td>
+                                            </tr>
+                                            @endforeach
+                                        </table>
+                                        @error('sizes')
+                                        <div class="alert alert-danger mt-1">{{ $message }}</div>
+                                        @enderror
+                                    </div>
                                     <div class="card-footer text-right">
                                         <button class="btn btn-primary">Submit</button>
                                     </div>
@@ -240,5 +262,16 @@
 <script src="asset/backend/assets/bundles/select2/dist/js/select2.full.min.js"></script>
 <!-- Page Specific JS File -->
 <script src="asset/backend/assets/js/page/forms-advanced-forms.js"></script>
+<script>
+    $('document').ready(function () {
+        $('.size-enable').on('click', function () {
+            let id = $(this).attr('data-id')
+            let enabled = $(this).is(":checked")
+            $('.size-qty[data-id="' + id + '"]').attr('disabled', !enabled)
+            $('.size-qty[data-id="' + id + '"]').val(null)
+        })
+    });
+
+</script>
 @endpush
 

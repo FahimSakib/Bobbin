@@ -67,7 +67,7 @@ class TestController extends Controller
             'category_id'       => 'required',
             'status'            => 'required',
             'color_id'          => 'required',
-            'sizes'             => 'required'
+            'sizes'             => 'required',
         ]);
 
         $file =  $request->file('image1');
@@ -92,6 +92,7 @@ class TestController extends Controller
         $sizes = collect($request->input('sizes',[]))->map(function($size){
             return ['qty' => $size];
         });
+
         if ($test->save()) {
             $colors = $request->color_id;
 
@@ -117,7 +118,8 @@ class TestController extends Controller
             'title' => 'Test-Single-Show'
         ];
 
-        $test = Test::find($id);
+        $test = Test::with('sizes','colors','category')->find($id);
+        // dd($test);
 
         return view('backend.pages.tests.show', $data, compact('test'));
     }
@@ -134,7 +136,15 @@ class TestController extends Controller
             'title' => 'Test-Edit'
         ];
 
-        $test = Test::find($id);
+        $test = Test::with('sizes','colors','category')->find($id);
+
+        // $test->load('sizes');
+
+        $sizes = Size::get()->map(function($size) use ($test) {
+            $size->value = data_get($test->sizes->firstWhere('id', $size->id), 'pivot.qty') ?? null;
+            return $size;
+        });
+        // dd($test);
 
         $categories = Category::get();
 
@@ -142,7 +152,7 @@ class TestController extends Controller
 
         $colors = Color::get();
 
-        return view('backend.pages.tests.edit',$data, compact('categories','colors','test'));
+        return view('backend.pages.tests.edit',$data, compact('categories','colors','sizes','test'));
     }
 
     /**
@@ -165,8 +175,9 @@ class TestController extends Controller
             'image4'            => 'nullable|image|mimes:png,jpeg,jpg',
             'category_id'       => 'required',
             'status'            => 'required',
-            // 'size_id'           => 'required',
-            'color_id'          => 'required'
+            'color_id'          => 'required',
+            'sizes'             => 'required',
+            
         ]);
 
         $test = Test::find($id);
@@ -183,21 +194,24 @@ class TestController extends Controller
         $picture4 = $this->fileUpload($request->file('image4'),'image4');
         if(empty($picture4))$picture4 = $test->image4;
 
-        $test->fill($request->except('color_id'));
+        $test->fill($request->except('color_id','sizes'));
 
         $test->image1 = $picture1;
         $test->image2 = $picture2;
         $test->image3 = $picture3;
         $test->image4 = $picture4;
 
+        $sizes = collect($request->input('sizes',[]))->map(function($size){
+            return ['qty' => $size];
+        });
+
         $test->save();
 
         if ($test->save()) {
-            // $sizes = $request->size_id;
-            $colors = $request->color_id;
 
-            // $test->sizes()->sync($sizes);
+            $colors = $request->color_id;
             $test->colors()->sync($colors);
+            $test->sizes()->sync($sizes);
 
             return redirect()->route('admin.test.index')->with('success','Item Updated successfully');
         }
