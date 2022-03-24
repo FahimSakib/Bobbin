@@ -173,11 +173,14 @@
                                 </td>
                                 <td>
                                     <input data-id="{{ $size->id }}" type="number" name="sizes[{{ $size->id }}]"
-                                        class="form-control size-qty" placeholder="Quantity" disabled>
+                                        class="form-control size-qty" placeholder="Quantity" min="1" disabled>
                                 </td>
                             </tr>
                             @endforeach
                         </table>
+                        @error('sizes')
+                        <div class="alert alert-danger mt-1">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="card-footer text-right">
                         <button class="btn btn-primary">Submit</button>

@@ -66,7 +66,8 @@ class TestController extends Controller
             'image4'            => 'nullable|image|mimes:png,jpeg,jpg',
             'category_id'       => 'required',
             'status'            => 'required',
-            'color_id'          => 'required'
+            'color_id'          => 'required',
+            'sizes'             => 'required'
         ]);
 
         $file =  $request->file('image1');
