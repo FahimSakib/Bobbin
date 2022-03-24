@@ -81,21 +81,24 @@ class TestController extends Controller
         $file =  $request->file('image4');
         $uploadName4 = $this->fileUpload($file,'image4');
 
-        $test = new Test($request->except('color_id'));
+        $test = new Test($request->except('color_id','sizes'));
 
         $test->image1 = $uploadName1;
         $test->image2 = $uploadName2;
         $test->image3 = $uploadName3;
         $test->image4 = $uploadName4;
-        
 
-
+        $sizes = collect($request->input('sizes',[]))->map(function($size){
+            return ['qty' => $size];
+        });
         if ($test->save()) {
             $colors = $request->color_id;
 
             $test = Test::with('colors')->latest()->first();
             
             $test->colors()->sync($colors);
+
+            $test->sizes()->sync($sizes);
 
             return redirect()->route('admin.test.index')->with('success','Item added successfully');
         }
