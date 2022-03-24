@@ -14,10 +14,10 @@
                                     <div class="icon-class" style="font-size: 25px;">test Details</div>
                                 </div>
                             </div>
-                           
+
                             <div>
-                                <a class="btn btn-icon icon-left btn-success"
-                                    href="{{ route('admin.test.index') }}"><i class="fas fa-list-alt"></i>List of
+                                <a class="btn btn-icon icon-left btn-success" href="{{ route('admin.test.index') }}"><i
+                                        class="fas fa-list-alt"></i>List of
                                     tests</a>
                             </div>
                         </div>
@@ -59,23 +59,19 @@
                                                 <ul class="list-group list-group-horizontal">
                                                     <li class="list-group-item  border-0"><img
                                                             src="{{ asset('storage/test_image/'.$test->image1) }}"
-                                                            alt="{{ $test->image1 }}"
-                                                            style="height:80px;width:120px">
+                                                            alt="{{ $test->image1 }}" style="height:80px;width:120px">
                                                     </li>
                                                     <li class="list-group-item border-0"><img
                                                             src="{{ asset('storage/test_image/'.$test->image2) }}"
-                                                            alt="{{ $test->image2 }}"
-                                                            style="height:80px;width:120px">
+                                                            alt="{{ $test->image2 }}" style="height:80px;width:120px">
                                                     </li>
                                                     <li class="list-group-item border-0"><img
                                                             src="{{ asset('storage/test_image/'.$test->image3) }}"
-                                                            alt="{{ $test->image3 }}"
-                                                            style="height:80px;width:120px">
+                                                            alt="{{ $test->image3 }}" style="height:80px;width:120px">
                                                     </li>
                                                     <li class="list-group-item border-0"><img
                                                             src="{{ asset('storage/test_image/'.$test->image4) }}"
-                                                            alt="{{ $test->image4 }}"
-                                                            style="height:80px;width:120px">
+                                                            alt="{{ $test->image4 }}" style="height:80px;width:120px">
                                                     </li>
                                                 </ul>
                                             </td>
@@ -95,47 +91,22 @@
                                         <tr>
                                             <th>Available Sizes with Quantity</th>
                                             <td>
-                                                <ul class="list-group list-group-horizontal">
-
-                                                   
-
-                                                    <table class="table table-sm">
+                                                    <table class="table table-borderless table-sm">
                                                         <thead>
-                                                            <tr>
-
+                                                            <tr class="text-center">
                                                                 <th scope="col">Sizes</th>
                                                                 <th scope="col">Quantity</th>
-
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <tr>
-
-                                                                <th scope="row">S</th>
-                                                                <td>{{ $test->s_qty}}</td>
+                                                            @foreach ($test->sizes as $size)
+                                                            <tr class="text-center">
+                                                                <th scope="row">{{ $size->title }}</th>
+                                                                <td>{{ $size->pivot->qty }}<td>
                                                             </tr>
-                                                            <tr>
-
-                                                                <th scope="row">M</th>
-                                                                <td>{{ $test->m_qty}}</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th scope="row">L</th>
-                                                                <td>{{ $test->l_qty}}</td>
-                                                            </tr>
-                                                                <tr>
-                                                                <th scope="row">XL</th>
-                                                                <td>{{ $test->xl_qty}}</td>
-
-                                                            </tr>
-                                                                <tr>
-                                                                <th scope="row">XXL</th>
-                                                                <td>{{ $test->xxl_qty}}</td>
-
-                                                            </tr>
+                                                            @endforeach                                                        
                                                         </tbody>
                                                     </table>
-                                                </ul>
                                             </td>
                                         </tr>
                                         <tr>
