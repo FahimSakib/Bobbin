@@ -25,6 +25,7 @@ class CreateTestsTable extends Migration
             $table->string('image4')->nullable();
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories');
+            $table->integer('total_qty');
             $table->enum('status',['0','1'])->default('1')->comment="0=Inactive,1=Active";
             $table->timestamps();
         });

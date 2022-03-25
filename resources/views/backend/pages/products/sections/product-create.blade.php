@@ -96,10 +96,7 @@
                                     </div>
                                         <div class="form-group col-md-6">
                                         <label> Total Quantity </label>
-                                        <input class="form-control" id="total" type="text" readonly >
-                                       
-                                       
-                                      
+                                        <input class="form-control" id="total" type="text" readonly>
                                      </div>         
 
                                     <div class="form-group col-md-6">

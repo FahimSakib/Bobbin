@@ -148,7 +148,7 @@
                                             <label class="form-check-label"
                                                 for="inlineCheckbox{{ $size->id }}">{{ $size->title }}</label>
                                             <input data-id="{{ $size->id }}" type="number" name="sizes[{{ $size->id }}]"
-                                                class="form-control size-qty" placeholder="Quantity" min="1" disabled
+                                                class="form-control size-qty qty" placeholder="Quantity" onkeyup="calculateTotal('qty')" min="1" disabled
                                                 required>
                                         </div>
                                         @endforeach
@@ -157,6 +157,12 @@
                                     <div class="alert alert-danger mt-1">{{ $message }}</div>
                                     @enderror
                                 </div>
+
+                                <div class="form-group col-md-6">
+                                    <label> Total Quantity </label>
+                                    <input class="form-control" id="total" type="text" name="total_qty" readonly>
+                                 </div>         
+
                         </div>
                         <div class="card-footer text-right">
                             <button class="btn btn-primary">Submit</button>
@@ -193,21 +199,22 @@
     });
 
 </script>
-@endpush
+<script>
+    function calculateTotal(className) {
+        let total = 0;
+        let target_id = document.getElementById('total');
 
-{{-- <script>
-		function calculateTotal(className) {
-			let total = 0;
-			let target_id = document.getElementById('total');
+        if (className == "qty") {
 
-			if (className == "qty") {
-
-				$("." + className).each(function () {
-					total += parseFloat(Number($(this).val()));
-					{{-- console.log(total); --}}
+            $("." + className).each(function () {
+                total += parseFloat(Number($(this).val()));
+                {{-- console.log(total); --}}
 });
 
 target_id.value = total;
 }
 }
-</script> --}}
+</script>
+@endpush
+
+

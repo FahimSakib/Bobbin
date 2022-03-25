@@ -188,10 +188,10 @@
                                                     <label class="form-check-label"
                                                         for="inlineCheckbox{{ $size->id }}">{{ $size->title }}</label>
                                                     <input data-id="{{ $size->id }}" type="number"
-                                                        name="sizes[{{ $size->id }}]" class="form-control size-qty"
+                                                        name="sizes[{{ $size->id }}]" class="form-control size-qty qty"
                                                         placeholder="Quantity" min="1"
                                                         value="{{ $size->value ?? null }}"
-                                                        {{ $size->value ? null : 'disabled' }} required>
+                                                        {{ $size->value ? null : 'disabled' }} onkeyup="calculateTotal('qty')" required>
                                                 </div>
                                                 @endforeach
                                             </div>
@@ -199,6 +199,10 @@
                                             <div class="alert alert-danger mt-1">{{ $message }}</div>
                                             @enderror
                                         </div>
+                                        <div class="form-group col-md-6">
+                                            <label> Total Quantity </label>
+                                            <input class="form-control" id="total" type="text" name="total_qty" value="{{ $test->total_qty }}" readonly>
+                                         </div>   
                                     </div>
                                     <div class="card-footer text-right">
                                         <button class="btn btn-primary">Submit</button>
@@ -237,6 +241,21 @@
             $('.size-qty[data-id="' + id + '"]').val(null)
         })
     });
+</script>
+<script>
+    function calculateTotal(className) {
+        let total = 0;
+        let target_id = document.getElementById('total');
 
+        if (className == "qty") {
+
+            $("." + className).each(function () {
+                total += parseFloat(Number($(this).val()));
+                {{-- console.log(total); --}}
+});
+
+target_id.value = total;
+}
+}
 </script>
 @endpush

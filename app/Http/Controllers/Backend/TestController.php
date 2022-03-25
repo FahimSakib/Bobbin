@@ -68,6 +68,7 @@ class TestController extends Controller
             'status'            => 'required',
             'color_id'          => 'required',
             'sizes'             => 'required',
+            'total_qty'         => 'required|numeric'
         ]);
 
         $file =  $request->file('image1');
@@ -177,6 +178,7 @@ class TestController extends Controller
             'status'            => 'required',
             'color_id'          => 'required',
             'sizes'             => 'required',
+            'total_qty'         => 'required|numeric'
             
         ]);
 
