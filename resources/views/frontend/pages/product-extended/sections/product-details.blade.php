@@ -38,9 +38,6 @@
                                 data-zoom-image="{{ asset('storage/Product_image/'.$product->image1) }}">
                                 <img src="{{ asset('storage/Product_image/'.$product->image1) }}" alt="product side">
                             </a>
-
-
-
                         </div><!-- End .product-image-gallery -->
                     </div><!-- End .product-gallery -->
                 </div><!-- End .col-md-6 -->
@@ -64,7 +61,7 @@
                             <p align="justify">{{$product->short_description}}</p>
                         </div><!-- End .product-content -->
                         <div class="details-filter-row details-row-size">
-                            <label for="size">Colors:</label>
+                            <label for="color">Colors:</label>
                             <div class="select-custom">
                                 <select name="color" id="color" class="form-control">
                                     <option selected="selected">Select a color</option>
@@ -81,9 +78,9 @@
                                     <option selected="selected">Select a size</option>
                                     @foreach ($product->sizes as $size)
                                     @if ($size->pivot->qty != 0)
-                                    <option value="{{ $size->id }}" data-value="{{ $size->pivot->qty }}">{{ $size->title }}</option>
+                                    <option value="{{ $size->id }}" data-value="{{ $size->pivot->qty }}">
+                                        {{ $size->title }}</option>
                                     @endif
-
                                     @endforeach
                                 </select>
                             </div><!-- End .select-custom -->
@@ -168,5 +165,6 @@
                 });
             });
         });
+
     </script>
     @endpush
