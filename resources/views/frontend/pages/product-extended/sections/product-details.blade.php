@@ -81,7 +81,7 @@
                                     <option selected="selected">Select a size</option>
                                     @foreach ($product->sizes as $size)
                                     @if ($size->pivot->qty != 0)
-                                    <option value="{{ $size->pivot->qty }}">{{ $size->title }}</option>
+                                    <option value="{{ $size->id }}" data-value="{{ $size->pivot->qty }}">{{ $size->title }}</option>
                                     @endif
 
                                     @endforeach
@@ -162,12 +162,11 @@
     <script>
         $(document).ready(function () {
             $('#size').on('change', function () {
-                let max = this.value;
+                let max = $(this).find(':selected').data('value');
                 $("#qty").attr({
                     "max": max
                 });
             });
         });
-
     </script>
     @endpush
