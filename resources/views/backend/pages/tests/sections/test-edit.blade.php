@@ -14,8 +14,8 @@
                                 </div>
                             </div>
                             <div>
-                                <a class="btn btn-icon icon-left btn-success"
-                                    href="{{ route('admin.test.index') }}"><i class="fas fa-list-alt"></i>List of
+                                <a class="btn btn-icon icon-left btn-success" href="{{ route('admin.test.index') }}"><i
+                                        class="fas fa-list-alt"></i>List of
                                     tests</a>
                             </div>
                         </div>
@@ -46,20 +46,6 @@
                                             <div class="alert alert-danger mt-1">{{ $message }}</div>
                                             @enderror
                                         </div>
-
-
-
-                                     {{-- <div class="form-group col-md-6">
-                                        <label>Quantity of XL Size</label>
-                                        <input type="number" class="form-control @error('xl_qty') is-invalid @enderror qty"
-                                            name="xl_qty" onkeyup="calculateTotal('qty')"    value="{{old('xl_qty') ? old('xl_qty') : 0 }}">
-                                        @error('xl_qty')
-                                        <div class="alert alert-danger mt-1">{{ $message }}</div>
-                                        @enderror
-                                    </div> --}}
-
-
-
                                         <div class="form-group col-md-6">
                                             <label>Short Description</label>
                                             <input type="text"
@@ -171,26 +157,6 @@
                                             <div class="alert alert-danger mt-1">{{ $message }}</div>
                                             @enderror
                                         </div>
-                                        {{-- <div class="form-group col-md-6">
-                                            <label>Available Sizes</label>
-                                            <select class="form-control select2  @error('size_id') is-invalid @enderror"
-                                                multiple="" name="size_id[]">
-                                                @foreach ($sizes as $size)
-                                                <option value="{{ $size->id }}">{{ $size->title }}</option>
-                                                @endforeach
-                                            </select>
-                                            @error('size_id')
-                                            <div class="alert alert-danger mt-1">{{ $message }}</div>
-                                            @enderror
-                                            <div class="alert alert-light mt-2 dash-border">
-                                                <div class="alert-title">Selected sizes for current test</div>
-                                                <ul class="list-group list-group-horizontal">
-                                                    @foreach ($test->sizes as $size)
-                                                    <li class="list-group-item border-0">{{ $size->title }}</li>
-                                                    @endforeach
-                                                </ul>
-                                            </div>
-                                        </div> --}}
                                         <div class="form-group col-md-6">
                                             <label>Available Colors</label>
                                             <select class="form-control select2 @error('color_id') is-invalid @enderror"
@@ -211,28 +177,28 @@
                                                 </ul>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label class="required" for="sizes">Available Sizes</label>
-                                        <table>
-                                            @foreach ($sizes as $size)
-                                            <tr>
-                                                <td>
-                                                    <input data-id="{{ $size->id }}" type="checkbox" class="size-enable" {{ $size->value ? 'checked' : null }}>
-                                                </td>
-                                                <td>
-                                                    <label class="form-check-label">{{ $size->title }}</label>
-                                                </td>
-                                                <td>
-                                                    <input data-id="{{ $size->id }}" type="number" name="sizes[{{ $size->id }}]"
-                                                        class="form-control size-qty" placeholder="Quantity" min="1" value="{{ $size->value ?? null }}" {{ $size->value ? null : 'disabled' }}>
-                                                </td>
-                                            </tr>
-                                            @endforeach
-                                        </table>
-                                        @error('sizes')
-                                        <div class="alert alert-danger mt-1">{{ $message }}</div>
-                                        @enderror
+                                        <div class="form-group col-md-12">
+                                            <label class="required" for="sizes">Available Sizes</label>
+                                            <div>
+                                                @foreach ($sizes as $size)
+                                                <div class="form-check form-check-inline col-md-2">
+                                                    <input data-id="{{ $size->id }}" type="checkbox" class="size-enable"
+                                                        id="inlineCheckbox{{ $size->id }}"
+                                                        {{ $size->value ? 'checked' : null }}>
+                                                    <label class="form-check-label"
+                                                        for="inlineCheckbox{{ $size->id }}">{{ $size->title }}</label>
+                                                    <input data-id="{{ $size->id }}" type="number"
+                                                        name="sizes[{{ $size->id }}]" class="form-control size-qty"
+                                                        placeholder="Quantity" min="1"
+                                                        value="{{ $size->value ?? null }}"
+                                                        {{ $size->value ? null : 'disabled' }} required>
+                                                </div>
+                                                @endforeach
+                                            </div>
+                                            @error('sizes')
+                                            <div class="alert alert-danger mt-1">{{ $message }}</div>
+                                            @enderror
+                                        </div>
                                     </div>
                                     <div class="card-footer text-right">
                                         <button class="btn btn-primary">Submit</button>
@@ -274,4 +240,3 @@
 
 </script>
 @endpush
-

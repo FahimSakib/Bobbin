@@ -126,70 +126,46 @@
                                     <div class="alert alert-danger mt-1">{{ $message }}</div>
                                     @enderror
                                 </div>
-
-
-                                {{-- test --}}
-                                {{-- <div class="form-group col-md-6">
-                                        <label>Available Sizes</label>
-                                        <select class="form-control select2 @error('size_id') is-invalid @enderror"
-                                            multiple="" name="size_id[]">
-                                            @foreach ($sizes as $size)
-                                            <option value="{{  ?$size->id: }}">{{ $size->title }}</option>
-                                @endforeach
-                                </select>
-                                @error('size_id')
-                                <div class="alert alert-danger mt-1">{{ $message }}</div>
-                                @enderror
-                        </div> --}}
-
-
-
-                        {{-- test --}}
-
-
-                        <div class="form-group col-md-6">
-                            <label>Available Colors</label>
-                            <select class="form-control select2 @error('color_id') is-invalid @enderror" multiple=""
-                                name="color_id[]">
-                                @foreach ($colors as $color)
-                                <option value="{{ $color->id }}">{{ $color->title }}</option>
-                                @endforeach
-                            </select>
-                            @error('color_id')
-                            <div class="alert alert-danger mt-1">{{ $message }}</div>
-                            @enderror
+                                <div class="form-group col-md-6">
+                                    <label>Available Colors</label>
+                                    <select class="form-control select2 @error('color_id') is-invalid @enderror"
+                                        multiple="" name="color_id[]">
+                                        @foreach ($colors as $color)
+                                        <option value="{{ $color->id }}">{{ $color->title }}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('color_id')
+                                    <div class="alert alert-danger mt-1">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label class="required" for="sizes">Available Sizes</label>
+                                    <div>
+                                        @foreach ($sizes as $size)
+                                        <div class="form-check form-check-inline col-md-2">
+                                            <input data-id="{{ $size->id }}" type="checkbox" class="size-enable"
+                                                id="inlineCheckbox{{ $size->id }}">
+                                            <label class="form-check-label"
+                                                for="inlineCheckbox{{ $size->id }}">{{ $size->title }}</label>
+                                            <input data-id="{{ $size->id }}" type="number" name="sizes[{{ $size->id }}]"
+                                                class="form-control size-qty" placeholder="Quantity" min="1" disabled
+                                                required>
+                                        </div>
+                                        @endforeach
+                                    </div>
+                                    @error('sizes')
+                                    <div class="alert alert-danger mt-1">{{ $message }}</div>
+                                    @enderror
+                                </div>
                         </div>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label class="required" for="sizes">Available Sizes</label>
-                        <table>
-                            @foreach ($sizes as $size)
-                            <tr>
-                                <td>
-                                    <input data-id="{{ $size->id }}" type="checkbox" class="size-enable">
-                                </td>
-                                <td>
-                                    <label class="form-check-label">{{ $size->title }}</label>
-                                </td>
-                                <td>
-                                    <input data-id="{{ $size->id }}" type="number" name="sizes[{{ $size->id }}]"
-                                        class="form-control size-qty" placeholder="Quantity" min="1" disabled>
-                                </td>
-                            </tr>
-                            @endforeach
-                        </table>
-                        @error('sizes')
-                        <div class="alert alert-danger mt-1">{{ $message }}</div>
-                        @enderror
-                    </div>
-                    <div class="card-footer text-right">
-                        <button class="btn btn-primary">Submit</button>
+                        <div class="card-footer text-right">
+                            <button class="btn btn-primary">Submit</button>
+                        </div>
                     </div>
                 </div>
             </div>
+            </form>
         </div>
-        </form>
-</div>
 </div>
 </div>
 </div>
