@@ -46,68 +46,6 @@
                                             <div class="alert alert-danger mt-1">{{ $message }}</div>
                                             @enderror
                                         </div>
-                                        
-                                        <div class="form-group col-md-6">
-                                            <label>Quantity of S Size</label>
-                                            <input type="number" class="form-control @error('s_qty') is-invalid @enderror"
-                                                name="s_qty" value="{{$product->s_qty}}">
-                                            @error('s_qty')
-                                            <div class="alert alert-danger mt-1">{{ $message }}</div>
-                                            @enderror
-                                        </div>
-
-
-                                        <div class="form-group col-md-6">
-                                            <label>Quantity of M Size</label>
-                                            <input type="number" class="form-control @error('m_qty') is-invalid @enderror"
-                                                name="m_qty" value="{{$product->m_qty}}">
-                                            @error('m_qty')
-                                            <div class="alert alert-danger mt-1">{{ $message }}</div>
-                                            @enderror
-                                        </div>
-
-
-                                        <div class="form-group col-md-6">
-                                            <label>Quantity of L Size</label>
-                                            <input type="number" class="form-control @error('l_qty') is-invalid @enderror"
-                                                name="l_qty" value="{{$product->l_qty}}">
-                                            @error('l_qty')
-                                            <div class="alert alert-danger mt-1">{{ $message }}</div>
-                                            @enderror
-                                        </div>
-
-
-                                        <div class="form-group col-md-6">
-                                            <label>Quantity of XL Size</label>
-                                            <input type="number" class="form-control @error('xl_qty') is-invalid @enderror"
-                                                name="xl_qty" value="{{$product->xl_qty}}">
-                                            @error('xl_qty')
-                                            <div class="alert alert-danger mt-1">{{ $message }}</div>
-                                            @enderror
-                                        </div>
-
-
-                                        <div class="form-group col-md-6">
-                                            <label>Quantity of XXL Size</label>
-                                            <input type="number" class="form-control @error('xxl_qty') is-invalid @enderror"
-                                                name="xxl_qty" value="{{$product->xxl_qty}}">
-                                            @error('xxl_qty')
-                                            <div class="alert alert-danger mt-1">{{ $message }}</div>
-                                            @enderror
-                                        </div>
-
-
-                                     {{-- <div class="form-group col-md-6">
-                                        <label>Quantity of XL Size</label>
-                                        <input type="number" class="form-control @error('xl_qty') is-invalid @enderror qty"
-                                            name="xl_qty" onkeyup="calculateTotal('qty')"    value="{{old('xl_qty') ? old('xl_qty') : 0 }}">
-                                        @error('xl_qty')
-                                        <div class="alert alert-danger mt-1">{{ $message }}</div>
-                                        @enderror
-                                    </div> --}}
-
-
-
                                         <div class="form-group col-md-6">
                                             <label>Short Description</label>
                                             <input type="text"
@@ -219,26 +157,6 @@
                                             <div class="alert alert-danger mt-1">{{ $message }}</div>
                                             @enderror
                                         </div>
-                                        {{-- <div class="form-group col-md-6">
-                                            <label>Available Sizes</label>
-                                            <select class="form-control select2  @error('size_id') is-invalid @enderror"
-                                                multiple="" name="size_id[]">
-                                                @foreach ($sizes as $size)
-                                                <option value="{{ $size->id }}">{{ $size->title }}</option>
-                                                @endforeach
-                                            </select>
-                                            @error('size_id')
-                                            <div class="alert alert-danger mt-1">{{ $message }}</div>
-                                            @enderror
-                                            <div class="alert alert-light mt-2 dash-border">
-                                                <div class="alert-title">Selected sizes for current product</div>
-                                                <ul class="list-group list-group-horizontal">
-                                                    @foreach ($product->sizes as $size)
-                                                    <li class="list-group-item border-0">{{ $size->title }}</li>
-                                                    @endforeach
-                                                </ul>
-                                            </div>
-                                        </div> --}}
                                         <div class="form-group col-md-6">
                                             <label>Available Colors</label>
                                             <select class="form-control select2 @error('color_id') is-invalid @enderror"
@@ -259,6 +177,32 @@
                                                 </ul>
                                             </div>
                                         </div>
+                                        <div class="form-group col-md-12">
+                                            <label class="required" for="sizes">Available Sizes</label>
+                                            <div>
+                                                @foreach ($sizes as $size)
+                                                <div class="form-check form-check-inline col-md-2">
+                                                    <input data-id="{{ $size->id }}" type="checkbox" class="size-enable"
+                                                        id="inlineCheckbox{{ $size->id }}"
+                                                        {{ $size->value ? 'checked' : null }}>
+                                                    <label class="form-check-label"
+                                                        for="inlineCheckbox{{ $size->id }}">{{ $size->title }}</label>
+                                                    <input data-id="{{ $size->id }}" type="number"
+                                                        name="sizes[{{ $size->id }}]" class="form-control size-qty qty"
+                                                        placeholder="Quantity" min="1"
+                                                        value="{{ $size->value ?? null }}"
+                                                        {{ $size->value ? null : 'disabled' }} onkeyup="calculateTotal('qty')" required>
+                                                </div>
+                                                @endforeach
+                                            </div>
+                                            @error('sizes')
+                                            <div class="alert alert-danger mt-1">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label> Total Quantity </label>
+                                            <input class="form-control" id="total" type="text" name="total_qty" value="{{ $product->total_qty }}" readonly>
+                                        </div>   
                                     </div>
                                     <div class="card-footer text-right">
                                         <button class="btn btn-primary">Submit</button>
@@ -288,5 +232,36 @@
 <script src="asset/backend/assets/bundles/select2/dist/js/select2.full.min.js"></script>
 <!-- Page Specific JS File -->
 <script src="asset/backend/assets/js/page/forms-advanced-forms.js"></script>
+<script>
+    $('document').ready(function () {
+        $('.size-enable').on('click', function () {
+            let id = $(this).attr('data-id')
+            let enabled = $(this).is(":checked")
+            $('.size-qty[data-id="' + id + '"]').attr('disabled', !enabled)
+            $('.size-qty[data-id="' + id + '"]').val(null)
+        })
+    });
+
+</script>
+<script>
+    function calculateTotal(className) {
+        let total = 0;
+        let target_id = document.getElementById('total');
+
+        if (className == "qty") {
+
+            $("." + className).each(function () {
+                total += parseFloat(Number($(this).val())); {
+                    {
+                        // --console.log(total);
+                        // --
+                    }
+                }
+            });
+
+            target_id.value = total;
+        }
+    }
+</script>
 @endpush
 

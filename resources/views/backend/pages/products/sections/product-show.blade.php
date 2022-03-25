@@ -95,47 +95,22 @@
                                         <tr>
                                             <th>Available Sizes with Quantity</th>
                                             <td>
-                                                <ul class="list-group list-group-horizontal">
-
-                                                   
-
-                                                    <table class="table table-sm">
+                                                    <table class="table table-borderless table-sm">
                                                         <thead>
-                                                            <tr>
-
+                                                            <tr class="text-center">
                                                                 <th scope="col">Sizes</th>
                                                                 <th scope="col">Quantity</th>
-
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <tr>
-
-                                                                <th scope="row">S</th>
-                                                                <td>{{ $product->s_qty}}</td>
+                                                            @foreach ($product->sizes as $size)
+                                                            <tr class="text-center">
+                                                                <th scope="row">{{ $size->title }}</th>
+                                                                <td>{{ $size->pivot->qty }}<td>
                                                             </tr>
-                                                            <tr>
-
-                                                                <th scope="row">M</th>
-                                                                <td>{{ $product->m_qty}}</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th scope="row">L</th>
-                                                                <td>{{ $product->l_qty}}</td>
-                                                            </tr>
-                                                                <tr>
-                                                                <th scope="row">XL</th>
-                                                                <td>{{ $product->xl_qty}}</td>
-
-                                                            </tr>
-                                                                <tr>
-                                                                <th scope="row">XXL</th>
-                                                                <td>{{ $product->xxl_qty}}</td>
-
-                                                            </tr>
+                                                            @endforeach                                                        
                                                         </tbody>
                                                     </table>
-                                                </ul>
                                             </td>
                                         </tr>
                                         <tr>

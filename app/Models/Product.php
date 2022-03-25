@@ -21,7 +21,7 @@ class Product extends Model
     }
 
     public function sizes(){
-        return $this->belongsToMany(Size::class)->withTimestamps();
+        return $this->belongsToMany(Size::class)->withPivot(['qty'])->withTimestamps();
     }
 
     public function colors(){

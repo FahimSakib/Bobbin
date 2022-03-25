@@ -46,11 +46,8 @@ class SizeController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-               'title' => 'required',
-               'chest_width' => 'required',
-               'body_length' => 'required',
-               'sleeve_length' => 'required',
-               'status'      => 'required'
+               'title'  => 'required',
+               'status' => 'required'
 
         ]);
 
@@ -101,11 +98,8 @@ class SizeController extends Controller
     public function update(Request $request, Size $size)
     {
         $request->validate([
-            'title' => 'required',
-            'chest_width' => 'required',
-            'body_length' => 'required',
-            'sleeve_length' => 'required',
-            'status'      => 'required'
+            'title'  => 'required',
+            'status' => 'required'
 
      ]);
      $size->update($request->all());

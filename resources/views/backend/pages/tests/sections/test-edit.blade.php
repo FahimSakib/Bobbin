@@ -202,7 +202,7 @@
                                         <div class="form-group col-md-6">
                                             <label> Total Quantity </label>
                                             <input class="form-control" id="total" type="text" name="total_qty" value="{{ $test->total_qty }}" readonly>
-                                         </div>   
+                                        </div>   
                                     </div>
                                     <div class="card-footer text-right">
                                         <button class="btn btn-primary">Submit</button>

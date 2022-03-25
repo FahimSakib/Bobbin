@@ -95,7 +95,7 @@
                                             <td>
                                                 <ul>
                                                     @foreach ($product->sizes as $size)
-                                                    <li>{{ $size->title }}</li>
+                                                    <li>{{ $size->title }} ({{ $size->pivot->qty }})</li>
                                                     @endforeach
                                                 </ul>
                                             </td>

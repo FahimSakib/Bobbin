@@ -16,15 +16,10 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->float('price');
-            $table->integer('s_qty')->default(0);
-            $table->integer('m_qty')->default(0);
-            $table->integer('l_qty')->default(0);
-            $table->integer('xl_qty')->default(0);
-            $table->integer('xxl_qty')->default(0);
+            $table->float('price');            
             $table->integer('total_qty')->default(0);
-            $table->longText('short_description');
-            $table->longText('description');
+            $table->Text('short_description');
+            $table->Text('description');
             $table->string('image1');
             $table->string('image2');
             $table->string('image3');

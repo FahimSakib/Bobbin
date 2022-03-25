@@ -157,7 +157,6 @@
                                     <div class="alert alert-danger mt-1">{{ $message }}</div>
                                     @enderror
                                 </div>
-
                                 <div class="form-group col-md-6">
                                     <label> Total Quantity </label>
                                     <input class="form-control" id="total" type="text" name="total_qty" readonly>
