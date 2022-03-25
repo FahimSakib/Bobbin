@@ -64,7 +64,7 @@
                             <p>{{$product->short_description}} </p>
                         </div><!-- End .product-content -->
 
-                        <div class="details-filter-row details-row-size">
+                        {{-- <div class="details-filter-row details-row-size">
                             <label>Color:</label>
 
                             <div class="product-nav product-nav-dots">
@@ -74,17 +74,30 @@
                                 <a href="#" style="background: #3a588b;"><span class="sr-only">Color name</span></a>
                                 <a href="#" style="background: #caab97;"><span class="sr-only">Color name</span></a>
                             </div><!-- End .product-nav -->
-                        </div><!-- End .details-filter-row -->
+                        </div><!-- End .details-filter-row --> --}}
 
+                        <div class="details-filter-row details-row-size">
+                            <label for="size">Colors:</label>
+                            <div class="select-custom">
+                                <select name="size" id="size" class="form-control">
+                                    <option selected="selected">Select a color</option>
+                                    @foreach ($product->colors as $color)
+                                    <option value="{{ $color->id }}">{{ $color->title }}</option>
+                                    @endforeach
+                                </select>
+                            </div><!-- End .select-custom -->
+                        </div><!-- End .details-filter-row -->
                         <div class="details-filter-row details-row-size">
                             <label for="size">Size:</label>
                             <div class="select-custom">
                                 <select name="size" id="size" class="form-control">
-                                    <option value="#" selected="selected">Select a size</option>
-                                    <option value="s">Small</option>
-                                    <option value="m">Medium</option>
-                                    <option value="l">Large</option>
-                                    <option value="xl">Extra Large</option>
+                                    <option selected="selected">Select a size</option>
+                                    @foreach ($product->sizes as $size)
+                                    @if ($size->pivot->qty != 0)
+                                    <option value="{{ $size->id }}">{{ $size->title }}</option>
+                                    @endif
+                                    
+                                    @endforeach
                                 </select>
                             </div><!-- End .select-custom -->
 
