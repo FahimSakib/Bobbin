@@ -1,5 +1,6 @@
 @php
-$categories = App\Models\Category::all()
+$categories = App\Models\Category::all();
+$carts = Gloudemans\Shoppingcart\Facades\Cart::content();
 @endphp
 <header class="header header-6">
     <div class="header-top">
@@ -91,21 +92,22 @@ $categories = App\Models\Category::all()
                     <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false" data-display="static">
                         <i class="icon-shopping-cart"></i>
-                        <span class="cart-count">2</span>
-                        <span class="cart-txt">$ 164,00</span>
+                        <span class="cart-count">{{ \Gloudemans\Shoppingcart\Facades\Cart::content()->count()}}</span>
+                        {{-- <span class="cart-txt">$ 164,00</span> --}}
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right">
                         <div class="dropdown-cart-products">
-                            <div class="product">
+                           @foreach ($carts as $cart )
+                                  <div class="product">
                                 <div class="product-cart-details">
                                     <h4 class="product-title">
-                                        <a href="product.html">Beige knitted elastic runner shoes</a>
+                                        <a href="product.html">{{$cart->name}}</a>
                                     </h4>
 
                                     <span class="cart-product-info">
-                                        <span class="cart-product-qty">1</span>
-                                        x $84.00
+                                        <span class="cart-product-qty">{{$cart->qty}}</span>
+                                        X  ৳ {{$cart->price}}
                                     </span>
                                 </div><!-- End .product-cart-details -->
 
@@ -117,27 +119,10 @@ $categories = App\Models\Category::all()
                                 </figure>
                                 <a href="#" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>
                             </div><!-- End .product -->
+                           @endforeach
+                         
 
-                            <div class="product">
-                                <div class="product-cart-details">
-                                    <h4 class="product-title">
-                                        <a href="product.html">Blue utility pinafore denim dress</a>
-                                    </h4>
-
-                                    <span class="cart-product-info">
-                                        <span class="cart-product-qty">1</span>
-                                        x $76.00
-                                    </span>
-                                </div><!-- End .product-cart-details -->
-
-                                <figure class="product-image-container">
-                                    <a href="product.html" class="product-image">
-                                        <img src="asset/frontend/assets/images/products/cart/product-2.jpg"
-                                            alt="product">
-                                    </a>
-                                </figure>
-                                <a href="#" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>
-                            </div><!-- End .product -->
+                           
                         </div><!-- End .cart-product -->
 
                         <div class="dropdown-cart-total">
@@ -147,7 +132,7 @@ $categories = App\Models\Category::all()
                         </div><!-- End .dropdown-cart-total -->
 
                         <div class="dropdown-cart-action">
-                            <a href="cart.html" class="btn btn-primary">View Cart</a>
+                            <a href="{{route('cart')}}" class="btn btn-primary">View Cart</a>
                             <a href="checkout.html" class="btn btn-outline-primary-2"><span>Checkout</span><i
                                     class="icon-long-arrow-right"></i></a>
                         </div><!-- End .dropdown-cart-total -->

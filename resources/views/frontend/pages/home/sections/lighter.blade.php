@@ -228,7 +228,7 @@ $random_4 = App\Models\Product::with('category')->where('status','1')->inRandomO
                             </div><!-- End .product-action-vertical -->
 
                             <div class="product-action">
-                                <a href="#" class="btn-product btn-cart"><span>add to cart</span></a>
+                                <a href="{{route('product-extended',$item->id)}}" class="btn-product btn-cart"><span>add to cart</span></a>
                             </div><!-- End .product-action -->
                         </figure><!-- End .product-media -->
 
