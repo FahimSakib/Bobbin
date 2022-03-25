@@ -61,7 +61,7 @@
                         </div><!-- End .product-price -->
 
                         <div class="product-content">
-                            <p>{{$product->short_description}} </p>
+                            <p align="justify">{{$product->short_description}}</p>
                         </div><!-- End .product-content -->
                         <div class="details-filter-row details-row-size">
                             <label for="size">Colors:</label>
