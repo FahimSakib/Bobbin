@@ -63,23 +63,10 @@
                         <div class="product-content">
                             <p>{{$product->short_description}} </p>
                         </div><!-- End .product-content -->
-
-                        {{-- <div class="details-filter-row details-row-size">
-                            <label>Color:</label>
-
-                            <div class="product-nav product-nav-dots">
-                                <a href="#" class="active" style="background: #eab656;"><span class="sr-only">Color
-                                        name</span></a>
-                                <a href="#" style="background: #333333;"><span class="sr-only">Color name</span></a>
-                                <a href="#" style="background: #3a588b;"><span class="sr-only">Color name</span></a>
-                                <a href="#" style="background: #caab97;"><span class="sr-only">Color name</span></a>
-                            </div><!-- End .product-nav -->
-                        </div><!-- End .details-filter-row --> --}}
-
                         <div class="details-filter-row details-row-size">
                             <label for="size">Colors:</label>
                             <div class="select-custom">
-                                <select name="size" id="size" class="form-control">
+                                <select name="color" id="color" class="form-control">
                                     <option selected="selected">Select a color</option>
                                     @foreach ($product->colors as $color)
                                     <option value="{{ $color->id }}">{{ $color->title }}</option>
@@ -94,9 +81,9 @@
                                     <option selected="selected">Select a size</option>
                                     @foreach ($product->sizes as $size)
                                     @if ($size->pivot->qty != 0)
-                                    <option value="{{ $size->id }}">{{ $size->title }}</option>
+                                    <option value="{{ $size->pivot->qty }}">{{ $size->title }}</option>
                                     @endif
-                                    
+
                                     @endforeach
                                 </select>
                             </div><!-- End .select-custom -->
@@ -107,23 +94,18 @@
                         {{-- add to cart --}}
                         <form action="{{route('cart.store')}}" method="POST">
                             @csrf
-                            <input type="hidden" name ="product_id" value ="{{$product->id}}">
+                            <input type="hidden" name="product_id" value="{{$product->id}}">
                             <div class="details-filter-row details-row-size">
                                 <label for="qty">Qty:</label>
                                 <div class="product-details-quantity">
                                     <input type="number" name="quantity" id="qty" class="form-control" value="1" min="1"
-                                        max="{{$product->total_qty}}" step="1" data-decimals="0" required>
+                                        step="1" data-decimals="0" onkeydown="return false" required>
                                 </div><!-- End .product-details-quantity -->
                             </div><!-- End .details-filter-row -->
 
                             <div class="product-details-action">
-                                <button  type="submit" class="btn-product btn-cart"><span>add to cart </span></button>
-
-                               
-
+                                <button type="submit" class="btn-product btn-cart"><span>add to cart </span></button>
                         </form>
-                   
-
                         <div class="details-action-wrapper">
                             <a href="#" class="btn-product btn-wishlist" title="Wishlist"><span>Add to
                                     Wishlist</span></a>
@@ -176,3 +158,16 @@
             </li>
         </ul>
     </div><!-- End .container -->
+    @push('scripts')
+    <script>
+        $(document).ready(function () {
+            $('#size').on('change', function () {
+                let max = this.value;
+                $("#qty").attr({
+                    "max": max
+                });
+            });
+        });
+
+    </script>
+    @endpush
