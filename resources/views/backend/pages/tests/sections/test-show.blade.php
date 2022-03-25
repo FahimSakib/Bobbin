@@ -11,14 +11,14 @@
                                     <div class="icon-preview" style="margin-top: 2px;">
                                         <i class="fas fa-info-circle"></i>
                                     </div>
-                                    <div class="icon-class" style="font-size: 25px;">Product Details</div>
+                                    <div class="icon-class" style="font-size: 25px;">test Details</div>
                                 </div>
                             </div>
-                           
+
                             <div>
-                                <a class="btn btn-icon icon-left btn-success"
-                                    href="{{ route('admin.product.index') }}"><i class="fas fa-list-alt"></i>List of
-                                    products</a>
+                                <a class="btn btn-icon icon-left btn-success" href="{{ route('admin.test.index') }}"><i
+                                        class="fas fa-list-alt"></i>List of
+                                    tests</a>
                             </div>
                         </div>
                         <div class="card-body">
@@ -31,62 +31,58 @@
                                         </tr>
                                         <tr>
                                             <th>ID</th>
-                                            <td>{{ $product->id }}</td>
+                                            <td>{{ $test->id }}</td>
                                         </tr>
                                         <tr>
-                                            <th>Product Name</th>
-                                            <td>{{ $product->name }}</td>
+                                            <th>test Name</th>
+                                            <td>{{ $test->name }}</td>
                                         </tr>
                                         <tr>
                                             <th>Price</th>
-                                            <td>{{ $product->price }}</td>
+                                            <td>{{ $test->price }}</td>
                                         </tr>
                                         <tr>
                                             <th>Quantity</th>
-                                            <td>{{ $product->total_qty }}</td>
+                                            <td>{{ $test->total_qty }}</td>
                                         </tr>
                                         <tr>
                                             <th>Short Description</th>
-                                            <td>{{ $product->short_description }}</td>
+                                            <td>{{ $test->short_description }}</td>
                                         </tr>
                                         <tr>
                                             <th>Description</th>
-                                            <td>{{ $product->description }}</td>
+                                            <td>{{ $test->description }}</td>
                                         </tr>
                                         <tr>
                                             <th>Images</th>
                                             <td>
                                                 <ul class="list-group list-group-horizontal">
                                                     <li class="list-group-item  border-0"><img
-                                                            src="{{ asset('storage/Product_image/'.$product->image1) }}"
-                                                            alt="{{ $product->image1 }}"
-                                                            style="height:80px;width:120px">
+                                                            src="{{ asset('storage/test_image/'.$test->image1) }}"
+                                                            alt="{{ $test->image1 }}" style="height:80px;width:120px">
                                                     </li>
                                                     <li class="list-group-item border-0"><img
-                                                            src="{{ asset('storage/Product_image/'.$product->image2) }}"
-                                                            alt="{{ $product->image2 }}"
-                                                            style="height:80px;width:120px">
+                                                            src="{{ asset('storage/test_image/'.$test->image2) }}"
+                                                            alt="{{ $test->image2 }}" style="height:80px;width:120px">
                                                     </li>
                                                     <li class="list-group-item border-0"><img
-                                                            src="{{ asset('storage/Product_image/'.$product->image3) }}"
-                                                            alt="{{ $product->image3 }}"
-                                                            style="height:80px;width:120px">
+                                                            src="{{ asset('storage/test_image/'.$test->image3) }}"
+                                                            alt="{{ $test->image3 }}" style="height:80px;width:120px">
                                                     </li>
                                                     <li class="list-group-item border-0"><img
-                                                            src="{{ asset('storage/Product_image/'.$product->image4) }}"
-                                                            alt="{{ $product->image4 }}"
-                                                            style="height:80px;width:120px">
+                                                            src="{{ asset('storage/test_image/'.$test->image4) }}"
+                                                            alt="{{ $test->image4 }}" style="height:80px;width:120px">
                                                     </li>
                                                 </ul>
                                             </td>
                                         </tr>
                                         <tr>
                                             <th>Category</th>
-                                            <td>{{ $product->category->title }}</td>
+                                            <td>{{ $test->category->title }}</td>
                                         </tr>
                                         <tr>
                                             <th>Status</th>
-                                            @if($product->status=='1')
+                                            @if($test->status=='1')
                                             <td>Active</td>
                                             @else
                                             <td>Deactive</td>
@@ -103,7 +99,7 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            @foreach ($product->sizes as $size)
+                                                            @foreach ($test->sizes as $size)
                                                             <tr class="text-center">
                                                                 <th scope="row">{{ $size->title }}</th>
                                                                 <td>{{ $size->pivot->qty }}<td>
@@ -117,7 +113,7 @@
                                             <th>Available Colors</th>
                                             <td>
                                                 <ul class="list-group list-group-horizontal">
-                                                    @foreach ($product->colors as $color)
+                                                    @foreach ($test->colors as $color)
                                                     <li class="list-group-item border-0">{{ $color->title }}</li>
                                                     @endforeach
                                                 </ul>
@@ -125,12 +121,12 @@
                                         </tr>
                                         <tr>
                                             <th>Created at</th>
-                                            <td>{!! date('d - M - Y - h : i : s A', strtotime($product->created_at)) !!}
+                                            <td>{!! date('d - M - Y - h : i : s A', strtotime($test->created_at)) !!}
                                             </td>
                                         </tr>
                                         <tr>
                                             <th>Updated at</th>
-                                            <td>{!! date('d - M - Y - h : i : s A', strtotime($product->updated_at)) !!}
+                                            <td>{!! date('d - M - Y - h : i : s A', strtotime($test->updated_at)) !!}
                                             </td>
                                         </tr>
                                     </tbody>

@@ -11,13 +11,13 @@
                                     <div class="icon-preview" style="margin-top: 2px;">
                                         <i class="fas fa-table"></i>
                                     </div>
-                                    <div class="icon-class" style="font-size: 25px;">Index of Products</div>
+                                    <div class="icon-class" style="font-size: 25px;">Index of tests</div>
                                 </div>
                             </div>
                             <div class="pull-right">
                                 <a class="btn btn-icon icon-left btn-warning"
-                                    href="{{ route('admin.product.create') }}"><i class="fas fa-plus-circle"></i>Create
-                                    An product</a>
+                                    href="{{ route('admin.test.create') }}"><i class="fas fa-plus-circle"></i>Create
+                                    An test</a>
                             </div>
                         </div>
                         <div class="card-body">
@@ -41,7 +41,7 @@
                                 </div>
                             </div>
                             @endif
-                            @if (!$products->isEmpty())
+                            @if (!$tests->isEmpty())
                             <div class="table-responsive">
                                 <table class="table table-striped" id="table-1">
                                     <thead>
@@ -49,7 +49,7 @@
                                             <th class="text-center">
                                                 #
                                             </th>
-                                            <th>Product Name</th>
+                                            <th>test Name</th>
                                             <th>Price</th>
                                             <th>Quantity</th>
                                             <th>Image(1)</th>
@@ -64,42 +64,42 @@
                                         @php
                                         $i = 1;
                                         @endphp
-                                        @foreach ($products as $product)
+                                        @foreach ($tests as $test)
                                         <tr>
                                             <td class="text-center">
                                                 {{$i++}}
                                             </td>
                                             <td>
-                                                {{ $product->name }}
+                                                {{ $test->name }}
                                             </td>
                                             <td>
-                                                {{ $product->price }}
+                                                {{ $test->price }}
                                             </td>
                                             <td>
-                                                {{ $product->total_qty }}
+                                                {{ $test->total_qty }}
                                             </td>
                                             <td>
-                                                <img src="{{ asset('storage/Product_image/'.$product->image1) }}"
-                                                    alt="{{ $product->image1 }}" style="height:50px;width:65px">
+                                                <img src="{{ asset('storage/test_image/'.$test->image1) }}"
+                                                    alt="{{ $test->image1 }}" style="height:50px;width:65px">
                                             </td>
                                             <td>
-                                                {{ $product->category->title }}
+                                                {{ $test->category->title }}
                                             </td>
                                             <td>
                                                 <ul>
-                                                    @foreach ($product->colors as $color)
+                                                    @foreach ($test->colors as $color)
                                                     <li>{{ $color->title }}</li>
                                                     @endforeach
                                                 </ul>
                                             </td>
                                             <td>
                                                 <ul>
-                                                    @foreach ($product->sizes as $size)
+                                                    @foreach ($test->sizes as $size)
                                                     <li>{{ $size->title }} ({{ $size->pivot->qty }})</li>
                                                     @endforeach
                                                 </ul>
                                             </td>
-                                            @if($product->status =='1')
+                                            @if($test->status =='1')
                                             <td>
                                                 <span class="badge badge-success">Active</span>
                                             </td>
@@ -117,14 +117,14 @@
                                                     </button>
                                                     <div class="dropdown-menu">
                                                         <a class="dropdown-item has-icon"
-                                                            href="{{ route('admin.product.show',$product->id) }}"><i
+                                                            href="{{ route('admin.test.show',$test->id) }}"><i
                                                                 class="far fa-eye"></i> View</a>
                                                         <a class="dropdown-item has-icon"
-                                                            href="{{ route('admin.product.edit',$product->id) }}"><i
+                                                            href="{{ route('admin.test.edit',$test->id) }}"><i
                                                                 class="far fa-edit"></i> Edit</a>
                                                         <div class="del ml-4">
                                                             <form
-                                                                action="{{ route('admin.product.destroy',$product->id) }}"
+                                                                action="{{ route('admin.test.destroy',$test->id) }}"
                                                                 method="POST">
                                                                 @csrf
                                                                 @method('DELETE')
@@ -157,7 +157,7 @@
                                             <h3>Info</h3>
                                         </div>
                                         <h5>
-                                            There is no product available! please create a new product to show in the
+                                            There is no test available! please create a new test to show in the
                                             list.
                                         </h5>
                                     </div>

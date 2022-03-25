@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Models\Product;
+use App\Models\Test;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Color;
 use App\Models\Size;
 
-class ProductController extends Controller
+class TestController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,11 +19,11 @@ class ProductController extends Controller
     public function index()
     {
         $data = [
-            'title' => 'Product-Index'
+            'title' => 'Test-Index'
         ];
-        $products = Product::with('sizes','colors','category')->get();
+        $tests = Test::with('sizes','colors','category')->get();
 
-        return view('backend.pages.products.index',$data, compact('products'));
+        return view('backend.pages.tests.index',$data, compact('tests'));
     }
 
     /**
@@ -34,7 +34,7 @@ class ProductController extends Controller
     public function create()
     {
         $data = [
-            'title' => 'Product-Create'
+            'title' => 'Test-Create'
         ];
 
         $categories = Category::get();
@@ -43,7 +43,7 @@ class ProductController extends Controller
 
         $colors = Color::get();
 
-        return view('backend.pages.products.create',$data, compact('categories','sizes','colors'));
+        return view('backend.pages.tests.create',$data, compact('categories','sizes','colors'));
     }
 
     /**
@@ -60,10 +60,10 @@ class ProductController extends Controller
             'price'             => 'required|numeric',
             'short_description' => 'required',
             'description'       => 'required',
-            'image1'            => 'required|image|mimes:png,jpeg,jpg',
-            'image2'            => 'required|image|mimes:png,jpeg,jpg',
-            'image3'            => 'required|image|mimes:png,jpeg,jpg',
-            'image4'            => 'required|image|mimes:png,jpeg,jpg',
+            'image1'            => 'nullable|image|mimes:png,jpeg,jpg',
+            'image2'            => 'nullable|image|mimes:png,jpeg,jpg',
+            'image3'            => 'nullable|image|mimes:png,jpeg,jpg',
+            'image4'            => 'nullable|image|mimes:png,jpeg,jpg',
             'category_id'       => 'required',
             'status'            => 'required',
             'color_id'          => 'required',
@@ -83,27 +83,27 @@ class ProductController extends Controller
         $file =  $request->file('image4');
         $uploadName4 = $this->fileUpload($file,'image4');
 
-        $product = new Product($request->except('color_id','sizes'));
+        $test = new Test($request->except('color_id','sizes'));
 
-        $product->image1 = $uploadName1;
-        $product->image2 = $uploadName2;
-        $product->image3 = $uploadName3;
-        $product->image4 = $uploadName4;
+        $test->image1 = $uploadName1;
+        $test->image2 = $uploadName2;
+        $test->image3 = $uploadName3;
+        $test->image4 = $uploadName4;
 
         $sizes = collect($request->input('sizes',[]))->map(function($size){
             return ['qty' => $size];
         });
 
-        if ($product->save()) {
+        if ($test->save()) {
             $colors = $request->color_id;
 
-            $product = Product::with('colors')->latest()->first();
+            $test = Test::with('colors')->latest()->first();
+            
+            $test->colors()->sync($colors);
 
-            $product->colors()->sync($colors);
+            $test->sizes()->sync($sizes);
 
-            $product->sizes()->sync($sizes);
-
-            return redirect()->route('admin.product.index')->with('success','Item added successfully');
+            return redirect()->route('admin.test.index')->with('success','Item added successfully');
         }
     }
 
@@ -116,12 +116,13 @@ class ProductController extends Controller
     public function show($id)
     {
         $data = [
-            'title' => 'Product-Single-Show'
+            'title' => 'Test-Single-Show'
         ];
 
-        $product = Product::with('sizes','colors','category')->find($id);
+        $test = Test::with('sizes','colors','category')->find($id);
+        // dd($test);
 
-        return view('backend.pages.products.show', $data, compact('product'));
+        return view('backend.pages.tests.show', $data, compact('test'));
     }
 
     /**
@@ -133,23 +134,26 @@ class ProductController extends Controller
     public function edit($id)
     {
         $data = [
-            'title' => 'Product-Edit'
+            'title' => 'Test-Edit'
         ];
 
-        $product = Product::with('sizes','colors','category')->find($id);
+        $test = Test::with('sizes','colors','category')->find($id);
 
-        $sizes = Size::get()->map(function($size) use ($product) {
-            $size->value = data_get($product->sizes->firstWhere('id', $size->id), 'pivot.qty') ?? null;
+        // $test->load('sizes');
+
+        $sizes = Size::get()->map(function($size) use ($test) {
+            $size->value = data_get($test->sizes->firstWhere('id', $size->id), 'pivot.qty') ?? null;
             return $size;
         });
-
-        
+        // dd($test);
 
         $categories = Category::get();
 
+        // $sizes = Size::get();
+
         $colors = Color::get();
 
-        return view('backend.pages.products.edit',$data, compact('categories','colors','product','sizes'));
+        return view('backend.pages.tests.edit',$data, compact('categories','colors','sizes','test'));
     }
 
     /**
@@ -175,42 +179,43 @@ class ProductController extends Controller
             'color_id'          => 'required',
             'sizes'             => 'required',
             'total_qty'         => 'required|numeric'
+            
         ]);
 
-        $product = Product::find($id);
+        $test = Test::find($id);
 
         $picture1 = $this->fileUpload($request->file('image1'),'image1');
-        if(empty($picture1))$picture1 = $product->image1;
+        if(empty($picture1))$picture1 = $test->image1;
 
         $picture2 = $this->fileUpload($request->file('image2'),'image2');
-        if(empty($picture2))$picture2 = $product->image2;
+        if(empty($picture2))$picture2 = $test->image2;
 
         $picture3 = $this->fileUpload($request->file('image3'),'image3');
-        if(empty($picture3))$picture3 = $product->image3;
+        if(empty($picture3))$picture3 = $test->image3;
 
         $picture4 = $this->fileUpload($request->file('image4'),'image4');
-        if(empty($picture4))$picture4 = $product->image4;
+        if(empty($picture4))$picture4 = $test->image4;
 
-        $product->fill($request->except('color_id','sizes'));
+        $test->fill($request->except('color_id','sizes'));
 
-        $product->image1 = $picture1;
-        $product->image2 = $picture2;
-        $product->image3 = $picture3;
-        $product->image4 = $picture4;
+        $test->image1 = $picture1;
+        $test->image2 = $picture2;
+        $test->image3 = $picture3;
+        $test->image4 = $picture4;
 
         $sizes = collect($request->input('sizes',[]))->map(function($size){
             return ['qty' => $size];
         });
 
-        $product->save();
+        $test->save();
 
-        if ($product->save()) {
+        if ($test->save()) {
 
             $colors = $request->color_id;
-            $product->colors()->sync($colors);
-            $product->sizes()->sync($sizes);
+            $test->colors()->sync($colors);
+            $test->sizes()->sync($sizes);
 
-            return redirect()->route('admin.product.index')->with('success','Item Updated successfully');
+            return redirect()->route('admin.test.index')->with('success','Item Updated successfully');
         }
     }
 
@@ -222,19 +227,19 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        Product::find($id)->delete();
+        Test::find($id)->delete();
 
-        return redirect()->route('admin.product.index')->with('danger','An item has been deleted');
+        return redirect()->route('admin.test.index')->with('danger','An item has been deleted');
     }
 
     private function fileUpload($file, $name){
-        $prefix='Product_'.time().'_';
+        $prefix='Test_'.time().'_';
         $picture='';
         if(!empty($file)){
             $name=$name.'_img.';
             $fileext = $file->getClientOriginalExtension();
             $picture = $prefix.$name.$fileext;
-            $path = $file->storeAs('public/Product_Image',$picture);
+            $path = $file->storeAs('public/Test_Image',$picture);
         }
         return $picture;
     }

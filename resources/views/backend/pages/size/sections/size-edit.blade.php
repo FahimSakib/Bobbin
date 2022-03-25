@@ -35,36 +35,6 @@
                                         @enderror
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="inputChestWidth">Chest Width</label>
-                                        <input class="form-control @error('chest_width') is-invalid @enderror"
-                                            id="inputChestWidth" name="chest_width" value="{{$size->chest_width}}"
-                                            type="text" placeholder="Enter Size's chest_width" />
-
-                                        @error('chest_width')
-                                        <div class="alert alert-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="inputBodyLength">Body length</label>
-                                        <input class="form-control @error('body_length') is-invalid @enderror"
-                                            id="inputBodyLength" name="body_length" value="{{$size->body_length}}"
-                                            type="text" placeholder="Enter Size's body_length" />
-
-                                        @error('body_length')
-                                        <div class="alert alert-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="inputSleeveLength">Sleeve length</label>
-                                        <input class="form-control @error('sleeve_length') is-invalid @enderror"
-                                            id="inputSleeveLength" name="sleeve_length" value="{{$size->sleeve_length}}"
-                                            type="text" placeholder="Enter Size's sleeve_length" />
-
-                                        @error('sleeve_length')
-                                        <div class="alert alert-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                    <div class="form-group col-md-6">
                                         <label for="status">Status</label>
                                         <select class="form-control select2 @error('status') is-invalid @enderror"
                                             name="status" value="{{$size->status}}" id="status" ">

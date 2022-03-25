@@ -10,29 +10,29 @@
                                     <div class="icon-preview" style="margin-top: 2px;">
                                         <i class="fas fa-edit"></i>
                                     </div>
-                                    <div class="icon-class" style="font-size: 25px;">Edit a Product</div>
+                                    <div class="icon-class" style="font-size: 25px;">Edit a test</div>
                                 </div>
                             </div>
                             <div>
-                                <a class="btn btn-icon icon-left btn-success"
-                                    href="{{ route('admin.product.index') }}"><i class="fas fa-list-alt"></i>List of
-                                    products</a>
+                                <a class="btn btn-icon icon-left btn-success" href="{{ route('admin.test.index') }}"><i
+                                        class="fas fa-list-alt"></i>List of
+                                    tests</a>
                             </div>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('admin.product.update',$product->id) }}" method="POST"
+                            <form action="{{ route('admin.test.update',$test->id) }}" method="POST"
                                 enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
 
-                                <form action="{{ route('admin.product.store') }}" method="POST"
+                                <form action="{{ route('admin.test.store') }}" method="POST"
                                     enctype="multipart/form-data">
                                     @csrf
                                     <div class="row">
                                         <div class="form-group col-md-6">
                                             <label>Name</label>
                                             <input type="text" class="form-control @error('name') is-invalid @enderror"
-                                                name="name" value="{{$product->name}}">
+                                                name="name" value="{{$test->name}}">
                                             @error('name')
                                             <div class="alert alert-danger mt-1">{{ $message }}</div>
                                             @enderror
@@ -41,7 +41,7 @@
                                             <label>Price</label>
                                             <input type="number"
                                                 class="form-control @error('price') is-invalid @enderror" name="price"
-                                                value="{{$product->price}}">
+                                                value="{{$test->price}}">
                                             @error('price')
                                             <div class="alert alert-danger mt-1">{{ $message }}</div>
                                             @enderror
@@ -50,7 +50,7 @@
                                             <label>Short Description</label>
                                             <input type="text"
                                                 class="form-control @error('short_description') is-invalid @enderror"
-                                                name="short_description" value="{{$product->short_description}}">
+                                                name="short_description" value="{{$test->short_description}}">
                                             @error('short_description')
                                             <div class="alert alert-danger mt-1">{{ $message }}</div>
                                             @enderror
@@ -58,7 +58,7 @@
                                         <div class="form-group col-md-12 mb-4">
                                             <label>Description</label>
                                             <textarea class="form-control @error('description') is-invalid @enderror"
-                                                name="description">{{$product->description}}</textarea>
+                                                name="description">{{$test->description}}</textarea>
                                             @error('description')
                                             <div class="alert alert-danger mt-1">{{ $message }}</div>
                                             @enderror
@@ -103,26 +103,26 @@
                                             <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
                                             <div class="alert-body">
                                                 <div class="alert-title">Info</div>
-                                                If you want to change or update the images of the current product, then
+                                                If you want to change or update the images of the current test, then
                                                 upload the new ones; <br> otherwise, keep the image field blank. See the
-                                                gallery for current product images.
+                                                gallery for current test images.
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="gallery mt-3">
                                                     <div class="gallery-item"
-                                                        data-image="{{ asset('storage/Product_image/'.$product->image1) }}"
+                                                        data-image="{{ asset('storage/test_image/'.$test->image1) }}"
                                                         data-title="Image 1">
                                                     </div>
                                                     <div class="gallery-item"
-                                                        data-image="{{ asset('storage/Product_image/'.$product->image2) }}"
+                                                        data-image="{{ asset('storage/test_image/'.$test->image2) }}"
                                                         data-title="Image 2">
                                                     </div>
                                                     <div class="gallery-item"
-                                                        data-image="{{ asset('storage/Product_image/'.$product->image3) }}"
+                                                        data-image="{{ asset('storage/test_image/'.$test->image3) }}"
                                                         data-title="Image 3">
                                                     </div>
                                                     <div class="gallery-item"
-                                                        data-image="{{ asset('storage/Product_image/'.$product->image4) }}"
+                                                        data-image="{{ asset('storage/test_image/'.$test->image4) }}"
                                                         data-title="Image 4">
                                                     </div>
                                                 </div>
@@ -131,11 +131,11 @@
                                         <div class="form-group col-md-6">
                                             <label>Category</label>
                                             <select class="form-control @error('category_id') is-invalid @enderror"
-                                                name="category_id" value="{{$product->category_id}}">
+                                                name="category_id" value="{{$test->category_id}}">
                                                 <option value="">Select Please</option>
                                                 @foreach ($categories as $category)
                                                 <option value="{{ $category->id }}" @if ($category->id ==
-                                                    $product->category_id)
+                                                    $test->category_id)
                                                     selected @endif>{{ $category->title }}</option>
                                                 @endforeach
                                             </select>
@@ -148,9 +148,9 @@
                                             <select class="form-control select2 @error('status') is-invalid @enderror"
                                                 name="status" id="status">
                                                 <option value="">Select Please</option>
-                                                <option value="1" @if ($product->status == 1) selected @endif>Active
+                                                <option value="1" @if ($test->status == 1) selected @endif>Active
                                                 </option>
-                                                <option value="0" @if ($product->status == 0) selected @endif>Deactive
+                                                <option value="0" @if ($test->status == 0) selected @endif>Deactive
                                                 </option>
                                             </select>
                                             @error('status')
@@ -169,9 +169,9 @@
                                             <div class="alert alert-danger mt-1">{{ $message }}</div>
                                             @enderror
                                             <div class="alert alert-light mt-2 dash-border">
-                                                <div class="alert-title">Selected colors for current product</div>
+                                                <div class="alert-title">Selected colors for current test</div>
                                                 <ul class="list-group list-group-horizontal">
-                                                    @foreach ($product->colors as $color)
+                                                    @foreach ($test->colors as $color)
                                                     <li class="list-group-item border-0">{{ $color->title }}</li>
                                                     @endforeach
                                                 </ul>
@@ -201,7 +201,7 @@
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label> Total Quantity </label>
-                                            <input class="form-control" id="total" type="text" name="total_qty" value="{{ $product->total_qty }}" readonly>
+                                            <input class="form-control" id="total" type="text" name="total_qty" value="{{ $test->total_qty }}" readonly>
                                         </div>   
                                     </div>
                                     <div class="card-footer text-right">
@@ -241,7 +241,6 @@
             $('.size-qty[data-id="' + id + '"]').val(null)
         })
     });
-
 </script>
 <script>
     function calculateTotal(className) {
@@ -251,17 +250,12 @@
         if (className == "qty") {
 
             $("." + className).each(function () {
-                total += parseFloat(Number($(this).val())); {
-                    {
-                        // --console.log(total);
-                        // --
-                    }
-                }
-            });
+                total += parseFloat(Number($(this).val()));
+                {{-- console.log(total); --}}
+});
 
-            target_id.value = total;
-        }
-    }
+target_id.value = total;
+}
+}
 </script>
 @endpush
-

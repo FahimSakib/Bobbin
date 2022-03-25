@@ -16,10 +16,7 @@ class CreateSizesTable extends Migration
         Schema::create('sizes', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->enum('status',['0','1'])->default('1')->comment="0=Inactive,1=Active"; 
-            $table->Integer('chest_width');
-            $table->Integer('body_length');
-            $table->Integer('sleeve_length');
+            $table->enum('status',['0','1'])->default('1')->comment="0=Inactive,1=Active";
             $table->timestamps();
         });
     }

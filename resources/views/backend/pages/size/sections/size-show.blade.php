@@ -37,18 +37,6 @@
                                             <td>{{ $size->title }}</td>
                                         </tr>
                                         <tr>
-                                            <th>Chest Width</th>
-                                            <td>{{ $size->chest_width }}</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Body Length</th>
-                                            <td>{{ $size->body_length }}</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Sleeve length</th>
-                                            <td>{{ $size->sleeve_length}}</td>
-                                        </tr>
-                                        <tr>
                                             <th>Status</th>
 
                                             @if($size->status=='1')

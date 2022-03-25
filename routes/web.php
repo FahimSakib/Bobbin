@@ -55,6 +55,7 @@ Route::get('products','Frontend\ProductsController@index')->name('products');
     Route::resource('size', 'Backend\SizeController');
     Route::resource('category', 'Backend\CategoryController');
     Route::resource('slider', 'Backend\SliderController');
+    Route::resource('test', 'Backend\TestController');
 });
 
 
