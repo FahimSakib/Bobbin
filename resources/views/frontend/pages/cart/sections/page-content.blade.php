@@ -1,3 +1,7 @@
+@php
+use App\Models\Size;
+$carts = Gloudemans\Shoppingcart\Facades\Cart::content();
+@endphp
 <div class="page-content">
     <div class="cart">
         <div class="container">
@@ -8,6 +12,8 @@
                             <tr>
                                 <th>Product</th>
                                 <th>Price</th>
+                                <th>Size</th>
+                                <th>Color</th>
                                 <th>Quantity</th>
                                 <th>Total</th>
                                 <th></th>
@@ -25,7 +31,7 @@
                                     <div class="product">
                                         <figure class="product-media">
                                             <a href="#">
-                                                <img src="asset/frontend/assets/images/products/table/product-1.jpg"
+                                                <img src="{{$cart->options->image1}}"
                                                     alt="Product image">
                                             </a>
                                         </figure>
@@ -36,6 +42,14 @@
                                     </div><!-- End .product -->
                                 </td>
                                 <td class="price-col">{{$cart->price}}</td>
+                               {{-- <td class="price-col">{{$cart->weight}}</td> --}}
+                                @php
+                                 $result = DB::Table('sizes')->select('title')->where('id',$cart->weight)->get();  
+                                 
+
+                                @endphp
+                                 <td class="price-col">{{$result}}</td>
+                                <td class="price-col">{{$cart->options->color}}</td>
                                 <td class="quantity-col">
                                     <div class="cart-product-quantity">
                                         <input type="number" class="form-control" value={{$cart->qty}} min="1" max="100"

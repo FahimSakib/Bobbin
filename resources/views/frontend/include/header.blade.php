@@ -104,6 +104,7 @@ $carts = Gloudemans\Shoppingcart\Facades\Cart::content();
                                     <h4 class="product-title">
                                         <a href="product.html">{{$cart->name}}</a>
                                     </h4>
+                                   
 
                                     <span class="cart-product-info">
                                         <span class="cart-product-qty">{{$cart->qty}}</span>
@@ -113,7 +114,7 @@ $carts = Gloudemans\Shoppingcart\Facades\Cart::content();
 
                                 <figure class="product-image-container">
                                     <a href="product.html" class="product-image">
-                                        <img src="asset/frontend/assets/images/products/cart/product-1.jpg"
+                                        <img src="{{$cart->options->image}}"
                                             alt="product">
                                     </a>
                                 </figure>

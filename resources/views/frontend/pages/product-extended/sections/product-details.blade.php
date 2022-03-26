@@ -60,37 +60,41 @@
                         <div class="product-content">
                             <p align="justify">{{$product->short_description}}</p>
                         </div><!-- End .product-content -->
-                        <div class="details-filter-row details-row-size">
-                            <label for="color">Colors:</label>
-                            <div class="select-custom">
-                                <select name="color" id="color" class="form-control">
-                                    <option selected="selected">Select a color</option>
-                                    @foreach ($product->colors as $color)
-                                    <option value="{{ $color->id }}">{{ $color->title }}</option>
-                                    @endforeach
-                                </select>
-                            </div><!-- End .select-custom -->
-                        </div><!-- End .details-filter-row -->
-                        <div class="details-filter-row details-row-size">
-                            <label for="size">Size:</label>
-                            <div class="select-custom">
-                                <select name="size" id="size" class="form-control">
-                                    <option selected="selected">Select a size</option>
-                                    @foreach ($product->sizes as $size)
-                                    @if ($size->pivot->qty != 0)
-                                    <option value="{{ $size->id }}" data-value="{{ $size->pivot->qty }}">
-                                        {{ $size->title }}</option>
-                                    @endif
-                                    @endforeach
-                                </select>
-                            </div><!-- End .select-custom -->
-
-                            <a href="#" class="size-guide"><i class="icon-th-list"></i>size guide</a>
-                        </div><!-- End .details-filter-row -->
-
-                        {{-- add to cart --}}
                         <form action="{{route('cart.store')}}" method="POST">
                             @csrf
+                            <div class="details-filter-row details-row-size">
+                                <label for="color">Colors:</label>
+                                <div class="select-custom">
+                                    <select name="color" id="color" class="form-control">
+                                        <option selected="selected">Select a color</option>
+                                        @foreach ($product->colors as $color)
+                                        <option value="{{ $color->id }}">{{ $color->title }}</option>
+                                        @endforeach
+                                    </select>
+                                </div><!-- End .select-custom -->
+                            </div><!-- End .details-filter-row -->
+                            <div class="details-filter-row details-row-size">
+                                <label for="size">Size:</label>
+                                <div class="select-custom">
+                                    <select name="size" id="size" class="form-control">
+                                        <option selected="selected">Select a size</option>
+                                        @foreach ($product->sizes as $size)
+                                        @if ($size->pivot->qty != 0)
+                                        <option value="{{ $size->id }}" data-value="{{ $size->pivot->qty }}">
+                                            {{ $size->title }}</option>
+                                        @endif
+                                        @endforeach
+                                    </select>
+                                </div><!-- End .select-custom -->
+
+                                <a href="#" class="size-guide"><i class="icon-th-list"></i>size guide</a>
+                            </div><!-- End .details-filter-row -->
+
+                            {{-- add to cart --}}
+                            {{-- <form action="{{route('cart.store')}}" method="POST">
+                            @csrf --}}
+                            {{-- <input type="hidden" name="color" value="{{document.getElementsId("color")}}">
+                            <input type="hidden" name="size" value="{{document.getElementsById("size")}}"> --}}
                             <input type="hidden" name="product_id" value="{{$product->id}}">
                             <div class="details-filter-row details-row-size">
                                 <label for="qty">Qty:</label>

@@ -9,7 +9,7 @@ class Size extends Model
 {
     use HasFactory;
     protected $fillable =['title','status'];
-
+    protected $primaryKey = 'id';
     public function products(){
         return $this->belongsToMany(Product::class)->withTimestamps();
     }
