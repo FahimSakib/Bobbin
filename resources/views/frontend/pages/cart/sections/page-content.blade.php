@@ -1,5 +1,5 @@
 @php
-use App\Models\Size;
+
 $carts = Gloudemans\Shoppingcart\Facades\Cart::content();
 @endphp
 <div class="page-content">
@@ -16,6 +16,7 @@ $carts = Gloudemans\Shoppingcart\Facades\Cart::content();
                                 <th>Color</th>
                                 <th>Quantity</th>
                                 <th>Total</th>
+                                <th>Remove</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -24,44 +25,49 @@ $carts = Gloudemans\Shoppingcart\Facades\Cart::content();
                             @foreach ($carts as $cart)
                             @php
                             $tp=0;
+                           
 
                             @endphp
                             <tr>
                                 <td class="product-col">
                                     <div class="product">
                                         <figure class="product-media">
-                                            <a href="#">
-                                                <img src="{{$cart->options->image1}}"
+                                            <a href="{{route('product-extended',$cart->id)}}">
+                                                <img src="{{ asset('storage/Product_image/'.$cart->options->image)}}"
                                                     alt="Product image">
                                             </a>
                                         </figure>
 
                                         <h3 class="product-title">
-                                            <a href="#">{{$cart->name}}</a>
+                                            <a href="{{route('product-extended',$cart->id)}}">{{$cart->name}}</a>
                                         </h3><!-- End .product-title -->
                                     </div><!-- End .product -->
                                 </td>
                                 <td class="price-col">{{$cart->price}}</td>
                                {{-- <td class="price-col">{{$cart->weight}}</td> --}}
                                 @php
-                                 $result = DB::Table('sizes')->select('title')->where('id',$cart->weight)->get();  
+                                
                                  
-
+                                 
+                                     $size = App\Models\Size::find($cart->options->size);
+                                     $color = App\Models\Color::find($cart->options->color);
+                                     
                                 @endphp
-                                 <td class="price-col">{{$result}}</td>
-                                <td class="price-col">{{$cart->options->color}}</td>
-                                <td class="quantity-col">
-                                    <div class="cart-product-quantity">
+                                 <td class="price-col">{{$size->title}}</td>
+                                <td class="price-col">{{$color->title}}</td>
+                                <td class="quantity-col">{{$cart->qty}}</td>
+                                {{-- <td class="quantity-col">
+                                    <div class="cart-product">
                                         <input type="number" class="form-control" value={{$cart->qty}} min="1" max="100"
-                                            step="1" data-decimals="0" required>
+                                            step="1" data-decimals="0" required readonly>
                                     </div><!-- End .cart-product-quantity -->
-                                </td>
+                                </td> --}}
                                 @php
                                 $tp=$cart->price*$cart->qty;
 
                                 @endphp
                                 <td class="total-col">{{$tp}}</td>
-                                <td class="remove-col"><button class="btn-remove"><i class="icon-close"></i></button>
+                                {{-- <td class="remove-col"><button onclick="{{Cart::remove($cart->rowId)}}" class="btn-remove"><i class="icon-close"></i></button> --}}
                                 </td>
                             </tr>
                             @endforeach
@@ -95,9 +101,9 @@ $carts = Gloudemans\Shoppingcart\Facades\Cart::content();
                             <tbody>
                                 <tr class="summary-subtotal">
                                     <td>Subtotal:</td>
-                                    <td>$160.00</td>
+                                    <td><?php echo Cart::subtotal(); ?></td>
                                 </tr><!-- End .summary-subtotal -->
-                                <tr class="summary-shipping">
+                                {{-- <tr class="summary-shipping">
                                     <td>Shipping:</td>
                                     <td>&nbsp;</td>
                                 </tr>
@@ -135,7 +141,7 @@ $carts = Gloudemans\Shoppingcart\Facades\Cart::content();
                                         </div><!-- End .custom-control -->
                                     </td>
                                     <td>$20.00</td>
-                                </tr><!-- End .summary-shipping-row -->
+                                </tr><!-- End .summary-shipping-row --> --}}
 
                                 <tr class="summary-shipping-estimate">
                                     <td>Estimate for Your Country<br> <a href="dashboard.html">Change address</a></td>

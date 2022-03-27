@@ -114,7 +114,7 @@ $carts = Gloudemans\Shoppingcart\Facades\Cart::content();
 
                                 <figure class="product-image-container">
                                     <a href="product.html" class="product-image">
-                                        <img src="{{$cart->options->image}}"
+                                        <img src="{{ asset('storage/Product_image/'.$cart->options->image)}}"
                                             alt="product">
                                     </a>
                                 </figure>
@@ -129,7 +129,7 @@ $carts = Gloudemans\Shoppingcart\Facades\Cart::content();
                         <div class="dropdown-cart-total">
                             <span>Total</span>
 
-                            <span class="cart-total-price">$160.00</span>
+                            <span class="cart-total-price"><?php echo Cart::subtotal(); ?></span>
                         </div><!-- End .dropdown-cart-total -->
 
                         <div class="dropdown-cart-action">

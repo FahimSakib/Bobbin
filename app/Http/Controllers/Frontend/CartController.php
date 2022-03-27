@@ -24,9 +24,15 @@ class CartController extends Controller
         $product = Product::findOrFail($request->input('product_id'));
         $size = $request->input('size');
         $color = $request->input('color');
-        $carts = Cart::add($product->id, $product->name, $request->input('quantity'), $product->price,$size,['color' => $color,'image' => $product->image1]);
+        $carts = Cart::add($product->id, $product->name, $request->input('quantity'), $product->price,'0',['color' => $color,'size' => $size ,'image' =>$product->image1]);
    
         return back()->with('success','Item Added successfully');
 
     }
+    // public function remove(Request  $rowId){
+         
+    //     $rmv = Cart::remove($rowId);
+    //     return back()->with('success','Item Added successfully');
+
+    // }
 }
