@@ -51,7 +51,7 @@ $carts = Gloudemans\Shoppingcart\Facades\Cart::content();
                                  
                                      $size = App\Models\Size::find($cart->options->size);
                                      $color = App\Models\Color::find($cart->options->color);
-                                     
+                                   
                                 @endphp
                                  <td class="price-col">{{$size->title}}</td>
                                 <td class="price-col">{{$color->title}}</td>
@@ -67,8 +67,12 @@ $carts = Gloudemans\Shoppingcart\Facades\Cart::content();
 
                                 @endphp
                                 <td class="total-col">{{$tp}}</td>
-                                {{-- <td class="remove-col"><button onclick="{{Cart::remove($cart->rowId)}}" class="btn-remove"><i class="icon-close"></i></button> --}}
+                                <form action="{{route('cart.remove')}}" method="POST">
+                                @csrf
+                                  <input hidden name="rowId" value="{{$cart->rowId}}">
+                                <td class="remove-col"><button type="submit" class="btn-remove"><i class="icon-close"></i></button>
                                 </td>
+                                </form>
                             </tr>
                             @endforeach
 
@@ -76,7 +80,7 @@ $carts = Gloudemans\Shoppingcart\Facades\Cart::content();
                         </tbody>
                     </table><!-- End .table table-wishlist -->
 
-                    <div class="cart-bottom">
+                    {{-- <div class="cart-bottom">
                         <div class="cart-discount">
                             <form action="#">
                                 <div class="input-group">
@@ -91,7 +95,7 @@ $carts = Gloudemans\Shoppingcart\Facades\Cart::content();
 
                         <a href="#" class="btn btn-outline-dark-2"><span>UPDATE CART</span><i
                                 class="icon-refresh"></i></a>
-                    </div><!-- End .cart-bottom -->
+                    </div><!-- End .cart-bottom --> --}}
                 </div><!-- End .col-lg-9 -->
                 <aside class="col-lg-3">
                     <div class="summary summary-cart">
@@ -150,7 +154,7 @@ $carts = Gloudemans\Shoppingcart\Facades\Cart::content();
 
                                 <tr class="summary-total">
                                     <td>Total:</td>
-                                    <td>$160.00</td>
+                                    <td><?php echo Cart::subtotal(); ?></td>
                                 </tr><!-- End .summary-total -->
                             </tbody>
                         </table><!-- End .table table-summary -->

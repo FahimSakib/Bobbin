@@ -118,7 +118,14 @@ $carts = Gloudemans\Shoppingcart\Facades\Cart::content();
                                             alt="product">
                                     </a>
                                 </figure>
-                                <a href="#" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>
+                               <form action="{{route('cart.remove')}}" method="POST">
+                                @csrf
+                                  <input hidden name="rowId" value="{{$cart->rowId}}">
+                                <a class="btn-remove" title="Remove Product"><button type="submit"><i class="icon-close"></i></button>
+                                </a>
+                                </form>
+                               
+                                {{-- <a href="#" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a> --}}
                             </div><!-- End .product -->
                            @endforeach
                          

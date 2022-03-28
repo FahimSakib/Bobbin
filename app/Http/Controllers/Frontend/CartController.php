@@ -29,10 +29,10 @@ class CartController extends Controller
         return back()->with('success','Item Added successfully');
 
     }
-    // public function remove(Request  $rowId){
+    public function remove(Request  $request){
          
-    //     $rmv = Cart::remove($rowId);
-    //     return back()->with('success','Item Added successfully');
+        $rmv = Cart::remove($request->rowId);
+        return back()->with('success','Item Added successfully');
 
-    // }
+    }
 }

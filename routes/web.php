@@ -23,7 +23,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::get('home','Frontend\HomeController@index')->name('home');
-Route::post('/','Frontend\CartController@store')->name('cart.store');
+Route::post('cart-store','Frontend\CartController@store')->name('cart.store');
+Route::post('cart-remove','Frontend\CartController@remove')->name('cart.remove');
 
 Route::get('wishlist','Frontend\WishlistController@index');
 Route::get('contact','Frontend\ContactController@index');
