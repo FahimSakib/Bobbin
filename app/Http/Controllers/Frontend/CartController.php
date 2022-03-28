@@ -22,8 +22,16 @@ class CartController extends Controller
     public function store(Request $request){
          
         $product = Product::findOrFail($request->input('product_id'));
-        Cart::add($product->id, $product->name, $request->input('quantity'), $product->price);
+        $size = $request->input('size');
+        $color = $request->input('color');
+        $carts = Cart::add($product->id, $product->name, $request->input('quantity'), $product->price,'0',['color' => $color,'size' => $size ,'image' =>$product->image1]);
+   
+        return back()->with('success','Item Added successfully');
 
+    }
+    public function remove(Request  $request){
+         
+        $rmv = Cart::remove($request->rowId);
         return back()->with('success','Item Added successfully');
 
     }

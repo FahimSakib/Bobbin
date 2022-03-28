@@ -104,6 +104,7 @@ $carts = Gloudemans\Shoppingcart\Facades\Cart::content();
                                     <h4 class="product-title">
                                         <a href="product.html">{{$cart->name}}</a>
                                     </h4>
+                                   
 
                                     <span class="cart-product-info">
                                         <span class="cart-product-qty">{{$cart->qty}}</span>
@@ -113,11 +114,18 @@ $carts = Gloudemans\Shoppingcart\Facades\Cart::content();
 
                                 <figure class="product-image-container">
                                     <a href="product.html" class="product-image">
-                                        <img src="asset/frontend/assets/images/products/cart/product-1.jpg"
+                                        <img src="{{ asset('storage/Product_image/'.$cart->options->image)}}"
                                             alt="product">
                                     </a>
                                 </figure>
-                                <a href="#" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>
+                               <form action="{{route('cart.remove')}}" method="POST">
+                                @csrf
+                                  <input hidden name="rowId" value="{{$cart->rowId}}">
+                                <a class="btn-remove" title="Remove Product"><button type="submit"><i class="icon-close"></i></button>
+                                </a>
+                                </form>
+                               
+                                {{-- <a href="#" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a> --}}
                             </div><!-- End .product -->
                            @endforeach
                          
@@ -128,7 +136,7 @@ $carts = Gloudemans\Shoppingcart\Facades\Cart::content();
                         <div class="dropdown-cart-total">
                             <span>Total</span>
 
-                            <span class="cart-total-price">$160.00</span>
+                            <span class="cart-total-price"><?php echo Cart::subtotal(); ?></span>
                         </div><!-- End .dropdown-cart-total -->
 
                         <div class="dropdown-cart-action">
