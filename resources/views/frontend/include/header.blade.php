@@ -34,18 +34,18 @@ use Illuminate\Support\Facades\Auth;
                         <ul>
 
 
-                            @if (auth()->guest()) 
+                            @if (auth()->guest())
                             <li><a href="#signin-modal" data-toggle="modal"><i class="icon-user"></i>Login</a>
                             </li>
                             @else
-                           <form action="{{ route('logout') }}" method="post">
-       @csrf
-       <button type="submit">Logout</button>
-</form>
-                            
+                            <form action="{{ route('logout') }}" method="post">
+                                @csrf
+                                <button type="submit">Logout</button>
+                            </form>
+
                             @endif
-                           
-                            
+
+
 
                         </ul>
                     </li>
@@ -173,13 +173,13 @@ use Illuminate\Support\Facades\Auth;
                         <li class="{{ (request()->is('home')) ? 'active' : '' }}">
                             <a href="{{ route('home') }}">Home</a>
 
-                          
+
                         </li>
-                      
+
                         <li class="{{ (request()->is('products')) ? 'active' : '' }}">
                             <a href="{{ route('products') }}">Products</a>
 
-                           
+
                         </li>
                         <li class="{{ (request()->is('category/*')) ? 'active' : '' }}">
                             <a href="javascript:void(0)" class="sf-with-ul">Categories</a>
@@ -187,18 +187,18 @@ use Illuminate\Support\Facades\Auth;
                             <ul>
                                 @foreach ($categories as $category)
                                 @if (count($category->products)!=0)
-                                 <li><a href="{{ route('category',$category->id) }}">{{ $category->title }}</a></li>
-                           
+                                <li><a href="{{ route('category',$category->id) }}">{{ $category->title }}</a></li>
+
                                 @endif
-             
-                               
+
+
                                 @endforeach
                             </ul>
                         </li>
                         <li class="{{ (request()->is('blog')) ? 'active' : '' }}">
                             <a href="{{ route('blog') }}">Blog</a>
 
-                          
+
                         </li>
 
                     </ul><!-- End .menu -->

@@ -6,7 +6,6 @@
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true"><i class="icon-close"></i></span>
                   </button>
-
                   <div class="form-box">
                       <div class="form-tab">
                           <ul class="nav nav-pills nav-fill nav-border-anim" role="tablist">
@@ -24,93 +23,72 @@
                                   aria-labelledby="signin-tab">
                                   <form method="POST" action="{{ route('login') }}">
                                       @csrf
+                                      <div class="form-group">
+                                          <label for="email" value="{{ __('Email') }}">Email address *</label>
+                                          <input type="text" class="form-control" id="email" type="email" name="email"
+                                              :value="old('email')" required autofocus>
+                                      </div><!-- End .form-group -->
 
-                                      <div>
-                                          <x-jet-label for="email" value="{{ __('Email') }}" />
-                                          <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email"
-                                              :value="old('email')" required autofocus />
-                                      </div>
+                                      <div class="form-group">
+                                          <label for="password" value="{{ __('Password') }}">Password *</label>
+                                          <input type="password" id="password" class="form-control" name="password"
+                                              required autocomplete="current-password">
+                                      </div><!-- End .form-group -->
+                                      <div class="form-footer">
 
-                                      <div class="mt-4">
-                                          <x-jet-label for="password" value="{{ __('Password') }}" />
-                                          <x-jet-input id="password" class="block mt-1 w-full" type="password"
-                                              name="password" required autocomplete="current-password" />
-                                      </div>
+                                          <div class="custom-control custom-checkbox">
+                                              <input type="checkbox" class="custom-control-input" id="signin-remember"
+                                                  name="remember">
+                                              <label class="custom-control-label"
+                                                  for="signin-remember">{{ __('Remember me') }}</label>
+                                          </div><!-- End .custom-checkbox -->
 
-                                      <div class="block mt-4">
-                                          <label for="remember_me" class="flex items-center">
-                                              <x-jet-checkbox id="remember_me" name="remember" />
-                                              <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-                                          </label>
-                                      </div>
-
-                                      <div class="flex items-center justify-end mt-4">
                                           @if (Route::has('password.request'))
-                                          <a class="underline text-sm text-gray-600 hover:text-gray-900"
-                                              href="{{ route('password.request') }}">
+                                          <a class=" forgot-link" href="{{ route('password.request') }}">
                                               {{ __('Forgot your password?') }}
                                           </a>
                                           @endif
-
-                                          <x-jet-button class="ml-4">
-                                              {{ __('Log in') }}
-                                          </x-jet-button>
-                                      </div>
+                                          <button type="submit" class="btn btn-outline-primary-2">
+                                              <span> {{ __('Log in') }}</span>
+                                              <i class="icon-long-arrow-right"></i>
+                                          </button>
+                                      </div><!-- End .form-footer -->
                                   </form>
-                                  <div class="form-choice">
-                                      <p class="text-center">or sign in with</p>
-                                      <div class="row">
-                                          <div class="col-sm-6">
-                                              <a href="#" class="btn btn-login btn-g">
-                                                  <i class="icon-google"></i>
-                                                  Login With Google
-                                              </a>
-                                          </div><!-- End .col-6 -->
-                                          <div class="col-sm-6">
-                                              <a href="#" class="btn btn-login btn-f">
-                                                  <i class="icon-facebook-f"></i>
-                                                  Login With Facebook
-                                              </a>
-                                          </div><!-- End .col-6 -->
-                                      </div><!-- End .row -->
-                                  </div><!-- End .form-choice -->
                               </div><!-- .End .tab-pane -->
                               <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
                                   <form method="POST" action="{{ route('register') }}">
                                       @csrf
-
-                                      <div>
-                                          <x-jet-label for="name" value="{{ __('Name') }}" />
-                                          <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name"
-                                              :value="old('name')" required autofocus autocomplete="name" />
-                                      </div>
-
-                                      <div class="mt-4">
-                                          <x-jet-label for="email" value="{{ __('Email') }}" />
-                                          <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email"
-                                              :value="old('email')" required />
-                                      </div>
-
-                                      <div class="mt-4">
-                                          <x-jet-label for="password" value="{{ __('Password') }}" />
-                                          <x-jet-input id="password" class="block mt-1 w-full" type="password"
-                                              name="password" required autocomplete="new-password" />
-                                      </div>
-
-                                      <div class="mt-4">
-                                          <x-jet-label for="password_confirmation"
-                                              value="{{ __('Confirm Password') }}" />
-                                          <x-jet-input id="password_confirmation" class="block mt-1 w-full"
+                                      {{-- FOR NAME --}}
+                                      <div class="form-group">
+                                          <label for="register-name" value="{{ __('Name') }}">Your Name *</label>
+                                          <input type="text" class="form-control" id="ragister-name" name="name"
+                                              :value="old('name')" required autofocus autocomplete="name">
+                                      </div><!-- End .form-group -->
+                                      {{-- FOR Email --}}
+                                      <div class="form-group">
+                                          <label for="email" value="{{ __('Email') }}">Your Email *</label>
+                                          <input type="email" class="form-control" id="ragister-email" name="email"
+                                              :value="old('email')" required>
+                                      </div><!-- End .form-group -->
+                                      {{-- FOR Password --}}
+                                      <div class="form-group">
+                                          <label for="password" value="{{ __('Password') }}">Password *</label>
+                                          <input type="password" class="form-control" id="register-password"
+                                              type="password" name="password" required autocomplete="new-password">
+                                      </div><!-- End .form-group -->
+                                      {{-- FOR  Confirm Password --}}
+                                      <div class="form-group">
+                                          <label for="password_confirmation"
+                                              value="{{ __('Confirm Password') }}">Password *</label>
+                                          <input type="password" id="password_confirmation" class="form-control"
                                               type="password" name="password_confirmation" required
-                                              autocomplete="new-password" />
-                                      </div>
-
+                                              autocomplete="new-password">
+                                      </div><!-- End .form-group -->
                                       @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
                                       <div class="mt-4">
                                           <x-jet-label for="terms">
                                               <div class="flex items-center">
                                                   <x-jet-checkbox name="terms" id="terms" />
-
                                                   <div class="ml-2">
                                                       {!! __('I agree to the :terms_of_service and :privacy_policy', [
                                                       'terms_of_service' => '<a target="_blank"
@@ -127,40 +105,26 @@
                                           </x-jet-label>
                                       </div>
                                       @endif
+                                      <div class="form-footer">
 
-                                      <div class="flex items-center justify-end mt-4">
-                                          <a class="underline text-sm text-gray-600 hover:text-gray-900"
-                                              href="{{ route('login') }}">
+
+                                          <a class="" href="{{ route('login') }}">
                                               {{ __('Already registered?') }}
                                           </a>
+                                          <button type="submit" class="btn btn-outline-primary-2">
+                                              <span> {{ __('Register') }}</span>
+                                              <i class="icon-long-arrow-right"></i>
+                                          </button>
+                                      </div><!-- End .form-footer -->
 
-                                          <x-jet-button class="ml-4">
-                                              {{ __('Register') }}
-                                          </x-jet-button>
-                                      </div>
-                                  </form>
-                                  <div class="form-choice">
-                                      <p class="text-center">or sign in with</p>
-                                      <div class="row">
-                                          <div class="col-sm-6">
-                                              <a href="#" class="btn btn-login btn-g">
-                                                  <i class="icon-google"></i>
-                                                  Login With Google
-                                              </a>
-                                          </div><!-- End .col-6 -->
-                                          <div class="col-sm-6">
-                                              <a href="#" class="btn btn-login  btn-f">
-                                                  <i class="icon-facebook-f"></i>
-                                                  Login With Facebook
-                                              </a>
-                                          </div><!-- End .col-6 -->
-                                      </div><!-- End .row -->
-                                  </div><!-- End .form-choice -->
-                              </div><!-- .End .tab-pane -->
-                          </div><!-- End .tab-content -->
-                      </div><!-- End .form-tab -->
-                  </div><!-- End .form-box -->
-              </div><!-- End .modal-body -->
-          </div><!-- End .modal-content -->
-      </div><!-- End .modal-dialog -->
+                              </div>
+                              </form>
+
+                          </div><!-- .End .tab-pane -->
+                      </div><!-- End .tab-content -->
+                  </div><!-- End .form-tab -->
+              </div><!-- End .form-box -->
+          </div><!-- End .modal-body -->
+      </div><!-- End .modal-content -->
+  </div><!-- End .modal-dialog -->
   </div><!-- End .modal -->
