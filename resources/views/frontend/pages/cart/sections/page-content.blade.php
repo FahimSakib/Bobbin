@@ -56,12 +56,7 @@ $carts = Gloudemans\Shoppingcart\Facades\Cart::content();
                                  <td class="price-col">{{$size->title}}</td>
                                 <td class="price-col">{{$color->title}}</td>
                                 <td class="quantity-col">{{$cart->qty}}</td>
-                                {{-- <td class="quantity-col">
-                                    <div class="cart-product">
-                                        <input type="number" class="form-control" value={{$cart->qty}} min="1" max="100"
-                                            step="1" data-decimals="0" required readonly>
-                                    </div><!-- End .cart-product-quantity -->
-                                </td> --}}
+                             
                                 @php
                                 $tp=$cart->price*$cart->qty;
 

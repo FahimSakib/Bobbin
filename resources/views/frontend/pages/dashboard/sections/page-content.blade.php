@@ -36,7 +36,7 @@
                     <div class="tab-content">
                         <div class="tab-pane fade show active" id="tab-dashboard" role="tabpanel"
                             aria-labelledby="tab-dashboard-link">
-                            <p>Hello <span class="font-weight-normal text-dark">User</span> (not <span
+                            <p>Hello <span class="font-weight-normal text-dark">{{Auth::user()->name}}</span> (not <span
                                     class="font-weight-normal text-dark">User</span>? <a href="#">Log out</a>)
                                 <br>
                                 From your account dashboard you can view your <a href="#tab-orders"
