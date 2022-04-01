@@ -13,4 +13,8 @@ class Color extends Model
     public function products(){
         return $this->belongsToMany(Product::class)->withTimestamps();
     }
+
+    public function orders(){
+        return $this->hasMany(Order::class);
+    }
 }

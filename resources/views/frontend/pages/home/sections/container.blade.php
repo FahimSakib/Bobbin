@@ -80,6 +80,9 @@ $single_product = App\Models\Product::where('category_id',$category->id)->inRand
                         @foreach ($products as $product)
                         <div class="product product-7">
                             <figure class="product-media">
+                                @if ($product->total_qty == 0)
+                                <span class="product-label label-out">Out of Stock</span>
+                                @endif
                                 <a href="{{route('product-extended',$product->id)}}">
                                     <img src="{{ asset('storage/Product_image/'.$product->image1) }}"
                                         alt="Product image" class="product-image">
@@ -95,7 +98,8 @@ $single_product = App\Models\Product::where('category_id',$category->id)->inRand
                                 </div><!-- End .product-action-vertical -->
 
                                 <div class="product-action">
-                                    <a href="{{route('product-extended',$product->id)}}" class="btn-product btn-cart"><span>add to cart</span></a>
+                                    <a href="{{route('product-extended',$product->id)}}"
+                                        class="btn-product btn-cart"><span>add to cart</span></a>
                                 </div><!-- End .product-action -->
                             </figure><!-- End .product-media -->
 

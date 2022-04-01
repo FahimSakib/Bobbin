@@ -212,6 +212,9 @@ $random_4 = App\Models\Product::with('category')->where('status','1')->inRandomO
                        }'>
                     @foreach($product as $item)
                     <div class="product product-7 text-center">
+                        @if ($item->total_qty == 0)
+                        <span class="product-label label-out">Out of Stock</span>
+                        @endif
                         <figure class="product-media" style="width:276.2px;height:375.9px;">
                             <a href="{{route('product-extended',$item->id)}}">
                                 <img src="{{ asset('storage/Product_image/'.$item->image2) }}" alt="Product image"
@@ -228,7 +231,8 @@ $random_4 = App\Models\Product::with('category')->where('status','1')->inRandomO
                             </div><!-- End .product-action-vertical -->
 
                             <div class="product-action">
-                                <a href="{{route('product-extended',$item->id)}}" class="btn-product btn-cart"><span>add to cart</span></a>
+                                <a href="{{route('product-extended',$item->id)}}" class="btn-product btn-cart"><span>add
+                                        to cart</span></a>
                             </div><!-- End .product-action -->
                         </figure><!-- End .product-media -->
 
