@@ -30,6 +30,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('cart','Frontend\CartController@index')->name('cart');
     Route::post('cart-checkout','Frontend\CartController@checkout')->name('cart.checkout');
     Route::get('dashboard','Frontend\DashboardController@index')->name('dashboard');
+    Route::post('user-details-update','Frontend\DashboardController@userDetailsUpdate')->name('user.details.update');
 });
 
 Route::get('wishlist','Frontend\WishlistController@index');
