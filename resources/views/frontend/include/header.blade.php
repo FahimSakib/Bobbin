@@ -47,24 +47,24 @@ use Illuminate\Support\Facades\Auth;
                 </ul><!-- End .top-menu -->
 
                 <div class="header-dropdown">
-                    <a href="#">USD</a>
-                    <div class="header-menu">
+                    <a>BDT</a>
+                    {{-- <div class="header-menu">
                         <ul>
                             <li><a href="#">Eur</a></li>
                             <li><a href="#">Usd</a></li>
                         </ul>
-                    </div><!-- End .header-menu -->
+                    </div><!-- End .header-menu --> --}}
                 </div><!-- End .header-dropdown -->
 
                 <div class="header-dropdown">
-                    <a href="#">Eng</a>
-                    <div class="header-menu">
+                    <a>Eng</a>
+                    {{-- <div class="header-menu">
                         <ul>
                             <li><a href="#">English</a></li>
                             <li><a href="#">French</a></li>
                             <li><a href="#">Spanish</a></li>
                         </ul>
-                    </div><!-- End .header-menu -->
+                    </div><!-- End .header-menu --> --}}
                 </div><!-- End .header-dropdown -->
             </div><!-- End .header-right -->
         </div>
@@ -85,7 +85,7 @@ use Illuminate\Support\Facades\Auth;
                 </div><!-- End .header-search -->
             </div>
             <div class="header-center">
-                <a href="index.html" class="logo">
+                <a href="{{ url('/') }}" class="logo">
                     <img src="asset/frontend/assets/images/bobbin-logo.png" alt="Bobbin Logo" width="180" height="35">
                 </a>
             </div><!-- End .header-left -->
