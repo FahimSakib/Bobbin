@@ -160,7 +160,7 @@ use Illuminate\Support\Facades\Auth;
             <div class="header-left">
                 <nav class="main-nav">
                     <ul class="menu sf-arrows">
-                        <li class="{{ (request()->is('home')) ? 'active' : '' }}">
+                        <li class="{{ (request()->is('/')) ? 'active' : '' }}">
                             <a href="{{ route('home') }}">Home</a>
                         </li>
                         <li class="{{ (request()->is('products')) ? 'active' : '' }}">
