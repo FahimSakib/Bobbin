@@ -67,8 +67,9 @@
                                                 {{ $order->product->name }}
                                             </td>
                                             <td>
-                                                <img src="{{ asset('storage/Product_image/'.$order->product->image1) }}"
-                                                    alt="{{ $order->image1 }}" style="height:50px;width:65px">
+                                                <img class="mb-1"
+                                                    src="{{ asset('storage/Product_image/'.$order->product->image1) }}"
+                                                    alt="{{ $order->image1 }}" style="width:60px">
                                             </td>
                                             <td>
                                                 {{ $order->size->title }}
