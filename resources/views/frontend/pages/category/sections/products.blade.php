@@ -7,7 +7,9 @@
             <div class="col-6 col-md-4 col-lg-3">
                 <div class="product product-3">
                     <figure class="product-media">
-                        <span class="product-label label-sale">Sale</span>
+                        @if ($product->total_qty == 0)
+                        <span class="product-label label-out">Out of Stock</span>
+                        @endif
                         <a href="{{route('product-extended',$product->id)}}">
                             <img src="{{ asset('storage/Product_image/'.$product->image1) }}" alt="Product image"
                                 class="product-image">

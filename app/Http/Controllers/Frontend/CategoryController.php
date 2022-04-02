@@ -13,7 +13,7 @@ class CategoryController extends Controller
             'title' => 'Category'
         ];
         
-        $products = Product::with('category')->where('category_id',$category)->paginate(1); //pagination = 1 is for test only normal value will be 16
+        $products = Product::with('category')->where('category_id',$category)->paginate(16);
 
         return view('frontend.pages.category.category', $data, compact('products'));
     } 

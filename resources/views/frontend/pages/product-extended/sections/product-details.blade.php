@@ -60,13 +60,14 @@
                         <div class="product-content">
                             <p align="justify">{{$product->short_description}}</p>
                         </div><!-- End .product-content -->
+                        @if ($product->total_qty != 0)
                         <form action="{{route('cart.store')}}" method="POST">
                             @csrf
                             <div class="details-filter-row details-row-size">
                                 <label for="color">Colors:</label>
                                 <div class="select-custom">
-                                    <select name="color" id="color" class="form-control">
-                                        <option selected="selected">Select a color</option>
+                                    <select name="color" id="color" class="form-control" required>
+                                        <option selected="selected" value="">Select a color</option>
                                         @foreach ($product->colors as $color)
                                         <option value="{{ $color->id }}">{{ $color->title }}</option>
                                         @endforeach
@@ -76,8 +77,8 @@
                             <div class="details-filter-row details-row-size">
                                 <label for="size">Size:</label>
                                 <div class="select-custom">
-                                    <select name="size" id="size" class="form-control">
-                                        <option selected="selected">Select a size</option>
+                                    <select name="size" id="size" class="form-control" required>
+                                        <option selected="selected" value="">Select a size</option>
                                         @foreach ($product->sizes as $size)
                                         @if ($size->pivot->qty != 0)
                                         <option value="{{ $size->id }}" data-value="{{ $size->pivot->qty }}">
@@ -103,72 +104,82 @@
                                         step="1" data-decimals="0" onkeydown="return false" required>
                                 </div><!-- End .product-details-quantity -->
                             </div><!-- End .details-filter-row -->
+                            <input type="hidden" name="pivot-qty" id="pivot-qty">
 
                             <div class="product-details-action">
                                 <button type="submit" class="btn-product btn-cart"><span>add to cart </span></button>
                         </form>
-                        <div class="details-action-wrapper">
-                            <a href="#" class="btn-product btn-wishlist" title="Wishlist"><span>Add to
-                                    Wishlist</span></a>
-                            <a href="#" class="btn-product btn-compare" title="Compare"><span>Add to Compare</span></a>
-                        </div><!-- End .details-action-wrapper -->
-                    </div><!-- End .product-details-action -->
+                        @else
+                        <div class="product-details-action">
+                            <div>
+                                <button type="button" class="btn-product btn btn-danger" disabled>Out of Stock</button>
+                            </div>
+                            @endif
+                            <div class="details-action-wrapper">
+                                <a href="#" class="btn-product btn-wishlist" title="Wishlist"><span>Add to
+                                        Wishlist</span></a>
+                                <a href="#" class="btn-product btn-compare" title="Compare"><span>Add to
+                                        Compare</span></a>
+                            </div><!-- End .details-action-wrapper -->
+                        </div><!-- End .product-details-action -->
 
-                    <div class="product-details-footer">
-                        <div class="product-cat">
-                            <span>Category:</span>
-                            <a href="{{ route('category',$product->category_id) }}">{{ $product->category->title }}</a>
-                        </div><!-- End .product-cat -->
+                        <div class="product-details-footer">
+                            <div class="product-cat">
+                                <span>Category:</span>
+                                <a
+                                    href="{{ route('category',$product->category_id) }}">{{ $product->category->title }}</a>
+                            </div><!-- End .product-cat -->
 
-                        <div class="social-icons social-icons-sm">
-                            <span class="social-label">Share:</span>
-                            <a href="#" class="social-icon" title="Facebook" target="_blank"><i
-                                    class="icon-facebook-f"></i></a>
-                            <a href="#" class="social-icon" title="Twitter" target="_blank"><i
-                                    class="icon-twitter"></i></a>
-                            <a href="#" class="social-icon" title="Instagram" target="_blank"><i
-                                    class="icon-instagram"></i></a>
-                            <a href="#" class="social-icon" title="Pinterest" target="_blank"><i
-                                    class="icon-pinterest"></i></a>
-                        </div>
-                    </div><!-- End .product-details-footer -->
-                </div><!-- End .product-details -->
-            </div><!-- End .col-md-6 -->
-        </div><!-- End .row -->
-    </div><!-- End .product-details-top -->
-</div><!-- End .container -->
-
-<div class="product-details-tab product-details-extended">
-    <div class="container">
-        <ul class="nav nav-pills justify-content-center" role="tablist">
-            <li class="nav-item">
-                <a class="nav-link active" id="product-desc-link" data-toggle="tab" href="#product-desc-tab" role="tab"
-                    aria-controls="product-desc-tab" aria-selected="true">Description</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="product-info-link" data-toggle="tab" href="#product-info-tab" role="tab"
-                    aria-controls="product-info-tab" aria-selected="false">Additional information</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="product-shipping-link" data-toggle="tab" href="#product-shipping-tab" role="tab"
-                    aria-controls="product-shipping-tab" aria-selected="false">Shipping & Returns</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="product-review-link" data-toggle="tab" href="#product-review-tab" role="tab"
-                    aria-controls="product-review-tab" aria-selected="false">Reviews (2)</a>
-            </li>
-        </ul>
+                            <div class="social-icons social-icons-sm">
+                                <span class="social-label">Share:</span>
+                                <a href="#" class="social-icon" title="Facebook" target="_blank"><i
+                                        class="icon-facebook-f"></i></a>
+                                <a href="#" class="social-icon" title="Twitter" target="_blank"><i
+                                        class="icon-twitter"></i></a>
+                                <a href="#" class="social-icon" title="Instagram" target="_blank"><i
+                                        class="icon-instagram"></i></a>
+                                <a href="#" class="social-icon" title="Pinterest" target="_blank"><i
+                                        class="icon-pinterest"></i></a>
+                            </div>
+                        </div><!-- End .product-details-footer -->
+                    </div><!-- End .product-details -->
+                </div><!-- End .col-md-6 -->
+            </div><!-- End .row -->
+        </div><!-- End .product-details-top -->
     </div><!-- End .container -->
-    @push('scripts')
-    <script>
-        $(document).ready(function () {
-            $('#size').on('change', function () {
-                let max = $(this).find(':selected').data('value');
-                $("#qty").attr({
-                    "max": max
+
+    <div class="product-details-tab product-details-extended">
+        <div class="container">
+            <ul class="nav nav-pills justify-content-center" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="product-desc-link" data-toggle="tab" href="#product-desc-tab"
+                        role="tab" aria-controls="product-desc-tab" aria-selected="true">Description</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="product-info-link" data-toggle="tab" href="#product-info-tab" role="tab"
+                        aria-controls="product-info-tab" aria-selected="false">Additional information</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="product-shipping-link" data-toggle="tab" href="#product-shipping-tab"
+                        role="tab" aria-controls="product-shipping-tab" aria-selected="false">Shipping & Returns</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="product-review-link" data-toggle="tab" href="#product-review-tab" role="tab"
+                        aria-controls="product-review-tab" aria-selected="false">Reviews (2)</a>
+                </li>
+            </ul>
+        </div><!-- End .container -->
+        @push('scripts')
+        <script>
+            $(document).ready(function () {
+                $('#size').on('change', function () {
+                    let max = $(this).find(':selected').data('value');
+                    $("#qty").attr({
+                        "max": max
+                    });
+                    $("#pivot-qty").val(max);
                 });
             });
-        });
 
-    </script>
-    @endpush
+        </script>
+        @endpush

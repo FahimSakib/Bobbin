@@ -28,7 +28,11 @@
         @foreach ($prducts_random as $product)
         <div class="product product-7">
             <figure class="product-media">
+                @if ($product->total_qty == 0)
+                <span class="product-label label-out">Out of Stock</span>
+                @else
                 <span class="product-label label-new">New</span>
+                @endif
                 <a href="{{route('product-extended',$product->id)}}">
                     <img src="{{ asset('storage/Product_image/'.$product->image1) }}" alt="Product image"
                         class="product-image">

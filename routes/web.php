@@ -25,6 +25,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::get('home','Frontend\HomeController@index')->name('home');
 Route::post('cart-store','Frontend\CartController@store')->name('cart.store');
 Route::post('cart-remove','Frontend\CartController@remove')->name('cart.remove');
+Route::post('cart-checkout','Frontend\CartController@checkout')->name('cart.checkout');
 
 Route::get('wishlist','Frontend\WishlistController@index');
 Route::get('contact','Frontend\ContactController@index');
@@ -57,6 +58,7 @@ Route::get('products','Frontend\ProductsController@index')->name('products');
     Route::resource('category', 'Backend\CategoryController');
     Route::resource('slider', 'Backend\SliderController');
     Route::resource('test', 'Backend\TestController');
+    Route::resource('order', 'Backend\OrderController');
 });
 
 
