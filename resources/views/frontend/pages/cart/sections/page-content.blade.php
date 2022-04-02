@@ -120,7 +120,7 @@ if($message = Session::get('success')){
                         <form action="{{ route('cart.checkout') }}" method="post">
                             @csrf
                             <input type="hidden" name="data" value="{{ $collection  }}">
-                            <button type="submit" class="btn btn-outline-primary-2 btn-order btn-block">PROCEED TO
+                            <button type="submit" class="btn btn-outline-primary-2 btn-order btn-block" {{ count($carts) == 0 ? 'disabled' : '' }}>PROCEED TO
                                 CHECKOUT</button>
                         </form>
                         @endif
