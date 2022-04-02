@@ -6,7 +6,7 @@
     <script src="asset/frontend/assets/js/jquery.plugin.min.js"></script>
     <script src="asset/frontend/assets/js/jquery.magnific-popup.min.js"></script>
     <script src="asset/frontend/assets/js/jquery.countdown.min.js"></script>
-    <script src="assets/js/jquery.min.js"></script>
+    {{-- <script src="asset/frontend/assets/js/jquery.min.js"></script> --}}
     
     <script src="asset/frontend/assets/js/bootstrap.bundle.min.js"></script>
     <script src="asset/frontend/assets/js/jquery.hoverIntent.min.js"></script>
