@@ -69,6 +69,9 @@ class CartController extends Controller
             }
 
             return redirect('dashboard')->with('success','Your orders has been placed successfully');
+            
+        }else{
+            return back()->with('error','Something went wrong!');
         }
     }
 }
