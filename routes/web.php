@@ -14,30 +14,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+//     return view('dashboard');
+// })->name('dashboard');
 
-Route::get('home','Frontend\HomeController@index')->name('home');
+Route::get('/','Frontend\HomeController@index')->name('home');
 Route::post('cart-store','Frontend\CartController@store')->name('cart.store');
 Route::post('cart-remove','Frontend\CartController@remove')->name('cart.remove');
-Route::post('cart-checkout','Frontend\CartController@checkout')->name('cart.checkout');
+
+Route::group(['middleware' => 'auth'], function(){
+    Route::get('cart','Frontend\CartController@index')->name('cart');
+    Route::post('cart-checkout','Frontend\CartController@checkout')->name('cart.checkout');
+    Route::get('dashboard','Frontend\DashboardController@index')->name('dashboard');
+});
 
 Route::get('wishlist','Frontend\WishlistController@index');
 Route::get('contact','Frontend\ContactController@index');
-Route::get('dashboard','Frontend\DashboardController@index');
 Route::get('faq','Frontend\FaqController@index');
 Route::get('single-fullwidth','Frontend\SingleFullWidthController@index');
-
 Route::get('blog','Frontend\BlogController@index')->name('blog');
-Route::get('cart','Frontend\CartController@index')->name('cart');
-
 Route::get('coming-soon','Frontend\Coming_soonController@index');
-
 Route::get('checkout','Frontend\CheckoutController@index');
 Route::get('category/{category}','Frontend\CategoryController@index')->name('category');
 Route::get('product-gallery','Frontend\ProductgalleryController@index');

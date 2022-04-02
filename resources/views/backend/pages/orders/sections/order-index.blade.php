@@ -81,7 +81,7 @@
                                         </td>
                                         <td>
                                             <img src="{{ asset('storage/Product_image/'.$order->product->image1) }}"
-                                                alt="{{ $order->image1 }}" style="height:50px;width:65px">
+                                                alt="{{ $order->image1 }}" style="width:50px">
                                         </td>
                                         <td>
                                             {{ $order->size->title }}

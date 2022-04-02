@@ -56,11 +56,11 @@ class OrderController extends Controller
             'title' => 'Order-Single-Show'
         ];
 
-        $order = Order::where('order_id',$id)->get();
+        $orders = Order::where('order_id',$id)->get();
 
         // dd($order);
 
-        return view('backend.pages.orders.show', $data, compact('order'));
+        return view('backend.pages.orders.show', $data, compact('orders'));
     }
 
     /**

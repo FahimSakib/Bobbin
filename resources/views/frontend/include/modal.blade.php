@@ -79,7 +79,7 @@
                                       {{-- FOR  Confirm Password --}}
                                       <div class="form-group">
                                           <label for="password_confirmation"
-                                              value="{{ __('Confirm Password') }}">Password *</label>
+                                              value="{{ __('Confirm Password') }}">Confirm Password *</label>
                                           <input type="password" id="password_confirmation" class="form-control"
                                               type="password" name="password_confirmation" required
                                               autocomplete="new-password">

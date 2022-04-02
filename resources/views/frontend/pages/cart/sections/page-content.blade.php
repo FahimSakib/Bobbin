@@ -54,7 +54,7 @@ $data = [];
                                 $row = [];
 
                                 $row  ['order_id']   = $order_id;
-                                $row  ['user_id']    = 1;
+                                $row  ['user_id']    = Auth::user()->id;
                                 $row  ['product_id'] = $cart->id;
                                 $row  ['size_id']    = $cart->options->size;
                                 $row  ['color_id']   = $cart->options->color;

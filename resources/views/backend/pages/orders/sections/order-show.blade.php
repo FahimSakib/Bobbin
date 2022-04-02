@@ -24,13 +24,13 @@
                         <div class="card-body">
                             <div class="pl-2">
                                 <h3 class="d-inline mr-3">Order ID: <span
-                                        class="text-info">{{ $order[0]->order_id }}</span>
+                                        class="text-info">{{ $orders[0]->order_id }}</span>
                                 </h3>
                                 <h3 class="d-inline mr-3">User ID: <span
-                                        class="text-info">{{ $order[0]->user->id }}</span>
+                                        class="text-info">{{ $orders[0]->user->id }}</span>
                                 </h3>
                                 <h3 class="d-inline">User Name: <span
-                                        class="text-info">{{ $order[0]->user->name }}</span>
+                                        class="text-info">{{ $orders[0]->user->name }}</span>
                                 </h3>
                             </div>
                             <div class="table-responsive mt-3">
@@ -55,7 +55,7 @@
                                         @php
                                         $i = 1;
                                         @endphp
-                                        @foreach ($order as $order)
+                                        @foreach ($orders as $order)
                                         <tr>
                                             <td class="text-center">
                                                 {{$i++}}
@@ -67,8 +67,9 @@
                                                 {{ $order->product->name }}
                                             </td>
                                             <td>
-                                                <img src="{{ asset('storage/Product_image/'.$order->product->image1) }}"
-                                                    alt="{{ $order->image1 }}" style="height:50px;width:65px">
+                                                <img class="mb-1"
+                                                    src="{{ asset('storage/Product_image/'.$order->product->image1) }}"
+                                                    alt="{{ $order->image1 }}" style="width:60px">
                                             </td>
                                             <td>
                                                 {{ $order->size->title }}
