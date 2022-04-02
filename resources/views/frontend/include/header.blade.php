@@ -32,21 +32,16 @@ use Illuminate\Support\Facades\Auth;
                     <li>
                         <a href="#">Links</a>
                         <ul>
-
-
                             @if (auth()->guest())
                             <li><a href="#signin-modal" data-toggle="modal"><i class="icon-user"></i>Login</a>
                             </li>
                             @else
+                            <li class="mr-3"><a href="{{ route('dashboard') }}">{{ Auth::user()->name }}</a></li>
                             <form action="{{ route('logout') }}" method="post">
                                 @csrf
                                 <button type="submit">Logout</button>
                             </form>
-
                             @endif
-
-
-
                         </ul>
                     </li>
                 </ul><!-- End .top-menu -->
@@ -101,16 +96,14 @@ use Illuminate\Support\Facades\Auth;
                     <span class="wishlist-count">3</span>
                     <span class="wishlist-txt">My Wishlist</span>
                 </a>
-
                 <div class="dropdown cart-dropdown">
                     <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false" data-display="static">
                         <i class="icon-shopping-cart"></i>
                         <span class="cart-count">{{ \Gloudemans\Shoppingcart\Facades\Cart::content()->count()}}</span>
-                        {{-- <span class="cart-txt">$ 164,00</span> --}}
                     </a>
-
                     <div class="dropdown-menu dropdown-menu-right">
+                        @if (count($carts) != 0)
                         <div class="dropdown-cart-products">
                             @foreach ($carts as $cart )
                             <div class="product">
@@ -118,8 +111,6 @@ use Illuminate\Support\Facades\Auth;
                                     <h4 class="product-title">
                                         <a href="product.html">{{$cart->name}}</a>
                                     </h4>
-
-
                                     <span class="cart-product-info">
                                         <span class="cart-product-qty">{{$cart->qty}}</span>
                                         X ৳ {{$cart->price}}
@@ -139,26 +130,25 @@ use Illuminate\Support\Facades\Auth;
                                                 class="icon-close"></i></button>
                                     </a>
                                 </form>
-
-                                {{-- <a href="#" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a> --}}
                             </div><!-- End .product -->
                             @endforeach
-
-
-
                         </div><!-- End .cart-product -->
-
                         <div class="dropdown-cart-total">
                             <span>Total</span>
-
                             <span class="cart-total-price"><?php echo Cart::subtotal(); ?></span>
                         </div><!-- End .dropdown-cart-total -->
-
-                        <div class="dropdown-cart-action">
-                            <a href="{{route('cart')}}" class="btn btn-primary">View Cart</a>
-                            <a href="checkout.html" class="btn btn-outline-primary-2"><span>Checkout</span><i
-                                    class="icon-long-arrow-right"></i></a>
+                        <div class="dropdown-cart-action justify-content-center">
+                            <a href="{{route('cart')}}" class="btn btn-primary text-dark">View Cart</a>
                         </div><!-- End .dropdown-cart-total -->
+                        @else
+                        <div class="dropdown-cart-total justify-content-center">
+                            <span>Your Cart Is Empty!</span>
+                        </div>
+                        <div class="dropdown-cart-action justify-content-center">
+                            <a href="{{route('products')}}" class="btn btn-primary text-dark">Continue Shopping</a>
+                        </div>
+                        @endif
+
                     </div><!-- End .dropdown-menu -->
                 </div><!-- End .cart-dropdown -->
             </div>
@@ -172,35 +162,23 @@ use Illuminate\Support\Facades\Auth;
                     <ul class="menu sf-arrows">
                         <li class="{{ (request()->is('home')) ? 'active' : '' }}">
                             <a href="{{ route('home') }}">Home</a>
-
-
                         </li>
-
                         <li class="{{ (request()->is('products')) ? 'active' : '' }}">
                             <a href="{{ route('products') }}">Products</a>
-
-
                         </li>
                         <li class="{{ (request()->is('category/*')) ? 'active' : '' }}">
                             <a href="javascript:void(0)" class="sf-with-ul">Categories</a>
-
                             <ul>
                                 @foreach ($categories as $category)
                                 @if (count($category->products)!=0)
                                 <li><a href="{{ route('category',$category->id) }}">{{ $category->title }}</a></li>
-
                                 @endif
-
-
                                 @endforeach
                             </ul>
                         </li>
                         <li class="{{ (request()->is('blog')) ? 'active' : '' }}">
                             <a href="{{ route('blog') }}">Blog</a>
-
-
                         </li>
-
                     </ul><!-- End .menu -->
                 </nav><!-- End .main-nav -->
 
@@ -210,10 +188,10 @@ use Illuminate\Support\Facades\Auth;
                 </button>
             </div><!-- End .header-left -->
 
-            <div class="header-right">
+            {{-- <div class="header-right">
                 <i class="la la-lightbulb-o"></i>
                 <p>Clearance Up to 30% Off</span></p>
-            </div>
+            </div> --}}
         </div><!-- End .container -->
     </div><!-- End .header-bottom -->
 </header><!-- End .header -->

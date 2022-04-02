@@ -14,22 +14,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+//     return view('dashboard');
+// })->name('dashboard');
 
-Route::get('home','Frontend\HomeController@index')->name('home');
+Route::get('/','Frontend\HomeController@index')->name('home');
 Route::post('cart-store','Frontend\CartController@store')->name('cart.store');
 Route::post('cart-remove','Frontend\CartController@remove')->name('cart.remove');
 Route::post('cart-checkout','Frontend\CartController@checkout')->name('cart.checkout');
 
 Route::get('wishlist','Frontend\WishlistController@index');
 Route::get('contact','Frontend\ContactController@index');
-Route::get('dashboard','Frontend\DashboardController@index');
+Route::get('dashboard','Frontend\DashboardController@index')->name('dashboard');
 Route::get('faq','Frontend\FaqController@index');
 Route::get('single-fullwidth','Frontend\SingleFullWidthController@index');
 
