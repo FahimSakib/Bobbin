@@ -53,16 +53,16 @@ $data = [];
 
                                 $row = [];
 
-                                $row  ['order_id']   = $order_id;
-                                $row  ['user_id']    = Auth::user()->id;
-                                $row  ['product_id'] = $cart->id;
-                                $row  ['size_id']    = $cart->options->size;
-                                $row  ['color_id']   = $cart->options->color;
-                                $row  ['qty']        = $cart->qty;
-                                $row  ['price']      = $tp;
-                                $row  ['pivot_qty']  = $cart->options->pivot_qty;
-                                $row  ['created_at'] = date('Y-m-d H:i:s');
-                                $data[]              = $row;
+                                $row ['order_id'] = $order_id;
+                                $row ['user_id'] = Auth::user()->id;
+                                $row ['product_id'] = $cart->id;
+                                $row ['size_id'] = $cart->options->size;
+                                $row ['color_id'] = $cart->options->color;
+                                $row ['qty'] = $cart->qty;
+                                $row ['price'] = $tp;
+                                $row ['pivot_qty'] = $cart->options->pivot_qty;
+                                $row ['created_at'] = date('Y-m-d H:i:s');
+                                $data[] = $row;
                                 @endphp
                                 <td class="total-col">{{$tp}}</td>
                                 <form action="{{route('cart.remove')}}" method="POST">
@@ -88,7 +88,8 @@ $data = [];
                                     <td><?php echo Cart::subtotal(); ?></td>
                                 </tr><!-- End .summary-subtotal -->
                                 <tr class="summary-shipping-estimate">
-                                    <td>Estimate for Your Country<br> <a href="dashboard.html">Change address</a></td>
+                                    <td>Estimate for Your Country<br> <a href="{{ route('dashboard') }}">Change
+                                            address</a></td>
                                     <td>&nbsp;</td>
                                 </tr><!-- End .summary-shipping-estimate -->
 
@@ -101,14 +102,25 @@ $data = [];
                         @php
                         $collection = collect($data);
                         @endphp
+                        @if (Auth::user()->city == null || Auth::user()->street == null ||
+                        Auth::user()->postal_code == null || Auth::user()->mobile_no == null)
+                        <div>
+                            <p class="text-warning" align="justify" style="font-size: medium">In order to checkout you
+                                have to update your address or details first. Update your address and details from
+                                dashborad.</p>
+                            <a class="btn btn-outline-primary-2 btn-order btn-block mt-1"
+                                href="{{ route('dashboard') }}">Update Details</a>
+                        </div>
+                        @else
                         <form action="{{ route('cart.checkout') }}" method="post">
                             @csrf
                             <input type="hidden" name="data" value="{{ $collection  }}">
                             <button type="submit" class="btn btn-outline-primary-2 btn-order btn-block">PROCEED TO
                                 CHECKOUT</button>
                         </form>
+                        @endif
                     </div><!-- End .summary -->
-                    <a href="" class="btn btn-outline-dark-2 btn-block mb-3"><span>CONTINUE
+                    <a href="{{ route('products') }}" class="btn btn-outline-dark-2 btn-block mb-3"><span>CONTINUE
                             SHOPPING</span><i class="icon-refresh"></i></a>
                 </aside><!-- End .col-lg-3 -->
             </div><!-- End .row -->
