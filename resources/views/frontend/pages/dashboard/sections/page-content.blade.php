@@ -1,3 +1,6 @@
+@php
+use Illuminate\Support\Facades\Auth;
+@endphp
 <div class="page-content">
     <div class="dashboard">
         <div class="container">
@@ -36,8 +39,10 @@
                     <div class="tab-content">
                         <div class="tab-pane fade show active" id="tab-dashboard" role="tabpanel"
                             aria-labelledby="tab-dashboard-link">
-                            <p>Hello <span class="font-weight-normal text-dark">User</span> (not <span
+                             @if (Auth::user())
+                            <p>Hello <span class="font-weight-normal text-dark">{{Auth::user()->name}}</span> (not <span
                                     class="font-weight-normal text-dark">User</span>? <a href="#">Log out</a>)
+                                   
                                 <br>
                                 From your account dashboard you can view your <a href="#tab-orders"
                                     class="tab-trigger-link link-underline">recent orders</a>, manage your <a
@@ -135,6 +140,10 @@
                                 </button>
                             </form>
                         </div><!-- .End .tab-pane -->
+                        @else
+                        <p>Hello User You Are Not Logged In</p>
+
+                         @endif
                     </div>
                 </div><!-- End .col-lg-9 -->
             </div><!-- End .row -->
