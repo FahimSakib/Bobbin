@@ -27,6 +27,7 @@
     @include('frontend.include.modal')
     @include('frontend.include.newsletter')
     @include('frontend.include.scripts')
+    @include('sweetalert::alert')
 </body>
 
 </html>

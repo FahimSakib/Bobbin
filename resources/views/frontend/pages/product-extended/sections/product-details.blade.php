@@ -1,6 +1,8 @@
-@if(session('success'))
-{{session('success')}}
-@endif
+@php
+if($message = Session::get('success')){
+    toast($message,'success');
+}
+@endphp
 <div class="page-content">
     <div class="container">
         <div class="product-details-top mb-2">
@@ -129,18 +131,6 @@
                                 <a
                                     href="{{ route('category',$product->category_id) }}">{{ $product->category->title }}</a>
                             </div><!-- End .product-cat -->
-
-                            <div class="social-icons social-icons-sm">
-                                <span class="social-label">Share:</span>
-                                <a href="#" class="social-icon" title="Facebook" target="_blank"><i
-                                        class="icon-facebook-f"></i></a>
-                                <a href="#" class="social-icon" title="Twitter" target="_blank"><i
-                                        class="icon-twitter"></i></a>
-                                <a href="#" class="social-icon" title="Instagram" target="_blank"><i
-                                        class="icon-instagram"></i></a>
-                                <a href="#" class="social-icon" title="Pinterest" target="_blank"><i
-                                        class="icon-pinterest"></i></a>
-                            </div>
                         </div><!-- End .product-details-footer -->
                     </div><!-- End .product-details -->
                 </div><!-- End .col-md-6 -->

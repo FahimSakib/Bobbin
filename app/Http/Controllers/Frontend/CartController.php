@@ -36,7 +36,7 @@ class CartController extends Controller
     public function remove(Request  $request){
          
         $rmv = Cart::remove($request->rowId);
-        return back()->with('success','Item Added successfully');
+        return back()->with('success','An Item has been removed from cart');
 
     }
 
@@ -68,7 +68,7 @@ class CartController extends Controller
                 Product::where('id',$product_id)->update(['total_qty'=>$product_qty]);
             }
 
-            return back()->with('success','Order palced');
+            return redirect('dashboard')->with('success','Your orders has been placed successfully');
         }
     }
 }

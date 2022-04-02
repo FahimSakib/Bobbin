@@ -1,8 +1,12 @@
 @php
 use Illuminate\Support\Facades\Auth;
 $orders = App\Models\Order::where('user_id',Auth::user()->id)->get();
-// dd($orders);
+
+if($message = Session::get('success')){
+    toast($message,'success');
+}
 @endphp
+
 <div class="page-content">
     <div class="dashboard">
         <div class="container">

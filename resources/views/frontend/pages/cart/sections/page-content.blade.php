@@ -2,7 +2,12 @@
 $carts = Gloudemans\Shoppingcart\Facades\Cart::content();
 $order_id = uniqid();
 $data = [];
+
+if($message = Session::get('success')){
+    toast($message,'success');
+}
 @endphp
+
 <div class="page-content">
     <div class="cart">
         <div class="container">
