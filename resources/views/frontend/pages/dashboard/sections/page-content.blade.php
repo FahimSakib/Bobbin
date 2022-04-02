@@ -3,7 +3,7 @@ use Illuminate\Support\Facades\Auth;
 $orders = App\Models\Order::where('user_id',Auth::user()->id)->get();
 
 if($message = Session::get('success')){
-    toast($message,'success');
+toast($message,'success');
 }
 @endphp
 
@@ -42,13 +42,59 @@ if($message = Session::get('success')){
                     <div class="tab-content">
                         <div class="tab-pane fade show active" id="tab-dashboard" role="tabpanel"
                             aria-labelledby="tab-dashboard-link">
-                            <p>Hello <span class="font-weight-normal text-dark">{{Auth::user()->name}},</span>
-                                <br>
-                                From your account dashboard you can view your <a href="#tab-orders"
-                                    class="tab-trigger-link link-underline">recent orders</a>, manage your <a
-                                    href="#tab-address" class="tab-trigger-link">shipping and billing addresses</a>,
-                                and much more.
-                            </p>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <p>Hello <span class="font-weight-normal text-dark">{{Auth::user()->name}},</span>
+                                        <br>
+                                        From your account dashboard you can view your <a href="#tab-orders"
+                                            class="tab-trigger-link link-underline">recent orders</a>, manage your <a
+                                            href="#tab-address" class="tab-trigger-link link-underline">shipping and billing
+                                            addresses</a>,
+                                        and much more.
+                                    </p>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="card card-dashboard">
+                                        <div class="card-body">
+                                            <h3 class="card-title d-inline">Your Information</h3><!-- End .card-title -->
+                                            <p class=" d-inline pull-right"><a href="#tab-account" class="tab-trigger-link">Edit <i
+                                                class="icon-edit"></i></a></p>
+                                            <table class="table table-borderless">
+                                                <tbody>
+                                                    <tr>
+                                                        <th>Name</th>
+                                                        <th class="text-dark"><b>{{ Auth::user()->name }}</b></th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Email</th>
+                                                        <th class="text-dark"><b>{{ Auth::user()->email}}</b></th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Phone</th>
+                                                        <th class="text-dark"><b>{{ Auth::user()->mobile_no ? Auth::user()->mobile_no : 'N/A' }}</b>
+                                                        </th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>City</th>
+                                                        <th class="text-dark"><b>{{ Auth::user()->city ? Auth::user()->city : 'N/A' }}</b></th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Street</th>
+                                                        <th class="text-dark"><b>{{ Auth::user()->street ? Auth::user()->street : 'N/A'}}</b></th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>ZIP</th>
+                                                        <th class="text-dark"><b>{{ Auth::user()->postal_code ? Auth::user()->postal_code : 'N/A'}}</b>
+                                                        </th>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            {{-- <p><a href="#tab-account" class="tab-trigger-link">Edit <i
+                                                        class="icon-edit"></i></a></p> --}}
+                                        </div><!-- End .card-body -->
+                                    </div><!-- End .card-dashboard -->
+                                </div>
+                            </div>
                         </div><!-- .End .tab-pane -->
 
                         <div class="tab-pane fade" id="tab-orders" role="tabpanel" aria-labelledby="tab-orders-link">
@@ -77,12 +123,13 @@ if($message = Session::get('success')){
                                                 <figure class="product-media">
                                                     <a href="{{route('product-extended',$order->product->id)}}">
                                                         <img src="{{ asset('storage/Product_image/'.$order->product->image1) }}"
-                                                alt="{{ $order->image1 }}" style="width:50px">
+                                                            alt="{{ $order->image1 }}" style="width:50px">
                                                     </a>
                                                 </figure>
 
                                                 <h3 class="product-title">
-                                                    <a href="{{route('product-extended',$order->product->id)}}">{{ $order->product->name }}</a>
+                                                    <a
+                                                        href="{{route('product-extended',$order->product->id)}}">{{ $order->product->name }}</a>
                                                 </h3><!-- End .product-title -->
                                             </div><!-- End .product -->
                                         </td>
@@ -184,43 +231,52 @@ if($message = Session::get('success')){
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <label>Name *</label>
-                                        <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
-                                            value="{{ Auth::user()->name }}" required>
+                                        <input type="text" class="form-control @error('name') is-invalid @enderror"
+                                            name="name" value="{{ Auth::user()->name }}" required>
                                         @error('name')
                                         <div class="alert alert-danger mt-1">{{ $message }}</div>
                                         @enderror
                                     </div><!-- End .col-sm-6 -->
                                     <div class="col-sm-6">
                                         <label>Mobile No *</label>
-                                        <input type="text" class="form-control @error('mobile_no') is-invalid @enderror" name="mobile_no"
-                                            value="{{ Auth::user()->mobile_no ? Auth::user()->mobile_no : old('mobile_no')}}" required>
-                                            @error('mobile_no')
-                                            <div class="alert alert-danger mt-1">{{ $message }}</div>
-                                            @enderror
+                                        <input type="text" class="form-control @error('mobile_no') is-invalid @enderror"
+                                            name="mobile_no"
+                                            value="{{ Auth::user()->mobile_no ? Auth::user()->mobile_no : old('mobile_no')}}"
+                                            required>
+                                        @error('mobile_no')
+                                        <div class="alert alert-danger mt-1">{{ $message }}</div>
+                                        @enderror
                                     </div><!-- End .col-sm-6 -->
                                     <div class="col-sm-6">
                                         <label>City *</label>
-                                        <input type="text" class="form-control @error('city') is-invalid @enderror" name="city"
-                                            value="{{ (Auth::user()->city) ? Auth::user()->city : old('city')}}" required>
-                                            @error('city')
-                                            <div class="alert alert-danger mt-1">{{ $message }}</div>
-                                            @enderror
+                                        <input type="text" class="form-control @error('city') is-invalid @enderror"
+                                            name="city"
+                                            value="{{ (Auth::user()->city) ? Auth::user()->city : old('city')}}"
+                                            required>
+                                        @error('city')
+                                        <div class="alert alert-danger mt-1">{{ $message }}</div>
+                                        @enderror
                                     </div><!-- End .col-sm-6 -->
                                     <div class="col-sm-6">
                                         <label>Street Address *</label>
-                                        <input type="text" class="form-control @error('street') is-invalid @enderror" name="street"
-                                            value="{{ (Auth::user()->street) ? Auth::user()->street : old('street') }}" required>
-                                            @error('street')
-                                            <div class="alert alert-danger mt-1">{{ $message }}</div>
-                                            @enderror
+                                        <input type="text" class="form-control @error('street') is-invalid @enderror"
+                                            name="street"
+                                            value="{{ (Auth::user()->street) ? Auth::user()->street : old('street') }}"
+                                            required>
+                                        @error('street')
+                                        <div class="alert alert-danger mt-1">{{ $message }}</div>
+                                        @enderror
                                     </div><!-- End .col-sm-6 -->
                                     <div class="col-sm-6">
                                         <label>ZIP *</label>
-                                        <input type="text" class="form-control @error('postal_code') is-invalid @enderror" name="postal_code"
-                                            value="{{ (Auth::user()->postal_code) ? Auth::user()->postal_code : old('postal_code') }}" required>
-                                            @error('postal_code')
-                                            <div class="alert alert-danger mt-1">{{ $message }}</div>
-                                            @enderror
+                                        <input type="text"
+                                            class="form-control @error('postal_code') is-invalid @enderror"
+                                            name="postal_code"
+                                            value="{{ (Auth::user()->postal_code) ? Auth::user()->postal_code : old('postal_code') }}"
+                                            required>
+                                        @error('postal_code')
+                                        <div class="alert alert-danger mt-1">{{ $message }}</div>
+                                        @enderror
                                     </div><!-- End .col-sm-6 -->
                                 </div><!-- End .row -->
                                 <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
