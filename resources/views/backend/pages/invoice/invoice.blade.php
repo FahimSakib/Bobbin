@@ -238,11 +238,11 @@
                         <td class="text-center">{{ $order->size->title }}</td>
                         <td class="text-center">{{ $order->color->title }}</td>
                         <td class="text-center">{{ $order->qty }}</td>
+                        <td class="text-right">{{ $order->price/$order->qty }}</td>
                         <td class="text-right">{{ $order->price }}</td>
-                        <td class="text-right">{{ $order->price*$order->qty }}</td>
                     </tr>
                     @php
-                        $total += $order->price*$order->qty;
+                        $total += $order->price;
                     @endphp
                     @endforeach
                 </tbody>
