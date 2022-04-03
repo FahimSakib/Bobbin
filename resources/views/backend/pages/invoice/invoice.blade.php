@@ -42,12 +42,10 @@
             position: fixed;
             bottom: 0;
             left: 0;
-            background: #a98c35;
             font-size: 14px;
             margin: 0;
             padding-top: 10px;
-            height: 30px;
-            color: white;
+            height: 40px;
         }
 
         .m-0 {
@@ -127,6 +125,18 @@
 
         .mt-20 {
             margin-top: 20px;
+        }
+
+        .footer-terms {
+            position: fixed;
+            bottom: 150px;
+            left: 30px;
+        }
+
+        .footer-line {
+            background-color: #a98c35;
+            height: 2px;
+            margin-bottom: 4px;
         }
 
     </style>
@@ -228,8 +238,8 @@
                 </thead>
                 <tbody>
                     @php
-                        $i = 1;
-                        $total = 0;
+                    $i = 1;
+                    $total = 0;
                     @endphp
                     @foreach ($orders as $order)
                     <tr>
@@ -242,21 +252,58 @@
                         <td class="text-right">{{ $order->price }}</td>
                     </tr>
                     @php
-                        $total += $order->price;
+                    $total += $order->price;
                     @endphp
                     @endforeach
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td colspan="6" class="text-right">Total</td>
+                        <td colspan="6" class="text-right">Total:</td>
                         <td class="text-right">{{ $total }}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="6" class="text-right" style="background-color: white">Advance:</td>
+                        <td class="text-right" style="background-color: white"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="6" class="text-right">Due:</td>
+                        <td class="text-right"></td>
                     </tr>
                 </tfoot>
             </table>
+            <div>
+                <table class="footer-terms">
+                    <tr>
+                        <td><b>Terms and Conditions</b></td>
+                    </tr>
+                    <tr>
+                        <td align="justify">
+                            Item sold will not be returned. Exchange will be executed any time with good condition. Must
+                            bring invoice. For bulk <br>quantity order, you have to pay 50% advance and other 50% will
+                            be
+                            payable on delivery. <br><b>Thanks for allowing us to serve you.</b>
+                        </td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </main>
-    <footer class="pdf-footer w-100 text-center">
-        Contact No: +8801609469623 | Email: bobbinctg@gmail.com | Address: Shop No. 13, first floor, New Market(B-Block)
+    <footer class="pdf-footer w-100">
+        <div class="footer-line"></div>
+        <div>
+            <table class="w-100">
+                <tr>
+                    <td width="30%" class="text-right">
+                        Contact No: +8801609469623
+        </div>
+        </td>
+        <td width="40%"></td>
+        <td width="30%" class="text-left">
+            <b>Authorised Sign</b>
+        </td>
+        </tr>
+        </table>
+        </div>
     </footer>
 </body>
 
