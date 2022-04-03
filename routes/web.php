@@ -51,7 +51,7 @@ Route::get('products','Frontend\ProductsController@index')->name('products');
 // backend routes:
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth','admin']], function(){
     Route::get('/','Backend\DashboardController@index');
-    Route::get('invoice/{id}','Backend\DashboardController@invoice')->name('invoice');
+    Route::get('invoice/{id}/{type}','Backend\DashboardController@invoice')->name('invoice');
     Route::post('logout','Backend\DashboardController@adminLogout')->name('logout');
     Route::resource('product','Backend\ProductController');
     Route::resource('color', 'Backend\ColorController');

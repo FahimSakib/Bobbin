@@ -104,6 +104,14 @@
                                     </tbody>
                                 </table>
                             </div>
+                            <div>
+                                <a href="{{ route('admin.invoice',[$order->order_id,'stream']) }}" target="_blank"
+                                    class="btn btn-icon icon-left btn-primary"><i class="far fa-file-pdf"></i> View
+                                    Invoice Pdf</a>
+                                <a href="{{ route('admin.invoice',[$order->order_id,'download']) }}" target="_blank"
+                                    class="btn btn-icon icon-left btn-success"><i class="fas fa-file-download"></i>
+                                    Download Invoice Pdf</a>
+                            </div>
                         </div>
                     </div>
                 </div>

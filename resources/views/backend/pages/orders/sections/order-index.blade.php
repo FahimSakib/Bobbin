@@ -120,8 +120,11 @@
                                                         href="{{ route('admin.order.show',$order->order_id) }}"><i
                                                             class="far fa-eye"></i> View</a>
                                                     <a class="dropdown-item has-icon" target="_blank"
-                                                        href="{{ route('admin.invoice',$order->order_id) }}"><i
-                                                            class="far fa-eye"></i> View Invoice</a>
+                                                        href="{{ route('admin.invoice',[$order->order_id,'stream']) }}"><i
+                                                            class="far fa-file-pdf"></i> View Invoice</a>
+                                                    <a class="dropdown-item has-icon" target="_blank"
+                                                        href="{{ route('admin.invoice',[$order->order_id,'download']) }}"><i
+                                                            class="fas fa-file-download"></i> Download Invoice</a>
                                                     {{-- <a class="dropdown-item has-icon"
                                                             href="{{ route('admin.order.edit',$order->id) }}"><i
                                                         class="far fa-edit"></i> Edit</a>

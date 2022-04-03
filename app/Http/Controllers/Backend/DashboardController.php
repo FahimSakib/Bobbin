@@ -27,11 +27,11 @@ class DashboardController extends Controller
         return redirect('admin');
     }
 
-    public function invoice($id){
+    public function invoice($id, $type = 'stream'){
 
         $orders = Order::where('order_id',$id)->get();
-        // dd($orders);
         $pdf = app('dompdf.wrapper');
-        return $pdf->loadView('backend.pages.invoice.invoice',compact('orders'))->stream();
+        $pdf->loadView('backend.pages.invoice.invoice',compact('orders'));
+        return $type == 'stream' ? $pdf->stream() : $pdf->download($id.'.pdf');
     }
 }
