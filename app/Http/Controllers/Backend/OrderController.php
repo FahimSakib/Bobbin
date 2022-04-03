@@ -76,6 +76,7 @@ class OrderController extends Controller
 
     /**
      * Update the specified resource in storage.
+     * Update only order status and updated_at for order module.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -83,7 +84,14 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
+        $orders_status_update = Order::where('order_id',$id)->update(['status' => $request->input('status'), 'updated_at' => $request->input('update_date')]);
+
+        if($orders_status_update){
+            return back()->with('success','Orders status updated successfully');
+        }else{
+            return back()->with('error','Orders status could not be updated');
+        }
     }
 
     /**
