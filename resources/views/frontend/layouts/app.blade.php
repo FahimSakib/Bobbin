@@ -25,7 +25,7 @@
 
     @include('frontend.include.mobile-view')
     @include('frontend.include.modal')
-    @include('frontend.include.newsletter')
+    {{-- @include('frontend.include.newsletter') --}}
     @include('frontend.include.scripts')
     @include('sweetalert::alert')
 </body>
