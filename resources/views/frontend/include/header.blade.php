@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
                     <li>
                         <a href="#">Links</a>
                         <ul>
-                            <li><a href="tel:#"><i class="icon-phone"></i>Call: +0123 456 789</a></li>
+                            <li><a href="tel:#"><i class="icon-phone"></i>Call:+01609469623</a></li>
                         </ul>
                     </li>
                 </ul><!-- End .top-menu -->
@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Auth;
 
             <div class="header-right">
                 <div class="social-icons social-icons-color">
-                    <a href="#" class="social-icon social-facebook" title="Facebook" target="_blank"><i
+                    <a href="https://www.facebook.com/bobbin.ctg" class="social-icon social-facebook" title="Facebook" target="_blank"><i
                             class="icon-facebook-f"></i></a>
                     <a href="#" class="social-icon social-twitter" title="Twitter" target="_blank"><i
                             class="icon-twitter"></i></a>
