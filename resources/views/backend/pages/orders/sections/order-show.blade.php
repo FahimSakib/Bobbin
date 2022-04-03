@@ -11,7 +11,7 @@
                                     <div class="icon-preview" style="margin-top: 2px;">
                                         <i class="fas fa-info-circle"></i>
                                     </div>
-                                    <div class="icon-class" style="font-size: 25px;">Product Details</div>
+                                    <div class="icon-class" style="font-size: 25px;">Order Details</div>
                                 </div>
                             </div>
 

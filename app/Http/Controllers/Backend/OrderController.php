@@ -18,7 +18,7 @@ class OrderController extends Controller
         $data = [
             'title' => 'Order-Index'
         ];
-        $orders = Order::get();
+        $orders = Order::orderBy('id','desc')->get();
 
         return view('backend.pages.orders.index',$data, compact('orders'));
     }
