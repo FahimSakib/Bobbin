@@ -7,19 +7,12 @@
         </div>
         <ul class="sidebar-menu">
             <li class="menu-header">Main</li>
-            <li class="dropdown active">
+            <li class="dropdown {{ (request()->is('admin')) ? 'active' : '' }}">
                 <a href="{{ route('admin.') }}" class="nav-link"><i
                         data-feather="monitor"></i><span>Dashboard</span></a>
             </li>
-            <li class="dropdown">
-                <a href="#" class="menu-toggle nav-link has-dropdown"><i
-                        data-feather="briefcase"></i><span>Widgets</span></a>
-                <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="widget-chart.html">Chart Widgets</a></li>
-                    <li><a class="nav-link" href="widget-data.html">Data Widgets</a></li>
-                </ul>
-            </li>
-            <li class="dropdown">
+            <li
+                class="dropdown {{ (request()->is('admin/product')) ? 'active' : '' || (request()->is('admin/product/*')) ? 'active' : ''}}">
                 <a href="#" class="menu-toggle nav-link has-dropdown"><i
                         data-feather="shopping-bag"></i><span>Products</span></a>
                 <ul class="dropdown-menu">
@@ -27,52 +20,49 @@
                     <li><a class="nav-link" href="{{ route('admin.product.create') }}">Create</a></li>
                 </ul>
             </li>
-            <li class="dropdown">
-                <a href="#" class="menu-toggle nav-link has-dropdown"><i
-                        data-feather="list"></i><span>Orders</span></a>
+            <li
+                class="dropdown {{ (request()->is('admin/order')) ? 'active' : '' || (request()->is('admin/order/*')) ? 'active' : ''}}">
+                <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="list"></i><span>Orders</span></a>
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="{{ route('admin.order.index') }}">Index</a></li>
                 </ul>
             </li>
-
-            <li class="dropdown">
+            <li
+                class="dropdown {{ (request()->is('admin/color')) ? 'active' : '' || (request()->is('admin/color/*')) ? 'active' : ''}}">
                 <a href="#" class="menu-toggle nav-link has-dropdown"><i
                         data-feather="droplet"></i><span>Colors</span></a>
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="{{ route('admin.color.index') }}">Index</a></li>
-
                     <li><a class="nav-link" href="{{ route('admin.color.create') }}">Create</a></li>
 
                 </ul>
             </li>
-            <li class="dropdown">
+            <li
+                class="dropdown {{ (request()->is('admin/size')) ? 'active' : '' || (request()->is('admin/size/*')) ? 'active' : ''}}">
                 <a href="#" class="menu-toggle nav-link has-dropdown"><i
                         data-feather="scissors"></i><span>Sizes</span></a>
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="{{ route('admin.size.index') }}">Index</a></li>
-
                     <li><a class="nav-link" href="{{ route('admin.size.create') }}">Create</a></li>
 
                 </ul>
             </li>
-            <li class="dropdown">
+            <li
+                class="dropdown {{ (request()->is('admin/category')) ? 'active' : '' || (request()->is('admin/category/*')) ? 'active' : ''}}">
                 <a href="#" class="menu-toggle nav-link has-dropdown"><i
                         data-feather="tag"></i><span>Category</span></a>
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="{{ route('admin.category.index') }}">Index</a></li>
-
                     <li><a class="nav-link" href="{{ route('admin.category.create') }}">Create</a></li>
-
                 </ul>
             </li>
-            <li class="dropdown">
+            <li
+                class="dropdown {{ (request()->is('admin/slider')) ? 'active' : '' || (request()->is('admin/slider/*')) ? 'active' : ''}}">
                 <a href="#" class="menu-toggle nav-link has-dropdown"><i
                         data-feather="image"></i><span>Slider</span></a>
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="{{ route('admin.slider.index') }}">Index</a></li>
-
                     <li><a class="nav-link" href="{{ route('admin.slider.create') }}">Create</a></li>
-
                 </ul>
             </li>
             {{-- <li class="dropdown">
