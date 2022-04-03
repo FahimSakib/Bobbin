@@ -11,7 +11,7 @@
                                     <div class="icon-preview" style="margin-top: 2px;">
                                         <i class="fas fa-info-circle"></i>
                                     </div>
-                                    <div class="icon-class" style="font-size: 25px;">Product Details</div>
+                                    <div class="icon-class" style="font-size: 25px;">Order Details</div>
                                 </div>
                             </div>
 
@@ -103,6 +103,14 @@
                                         @endforeach
                                     </tbody>
                                 </table>
+                            </div>
+                            <div>
+                                <a href="{{ route('admin.invoice',[$order->order_id,'stream']) }}" target="_blank"
+                                    class="btn btn-icon icon-left btn-primary"><i class="far fa-file-pdf"></i> View
+                                    Invoice Pdf</a>
+                                <a href="{{ route('admin.invoice',[$order->order_id,'download']) }}" target="_blank"
+                                    class="btn btn-icon icon-left btn-success"><i class="fas fa-file-download"></i>
+                                    Download Invoice Pdf</a>
                             </div>
                         </div>
                     </div>

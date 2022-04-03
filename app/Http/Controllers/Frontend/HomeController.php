@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Controllers\Controller;
 use App\Models\Blog;
-use App\Models\Category;
-use App\Models\Product;
 use App\Models\Slider;
+use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
@@ -20,4 +20,5 @@ class HomeController extends Controller
         $categories = Category::all()->where('status','1');
         return view('frontend.pages.home.home', $data,compact('slider','product','categories'));
     }
+
 }

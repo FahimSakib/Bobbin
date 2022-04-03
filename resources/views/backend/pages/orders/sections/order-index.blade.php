@@ -11,7 +11,7 @@
                                     <div class="icon-preview" style="margin-top: 2px;">
                                         <i class="fas fa-table"></i>
                                     </div>
-                                    <div class="icon-class" style="font-size: 25px;">Index of Products</div>
+                                    <div class="icon-class" style="font-size: 25px;">Index of Orders</div>
                                 </div>
                             </div>
                             {{-- <div class="pull-right">
@@ -119,6 +119,12 @@
                                                     <a class="dropdown-item has-icon"
                                                         href="{{ route('admin.order.show',$order->order_id) }}"><i
                                                             class="far fa-eye"></i> View</a>
+                                                    <a class="dropdown-item has-icon" target="_blank"
+                                                        href="{{ route('admin.invoice',[$order->order_id,'stream']) }}"><i
+                                                            class="far fa-file-pdf"></i> View Invoice</a>
+                                                    <a class="dropdown-item has-icon" target="_blank"
+                                                        href="{{ route('admin.invoice',[$order->order_id,'download']) }}"><i
+                                                            class="fas fa-file-download"></i> Download Invoice</a>
                                                     {{-- <a class="dropdown-item has-icon"
                                                             href="{{ route('admin.order.edit',$order->id) }}"><i
                                                         class="far fa-edit"></i> Edit</a>

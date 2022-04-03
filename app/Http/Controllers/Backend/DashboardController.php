@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Models\Order;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -24,5 +25,13 @@ class DashboardController extends Controller
         Auth::logout();
 
         return redirect('admin');
+    }
+
+    public function invoice($id, $type = 'stream'){
+
+        $orders = Order::where('order_id',$id)->get();
+        $pdf = app('dompdf.wrapper');
+        $pdf->loadView('backend.pages.invoice.invoice',compact('orders'));
+        return $type == 'stream' ? $pdf->stream() : $pdf->download($id.'.pdf');
     }
 }
