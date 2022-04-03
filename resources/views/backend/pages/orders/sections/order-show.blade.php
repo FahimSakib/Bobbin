@@ -22,6 +22,16 @@
                             </div>
                         </div>
                         <div class="card-body">
+                            @if ($message = Session::get('success'))
+                            <div class="alert alert-success alert-dismissible show fade">
+                                <div class="alert-body">
+                                    <button class="close" data-dismiss="alert">
+                                        <span>&times;</span>
+                                    </button>
+                                    {{ $message }}
+                                </div>
+                            </div>
+                            @endif
                             <div class="pl-2">
                                 <h3 class="d-inline mr-3">Order ID: <span
                                         class="text-info">{{ $orders[0]->order_id }}</span>
@@ -104,17 +114,43 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div>
-                                <a href="{{ route('admin.invoice',[$order->order_id,'stream']) }}" target="_blank"
-                                    class="btn btn-icon icon-left btn-primary"><i class="far fa-file-pdf"></i> View
-                                    Invoice Pdf</a>
-                                <a href="{{ route('admin.invoice',[$order->order_id,'download']) }}" target="_blank"
-                                    class="btn btn-icon icon-left btn-success"><i class="fas fa-file-download"></i>
-                                    Download Invoice Pdf</a>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <form action="{{ route('admin.order.update',$orders[0]->order_id) }}" method="post">
+                                        @csrf
+                                        @method('PUT')
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <select class="custom-select" id="inputGroupSelect04" name="status">
+                                                    <option value="1" {{ $orders[0]->status == 1 ? 'selected' : ''}}>
+                                                        Ordered</option>
+                                                    <option value="2" {{ $orders[0]->status == 2 ? 'selected' : ''}}>
+                                                        Shipped</option>
+                                                    <option value="3" {{ $orders[0]->status == 3 ? 'selected' : ''}}>
+                                                        delivered</option>
+                                                </select>
+                                                <input type="hidden" name="update_date"
+                                                    value="{{ date('Y-m-d H:i:s') }}">
+                                                <div class="input-group-append">
+                                                    <button class="btn btn-primary" type="submit">Update Status</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-md-6 mt-1">
+                                    <a href="{{ route('admin.invoice',[$order->order_id,'stream']) }}" target="_blank"
+                                        class="btn btn-icon icon-left btn-primary"><i class="far fa-file-pdf"></i> View
+                                        Invoice Pdf</a>
+                                    <a href="{{ route('admin.invoice',[$order->order_id,'download']) }}" target="_blank"
+                                        class="btn btn-icon icon-left btn-success"><i class="fas fa-file-download"></i>
+                                        Download Invoice Pdf</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
     </section>
     @include('backend.include.setting-sidebar')
