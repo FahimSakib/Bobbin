@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Gloudemans\Shoppingcart\Facades\Cart;
 
 class InvoiceGenerator extends Controller
 {
@@ -42,7 +43,14 @@ class InvoiceGenerator extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $product = Product::findOrFail($request->input('product'));
+        $size = $request->input('size');
+        $color = $request->input('color');
+        $pivot_qty = $request->input('pivot-qty');
+        $customer_name = $request->input('customer_name');
+        $carts = Cart::add($product->id, $product->name, $request->input('quantity'), $product->price,'0',['color' => $color, 'size' => $size, 'image' =>$product->image1, 'pivot_qty' => $pivot_qty, 'customer_name' => $customer_name]);
+   
+        return back()->with('success','Item Added successfully');
     }
 
     /**
