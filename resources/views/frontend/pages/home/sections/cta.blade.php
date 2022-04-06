@@ -4,7 +4,7 @@
             <div class="col-sm-10 col-md-8 col-lg-6">
                 <div class="cta-heading text-center">
                     <h3 class="cta-title">Sign Up for updates from Molla</h3><!-- End .cta-title -->
-                    <p class="cta-desc">and receive <span class="font-weight-normal">$20 coupon</span> for
+                    <p class="cta-desc">and receive <span class="font-weight-normal">৳20 coupon</span> for
                         first shopping</p><!-- End .cta-desc -->
                 </div><!-- End .text-center -->
 
