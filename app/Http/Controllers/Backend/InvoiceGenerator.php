@@ -48,7 +48,10 @@ class InvoiceGenerator extends Controller
         $color = $request->input('color');
         $pivot_qty = $request->input('pivot-qty');
         $customer_name = $request->input('customer_name');
-        $carts = Cart::add($product->id, $product->name, $request->input('quantity'), $product->price,'0',['color' => $color, 'size' => $size, 'image' =>$product->image1, 'pivot_qty' => $pivot_qty, 'customer_name' => $customer_name]);
+        $customer_email = $request->input('customer_email');
+        $customer_mobile = $request->input('customer_mobile');
+        $customer_address = $request->input('customer_address');
+        $carts = Cart::add($product->id, $product->name, $request->input('quantity'), $product->price,'0',['color' => $color, 'size' => $size, 'image' =>$product->image1, 'pivot_qty' => $pivot_qty, 'customer_name' => $customer_name, 'customer_email' => $customer_email, 'customer_mobile' => $customer_mobile, 'customer_address' => $customer_address]);
    
         return back()->with('success','Item Added successfully');
     }
@@ -128,5 +131,12 @@ class InvoiceGenerator extends Controller
                 return response()->json($output);
             }
         }
+    }
+
+    public function check(Request $request){
+
+        $result = $request->data;
+        $data = json_decode($result, true);
+        dd($data);
     }
 }

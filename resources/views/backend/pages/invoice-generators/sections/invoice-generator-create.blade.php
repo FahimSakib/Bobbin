@@ -1,5 +1,11 @@
 @php
-    $invoices = Gloudemans\Shoppingcart\Facades\Cart::content();
+$invoices = Gloudemans\Shoppingcart\Facades\Cart::content();
+$invoices_a = $invoices->toArray();
+$invoice = reset($invoices_a);
+
+$order_id = uniqid();
+$data = [];
+// dd($invoices);
 @endphp
 <div class="main-content">
     <section class="section">
@@ -24,49 +30,190 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('admin.invoice-generator.store') }}" method="POST">
-                                @csrf
-                                <div class="row">
-                                    <div class="form-group col-md-6">
-                                        <label>Customer Name</label>
-                                        <input type="text" class="form-control" name="customer_name" value="">
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label>Select Product</label>
-                                        <select class="form-control" name="product"
-                                            onchange="sizes(this.value);colors(this.value)" required>
-                                            <option value="">Select Please</option>
-                                            @foreach ($products as $product)
-                                            <option value="{{ $product->id }}">{{ $product->name }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label>Select Size</label>
-                                        <select class="form-control" name="size" id="size" required>
-                                        </select>
-                                    </div>
-                                    <input type="hidden" name="pivot-qty" id="pivot-qty">
-                                    <div class="form-group col-md-6">
-                                        <label>Select Color</label>
-                                        <select class="form-control" name="color" id="color" required>
-                                        </select>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label>Quantity</label>
-                                        <input type="number" name="quantity" id="qty" class="form-control" value="1"
-                                            min="1" step="1" data-decimals="0" onkeydown="return false" required>
-                                    </div>
+                            @if ($message = Session::get('success'))
+                            <div class="alert alert-success alert-dismissible show fade">
+                                <div class="alert-body">
+                                    <button class="close" data-dismiss="alert">
+                                        <span>&times;</span>
+                                    </button>
+                                    {{ $message }}
                                 </div>
-                                <div class="card-footer text-right">
-                                    <button class="btn btn-primary">Submit</button>
-                                </div>
-                            </form>
-                        </div>
+                            </div>
+                            @endif
+                            @if (!$invoices->isEmpty())
+                            <div class="table-responsive">
+                                <h3>selected Products for shopping</h3>
+                                <table class="table table-striped" id="table-1">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">
+                                                #
+                                            </th>
+                                            <th>Product Name</th>
+                                            <th>Price</th>
+                                            <th>Quantity</th>
+                                            <th>Image(1)</th>
+                                            <th>Color</th>
+                                            <th>size</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @php
+                                        $i = 1;
+                                        @endphp
+                                        @foreach ($invoices as $invoice_order)
+                                        <tr>
+                                            <td class="text-center">
+                                                {{$i++}}
+                                            </td>
+                                            <td>
+                                                {{ $invoice_order->name }}
+                                            </td>
+                                            <td>
+                                                {{ $invoice_order->price*$invoice_order->qty }}
+                                            </td>
+                                            <td>
+                                                {{ $invoice_order->qty }}
+                                            </td>
+                                            <td>
+                                                <img src="{{ asset('storage/Product_image/'.$invoice_order->options->image) }}"
+                                                    alt="{{ $invoice_order->image1 }}" style="height:50px">
+                                            </td>
+                                            @php
+                                            $size = App\Models\Size::find($invoice_order->options->size);
+                                            $color = App\Models\Color::find($invoice_order->options->color);
+                                            @endphp
+                                            <td>
+                                                {{ $color->title }}
+                                            </td>
+                                            <td>
+                                                {{ $size->title }}
+                                            </td>
+                                            <td>
+                                                {{-- <div class="dropdown d-inline">
+                                                    <button class="btn btn-info dropdown-toggle" type="button"
+                                                        id="dropdownMenuButton2" data-toggle="dropdown"
+                                                        aria-haspopup="true" aria-expanded="false">
+                                                        Action
+                                                    </button>
+                                                    <div class="dropdown-menu">
+                                                        <a class="dropdown-item has-icon"
+                                                            href="{{ route('admin.invoice-generator.show',$invoice-generator->id) }}"><i
+                                                    class="far fa-eye"></i> View</a>
+                                                <a class="dropdown-item has-icon"
+                                                    href="{{ route('admin.invoice-generator.edit',$invoice-generator->id) }}"><i
+                                                        class="far fa-edit"></i> Edit</a>
+                                                <div class="del ml-4">
+                                                    <form
+                                                        action="{{ route('admin.invoice-generator.destroy',$invoice-generator->id) }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <i class="fas fa-trash-alt"></i> <button type="submit"
+                                                            class="btn delete_confirm" aria-hidden="true"
+                                                            style="background-color:transparent; margin-right:50px;">Delete</button>
+                                                    </form>
+                                                </div>
+
+                            </div>
+                        </div> --}}
+                        </td>
+                        </tr>
+                        @php
+                        $tp=$invoice_order->price*$invoice_order->qty;
+
+                        $row = [];
+
+                        $row ['order_id'] = $order_id;
+                        $row ['customer_name'] = $invoice_order->options->customer_name;
+                        $row ['customer_email'] = $invoice_order->options->customer_email;
+                        $row ['customer_mobile'] = $invoice_order->options->customer_mobile;
+                        $row ['customer_address'] = $invoice_order->options->customer_address;
+                        $row ['product_id'] = $invoice_order->id;
+                        $row ['size_id'] = $invoice_order->options->size;
+                        $row ['color_id'] = $invoice_order->options->color;
+                        $row ['qty'] = $invoice_order->qty;
+                        $row ['price'] = $tp;
+                        $row ['pivot_qty'] = $invoice_order->options->pivot_qty;
+                        $row ['created_at'] = date('Y-m-d H:i:s');
+                        $data[] = $row;
+                        @endphp
+                        @endforeach
+                        </tbody>
+                        </table>
+                        @php
+                        $collection = collect($data);
+                        @endphp
+                        <form action="{{ route('admin.check') }}" method="post">
+                            @csrf
+                            <input type="hidden" name="data" value="{{ $collection  }}">
+                            <button type="submit" class="btn btn-primary mb-2">PROCEED TO
+                                CHECKOUT</button>
+                        </form>
                     </div>
+                    @endif
+                    <h3 class="my-2">Add a new product manually</h3>
+                    <form action="{{ route('admin.invoice-generator.store') }}" method="POST">
+                        @csrf
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label>Customer Name</label>
+                                <input type="text" class="form-control" name="customer_name" @if(!empty($invoice['options']['customer_name']))
+                                    value="{{ $invoice['options']['customer_name'] }}" @else value="" @endif required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Customer email</label>
+                                <input type="email" class="form-control" name="customer_email" @if(!empty($invoice['options']['customer_email']))
+                                    value="{{ $invoice['options']['customer_email'] }}" @else value="" @endif required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Customer Mobile No</label>
+                                <input type="number" class="form-control" name="customer_mobile" @if(!empty($invoice['options']['customer_mobile']))
+                                    value="{{ $invoice['options']['customer_mobile'] }}" @else value="" @endif required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Customer Address</label>
+                                <input type="text" class="form-control" name="customer_address" @if(!empty($invoice['options']['customer_address']))
+                                    value="{{ $invoice['options']['customer_address'] }}" @else value="" @endif
+                                    required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Select Product</label>
+                                <select class="form-control" name="product"
+                                    onchange="sizes(this.value);colors(this.value)" required>
+                                    <option value="">Select Please</option>
+                                    @foreach ($products as $product)
+                                    <option value="{{ $product->id }}">{{ $product->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Select Size</label>
+                                <select class="form-control" name="size" id="size" required>
+                                </select>
+                            </div>
+                            <input type="hidden" name="pivot-qty" id="pivot-qty">
+                            <div class="form-group col-md-6">
+                                <label>Select Color</label>
+                                <select class="form-control" name="color" id="color" required>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Quantity</label>
+                                <input type="number" name="quantity" id="qty" class="form-control" value="1" min="1"
+                                    step="1" data-decimals="0" onkeydown="return false" required>
+                            </div>
+                        </div>
+                        <div class="card-footer text-right">
+                            <button class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
+</div>
+</div>
 </div>
 </div>
 </section>
