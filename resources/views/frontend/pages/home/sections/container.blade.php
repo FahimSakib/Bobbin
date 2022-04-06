@@ -38,7 +38,7 @@ $single_product = App\Models\Product::where('category_id',$category->id)->inRand
                             <h4 class="text-white">Sale</h4>
                         </div>
                         <div class="product-price">
-                            <h4 class="text-white">${{ $single_product->price }}</h4>
+                            <h4 class="text-white">৳{{ $single_product->price }}</h4>
                         </div>
                         <div class="product-txt">
                             <p class="text-white">{{ $single_product->name }}</p>
@@ -108,7 +108,7 @@ $single_product = App\Models\Product::where('category_id',$category->id)->inRand
                                         href="{{route('product-extended',$product->id)}}">{{ $product->name }}</a></h3>
                                 <!-- End .product-title -->
                                 <div class="product-price">
-                                    $12.99
+                                    ৳ {{ $product->price }}
                                 </div><!-- End .product-price -->
                                 <div class="ratings-container">
                                     <div class="ratings">

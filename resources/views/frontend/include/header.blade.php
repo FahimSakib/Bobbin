@@ -5,8 +5,8 @@ use Illuminate\Support\Facades\Auth;
 @endphp
 <header class="header header-6">
     <div class="header-top">
-        <div class="container">
-            <div class="header-left">
+        <div class="container my-3">
+            {{-- <div class="header-left">
                 <ul class="top-menu top-link-menu d-none d-md-block">
                     <li>
                         <a href="#">Links</a>
@@ -15,10 +15,10 @@ use Illuminate\Support\Facades\Auth;
                         </ul>
                     </li>
                 </ul><!-- End .top-menu -->
-            </div><!-- End .header-left -->
+            </div><!-- End .header-left --> --}}
 
             <div class="header-right">
-                <div class="social-icons social-icons-color">
+                {{-- <div class="social-icons social-icons-color">
                     <a href="https://www.facebook.com/bobbin.ctg" class="social-icon social-facebook" title="Facebook" target="_blank"><i
                             class="icon-facebook-f"></i></a>
                     <a href="#" class="social-icon social-twitter" title="Twitter" target="_blank"><i
@@ -27,7 +27,7 @@ use Illuminate\Support\Facades\Auth;
                             class="icon-instagram"></i></a>
                     <a href="#" class="social-icon social-pinterest" title="Instagram" target="_blank"><i
                             class="icon-pinterest-p"></i></a>
-                </div><!-- End .soial-icons -->
+                </div><!-- End .soial-icons --> --}}
                 <ul class="top-menu top-link-menu">
                     <li>
                         <a href="#">Links</a>
@@ -86,10 +86,15 @@ use Illuminate\Support\Facades\Auth;
             </div>
             <div class="header-center">
                 <a href="{{ url('/') }}" class="logo">
-                    <img src="asset/frontend/assets/images/bobbin-logo.png" alt="Bobbin Logo" width="180" height="35">
+                    <img src="asset/frontend/assets/images/bobbin-logo-only-gold.png" alt="Bobbin Logo" width="180" height="30">
+   
+                   
                 </a>
+                
+   
+                
             </div><!-- End .header-left -->
-
+<br>
             <div class="header-right">
                 <a href="wishlist.html" class="wishlist-link">
                     <i class="icon-heart-o"></i>

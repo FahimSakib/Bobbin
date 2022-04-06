@@ -25,7 +25,7 @@ $random_4 = App\Models\Product::with('category')->where('status','1')->inRandomO
                             <!-- End .banner-title -->
                             <div class="banner-text text-white"><a
                                     href="{{ route('category',$random_1->category->id) }}">from
-                                    ${{ $random_1->price }}</a></div>
+                                    ৳{{ $random_1->price }}</a></div>
                             <!-- End .banner-text -->
                             <a href="{{ route('category',$random_1->category->id) }}"
                                 class="btn btn-outline-white banner-link">Discover Now</a>
@@ -50,7 +50,7 @@ $random_4 = App\Models\Product::with('category')->where('status','1')->inRandomO
                             <!-- End .banner-title -->
                             <div class="banner-text text-white"><a
                                     href="{{ route('category',$random_4->category->id) }}">from
-                                    ${{ $random_4->price }}</a></div>
+                                    ৳{{ $random_4->price }}</a></div>
                             <!-- End .banner-text -->
                             <a href="{{ route('category',$random_4->category->id) }}"
                                 class="btn btn-outline-white banner-link">Discover Now</a>
@@ -105,7 +105,7 @@ $random_4 = App\Models\Product::with('category')->where('status','1')->inRandomO
             </div><!-- End .row -->
         </div><!-- End .banner-group -->
 
-        <div class="owl-carousel mt-4 mb-3 owl-simple" data-toggle="owl" data-owl-options='{
+        {{-- <div class="owl-carousel mt-4 mb-3 owl-simple" data-toggle="owl" data-owl-options='{
                    "nav": false, 
                    "dots": false,
                    "margin": 30,
@@ -155,7 +155,7 @@ $random_4 = App\Models\Product::with('category')->where('status','1')->inRandomO
             <a href="#" class="brand">
                 <img src="asset/frontend/assets/images/brands/7.png" alt="Brand Name">
             </a>
-        </div><!-- End .owl-carousel -->
+        </div><!-- End .owl-carousel --> --}}
     </div><!-- End .container -->
 </div><!-- End .bg-lighter -->
 

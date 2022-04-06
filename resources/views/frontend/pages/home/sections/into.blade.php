@@ -88,14 +88,14 @@
                            }
                        }
                    }'>
-                <div class="icon-box icon-box-side">
+                {{-- <div class="icon-box icon-box-side">
                     <span class="icon-box-icon">
                         <i class="icon-rocket"></i>
-                    </span>
+                    </span> --}}
 
-                    <div class="icon-box-content">
+                    {{-- <div class="icon-box-content">
                         <h3 class="icon-box-title">Free Shipping</h3><!-- End .icon-box-title -->
-                        <p>Orders $50 or more</p>
+                        <p>Orders ৳50 or more</p>
                     </div><!-- End .icon-box-content -->
                 </div><!-- End .icon-box -->
 
@@ -130,7 +130,7 @@
                         <h3 class="icon-box-title">We Support</h3><!-- End .icon-box-title -->
                         <p>24/7 amazing services</p>
                     </div><!-- End .icon-box-content -->
-                </div><!-- End .icon-box -->
+                </div><!-- End .icon-box --> --}}
             </div><!-- End .owl-carousel -->
         </div><!-- End .container -->
     </div><!-- End .icon-boxes-container -->
