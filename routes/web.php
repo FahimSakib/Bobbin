@@ -60,6 +60,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth','ad
     Route::resource('slider', 'Backend\SliderController');
     Route::resource('test', 'Backend\TestController');
     Route::resource('order', 'Backend\OrderController');
+    Route::resource('invoice-generator', 'Backend\InvoiceGenerator');
+    Route::post('sizes','Backend\InvoiceGenerator@sizes')->name('sizes');
+    Route::post('colors','Backend\InvoiceGenerator@colors')->name('colors');
 });
 
 
