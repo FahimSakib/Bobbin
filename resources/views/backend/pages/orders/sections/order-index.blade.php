@@ -57,6 +57,7 @@
                                         <th>Color</th>
                                         <th>Quantity</th>
                                         <th>Price</th>
+                                        <th>Date</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
@@ -94,6 +95,9 @@
                                         </td>
                                         <td>
                                             {{ $order->price }}
+                                        </td>
+                                        <td>
+                                            {!! date('d/m/Y', strtotime($order->created_at)) !!}
                                         </td>
                                         @if($order->status == '1')
                                         <td>

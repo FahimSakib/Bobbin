@@ -6,7 +6,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>BOBBIN | INVOICE</title>
+    <title>BOBBIN | OFFLINE-INVOICE</title>
     <style>
         @page {
             margin: 0;
@@ -186,9 +186,9 @@
         <td width="30%" class="text-right">
             <b>Date:</b> {{ date('d-m-Y') }}<br>
             <br>
-            <b>Order ID:</b> {{ $orders[0]->order_id }}<br>
+            <b>Order ID:</b> {{ $offline_orders[0]->order_id }}<br>
             <br>
-            <b>Payment Method:</b> COD<br>
+            <b>Payment Method:</b> {{ $offline_orders[0]->payment_method }}<br>
         </td>
         </tr>
         </table>
@@ -204,20 +204,20 @@
                 <tbody>
                     <tr>
                         <td width="20%" class="text-left">Name:</td>
-                        <td width="50%" class="text-left">{{ $orders[0]->user->name }}</td>
+                        <td width="50%" class="text-left">{{ $offline_orders[0]->customer_name }}</td>
                     </tr>
                     <tr>
                         <td width="20%" class="text-left">Email:</td>
-                        <td width="50%" class="text-left">{{ $orders[0]->user->email }}</td>
+                        <td width="50%" class="text-left">{{ $offline_orders[0]->customer_email }}</td>
                     </tr>
                     <tr>
                         <td width="20%" class="text-left">Contact No:</td>
-                        <td width="50%" class="text-left">{{ $orders[0]->user->mobile_no }}</td>
+                        <td width="50%" class="text-left">{{ $offline_orders[0]->customer_mobile }}</td>
                     </tr>
                     <tr>
                         <td width="20%" class="text-left">Address:</td>
                         <td width="50%" class="text-left">
-                            {{ $orders[0]->user->street.', '.$orders[0]->user->postal_code.', '.$orders[0]->user->city }}
+                            {{ $offline_orders[0]->customer_address }}
                         </td>
                     </tr>
                 </tbody>
@@ -241,7 +241,7 @@
                     $i = 1;
                     $total = 0;
                     @endphp
-                    @foreach ($orders as $order)
+                    @foreach ($offline_orders as $order)
                     <tr>
                         <td class="text-center">{{ $i++ }}</td>
                         <td class="text-left">{{ $order->product->name }}</td>
@@ -263,11 +263,19 @@
                     </tr>
                     <tr>
                         <td colspan="6" class="text-right" style="background-color: white">Advance:</td>
-                        <td class="text-right" style="background-color: white"></td>
+                        <td class="text-right" style="background-color: white">
+                            @if ($offline_orders[0]->payment_amount != null)
+                                {{ $offline_orders[0]->payment_amount  }}
+                            @endif
+                        </td>
                     </tr>
                     <tr>
                         <td colspan="6" class="text-right">Due:</td>
-                        <td class="text-right"></td>
+                        <td class="text-right">
+                            @if ($offline_orders[0]->payment_amount != null)
+                            {{ $total-$offline_orders[0]->payment_amount  }}
+                        @endif
+                        </td>
                     </tr>
                 </tfoot>
             </table>
