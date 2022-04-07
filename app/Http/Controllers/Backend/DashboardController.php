@@ -41,6 +41,6 @@ class DashboardController extends Controller
         $offline_orders = Invoice::where('order_id',$id)->get();
         $pdf = app('dompdf.wrapper');
         $pdf->loadView('backend.pages.invoice.offline-invoice',compact('offline_orders'));
-        return $type == 'stream' ? $pdf->stream() : $pdf->download($id.'.pdf');
+        return $type == 'stream' ? $pdf->stream() : $pdf->download('offline_'.$id.'.pdf');
     }
 }

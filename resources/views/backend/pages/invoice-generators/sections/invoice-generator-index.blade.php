@@ -58,6 +58,7 @@
                                             <th>Color</th>
                                             <th>Quantity</th>
                                             <th>Price</th>
+                                            <th>Date</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -97,6 +98,9 @@
                                             </td>
                                             <td>
                                                 {{ $order->price }}
+                                            </td>
+                                            <td>
+                                                {!! date('d/m/Y', strtotime($order->created_at)) !!}
                                             </td>
                                             <td>
                                                 <div class="dropdown d-inline">

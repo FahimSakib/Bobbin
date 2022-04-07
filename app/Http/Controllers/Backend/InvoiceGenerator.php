@@ -178,7 +178,7 @@ class InvoiceGenerator extends Controller
                 Product::where('id',$product_id)->update(['total_qty'=>$product_qty]);
             }
 
-            return back()->with('success','Your orders has been placed successfully');
+            return redirect()->route('admin.invoice-generator.index')->with('success','Orders for offline invoice has been placed successfully');
             
         }else{
             return back()->with('error','Something went wrong!');
