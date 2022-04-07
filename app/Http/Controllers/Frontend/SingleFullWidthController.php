@@ -13,8 +13,10 @@ class SingleFullWidthController extends Controller
         $data = [
             'title' => 'FullWidth'
         ];
+        $services = Service::where('status','1')->limit(6)->orderBy('id','desc')->get();
+
         $service = Service::find($id);
        
-        return view('frontend.pages.single-fullwidth.single-fullwidth', $data,compact('service'));
+        return view('frontend.pages.single-fullwidth.single-fullwidth', $data,compact('service','services'));
     }
 }

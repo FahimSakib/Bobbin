@@ -11,7 +11,9 @@ class ServiceController extends Controller
         $data = [
             'title' => 'Service'
         ];
-        $service = Service::all();
+        
+        $service = Service::where('status','1')->get();
+
         return view('frontend.pages.service.service', $data,compact('service'));
     }
 }
