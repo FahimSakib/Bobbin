@@ -144,7 +144,12 @@ class ServiceController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if(Service::find($id)->delete()){
+            return redirect()->route('admin.service.index')->with('danger','Item deleted successfully');
+        }else{
+            return redirect()->route('admin.service.index')->with('error','Item can not be deleted');
+        }
+
     }
 
     private function fileUpload($file, $name){

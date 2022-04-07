@@ -67,7 +67,7 @@
                                         <tr>
                                             <th>Updated at</th>
                                             <td>
-                                                {!! date('d - M - Y - h : i : s A', strtotime($service->created_at)) !!}
+                                                {!! date('d - M - Y - h : i : s A', strtotime($service->updated_at)) !!}
                                             </td>
                                         </tr>
                                     </tbody>

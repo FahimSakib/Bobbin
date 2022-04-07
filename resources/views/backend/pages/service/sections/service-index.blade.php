@@ -125,7 +125,7 @@
                                             <h3>Info</h3>
                                         </div>
                                         <h5>
-                                            There is no color available! please create a new color to show in the
+                                            There is no Service available! please create a new color to show in the
                                             list.
                                         </h5>
                                     </div>
