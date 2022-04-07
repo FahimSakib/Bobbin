@@ -6,7 +6,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <div class="col-md-10 d-flex mt-2">
+                            <div class="col-md-9 d-flex mt-2">
                                 <div class="preview d-flex">
                                     <div class="icon-preview" style="margin-top: 2px;">
                                         <i class="fas fa-info-circle"></i>
@@ -18,121 +18,78 @@
                             <div>
                                 <a class="btn btn-icon icon-left btn-success"
                                     href="{{ route('admin.invoice-generator.index') }}"><i class="fas fa-list-alt"></i>List of
-                                    invoice-generators</a>
+                                    invoices (Offline)</a>
                             </div>
                         </div>
                         <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered">
-                                    <tbody>
+                            <div class="pl-2">
+                                <h3 class="d-inline mr-3">Order ID: <span
+                                        class="text-info">{{ $offline_orders[0]->order_id }}</span>
+                                </h3>
+                                <h3 class="d-inline mr-3">Customer name: <span
+                                        class="text-info">{{ $offline_orders[0]->customer_name }}</span>
+                                </h3>
+                                <h3 class="d-inline">Customer mobile: <span
+                                        class="text-info">{{ $offline_orders[0]->customer_mobile }}</span>
+                                </h3>
+                                <h3 class="d-inline">Customer email: <span
+                                        class="text-info">{{ $offline_orders[0]->customer_email }}</span>
+                                </h3>
+                            </div>
+                            <div class="table-responsive mt-3">
+                                <table class="table table-striped" id="table-1">
+                                    <thead>
                                         <tr>
-                                            <th class="col-md-2">Fields</th>
-                                            <th>Details</th>
-                                        </tr>
-                                        <tr>
-                                            <th>ID</th>
-                                            <td>{{ $invoice-generator->id }}</td>
-                                        </tr>
-                                        <tr>
+                                            <th class="text-center">
+                                                #
+                                            </th>
+                                            <th>Product ID</th>
                                             <th>Product Name</th>
-                                            <td>{{ $invoice-generator->name }}</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Price</th>
-                                            <td>{{ $invoice-generator->price }}</td>
-                                        </tr>
-                                        <tr>
+                                            <th>Product Image</th>
+                                            <th>Size</th>
+                                            <th>Color</th>
                                             <th>Quantity</th>
-                                            <td>{{ $invoice-generator->total_qty }}</td>
+                                            <th>Price</th>
+                                            <th>Order Date</th>
                                         </tr>
+                                    </thead>
+                                    <tbody>
+                                        @php
+                                        $i = 1;
+                                        @endphp
+                                        @foreach ($offline_orders as $order)
                                         <tr>
-                                            <th>Short Description</th>
-                                            <td>{{ $invoice-generator->short_description }}</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Description</th>
-                                            <td>{{ $invoice-generator->description }}</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Images</th>
+                                            <td class="text-center">
+                                                {{$i++}}
+                                            </td>
                                             <td>
-                                                <ul class="list-group list-group-horizontal">
-                                                    <li class="list-group-item  border-0"><img
-                                                            src="{{ asset('storage/Product_image/'.$invoice-generator->image1) }}"
-                                                            alt="{{ $invoice-generator->image1 }}"
-                                                            style="height:80px;width:120px">
-                                                    </li>
-                                                    <li class="list-group-item border-0"><img
-                                                            src="{{ asset('storage/Product_image/'.$invoice-generator->image2) }}"
-                                                            alt="{{ $invoice-generator->image2 }}"
-                                                            style="height:80px;width:120px">
-                                                    </li>
-                                                    <li class="list-group-item border-0"><img
-                                                            src="{{ asset('storage/Product_image/'.$invoice-generator->image3) }}"
-                                                            alt="{{ $invoice-generator->image3 }}"
-                                                            style="height:80px;width:120px">
-                                                    </li>
-                                                    <li class="list-group-item border-0"><img
-                                                            src="{{ asset('storage/Product_image/'.$invoice-generator->image4) }}"
-                                                            alt="{{ $invoice-generator->image4 }}"
-                                                            style="height:80px;width:120px">
-                                                    </li>
-                                                </ul>
+                                                {{ $order->product->id }}
                                             </td>
-                                        </tr>
-                                        <tr>
-                                            <th>Category</th>
-                                            <td>{{ $invoice-generator->category->title }}</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Status</th>
-                                            @if($invoice-generator->status=='1')
-                                            <td>Active</td>
-                                            @else
-                                            <td>Deactive</td>
-                                            @endif
-                                        </tr>
-                                        <tr>
-                                            <th>Available Sizes with Quantity</th>
                                             <td>
-                                                    <table class="table table-borderless table-sm">
-                                                        <thead>
-                                                            <tr class="text-center">
-                                                                <th scope="col">Sizes</th>
-                                                                <th scope="col">Quantity</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            @foreach ($invoice-generator->sizes as $size)
-                                                            <tr class="text-center">
-                                                                <th scope="row">{{ $size->title }}</th>
-                                                                <td>{{ $size->pivot->qty }}<td>
-                                                            </tr>
-                                                            @endforeach                                                        
-                                                        </tbody>
-                                                    </table>
+                                                {{ $order->product->name }}
                                             </td>
-                                        </tr>
-                                        <tr>
-                                            <th>Available Colors</th>
                                             <td>
-                                                <ul class="list-group list-group-horizontal">
-                                                    @foreach ($invoice-generator->colors as $color)
-                                                    <li class="list-group-item border-0">{{ $color->title }}</li>
-                                                    @endforeach
-                                                </ul>
+                                                <img class="mb-1"
+                                                    src="{{ asset('storage/Product_image/'.$order->product->image1) }}"
+                                                    alt="{{ $order->image1 }}" style="width:60px">
+                                            </td>
+                                            <td>
+                                                {{ $order->size->title }}
+                                            </td>
+                                            <td>
+                                                {{ $order->color->title }}
+                                            </td>
+                                            <td>
+                                                {{ $order->qty }}
+                                            </td>
+                                            <td>
+                                                {{ $order->price }}
+                                            </td>
+                                            <td>
+                                                {!! date('d/m/Y', strtotime($order->created_at)) !!}
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <th>Created at</th>
-                                            <td>{!! date('d - M - Y - h : i : s A', strtotime($invoice-generator->created_at)) !!}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th>Updated at</th>
-                                            <td>{!! date('d - M - Y - h : i : s A', strtotime($invoice-generator->updated_at)) !!}
-                                            </td>
-                                        </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

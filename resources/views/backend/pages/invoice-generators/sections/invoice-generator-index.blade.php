@@ -6,19 +6,20 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header row">
-                            <div class="col-md-10 d-flex mt-2">
+                            <div class="col-md-9 d-flex mt-2">
                                 <div class="preview d-flex">
                                     <div class="icon-preview" style="margin-top: 2px;">
                                         <i class="fas fa-table"></i>
                                     </div>
-                                    <div class="icon-class" style="font-size: 25px;">Index of Products</div>
+                                    <div class="icon-class" style="font-size: 25px;">Index of offline orders</div>
                                 </div>
                             </div>
-                            <div class="pull-right">
-                                <a class="btn btn-icon icon-left btn-warning"
-                                    href="{{ route('admin.invoice-generator.create') }}"><i class="fas fa-plus-circle"></i>Create
-                                    An invoice-generator</a>
-                            </div>
+                                <div>
+                                    <a class="btn btn-icon icon-left btn-success"
+                                        href="{{ route('admin.invoice-generator.create') }}"><i
+                                            class="fas fa-list-alt"></i>Create an invoice (Offline)</a>
+                                </div>
+                           
                         </div>
                         <div class="card-body">
                             @if ($message = Session::get('success'))
@@ -41,7 +42,7 @@
                                 </div>
                             </div>
                             @endif
-                            @if (!$invoice-generators->isEmpty())
+                            @if (!$orders_offline->isEmpty())
                             <div class="table-responsive">
                                 <table class="table table-striped" id="table-1">
                                     <thead>
@@ -49,14 +50,15 @@
                                             <th class="text-center">
                                                 #
                                             </th>
-                                            <th>Product Name</th>
-                                            <th>Price</th>
+                                            <th>Order ID</th>
+                                            <th>Customer Name</th>
+                                            <th>Customer Mobile</th>
+                                            <th>Product</th>
+                                            <th>Product Image</th>
+                                            <th>Size</th>
+                                            <th>Color</th>
                                             <th>Quantity</th>
-                                            <th>Image(1)</th>
-                                            <th>Category</th>
-                                            <th>Colors</th>
-                                            <th>sizes</th>
-                                            <th>Status</th>
+                                            <th>Price</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -64,67 +66,61 @@
                                         @php
                                         $i = 1;
                                         @endphp
-                                        @foreach ($invoice-generators as $invoice-generator)
+                                        @foreach ($orders_offline as $order)
                                         <tr>
                                             <td class="text-center">
                                                 {{$i++}}
                                             </td>
                                             <td>
-                                                {{ $invoice-generator->name }}
+                                                {{ $order->order_id }}
                                             </td>
                                             <td>
-                                                {{ $invoice-generator->price }}
+                                                {{ $order->customer_name }}
                                             </td>
                                             <td>
-                                                {{ $invoice-generator->total_qty }}
+                                                {{ $order->customer_mobile }}
                                             </td>
                                             <td>
-                                                <img src="{{ asset('storage/Product_image/'.$invoice-generator->image1) }}"
-                                                    alt="{{ $invoice-generator->image1 }}" style="height:50px;width:65px">
+                                                {{ $order->product->name }}
                                             </td>
                                             <td>
-                                                {{ $invoice-generator->category->title }}
+                                                <img src="{{ asset('storage/Product_image/'.$order->product->image1) }}"
+                                                    alt="{{ $order->image1 }}" style="width:50px">
                                             </td>
                                             <td>
-                                                <ul>
-                                                    @foreach ($invoice-generator->colors as $color)
-                                                    <li>{{ $color->title }}</li>
-                                                    @endforeach
-                                                </ul>
+                                                {{ $order->size->title }}
                                             </td>
                                             <td>
-                                                <ul>
-                                                    @foreach ($invoice-generator->sizes as $size)
-                                                    <li>{{ $size->title }} ({{ $size->pivot->qty }})</li>
-                                                    @endforeach
-                                                </ul>
+                                                {{ $order->color->title }}
                                             </td>
-                                            @if($invoice-generator->status =='1')
                                             <td>
-                                                <span class="badge badge-success">Active</span>
+                                                {{ $order->qty }}
                                             </td>
-                                            @else
                                             <td>
-                                                <span class="badge badge-danger">Deactive</span>
+                                                {{ $order->price }}
                                             </td>
-                                            @endif
                                             <td>
                                                 <div class="dropdown d-inline">
                                                     <button class="btn btn-info dropdown-toggle" type="button"
-                                                        id="dropdownMenuButton2" data-toggle="dropdown"
-                                                        aria-haspopup="true" aria-expanded="false">
+                                                        id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true"
+                                                        aria-expanded="false">
                                                         Action
                                                     </button>
                                                     <div class="dropdown-menu">
                                                         <a class="dropdown-item has-icon"
-                                                            href="{{ route('admin.invoice-generator.show',$invoice-generator->id) }}"><i
+                                                            href="{{ route('admin.invoice-generator.show',$order->order_id) }}"><i
                                                                 class="far fa-eye"></i> View</a>
-                                                        <a class="dropdown-item has-icon"
-                                                            href="{{ route('admin.invoice-generator.edit',$invoice-generator->id) }}"><i
-                                                                class="far fa-edit"></i> Edit</a>
+                                                        <a class="dropdown-item has-icon" target="_blank"
+                                                            href="{{ route('admin.invoice',[$order->order_id,'stream']) }}"><i
+                                                                class="far fa-file-pdf"></i> View Invoice</a>
+                                                        <a class="dropdown-item has-icon" target="_blank"
+                                                            href="{{ route('admin.invoice',[$order->order_id,'download']) }}"><i
+                                                                class="fas fa-file-download"></i> Download Invoice</a>
+                                                        {{-- <a class="dropdown-item has-icon"
+                                                                href="{{ route('admin.order.edit',$order->id) }}"><i
+                                                            class="far fa-edit"></i> Edit</a>
                                                         <div class="del ml-4">
-                                                            <form
-                                                                action="{{ route('admin.invoice-generator.destroy',$invoice-generator->id) }}"
+                                                            <form action="{{ route('admin.order.destroy',$order->id) }}"
                                                                 method="POST">
                                                                 @csrf
                                                                 @method('DELETE')
@@ -132,8 +128,7 @@
                                                                     class="btn delete_confirm" aria-hidden="true"
                                                                     style="background-color:transparent; margin-right:50px;">Delete</button>
                                                             </form>
-                                                        </div>
-
+                                                        </div> --}}
                                                     </div>
                                                 </div>
                                             </td>
@@ -157,7 +152,7 @@
                                             <h3>Info</h3>
                                         </div>
                                         <h5>
-                                            There is no invoice-generator available! please create a new invoice-generator to show in the
+                                            There is no offline invoice available! please create a new invoice-generator to show in the
                                             list.
                                         </h5>
                                     </div>

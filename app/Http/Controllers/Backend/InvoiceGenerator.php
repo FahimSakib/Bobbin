@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Models\Size;
+use App\Models\Invoice;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -16,7 +18,13 @@ class InvoiceGenerator extends Controller
      */
     public function index()
     {
-       
+        $data = [
+            'title' => 'Product-Index'
+        ];
+
+       $orders_offline = Invoice::with(['product','size','color'])->orderBy('id','desc')->get();
+
+       return view('backend.pages.invoice-generators.index',$data,compact('orders_offline'));
     }
 
     /**
@@ -44,14 +52,17 @@ class InvoiceGenerator extends Controller
     public function store(Request $request)
     {
         $product = Product::findOrFail($request->input('product'));
-        $size = $request->input('size');
-        $color = $request->input('color');
-        $pivot_qty = $request->input('pivot-qty');
-        $customer_name = $request->input('customer_name');
-        $customer_email = $request->input('customer_email');
-        $customer_mobile = $request->input('customer_mobile');
+
+        $size             = $request->input('size');
+        $color            = $request->input('color');
+        $pivot_qty        = $request->input('pivot-qty');
+        $customer_name    = $request->input('customer_name');
+        $customer_email   = $request->input('customer_email');
+        $customer_mobile  = $request->input('customer_mobile');
         $customer_address = $request->input('customer_address');
-        $carts = Cart::add($product->id, $product->name, $request->input('quantity'), $product->price,'0',['color' => $color, 'size' => $size, 'image' =>$product->image1, 'pivot_qty' => $pivot_qty, 'customer_name' => $customer_name, 'customer_email' => $customer_email, 'customer_mobile' => $customer_mobile, 'customer_address' => $customer_address]);
+        $payment_method   = $request->input('payment_method');
+
+        $carts = Cart::add($product->id, $product->name, $request->input('quantity'), $product->price,'0',['color' => $color, 'size' => $size, 'image' =>$product->image1, 'pivot_qty' => $pivot_qty, 'customer_name' => $customer_name, 'customer_email' => $customer_email, 'customer_mobile' => $customer_mobile, 'customer_address' => $customer_address, 'payment_method' => $payment_method]);
    
         return back()->with('success','Item Added successfully');
     }
@@ -64,7 +75,13 @@ class InvoiceGenerator extends Controller
      */
     public function show($id)
     {
-        //
+        $data = [
+            'title' => 'Offline-invoice-Single-Show'
+        ];
+
+        $offline_orders = Invoice::where('order_id',$id)->get();
+
+        return view('backend.pages.invoice-generators.show', $data, compact('offline_orders'));
     }
 
     /**
@@ -133,10 +150,38 @@ class InvoiceGenerator extends Controller
         }
     }
 
-    public function check(Request $request){
+    public function offlineCheckout(Request $request){
 
         $result = $request->data;
         $data = json_decode($result, true);
-        dd($data);
+
+        $save = Invoice::insert($data);
+
+        if($save){
+            Cart::destroy();
+            foreach ($data as $value) {
+                $size_id = $value['size_id'];
+                $product_id = $value['product_id'];
+                $pivot_qty = $value['pivot_qty'];
+
+                $qty = $pivot_qty-$value['qty'];
+
+                $size = Size::with('products')->where('id',$size_id)->first();
+
+                $size->products()->updateExistingPivot($product_id,['qty' => $qty]);
+
+                $product = Product::toBase()->select('total_qty')->where('id',$product_id)->first();
+
+                $product_total_qty = $product->total_qty;
+                $product_qty = $product_total_qty-$value['qty'];
+
+                Product::where('id',$product_id)->update(['total_qty'=>$product_qty]);
+            }
+
+            return back()->with('success','Your orders has been placed successfully');
+            
+        }else{
+            return back()->with('error','Something went wrong!');
+        }
     }
 }
