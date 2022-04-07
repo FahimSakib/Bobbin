@@ -148,7 +148,7 @@
             <table class="w-100">
                 <tr class="text-left">
                     <td class="logo">
-                        <img src="{{asset('asset/frontend/assets/logo/bobbin.png')}}" alt="Logo" style="width:100px;">
+                        <img src="{{asset('asset/frontend/assets/logo/Bobbin_logo_only_gold.png')}}" alt="Logo" style="width:120px; padding-bottom: 10px">
                         <div class="bt-line">
                         </div>
                         <span class="title">Bobbin</span>
