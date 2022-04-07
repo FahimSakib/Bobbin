@@ -14,20 +14,4 @@
     <!-- Main JS File -->
     <script src="asset/frontend/assets/js/main.js"></script>
     <script src="asset/frontend/assets/js/demos/demo-9.js"></script>
-    <script>
-    $(function() {
-        "use strict";
-        if ($.fn.countdown) {
-            $('.coming-countdown').countdown({
-                until: new Date(2025, 12, 20), // 7th month = August / Months 0 - 11 (January  - December)
-                format: 'DHMS',
-                padZeroes: true
-            });
-
-            // Pause
-            // $('.coming-countdown').countdown('pause');
-        }
-    });
-    </script>
-
     @stack('scripts')

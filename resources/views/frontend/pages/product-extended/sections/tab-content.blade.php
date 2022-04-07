@@ -13,7 +13,7 @@
                 </div><!-- End .container -->
             </div><!-- End .product-desc-row -->
 
-            <div class="product-desc-row bg-image text-white"
+            {{-- <div class="product-desc-row bg-image text-white"
                 style="background-image: url('{{ asset('storage/Product_image/'.$product->image4) }}'); height:500px; object-fit: cover">
                 <div class="container">
                     <div class="row">
@@ -38,7 +38,7 @@
                     <img src="asset/frontend/assets/images/products/single/extended/sign.png" alt=""
                         class="ml-auto mr-auto">
                 </div><!-- End .container -->
-            </div><!-- End .product-desc-row -->
+            </div><!-- End .product-desc-row --> --}}
         </div><!-- End .product-desc-content -->
     </div><!-- .End .tab-pane -->
     <div class="tab-pane fade" id="product-info-tab" role="tabpanel" aria-labelledby="product-info-link">

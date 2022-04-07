@@ -3,12 +3,12 @@
                     <div class="row">
                         <div class="col-lg-6 mb-3 mb-lg-0">
                             <h2 class="title">Our Vision</h2><!-- End .title -->
-                            <p>Bobbin is an eminent lifestyle brand in the retail fashion industry of Bangladesh with the purpose of provide qualityfull fashion for all within their range. As a fashion brand, Bobbin is renowned for its unique style and variety of collections. We crafted our fashionable attires & accessories for all age ranges who believe themselves to be stand out with their unique fashion sense and style statement.</p>
+                            <p class="text-justify">Bobbin is an eminent lifestyle brand in the retail fashion industry of Bangladesh with the purpose of provide qualityfull fashion for all within their range. As a fashion brand, Bobbin is renowned for its unique style and variety of collections. We crafted our fashionable attires & accessories for all age ranges who believe themselves to be stand out with their unique fashion sense and style statement.</p>
                         </div><!-- End .col-lg-6 -->
                         
                         <div class="col-lg-6">
                             <h2 class="title">Our Mission</h2><!-- End .title -->
-                            <p>The main goal of Bobbin is providing the best quality garments products at lower cost.
+                            <p class="text-justify">The main goal of Bobbin is providing the best quality garments products at lower cost.
 To Provide Quality Products into the root level of our society</p>
                         </div><!-- End .col-lg-6 -->
                     </div><!-- End .row -->
@@ -21,8 +21,8 @@ To Provide Quality Products into the root level of our society</p>
                         <div class="row">
                             <div class="col-lg-5 mb-3 mb-lg-0">
                                 <h2 class="title">Who We Are</h2><!-- End .title -->
-                                <p class="lead text-primary mb-3">Exports quality products all over the world</p><!-- End .lead text-primary -->
-                                <p class="mb-2">Bobbin celebrates all festivals and seasons with an extraordinary collection of products that are designed in-house as we have one of the largest design teams to deliver a fabulous new fashion every season.
+                                <p class="lead text-primary mb-3 text-justify">Exports quality products all over the world</p><!-- End .lead text-primary -->
+                                <p class="mb-2 text-justify">Bobbin celebrates all festivals and seasons with an extraordinary collection of products that are designed in-house as we have one of the largest design teams to deliver a fabulous new fashion every season.
 In this journey of fashion, we always want to make a quality effort to provide better products and services to our customers. </p>
 
                                 <a href="{{ route('blog') }}" class="btn btn-sm btn-minwidth btn-outline-primary-2">
@@ -210,7 +210,7 @@ In this journey of fashion, we always want to make a quality effort to provide b
 
                 <div class="mb-2"></div><!-- End .mb-2 -->
 
-                <div class="about-testimonials bg-light-2 pt-6 pb-6">
+                {{-- <div class="about-testimonials bg-light-2 pt-6 pb-6">
                     <div class="container">
                         <h2 class="title text-center mb-3">What Customer Say About Us</h2><!-- End .title text-center -->
 
@@ -246,5 +246,5 @@ In this journey of fashion, we always want to make a quality effort to provide b
                             </blockquote><!-- End .testimonial -->
                         </div><!-- End .testimonials-slider owl-carousel -->
                     </div><!-- End .container -->
-                </div><!-- End .bg-light-2 pt-5 pb-6 -->
+                </div><!-- End .bg-light-2 pt-5 pb-6 --> --}}
             </div><!-- End .page-content -->

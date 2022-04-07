@@ -72,7 +72,7 @@ use Illuminate\Support\Facades\Auth;
     <div class="header-middle">
         <div class="container">
             <div class="header-left">
-                <div class="header-search header-search-extended header-search-visible d-none d-lg-block">
+                {{-- <div class="header-search header-search-extended header-search-visible d-none d-lg-block">
                     <a href="#" class="search-toggle" role="button"><i class="icon-search"></i></a>
                     <form action="#" method="get">
                         <div class="header-search-wrapper search-wrapper-wide">
@@ -82,25 +82,32 @@ use Illuminate\Support\Facades\Auth;
                                 required>
                         </div><!-- End .header-search-wrapper -->
                     </form>
-                </div><!-- End .header-search -->
+                </div><!-- End .header-search --> --}}
             </div>
             <div class="header-center">
                 <a href="{{ url('/') }}" class="logo">
-                    <img src="asset/frontend/assets/images/bobbin-logo-only-gold.png" alt="Bobbin Logo" width="180" height="30">
-   
-                   
+                    <img src="{{asset('asset/frontend/assets/logo/Bobbin_logo_only_gold.png')}}" alt="Bobbin Logo"
+                        width="100">
                 </a>
-                
-   
-                
             </div><!-- End .header-left -->
-<br>
             <div class="header-right">
-                <a href="wishlist.html" class="wishlist-link">
+                <div class="header-search header-search-extended header-search-visible d-none d-lg-block">
+                    {{-- <a href="#" class="search-toggle" role="button"><i class="icon-search"></i></a> --}}
+                    <form action="#" method="get">
+                        <div class="header-search-wrapper search-wrapper-wide">
+                            {{-- <label for="q" class="sr-only">Search</label> --}}
+
+                            <input type="search" class="form-control" name="q" id="q" placeholder="Search product ..."
+                                required>
+                            <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
+                        </div><!-- End .header-search-wrapper -->
+                    </form>
+                </div><!-- End .header-search -->
+                {{-- <a href="wishlist.html" class="wishlist-link">
                     <i class="icon-heart-o"></i>
                     <span class="wishlist-count">3</span>
                     <span class="wishlist-txt">My Wishlist</span>
-                </a>
+                </a> --}}
                 <div class="dropdown cart-dropdown">
                     <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false" data-display="static">
@@ -163,6 +170,7 @@ use Illuminate\Support\Facades\Auth;
     <div class="header-bottom sticky-header">
         <div class="container">
             <div class="header-left">
+                <div class="col-md-7"></div>
                 <nav class="main-nav">
                     <ul class="menu sf-arrows">
                         <li class="{{ (request()->is('/')) ? 'active' : '' }}">
@@ -184,13 +192,13 @@ use Illuminate\Support\Facades\Auth;
                         <li class="{{ (request()->is('blog')) ? 'active' : '' }}">
                             <a href="{{ route('blog') }}">Blog</a>
                         </li>
-                           <li class="{{ (request()->is('service')) ? 'active' : '' }}">
+                        <li class="{{ (request()->is('service')) ? 'active' : '' }}">
                             <a href="{{ route('service') }}">Services</a>
                         </li>
-                           <li class="{{ (request()->is('about')) ? 'active' : '' }}">
+                        <li class="{{ (request()->is('about')) ? 'active' : '' }}">
                             <a href="{{ route('about') }}">About</a>
                         </li>
-                        
+
                     </ul><!-- End .menu -->
                 </nav><!-- End .main-nav -->
 

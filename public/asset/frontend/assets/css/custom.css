@@ -3,3 +3,9 @@
     padding: 10px;
     border-radius: 10px;
 }
+
+.footer-brand{
+    font-size: 35px;
+    text-transform: uppercase;
+    color: white;
+}

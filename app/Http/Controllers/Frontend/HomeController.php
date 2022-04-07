@@ -15,9 +15,13 @@ class HomeController extends Controller
         $data = [
             'title' => 'Home'
         ];
-        $product = Product::all()->where('status','1');
+
+        $product = Product::where('status','1')->orderBy('id','desc')->limit(10)->get();
+
         $slider = Slider::all()->where('status','1');
+
         $categories = Category::all()->where('status','1');
+
         return view('frontend.pages.home.home', $data,compact('slider','product','categories'));
     }
 

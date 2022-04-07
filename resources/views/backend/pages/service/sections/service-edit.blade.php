@@ -70,9 +70,9 @@
                                     <div class="form-group col-md-6">
                                         <label for="status">Status</label>
                                         <select class="form-control select2 @error('status') is-invalid @enderror"
-                                            name="status" value="{{$service->status}}" id="status" ">
-                                        <option value=" 1">Active</option>
-                                            <option value="0">Deactive</option>
+                                            name="status" value="{{$service->status}}" id="status">
+                                        <option value="1" {{ $service->status == 1 ? 'selected' : '' }}>Active</option>
+                                            <option value="0" {{ $service->status == 0 ? 'selected' : '' }}>Deactive</option>
                                         </select>
                                         @error('status')
                                         <div class="alert alert-danger">{{ $message }}</div>
