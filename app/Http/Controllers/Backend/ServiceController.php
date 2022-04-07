@@ -18,12 +18,11 @@ class ServiceController extends Controller
         $data = [
             'title' => 'Service-Index'
         ];
-        $service = Service::all();
-        return view('backend.pages.service.index', $data,compact('service'));
 
+        $services = Service::all();
 
-        // $products = Product::all()->where('trash','0');
-        // return view('backend.pages.products.index',compact('products'));
+        return view('backend.pages.service.index', $data,compact('services'));
+
     }
 
     /**
@@ -48,24 +47,25 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->validate([
-            'name'      => 'required',
-            'description' =>'required',
+        $request->validate([
+            'name'        => 'required',
+            'description' => 'required',
             'status'      => 'required',
-            'image'       => 'required|image|mimes:png,jpeg,jpg',
-
-              
+            'image'       => 'required|image|mimes:png,jpeg,jpg'
         ]);
+
         $file =  $request->file('image');
-        $uploadName1 = $this->fileUpload($file,'image');
-            
+        $uploadName = $this->fileUpload($file,'image');
 
         $service = new Service($request->all());
+
+        $service->image = $uploadName;
         
         if($service->save())
         {
             return redirect()->route('admin.service.index')->with('success','Item added successfully');
-
+        }else{
+            return redirect()->route('admin.service.index')->with('error','Item can not be added');
         }
     }
 
@@ -75,11 +75,14 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Service $service)
+    public function show($id)
     {
         $data = [
             'title' => 'Service-Show'
         ];
+
+        $service = Service::find($id);
+
         return view('backend.pages.service.show',$data, compact('service'));
     }
 
@@ -89,11 +92,14 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Service $service)
+    public function edit($id)
     {
         $data = [
             'title' => 'Service-Edit'
         ];
+
+        $service = Service::find($id);
+
         return view('backend.pages.service.edit', $data , compact('service'));
     }
 
@@ -106,7 +112,28 @@ class ServiceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name'        => 'required',
+            'description' => 'required',
+            'status'      => 'required',
+            'image'       => 'nullable|image|mimes:png,jpeg,jpg'
+        ]);
+
+        $service = Service::find($id);
+
+        $image = $this->fileUpload($request->file('image'),'image');
+        if(empty($image))$image = $service->image;
+
+        $service->fill($request->all());
+
+        $service->image = $image;
+
+        if($service->save()){
+            return redirect()->route('admin.service.index')->with('success','Item Updated successfully');
+        }else{
+            return redirect()->route('admin.service.index')->with('error','Item can not be updated');
+        }
+
     }
 
     /**
@@ -117,8 +144,14 @@ class ServiceController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if(Service::find($id)->delete()){
+            return redirect()->route('admin.service.index')->with('danger','Item deleted successfully');
+        }else{
+            return redirect()->route('admin.service.index')->with('error','Item can not be deleted');
+        }
+
     }
+
     private function fileUpload($file, $name){
         $prefix='Service_'.time().'_';
         $picture='';

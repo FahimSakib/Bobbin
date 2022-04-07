@@ -19,7 +19,7 @@ class InvoiceGenerator extends Controller
     public function index()
     {
         $data = [
-            'title' => 'Product-Index'
+            'title' => 'Offline-invoice-Index'
         ];
 
        $orders_offline = Invoice::with(['product','size','color'])->orderBy('id','desc')->get();
@@ -35,7 +35,7 @@ class InvoiceGenerator extends Controller
     public function create()
     {
         $data = [
-            'title' => 'Product-Index'
+            'title' => 'Offline-invoice-create'
         ];
 
         $products = Product::with('sizes','colors','category')->get();
