@@ -65,6 +65,15 @@
                     <li><a class="nav-link" href="{{ route('admin.slider.create') }}">Create</a></li>
                 </ul>
             </li>
+            <li
+                class="dropdown">
+                <a href="#" class="menu-toggle nav-link has-dropdown"><i
+                        data-feather="printer"></i><span>Invoice Generator</span></a>
+                <ul class="dropdown-menu">
+                    <li><a class="nav-link" href="{{ route('admin.invoice-generator.index') }}">Index</a></li>
+                    <li><a class="nav-link" href="{{ route('admin.invoice-generator.create') }}">Create</a></li>
+                </ul>
+            </li>
             
         </ul>
     </aside>

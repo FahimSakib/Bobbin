@@ -184,4 +184,21 @@ class InvoiceGenerator extends Controller
             return back()->with('error','Something went wrong!');
         }
     }
+
+    public function invoiceSingleRemove(Request $request){
+         
+        $rmv = Cart::remove($request->rowId);
+
+        if($rmv){
+        return back()->with('success','An Item has been removed from list');
+        }
+
+    }
+
+    public function invoiceDestroy(){
+
+        Cart::destroy();
+
+        return back()->with('danger','The invoice has been destroyed');
+    }
 }

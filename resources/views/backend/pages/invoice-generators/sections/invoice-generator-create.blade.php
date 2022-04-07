@@ -12,6 +12,26 @@ $data = [];
         <div class="section-body">
             <div class="row">
                 <div class="col-12 col-md-12 col-lg-12">
+                    @if ($message = Session::get('success'))
+                    <div class="alert alert-success alert-dismissible show fade">
+                        <div class="alert-body">
+                            <button class="close" data-dismiss="alert">
+                                <span>&times;</span>
+                            </button>
+                            {{ $message }}
+                        </div>
+                    </div>
+                    @endif
+                    @if ($message = Session::get('danger'))
+                    <div class="alert alert-danger alert-dismissible show fade">
+                        <div class="alert-body">
+                            <button class="close" data-dismiss="alert">
+                                <span>&times;</span>
+                            </button>
+                            {{ $message }}
+                        </div>
+                    </div>
+                    @endif
                     @if (!$invoices->isEmpty())
                     <div class="card">
                         <div class="card-header">
@@ -75,8 +95,13 @@ $data = [];
                                             <td>
                                                 {{ $size->title }}
                                             </td>
-                                            <td>
-                                            </td>
+                                                <form action="{{route('cart.remove')}}" method="POST">
+                                                    @csrf
+                                                    <input hidden name="rowId" value="{{$invoice_order->rowId}}">
+                                                    <td>
+                                                        <button type="submit" class="btn btn-danger">Remove</button>
+                                                    </td>
+                                                </form>
                                         </tr>
                                         @php
                                         $tp=$invoice_order->price*$invoice_order->qty;
@@ -105,12 +130,21 @@ $data = [];
                                 $collection = collect($data);
                                 @endphp
                                 <div class="card-footer text-right">
+                                    <div class="row">
+                                        <div class="col-md-9"></div>
+                                        <div class="row">
+                                    <form action="{{ route('admin.offline.invoice.destroy') }}" method="post">
+                                        @csrf
+                                        <button type="submit" class="btn btn-danger mr-2">DESTROY INVOICE</button>
+                                    </form>
                                     <form action="{{ route('admin.offline.checkout') }}" method="post">
                                         @csrf
                                         <input type="hidden" name="data" value="{{ $collection  }}">
-                                        <button type="submit" class="btn btn-primary mb-2">Offline
+                                        <button type="submit" class="btn btn-primary">OFFLINE
                                             CHECKOUT</button>
                                     </form>
+                                </div>
+                                </div>
                                 </div>
                             </div>
                         </div>
@@ -135,16 +169,6 @@ $data = [];
                             </div>
                         </div>
                         <div class="card-body">
-                            @if ($message = Session::get('success'))
-                            <div class="alert alert-success alert-dismissible show fade">
-                                <div class="alert-body">
-                                    <button class="close" data-dismiss="alert">
-                                        <span>&times;</span>
-                                    </button>
-                                    {{ $message }}
-                                </div>
-                            </div>
-                            @endif
                             <form action="{{ route('admin.invoice-generator.store') }}" method="POST">
                                 @csrf
                                 <div class="row">
@@ -211,7 +235,7 @@ $data = [];
                                     </div>
                                 </div>
                                 <div class="card-footer text-right">
-                                    <button class="btn btn-primary">Submit</button>
+                                    <button class="btn btn-primary">Add to list</button>
                                 </div>
                             </form>
                         </div>

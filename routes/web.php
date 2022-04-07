@@ -52,6 +52,7 @@ Route::get('products','Frontend\ProductsController@index')->name('products');
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth','admin']], function(){
     Route::get('/','Backend\DashboardController@index');
     Route::get('invoice/{id}/{type}','Backend\DashboardController@invoice')->name('invoice');
+    Route::get('offline-invoice/{id}/{type}','Backend\DashboardController@offlineInvoice')->name('offline.invoice');
     Route::post('logout','Backend\DashboardController@adminLogout')->name('logout');
     Route::resource('product','Backend\ProductController');
     Route::resource('color', 'Backend\ColorController');
@@ -64,6 +65,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth','ad
     Route::post('sizes','Backend\InvoiceGenerator@sizes')->name('sizes');
     Route::post('colors','Backend\InvoiceGenerator@colors')->name('colors');
     Route::post('offline-checkout','Backend\InvoiceGenerator@offlineCheckout')->name('offline.checkout');
+    Route::post('offline-invoice-single-remove','Backend\InvoiceGenerator@invoiceSingleRemove')->name('offline.invoice.single.remove');
+    Route::post('offline-invoice-destroy','Backend\InvoiceGenerator@invoiceDestroy')->name('offline.invoice.destroy');
 });
 
 

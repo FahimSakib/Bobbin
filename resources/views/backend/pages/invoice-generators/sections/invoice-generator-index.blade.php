@@ -14,12 +14,11 @@
                                     <div class="icon-class" style="font-size: 25px;">Index of offline orders</div>
                                 </div>
                             </div>
-                                <div>
-                                    <a class="btn btn-icon icon-left btn-success"
-                                        href="{{ route('admin.invoice-generator.create') }}"><i
-                                            class="fas fa-list-alt"></i>Create an invoice (Offline)</a>
-                                </div>
-                           
+                            <div>
+                                <a class="btn btn-icon icon-left btn-success"
+                                    href="{{ route('admin.invoice-generator.create') }}"><i
+                                        class="fas fa-list-alt"></i>Create an invoice (Offline)</a>
+                            </div>
                         </div>
                         <div class="card-body">
                             @if ($message = Session::get('success'))
@@ -102,8 +101,8 @@
                                             <td>
                                                 <div class="dropdown d-inline">
                                                     <button class="btn btn-info dropdown-toggle" type="button"
-                                                        id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true"
-                                                        aria-expanded="false">
+                                                        id="dropdownMenuButton2" data-toggle="dropdown"
+                                                        aria-haspopup="true" aria-expanded="false">
                                                         Action
                                                     </button>
                                                     <div class="dropdown-menu">
@@ -111,24 +110,11 @@
                                                             href="{{ route('admin.invoice-generator.show',$order->order_id) }}"><i
                                                                 class="far fa-eye"></i> View</a>
                                                         <a class="dropdown-item has-icon" target="_blank"
-                                                            href="{{ route('admin.invoice',[$order->order_id,'stream']) }}"><i
+                                                            href="{{ route('admin.offline.invoice',[$order->order_id,'stream']) }}"><i
                                                                 class="far fa-file-pdf"></i> View Invoice</a>
                                                         <a class="dropdown-item has-icon" target="_blank"
-                                                            href="{{ route('admin.invoice',[$order->order_id,'download']) }}"><i
+                                                            href="{{ route('admin.offline.invoice',[$order->order_id,'download']) }}"><i
                                                                 class="fas fa-file-download"></i> Download Invoice</a>
-                                                        {{-- <a class="dropdown-item has-icon"
-                                                                href="{{ route('admin.order.edit',$order->id) }}"><i
-                                                            class="far fa-edit"></i> Edit</a>
-                                                        <div class="del ml-4">
-                                                            <form action="{{ route('admin.order.destroy',$order->id) }}"
-                                                                method="POST">
-                                                                @csrf
-                                                                @method('DELETE')
-                                                                <i class="fas fa-trash-alt"></i> <button type="submit"
-                                                                    class="btn delete_confirm" aria-hidden="true"
-                                                                    style="background-color:transparent; margin-right:50px;">Delete</button>
-                                                            </form>
-                                                        </div> --}}
                                                     </div>
                                                 </div>
                                             </td>
@@ -152,7 +138,8 @@
                                             <h3>Info</h3>
                                         </div>
                                         <h5>
-                                            There is no offline invoice available! please create a new invoice-generator to show in the
+                                            There is no offline invoice available! please create a new invoice-generator
+                                            to show in the
                                             list.
                                         </h5>
                                     </div>
@@ -200,7 +187,7 @@
                             timer: 3000,
                         });
                     } else {
-                        swal('Your data is safe!',{
+                        swal('Your data is safe!', {
                             timer: 3000,
                         });
                     }
