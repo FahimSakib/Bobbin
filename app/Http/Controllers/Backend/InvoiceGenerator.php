@@ -61,8 +61,9 @@ class InvoiceGenerator extends Controller
         $customer_mobile  = $request->input('customer_mobile');
         $customer_address = $request->input('customer_address');
         $payment_method   = $request->input('payment_method');
+        $payment_amount   = $request->input('payment_amount');
 
-        $carts = Cart::add($product->id, $product->name, $request->input('quantity'), $product->price,'0',['color' => $color, 'size' => $size, 'image' =>$product->image1, 'pivot_qty' => $pivot_qty, 'customer_name' => $customer_name, 'customer_email' => $customer_email, 'customer_mobile' => $customer_mobile, 'customer_address' => $customer_address, 'payment_method' => $payment_method]);
+        $carts = Cart::add($product->id, $product->name, $request->input('quantity'), $product->price,'0',['color' => $color, 'size' => $size, 'image' =>$product->image1, 'pivot_qty' => $pivot_qty, 'customer_name' => $customer_name, 'customer_email' => $customer_email, 'customer_mobile' => $customer_mobile, 'customer_address' => $customer_address, 'payment_method' => $payment_method, 'payment_amount' => $payment_amount]);
    
         return back()->with('success','Item Added successfully');
     }

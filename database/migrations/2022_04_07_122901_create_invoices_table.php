@@ -21,6 +21,7 @@ class CreateInvoicesTable extends Migration
             $table->string('customer_mobile');
             $table->string('customer_address');
             $table->string('payment_method');
+            $table->float('payment_amount')->nullable();
             $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')->references('id')->on('products');
             $table->unsignedBigInteger('size_id');

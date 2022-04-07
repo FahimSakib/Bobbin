@@ -263,11 +263,19 @@
                     </tr>
                     <tr>
                         <td colspan="6" class="text-right" style="background-color: white">Advance:</td>
-                        <td class="text-right" style="background-color: white"></td>
+                        <td class="text-right" style="background-color: white">
+                            @if ($offline_orders[0]->payment_amount != null)
+                                {{ $offline_orders[0]->payment_amount  }}
+                            @endif
+                        </td>
                     </tr>
                     <tr>
                         <td colspan="6" class="text-right">Due:</td>
-                        <td class="text-right"></td>
+                        <td class="text-right">
+                            @if ($offline_orders[0]->payment_amount != null)
+                            {{ $total-$offline_orders[0]->payment_amount  }}
+                        @endif
+                        </td>
                     </tr>
                 </tfoot>
             </table>

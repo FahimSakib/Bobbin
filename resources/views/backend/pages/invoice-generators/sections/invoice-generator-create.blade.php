@@ -114,6 +114,7 @@ $data = [];
                                         $row ['customer_mobile'] = $invoice_order->options->customer_mobile;
                                         $row ['customer_address'] = $invoice_order->options->customer_address;
                                         $row ['payment_method'] = $invoice_order->options->payment_method;
+                                        $row ['payment_amount'] = $invoice_order->options->payment_amount;
                                         $row ['product_id'] = $invoice_order->id;
                                         $row ['size_id'] = $invoice_order->options->size;
                                         $row ['color_id'] = $invoice_order->options->color;
@@ -169,6 +170,15 @@ $data = [];
                             </div>
                         </div>
                         <div class="card-body">
+                            <div class="alert alert-light alert-has-icon col-md-12 dash-border">
+                                <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
+                                <div class="alert-body">
+                                    <div class="alert-title">Info</div>
+                                    Insert Customer Name, Email, Mobile No, Payemnt Method, Payment amount before "Add to list" at the first time if missed something invoice generator will not work properly.
+                                    <b>You have to insert Customer Name, Email, Mobile No, Payemnt Method, Payment amount once a time for creating a invoice rest select to products as you want.</b><br>
+                                    The payment amount is optioal if no advanced is maded the keep it blank for rest the process. <b>Make sure to destroy the list or invoice if you want to cancel.</b>
+                                </div>
+                            </div>
                             <form action="{{ route('admin.invoice-generator.store') }}" method="POST">
                                 @csrf
                                 <div class="row">
@@ -206,6 +216,12 @@ $data = [];
                                             @if(!empty($invoice['options']['payment_method']))
                                             value="{{ $invoice['options']['payment_method'] }}" @else value="" @endif
                                             required>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label>Payment Amount</label>
+                                        <input type="number" class="form-control" placeholder="Add total payed or keep it blank for due" name="payment_amount"
+                                            @if(!empty($invoice['options']['payment_amount']))
+                                            value="{{ $invoice['options']['payment_amount'] }}" @else value="" @endif>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label>Select Product</label>

@@ -23,18 +23,23 @@
                         </div>
                         <div class="card-body">
                             <div class="pl-2">
-                                <h3 class="d-inline mr-3">Order ID: <span
+                                <ul>
+                                <h5 class="d-inline mr-3">Order ID: <span
                                         class="text-info">{{ $offline_orders[0]->order_id }}</span>
-                                </h3>
-                                <h3 class="d-inline mr-3">Customer name: <span
+                                </h5>
+                                <h5 class="d-inline mr-3">Customer name: <span
                                         class="text-info">{{ $offline_orders[0]->customer_name }}</span>
-                                </h3>
-                                <h3 class="d-inline">Customer mobile: <span
-                                        class="text-info">{{ $offline_orders[0]->customer_mobile }}</span>
-                                </h3>
-                                <h3 class="d-inline">Customer email: <span
+                                </h5>
+                                <h5 class="d-inline">Customer mobile: <span
+                                        class="text-info">{{ $offline_orders[0]->customer_mobile }}</span><br>
+                                </h5>
+                                <h5 class="d-inline">Customer email: <span
                                         class="text-info">{{ $offline_orders[0]->customer_email }}</span>
-                                </h3>
+                                </h5>
+                                <h5 class="d-inline">Payment Amount: <span
+                                        class="text-info">{{ ($offline_orders[0]->payment_amount == null) ? 'None' : $offline_orders[0]->payment_amount}}</span>
+                                </h5>
+                            </ul>
                             </div>
                             <div class="table-responsive mt-3">
                                 <table class="table table-striped" id="table-1">
