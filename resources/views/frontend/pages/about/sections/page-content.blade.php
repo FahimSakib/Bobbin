@@ -210,7 +210,7 @@ In this journey of fashion, we always want to make a quality effort to provide b
 
                 <div class="mb-2"></div><!-- End .mb-2 -->
 
-                <div class="about-testimonials bg-light-2 pt-6 pb-6">
+                {{-- <div class="about-testimonials bg-light-2 pt-6 pb-6">
                     <div class="container">
                         <h2 class="title text-center mb-3">What Customer Say About Us</h2><!-- End .title text-center -->
 
@@ -246,5 +246,5 @@ In this journey of fashion, we always want to make a quality effort to provide b
                             </blockquote><!-- End .testimonial -->
                         </div><!-- End .testimonials-slider owl-carousel -->
                     </div><!-- End .container -->
-                </div><!-- End .bg-light-2 pt-5 pb-6 -->
+                </div><!-- End .bg-light-2 pt-5 pb-6 --> --}}
             </div><!-- End .page-content -->
