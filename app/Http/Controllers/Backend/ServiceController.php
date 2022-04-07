@@ -18,12 +18,11 @@ class ServiceController extends Controller
         $data = [
             'title' => 'Service-Index'
         ];
-        $service = Service::all();
-        return view('backend.pages.service.index', $data,compact('service'));
+        
+        $services = Service::all();
 
+        return view('backend.pages.service.index', $data,compact('services'));
 
-        // $products = Product::all()->where('trash','0');
-        // return view('backend.pages.products.index',compact('products'));
     }
 
     /**
@@ -48,24 +47,25 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->validate([
-            'name'      => 'required',
-            'description' =>'required',
+        $request->validate([
+            'name'        => 'required',
+            'description' => 'required',
             'status'      => 'required',
-            'image'       => 'required|image|mimes:png,jpeg,jpg',
-
-              
+            'image'       => 'required|image|mimes:png,jpeg,jpg'
         ]);
+
         $file =  $request->file('image');
-        $uploadName1 = $this->fileUpload($file,'image');
-            
+        $uploadName = $this->fileUpload($file,'image');
 
         $service = new Service($request->all());
+
+        $service->image = $uploadName;
         
         if($service->save())
         {
             return redirect()->route('admin.service.index')->with('success','Item added successfully');
-
+        }else{
+            return redirect()->route('admin.service.index')->with('error','Item can not be added');
         }
     }
 
@@ -119,6 +119,7 @@ class ServiceController extends Controller
     {
         //
     }
+
     private function fileUpload($file, $name){
         $prefix='Service_'.time().'_';
         $picture='';

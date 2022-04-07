@@ -20,20 +20,21 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('admin.service.store') }}" method="POST"   enctype="multipart/form-data">
+                            <form action="{{ route('admin.service.store') }}" method="POST"
+                                enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
                                     <div class="form-group col-md-6">
                                         <label for="inputName">Name</label>
                                         <input class="form-control @error('name') is-invalid @enderror" id="inputName"
                                             name="name" value="{{old('name')}}" type="text"
-                                            placeholder="Enter your name" />
+                                            placeholder="Enter your Service name" />
                                         @error('name')
-                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        <div class="alert alert-danger mt-1">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label>Image 1</label>
+                                        <label>Image</label>
                                         <input type="file" class="form-control @error('image') is-invalid @enderror"
                                             name="image">
                                         @error('image')
@@ -51,8 +52,8 @@
                                     <div class="form-group col-md-6">
                                         <label for="status">Status</label>
                                         <select class="form-control select2 @error('status') is-invalid @enderror"
-                                            name="status" id="status" ">
-                                        <option value=" 1">Active</option>
+                                            name="status" id="status">
+                                            <option value="1">Active</option>
                                             <option value="0">Deactive</option>
                                         </select>
                                         @error('status')
@@ -62,7 +63,7 @@
                                 </div>
 
                                 <div class="card-footer text-right">
-                                    <button class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
                             </form>
                         </div>
