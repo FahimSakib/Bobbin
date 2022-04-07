@@ -15,8 +15,8 @@
                                 </div>
                             </div>
                             <div>
-                                <a class="btn btn-icon icon-left btn-success" href="{{ route('admin.service.index') }}"><i
-                                        class="fas fa-list-alt"></i>List of
+                                <a class="btn btn-icon icon-left btn-success"
+                                    href="{{ route('admin.service.index') }}"><i class="fas fa-list-alt"></i>List of
                                     services</a>
                             </div>
                         </div>
@@ -25,7 +25,7 @@
                                 <table class="table table-bordered">
                                     <tbody>
                                         <tr>
-                                            <th>Fields</th>
+                                            <th class="col-md-2">Fields</th>
                                             <th>Details</th>
                                         </tr>
                                         <tr>
@@ -33,28 +33,42 @@
                                             <td>{{ $service->id }}</td>
                                         </tr>
                                         <tr>
-                                            <th>Title</th>
-                                            <td>{{ $service->title }}</td>
+                                            <th>Service name</th>
+                                            <td>{{ $service->name }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Service image</th>
+                                            <td>
+                                                <img src="{{ asset('storage/Service_image/'.$service->image) }}"
+                                                    alt="{{ $service->image }}" style="height:100px">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Description</th>
+                                            <td>{{ $service->description }}</td>
                                         </tr>
                                         <tr>
                                             <th>Status</th>
 
-                                            @if($service->status=='1')
-                                            <td>Active</td>
+                                            @if($service->status =='1')
+                                            <td> <span class="badge badge-success">Active</span></td>
                                             @else
-                                            <td>Deactive</td>
-
+                                            <td><span class="badge badge-danger">Deactive</span></td>
                                             @endif
+
                                         </tr>
 
                                         <tr>
                                             <th>Created at</th>
-                                            {{-- <td>{{ $service->created_at}}</td> --}}
-                                            <td>{!! date('d - M - Y - h : i : s A', strtotime($service->created_at)) !!}
+                                            <td>
+                                                {!! date('d - M - Y - h : i : s A', strtotime($service->created_at)) !!}
+                                            </td>
                                         </tr>
                                         <tr>
                                             <th>Updated at</th>
-                                            <td>{!! date('d - M - Y - h : i : s A', strtotime($service->created_at)) !!}
+                                            <td>
+                                                {!! date('d - M - Y - h : i : s A', strtotime($service->created_at)) !!}
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -65,4 +79,3 @@
             </div>
     </section>
     @include('backend.include.setting-sidebar')
-

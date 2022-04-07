@@ -18,7 +18,7 @@ class ServiceController extends Controller
         $data = [
             'title' => 'Service-Index'
         ];
-        
+
         $services = Service::all();
 
         return view('backend.pages.service.index', $data,compact('services'));
@@ -75,11 +75,14 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Service $service)
+    public function show($id)
     {
         $data = [
             'title' => 'Service-Show'
         ];
+
+        $service = Service::find($id);
+
         return view('backend.pages.service.show',$data, compact('service'));
     }
 

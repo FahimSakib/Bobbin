@@ -69,7 +69,7 @@
                                             </td>
                                             <td>
                                                 <img src="{{ asset('storage/Service_image/'.$service->image) }}"
-                                                    alt="{{ $service->image }}" style="height:50px;width:65px">
+                                                    alt="{{ $service->image }}" style="height:60px">
                                             </td>
                                             @if($service->status =='1')
                                             <td> <span class="badge badge-success">Active</span></td>
