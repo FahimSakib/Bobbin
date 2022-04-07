@@ -3,14 +3,18 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Service;
+
 use Illuminate\Http\Request;
 
 class SingleFullWidthController extends Controller
 {
-    public function index(){
+    public function index($id){
         $data = [
             'title' => 'FullWidth'
         ];
-        return view('frontend.pages.single-fullwidth.single-fullwidth', $data);
+        $service = Service::find($id);
+       
+        return view('frontend.pages.single-fullwidth.single-fullwidth', $data,compact('service'));
     }
 }
