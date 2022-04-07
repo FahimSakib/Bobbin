@@ -41,7 +41,7 @@
                                 </div>
                             </div>
                             @endif
-                            @if (!$service->isEmpty())
+                            @if (!$services->isEmpty())
                             <div class="table-responsive">
                                 <table class="table table-striped" id="table-1">
                                     <thead>
@@ -50,6 +50,7 @@
                                                 #
                                             </th>
                                             <th>Title</th>
+                                            <th>Image</th>
                                             <th>Status</th>
                                             <th>Action</th>
                                         </tr>
@@ -59,16 +60,18 @@
                                             @php
                                             $i = 1;
                                             @endphp
-                                            @foreach ($service as $item)
+                                            @foreach ($services as $service)
                                             <td class="text-center">
                                                 {{$i++}}
                                             </td>
-                                            <td>{{$item->name}}</td>
-                                              <td>
-                                                <img src="{{ asset('storage/Service_image/'.$item->image) }}"
-                                                    alt="{{ $item->image }}" style="height:50px;width:65px">
+                                            <td>
+                                                {{$service->name}}
                                             </td>
-                                            @if($item->status =='1')
+                                            <td>
+                                                <img src="{{ asset('storage/Service_image/'.$service->image) }}"
+                                                    alt="{{ $service->image }}" style="height:60px">
+                                            </td>
+                                            @if($service->status =='1')
                                             <td> <span class="badge badge-success">Active</span></td>
                                             @else
                                             <td><span class="badge badge-danger">Deactive</span></td>
@@ -82,13 +85,14 @@
                                                     </button>
                                                     <div class="dropdown-menu">
                                                         <a class="dropdown-item has-icon"
-                                                            href="{{ route('admin.service.show',$item->id) }}"><i
+                                                            href="{{ route('admin.service.show',$service->id) }}"><i
                                                                 class="far fa-eye"></i> View</a>
                                                         <a class="dropdown-item has-icon"
-                                                            href="{{ route('admin.service.edit',$item->id) }}"><i
+                                                            href="{{ route('admin.service.edit',$service->id) }}"><i
                                                                 class="far fa-edit"></i> Edit</a>
                                                         <div class="del ml-4">
-                                                            <form action="{{ route('admin.service.destroy',$item->id) }}"
+                                                            <form
+                                                                action="{{ route('admin.service.destroy',$service->id) }}"
                                                                 method="POST">
                                                                 @csrf
                                                                 @method('DELETE')
@@ -121,7 +125,7 @@
                                             <h3>Info</h3>
                                         </div>
                                         <h5>
-                                            There is no color available! please create a new color to show in the
+                                            There is no Service available! please create a new service to show in the
                                             list.
                                         </h5>
                                     </div>
@@ -167,7 +171,7 @@
                             timer: 3000,
                         });
                     } else {
-                        swal('Your data is safe!',{
+                        swal('Your data is safe!', {
                             timer: 3000,
                         });
                     }

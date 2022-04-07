@@ -60,22 +60,22 @@
                                                     <li class="list-group-item  border-0"><img
                                                             src="{{ asset('storage/Product_image/'.$product->image1) }}"
                                                             alt="{{ $product->image1 }}"
-                                                            style="height:80px;width:120px">
+                                                            style="width:100px">
                                                     </li>
                                                     <li class="list-group-item border-0"><img
                                                             src="{{ asset('storage/Product_image/'.$product->image2) }}"
                                                             alt="{{ $product->image2 }}"
-                                                            style="height:80px;width:120px">
+                                                            style="width:100px">
                                                     </li>
                                                     <li class="list-group-item border-0"><img
                                                             src="{{ asset('storage/Product_image/'.$product->image3) }}"
                                                             alt="{{ $product->image3 }}"
-                                                            style="height:80px;width:120px">
+                                                            style="width:100px">
                                                     </li>
                                                     <li class="list-group-item border-0"><img
                                                             src="{{ asset('storage/Product_image/'.$product->image4) }}"
                                                             alt="{{ $product->image4 }}"
-                                                            style="height:80px;width:120px">
+                                                            style="width:100px">
                                                     </li>
                                                 </ul>
                                             </td>
