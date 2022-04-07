@@ -34,8 +34,8 @@ Route::group(['middleware' => 'auth'], function(){
 });
 
 Route::get('wishlist','Frontend\WishlistController@index');
-Route::get('contact','Frontend\ContactController@index');
-Route::get('faq','Frontend\FaqController@index');
+Route::get('contact','Frontend\ContactController@index')->name('contact');
+Route::get('faq','Frontend\FaqController@index')->name('faq');
 Route::get('single-fullwidth/{id}','Frontend\SingleFullWidthController@index')->name('single-fullwidth');
 Route::get('blog','Frontend\BlogController@index')->name('blog');
 Route::get('about','Frontend\AboutController@index')->name('about');
