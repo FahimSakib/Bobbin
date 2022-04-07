@@ -97,7 +97,7 @@ class ServiceController extends Controller
         $data = [
             'title' => 'Service-Edit'
         ];
-        
+
         $service = Service::find($id);
 
         return view('backend.pages.service.edit', $data , compact('service'));
@@ -112,7 +112,28 @@ class ServiceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name'        => 'required',
+            'description' => 'required',
+            'status'      => 'required',
+            'image'       => 'nullable|image|mimes:png,jpeg,jpg'
+        ]);
+
+        $service = Service::find($id);
+
+        $image = $this->fileUpload($request->file('image'),'image');
+        if(empty($image))$image = $service->image;
+
+        $service->fill($request->all());
+
+        $service->image = $image;
+
+        if($service->save()){
+            return redirect()->route('admin.service.index')->with('success','Item Updated successfully');
+        }else{
+            return redirect()->route('admin.service.index')->with('error','Item can not be updated');
+        }
+
     }
 
     /**

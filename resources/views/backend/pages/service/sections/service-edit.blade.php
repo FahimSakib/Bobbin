@@ -46,17 +46,16 @@
                                         <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
                                         <div class="alert-body">
                                             <div class="alert-title">Info</div>
-                                            If you want to change or update the images of the current service, then
-                                            upload the new ones; <br> otherwise, keep the image field blank. See the
+                                            If you want to change or update the image of the current service, then
+                                            upload the new one; <br> otherwise, keep the image field blank. See the
                                             gallery for current service images.
                                         </div>
                                         <div class="col-md-4">
                                             <div class="gallery mt-3">
                                                 <div class="gallery-item"
-                                                    data-image="{{ asset('storage/Service_image/'.$service->image) }}"
-                                                    data-title="Image">
-                                                </div>
-
+                                                data-image="{{ asset('storage/Service_image/'.$service->image) }}"
+                                                data-title="Image 1">
+                                            </div>
                                             </div>
                                         </div>
                                     </div>
@@ -95,10 +94,13 @@
 
 @push('style')
 <link rel="stylesheet" href="asset/backend/assets/bundles/select2/dist/css/select2.min.css">
+<link rel="stylesheet" href="asset/backend/assets/bundles/chocolat/dist/css/chocolat.css">
 @endpush
 
 @push('script')
 <script src="asset/backend/assets/bundles/select2/dist/js/select2.full.min.js"></script>
 <!-- Page Specific JS File -->
 <script src="asset/backend/assets/js/page/forms-advanced-forms.js"></script>
+<script src="asset/backend/assets/bundles/chocolat/dist/js/jquery.chocolat.min.js"></script>
+<script src="asset/backend/assets/js/page/gallery1.js"></script>
 @endpush
