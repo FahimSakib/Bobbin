@@ -47,7 +47,6 @@ $data = [];
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <h3>selected Products for shopping</h3>
                                 <table class="table table-striped" id="table-1">
                                     <thead>
                                         <tr>
