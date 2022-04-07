@@ -92,11 +92,14 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Service $service)
+    public function edit($id)
     {
         $data = [
             'title' => 'Service-Edit'
         ];
+        
+        $service = Service::find($id);
+
         return view('backend.pages.service.edit', $data , compact('service'));
     }
 
