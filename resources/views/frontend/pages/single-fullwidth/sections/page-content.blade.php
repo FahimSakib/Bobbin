@@ -162,7 +162,7 @@
                                 </div><!-- End .owl-carousel -->
                             </div><!-- End .related-posts -->
 
-                            <div class="comments">
+                            {{-- <div class="comments">
                                 <h3 class="title">0 Comment</h3><!-- End .title -->
                             </div><!-- End .comments -->
                             <div class="reply">
@@ -196,6 +196,6 @@
                                         <i class="icon-long-arrow-right"></i>
                                     </button>
                                 </form>
-                            </div><!-- End .reply -->
+                            </div><!-- End .reply --> --}}
                         </div><!-- End .container -->
                     </div><!-- End .page-content -->

@@ -184,9 +184,13 @@ use Illuminate\Support\Facades\Auth;
                         <li class="{{ (request()->is('blog')) ? 'active' : '' }}">
                             <a href="{{ route('blog') }}">Blog</a>
                         </li>
+                           <li class="{{ (request()->is('service')) ? 'active' : '' }}">
+                            <a href="{{ route('service') }}">Services</a>
+                        </li>
                            <li class="{{ (request()->is('about')) ? 'active' : '' }}">
                             <a href="{{ route('about') }}">About</a>
                         </li>
+                        
                     </ul><!-- End .menu -->
                 </nav><!-- End .main-nav -->
 
