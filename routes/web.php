@@ -38,6 +38,7 @@ Route::get('contact','Frontend\ContactController@index');
 Route::get('faq','Frontend\FaqController@index');
 Route::get('single-fullwidth','Frontend\SingleFullWidthController@index');
 Route::get('blog','Frontend\BlogController@index')->name('blog');
+Route::get('about','Frontend\AboutController@index')->name('about');
 Route::get('coming-soon','Frontend\Coming_soonController@index');
 Route::get('checkout','Frontend\CheckoutController@index');
 Route::get('category/{category}','Frontend\CategoryController@index')->name('category');
@@ -56,6 +57,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth','ad
     Route::post('logout','Backend\DashboardController@adminLogout')->name('logout');
     Route::resource('product','Backend\ProductController');
     Route::resource('color', 'Backend\ColorController');
+    Route::resource('service', 'Backend\ServiceController');
     Route::resource('size', 'Backend\SizeController');
     Route::resource('category', 'Backend\CategoryController');
     Route::resource('slider', 'Backend\SliderController');

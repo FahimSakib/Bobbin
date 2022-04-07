@@ -4,11 +4,10 @@
                     <div class="row">
                         <div class="col-sm-12 col-lg-6">
                             <div class="widget widget-about">
-                    <img src="asset/frontend/assets/images/bobbin-logo-only-gold.png" alt="Bobbin Logo" width="180" height="30">
+                    {{-- <img src="asset/frontend/assets/images/bobbin-logo-only-gold.png" alt="Bobbin Logo" width="180" height="30"> --}}
                                    
-                                <p>Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue, eu vulputate
-                                    magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan
-                                    porttitor, facilisis luctus, metus. </p>
+                                <p>Bobbin is an eminent lifestyle brand in the retail fashion industry of Bangladesh with the purpose of provide qualityfull fashion for all within their range. As a fashion brand, Bobbin is renowned for its unique style and variety of collections. We crafted our fashionable attires & accessories for all age ranges who believe themselves to be stand out with their unique fashion sense and style statement.
+</p>
 
                                 <div class="widget-about-info">
                                     <div class="row">

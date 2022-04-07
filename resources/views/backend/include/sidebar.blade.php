@@ -72,6 +72,10 @@
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="{{ route('admin.invoice-generator.index') }}">Index</a></li>
                     <li><a class="nav-link" href="{{ route('admin.invoice-generator.create') }}">Create</a></li>
+                        data-feather="globe"></i><span>Service</span></a>
+                <ul class="dropdown-menu">
+                    <li><a class="nav-link" href="{{ route('admin.service.index') }}">Index</a></li>
+                    <li><a class="nav-link" href="{{ route('admin.service.create') }}">Create</a></li>
                 </ul>
             </li>
             
