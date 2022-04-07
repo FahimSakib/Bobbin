@@ -11,8 +11,7 @@
                 <a href="{{ route('admin.') }}" class="nav-link"><i
                         data-feather="monitor"></i><span>Dashboard</span></a>
             </li>
-            <li
-                class="dropdown">
+            <li class="dropdown">
                 <a href="#" class="menu-toggle nav-link has-dropdown"><i
                         data-feather="shopping-bag"></i><span>Products</span></a>
                 <ul class="dropdown-menu">
@@ -20,15 +19,13 @@
                     <li><a class="nav-link" href="{{ route('admin.product.create') }}">Create</a></li>
                 </ul>
             </li>
-            <li
-                class="dropdown">
+            <li class="dropdown">
                 <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="list"></i><span>Orders</span></a>
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="{{ route('admin.order.index') }}">Index</a></li>
                 </ul>
             </li>
-            <li
-                class="dropdown">
+            <li class="dropdown">
                 <a href="#" class="menu-toggle nav-link has-dropdown"><i
                         data-feather="droplet"></i><span>Colors</span></a>
                 <ul class="dropdown-menu">
@@ -37,8 +34,7 @@
 
                 </ul>
             </li>
-            <li
-                class="dropdown">
+            <li class="dropdown">
                 <a href="#" class="menu-toggle nav-link has-dropdown"><i
                         data-feather="scissors"></i><span>Sizes</span></a>
                 <ul class="dropdown-menu">
@@ -47,8 +43,7 @@
 
                 </ul>
             </li>
-            <li
-                class="dropdown">
+            <li class="dropdown">
                 <a href="#" class="menu-toggle nav-link has-dropdown"><i
                         data-feather="tag"></i><span>Category</span></a>
                 <ul class="dropdown-menu">
@@ -56,8 +51,7 @@
                     <li><a class="nav-link" href="{{ route('admin.category.create') }}">Create</a></li>
                 </ul>
             </li>
-            <li
-                class="dropdown">
+            <li class="dropdown">
                 <a href="#" class="menu-toggle nav-link has-dropdown"><i
                         data-feather="image"></i><span>Slider</span></a>
                 <ul class="dropdown-menu">
@@ -65,20 +59,23 @@
                     <li><a class="nav-link" href="{{ route('admin.slider.create') }}">Create</a></li>
                 </ul>
             </li>
-            <li
-                class="dropdown">
-                <a href="#" class="menu-toggle nav-link has-dropdown"><i
-                        data-feather="printer"></i><span>Invoice Generator</span></a>
+            <li class="dropdown">
+                <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="printer"></i><span>Invoice
+                        Generator</span></a>
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="{{ route('admin.invoice-generator.index') }}">Index</a></li>
                     <li><a class="nav-link" href="{{ route('admin.invoice-generator.create') }}">Create</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="menu-toggle nav-link has-dropdown"><i
                         data-feather="globe"></i><span>Service</span></a>
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="{{ route('admin.service.index') }}">Index</a></li>
                     <li><a class="nav-link" href="{{ route('admin.service.create') }}">Create</a></li>
                 </ul>
             </li>
-            
+
         </ul>
     </aside>
 </div>
