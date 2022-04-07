@@ -50,10 +50,10 @@ use Illuminate\Support\Facades\Auth;
         </nav><!-- End .mobile-nav -->
 
         <div class="social-icons">
-            <a href="#" class="social-icon" target="_blank" title="Facebook"><i class="icon-facebook-f"></i></a>
-            <a href="#" class="social-icon" target="_blank" title="Twitter"><i class="icon-twitter"></i></a>
-            <a href="#" class="social-icon" target="_blank" title="Instagram"><i class="icon-instagram"></i></a>
-            <a href="#" class="social-icon" target="_blank" title="Youtube"><i class="icon-youtube"></i></a>
+            <a href="https://www.facebook.com/bobbin.ctg" class="social-icon" target="_blank" title="Facebook"><i class="icon-facebook-f"></i></a>
+            {{-- <a href="#" class="social-icon" target="_blank" title="Twitter"><i class="icon-twitter"></i></a> --}}
+            <a href="https://www.instagram.com/bobbin513/?hl=en" class="social-icon" target="_blank" title="Instagram"><i class="icon-instagram"></i></a>
+            {{-- <a href="#" class="social-icon" target="_blank" title="Youtube"><i class="icon-youtube"></i></a> --}}
         </div><!-- End .social-icons -->
     </div><!-- End .mobile-menu-wrapper -->
 </div><!-- End .mobile-menu-container -->
