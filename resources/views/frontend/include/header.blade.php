@@ -91,7 +91,7 @@ use Illuminate\Support\Facades\Auth;
                 </a>
             </div><!-- End .header-left -->
             <div class="header-right">
-                <div class="header-search header-search-extended header-search-visible d-none d-lg-block">
+                <div class="header-search  header-search-visible d-none d-lg-block" >
                     {{-- <a href="#" class="search-toggle" role="button"><i class="icon-search"></i></a> --}}
                     <form action="#" method="get">
                         <div class="header-search-wrapper search-wrapper-wide">
