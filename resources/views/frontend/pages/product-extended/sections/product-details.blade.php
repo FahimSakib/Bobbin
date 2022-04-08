@@ -117,12 +117,12 @@ if($message = Session::get('success')){
                                 <button type="button" class="btn-product btn btn-danger" disabled>Out of Stock</button>
                             </div>
                             @endif
-                            <div class="details-action-wrapper">
+                            {{-- <div class="details-action-wrapper">
                                 <a href="#" class="btn-product btn-wishlist" title="Wishlist"><span>Add to
                                         Wishlist</span></a>
                                 <a href="#" class="btn-product btn-compare" title="Compare"><span>Add to
                                         Compare</span></a>
-                            </div><!-- End .details-action-wrapper -->
+                            </div><!-- End .details-action-wrapper --> --}}
                         </div><!-- End .product-details-action -->
 
                         <div class="product-details-footer">
@@ -149,10 +149,10 @@ if($message = Session::get('success')){
                     <a class="nav-link" id="product-info-link" data-toggle="tab" href="#product-info-tab" role="tab"
                         aria-controls="product-info-tab" aria-selected="false">Additional information</a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link" id="product-shipping-link" data-toggle="tab" href="#product-shipping-tab"
                         role="tab" aria-controls="product-shipping-tab" aria-selected="false">Shipping & Returns</a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                     <a class="nav-link" id="product-review-link" data-toggle="tab" href="#product-review-tab" role="tab"
                         aria-controls="product-review-tab" aria-selected="false">Reviews (2)</a>
