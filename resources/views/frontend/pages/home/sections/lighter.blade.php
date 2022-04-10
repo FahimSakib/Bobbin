@@ -223,12 +223,12 @@ $random_4 = App\Models\Product::with('category')->where('status','1')->inRandomO
                                     class="product-image-hover">
                             </a>
 
-                            <div class="product-action-vertical">
+                            {{-- <div class="product-action-vertical">
                                 <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add
                                         to wishlist</span></a>
                                 <a href="popup/quickView.html" class="btn-product-icon btn-quickview"
                                     title="Quick view"><span>Quick view</span></a>
-                            </div><!-- End .product-action-vertical -->
+                            </div><!-- End .product-action-vertical --> --}}
 
                             <div class="product-action">
                                 <a href="{{route('product-extended',$item->id)}}" class="btn-product btn-cart"><span>add
