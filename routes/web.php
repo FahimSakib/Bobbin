@@ -35,6 +35,7 @@ Route::group(['middleware' => 'auth'], function(){
 
 Route::get('wishlist','Frontend\WishlistController@index');
 Route::get('contact','Frontend\ContactController@index')->name('contact');
+Route::post('contact/store','Frontend\ContactController@store')->name('contact.store');
 Route::get('faq','Frontend\FaqController@index')->name('faq');
 Route::get('single-fullwidth/{id}','Frontend\SingleFullWidthController@index')->name('single-fullwidth');
 Route::get('blog','Frontend\BlogController@index')->name('blog');
@@ -58,6 +59,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth','ad
     Route::post('logout','Backend\DashboardController@adminLogout')->name('logout');
     Route::resource('product','Backend\ProductController');
     Route::resource('color', 'Backend\ColorController');
+    Route::resource('feedback', 'Backend\FeedbackController');
     Route::resource('service', 'Backend\ServiceController');
     Route::resource('size', 'Backend\SizeController');
     Route::resource('category', 'Backend\CategoryController');

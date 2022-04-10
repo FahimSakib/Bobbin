@@ -1,7 +1,7 @@
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <img src="asset/frontend/assets/images/bobbin-logo.png" alt="Bobbin Logo" width="180" height="35">
+            <img src="asset/frontend/assets/logo/Bobbin_logo_only_gold.png" alt="Bobbin Logo" width="180" height="35">
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />

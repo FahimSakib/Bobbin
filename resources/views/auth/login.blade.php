@@ -1,10 +1,10 @@
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <img src="asset/frontend/assets/images/bobbin-logo.png" alt="Bobbin Logo" width="180" height="35">
+            <img src="asset/frontend/assets/logo/Bobbin_logo_only_gold.png" alt="Bobbin Logo" width="180" height="35">
         </x-slot>
 
-        <x-jet-validation-errors class="mb-4" />
+        <x-jet-validation-errors class="mb-4"  />
 
         @if (session('status'))
             <div class="mb-4 font-medium text-sm text-green-600">
@@ -33,16 +33,22 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
+                   <a class="underline text-sm text-gray-600 hover:text-gray-900 end-0 pull-right" href="{{ route('register') }}" style="padding-right:20px;">
+                     {{ __('  Didn’t have an account ?   Register')}}
+                    </a>
                 @if (Route::has('password.request'))
                     <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
                         {{ __('Forgot your password?') }}
                     </a>
                 @endif
+                
 
-                <x-jet-button class="ml-4">
+                <x-jet-button class="">
                     {{ __('Log in') }}
                 </x-jet-button>
+                
             </div>
         </form>
+  
     </x-jet-authentication-card>
 </x-guest-layout>

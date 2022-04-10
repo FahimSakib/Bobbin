@@ -75,6 +75,14 @@
                     <li><a class="nav-link" href="{{ route('admin.service.create') }}">Create</a></li>
                 </ul>
             </li>
+            <li class="dropdown">
+                <a href="#" class="menu-toggle nav-link has-dropdown"><i
+                        data-feather="message-square"></i><span>Feedbacks</span></a>
+                <ul class="dropdown-menu">
+                    <li><a class="nav-link" href="{{ route('admin.feedback.index') }}">Index</a></li>
+                    {{-- <li><a class="nav-link" href="{{ route('admin.service.create') }}">Create</a></li> --}}
+                </ul>
+            </li>
 
         </ul>
     </aside>

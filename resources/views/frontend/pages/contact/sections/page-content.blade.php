@@ -26,8 +26,8 @@
                             <div>Saturday - Thursday 11am to 8pm</div>
                             <div>Fridayday 3pm to 8pm</div>
 
-                            <a href="https://goo.gl/maps/wgXkjWsyeumaZr5r5" class="btn btn-link" target="_blank"><span>View Map</span><i
-                                    class="icon-long-arrow-right"></i></a>
+                            <a href="https://goo.gl/maps/wgXkjWsyeumaZr5r5" class="btn btn-link"
+                                target="_blank"><span>View Map</span><i class="icon-long-arrow-right"></i></a>
                         </div><!-- End .store-content -->
                         {{-- <div class="contact-info">
                             <h3>The Office</h3>
@@ -50,7 +50,7 @@
                 <h2 class="title mb-1">Got Any Questions?</h2><!-- End .title mb-2 -->
                 <p class="mb-2">Use the form below to get in touch with the sales team</p>
 
-                <form action="#" class="contact-form mb-3">
+                {{-- <form action="#" class="contact-form mb-3">
                     <div class="row">
                         <div class="col-sm-6">
                             <label for="cname" class="sr-only">Name</label>
@@ -83,7 +83,54 @@
                         <span>SUBMIT</span>
                         <i class="icon-long-arrow-right"></i>
                     </button>
-                </form><!-- End .contact-form -->
+                </form><!-- End .contact-form --> --}}
+                <form action="{{ route('contact.store') }}" method="POST">
+                    @csrf
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="single-acc-field">
+                                <label for="name">Name</label>
+                                <input class="form-control @error('name') is-invalid @enderror" type="text"
+                                    placeholder="Name" value="{{old('name')}}" name="name" id="name" required>
+                                @error('name')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="single-acc-field">
+                                <label for="email">Email</label>
+                                <input class="form-control @error('email') is-invalid @enderror" type="email"
+                                    value="{{old('email')}}" placeholder="Email" name="email" id="email" required>
+                                @error('email')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                          
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="single-acc-field">
+                                <label for="msg">Message</label>
+                                <textarea class="form-control @error('msg') is-invalid @enderror" name="msg" id="msg"
+                                    name="msg" value="{{old('msg')}}" rows="4" required></textarea>
+                                @error('msg')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+                    {{-- <div class="single-acc-field boxes">
+                                        <input type="checkbox" id="checkbox">
+                                        <label for="checkbox">Remember me</label>
+                                    </div> --}}
+                    <div class="single-acc-field">
+                        <button type="submit" class="btn btn-outline-primary-2 btn-minwidth-sm">
+                            <span>SUBMIT</span>
+                            <i class="icon-long-arrow-right"></i>
+                        </button>
+                       
+                    </div>
+                </form>
             </div><!-- End .col-lg-6 -->
         </div><!-- End .row -->
 
