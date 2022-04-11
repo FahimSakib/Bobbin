@@ -1,6 +1,6 @@
 @php
 if($message = Session::get('success')){
-    toast($message,'success');
+toast($message,'success');
 }
 @endphp
 <div class="page-content">
@@ -50,7 +50,7 @@ if($message = Session::get('success')){
 
                         <div class="ratings-container">
                             <div class="ratings">
-                                <div class="ratings-val" style="width: 80%;"></div><!-- End .ratings-val -->
+                                <div class="ratings-val" style="width: 25%;"></div><!-- End .ratings-val -->
                             </div><!-- End .ratings -->
                             <a class="ratings-text" href="#product-review-link" id="review-link">( 2 Reviews )</a>
                         </div><!-- End .rating-container -->
@@ -131,61 +131,9 @@ if($message = Session::get('success')){
                                 <a
                                     href="{{ route('category',$product->category_id) }}">{{ $product->category->title }}</a>
                             </div><!-- End .product-cat -->
-                            
-                        </div><!-- End .product-details-footer -->
-                            <div class="col-sm-12">
-                <h2 class="title mb-1">Your Review About This Product</h2><!-- End .title mb-2 -->
-                {{-- <p class="mb-2">Use the form below to get in touch with the sales team</p> --}}
 
-            
-                <form action="{{ route('contact.store') }}" method="POST">
-                    @csrf
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="single-acc-field hidden">
-                                <label for="name">Name</label>
-                                <input class="form-control @error('name') is-invalid @enderror" type="text"
-                                    placeholder="Name" value="{{old('name')}}" name="name" id="name" required >
-                                @error('name')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="single-acc-field hidden">
-                                <label for="email">Email</label>
-                                <input class="form-control @error('email') is-invalid @enderror" type="email"
-                                    value="{{old('email')}}" placeholder="Email" name="email" id="email" required>
-                                @error('email')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
-                          
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="single-acc-field">
-                                {{-- <label for="msg">Message</label> --}}
-                                <textarea class="form-control @error('msg') is-invalid @enderror" name="msg" id="msg"
-                                    name="msg" value="{{old('msg')}}" rows="4" required></textarea>
-                                @error('msg')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
-                        </div>
-                    </div>
-                    {{-- <div class="single-acc-field boxes">
-                                        <input type="checkbox" id="checkbox">
-                                        <label for="checkbox">Remember me</label>
-                                    </div> --}}
-                    <div class="single-acc-field">
-                        <button type="submit" class="btn btn-outline-primary-2 btn-minwidth-sm">
-                            <span>SUBMIT</span>
-                            <i class="icon-long-arrow-right"></i>
-                        </button>
-                       
-                    </div>
-                </form>
-            </div><!-- End .col-lg-6 -->
+                        </div><!-- End .product-details-footer -->
+                      
                     </div><!-- End .product-details -->
                 </div><!-- End .col-md-6 -->
             </div><!-- End .row -->
