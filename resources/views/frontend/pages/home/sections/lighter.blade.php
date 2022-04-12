@@ -246,10 +246,10 @@ $random_4 = App\Models\Product::with('category')->where('status','1')->inRandomO
 
                             <div class="ratings-container">
                                 <div class="ratings">
-                                    <div class="ratings-val" style="width: 100%;"></div>
+                                    <div class="ratings-val" style="width: {{ ($item->reviews->avg('rating')*20 ) ?? '0'}}%;"></div>
                                     <!-- End .ratings-val -->
                                 </div><!-- End .ratings -->
-                                <span class="ratings-text">( 6 Reviews )</span>
+                                <span class="ratings-text">( {{ count($item->reviews) }} Reviews )</span>
                             </div><!-- End .rating-container -->
 
                             <div class="product-nav product-nav-thumbs">

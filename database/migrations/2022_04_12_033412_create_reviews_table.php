@@ -15,12 +15,13 @@ class CreateReviewsTable extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
-            $table->integer('rating')->default(0);
-            $table->string('user_name');
-            $table->string('product_name');
-            $table->string('review');
+            $table->integer('rating')->default(5);
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('product_id');
+            $table->foreign('product_id')->references('id')->on('products');
+            $table->string('review')->nullable();
             $table->enum('status',['0','1'])->default('1')->comment="0=Inactive,1=Active";
-
             $table->timestamps();
         });
     }
