@@ -86,12 +86,13 @@ $reviews = App\Models\Review::orderBy('id','desc')->where('product_id',$product-
                 @if (count($reviews) != 0)
                 @foreach ($reviews as $review)
                 @php
-                    $review_user_rating = App\Models\Review::toBase()->where('user_id',$review->user_id)->pluck('rating')->first();
+                    $review_user_rating = App\Models\Review::toBase()->where([['product_id',$review->product->id],['user_id',$review->user->id]])->pluck('rating')->first();
                     $review_user_rating_p = (100/5)*$review_user_rating;
                 @endphp
                 <div class="row no-gutters">
                     <div class="col-auto">
                         <h4>{{ $review->user->name }}</h4>
+                        {{  $review_user_rating  }}
                         <div class="ratings-container">
                             <div class="ratings">
                                 <div class="ratings-val" style="width: {{ $review_user_rating_p  }}%;"></div><!-- End .ratings-val -->
@@ -123,7 +124,7 @@ $reviews = App\Models\Review::orderBy('id','desc')->where('product_id',$product-
                 <div class="review">
                     <div class="col-sm-12">
                         <h3 class="title mb-1">Your Review About This Product</h3><!-- End .title mb-2 -->
-                        <form action="{{ route('review.store') }}" method="POST">
+                        <form action="{{ route('review.store') }}" method="POST" id="review-form">
                             @csrf
                             <div class="row">
                                 <div class="col-lg-6">
@@ -183,6 +184,10 @@ $reviews = App\Models\Review::orderBy('id','desc')->where('product_id',$product-
 </div><!-- .End .tab-pane -->
 </div><!-- End .tab-content -->
 </div><!-- End .product-details-tab -->
-@push('styles')
-
+@push('scripts')
+<script>
+    window.onload = function () {
+        $('#review-form')[0].reset();
+    };
+</script>
 @endpush

@@ -176,6 +176,5 @@ if ($reviews_avg) {
                     $("#pivot-qty").val(max);
                 });
             });
-
         </script>
         @endpush
