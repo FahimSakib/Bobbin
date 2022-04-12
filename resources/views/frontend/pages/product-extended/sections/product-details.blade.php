@@ -1,6 +1,6 @@
 @php
 if($message = Session::get('success')){
-    toast($message,'success');
+toast($message,'success');
 }
 @endphp
 <div class="page-content">
@@ -50,7 +50,7 @@ if($message = Session::get('success')){
 
                         <div class="ratings-container">
                             <div class="ratings">
-                                <div class="ratings-val" style="width: 80%;"></div><!-- End .ratings-val -->
+                                <div class="ratings-val" style="width: 25%;"></div><!-- End .ratings-val -->
                             </div><!-- End .ratings -->
                             <a class="ratings-text" href="#product-review-link" id="review-link">( 2 Reviews )</a>
                         </div><!-- End .rating-container -->
@@ -131,7 +131,9 @@ if($message = Session::get('success')){
                                 <a
                                     href="{{ route('category',$product->category_id) }}">{{ $product->category->title }}</a>
                             </div><!-- End .product-cat -->
+
                         </div><!-- End .product-details-footer -->
+                      
                     </div><!-- End .product-details -->
                 </div><!-- End .col-md-6 -->
             </div><!-- End .row -->

@@ -170,7 +170,7 @@ use Illuminate\Support\Facades\Auth;
     <div class="header-bottom sticky-header">
         <div class="container">
             <div class="header-left">
-                <div class="col-md-7"></div>
+                <div class="col-md-5"></div>
                 <nav class="main-nav">
                     <ul class="menu sf-arrows">
                         <li class="{{ (request()->is('/')) ? 'active' : '' }}">
@@ -197,6 +197,9 @@ use Illuminate\Support\Facades\Auth;
                         </li>
                         <li class="{{ (request()->is('about')) ? 'active' : '' }}">
                             <a href="{{ route('about') }}">About</a>
+                        </li>
+                         <li class="{{ (request()->is('contact')) ? 'active' : '' }}">
+                            <a href="{{ route('contact') }}">Contact</a>
                         </li>
 
                     </ul><!-- End .menu -->

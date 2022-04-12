@@ -74,38 +74,67 @@
             <div class="container">
                 <h3>Reviews (2)</h3>
                 <div class="review">
-                    <div class="row no-gutters">
-                        <div class="col-auto">
-                            <h4><a href="#">Samanta J.</a></h4>
-                            <div class="ratings-container">
-                                <div class="ratings">
-                                    <div class="ratings-val" style="width: 80%;"></div><!-- End .ratings-val -->
-                                </div><!-- End .ratings -->
-                            </div><!-- End .rating-container -->
-                            <span class="review-date">6 days ago</span>
-                        </div><!-- End .col -->
-                        <div class="col">
-                            <h4>Good, perfect size</h4>
+                    <div class="col-sm-12">
+                            <h2 class="title mb-1">Your Review About This Product</h2><!-- End .title mb-2 -->
+                            {{-- <p class="mb-2">Use the form below to get in touch with the sales team</p> --}}
 
-                            <div class="review-content">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus cum dolores
-                                    assumenda asperiores facilis porro reprehenderit animi culpa atque blanditiis
-                                    commodi perspiciatis doloremque, possimus, explicabo, autem fugit beatae quae
-                                    voluptas!</p>
-                            </div><!-- End .review-content -->
 
-                            <div class="review-action">
-                                <a href="#"><i class="icon-thumbs-up"></i>Helpful (2)</a>
-                                <a href="#"><i class="icon-thumbs-down"></i>Unhelpful (0)</a>
-                            </div><!-- End .review-action -->
-                        </div><!-- End .col-auto -->
-                    </div><!-- End .row -->
+                            <form action="{{ route('contact.store') }}" method="POST">
+                                @csrf
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="single-acc-field hidden">
+                                            <label for="name">Name</label>
+                                            <input class="form-control @error('name') is-invalid @enderror" type="text"
+                                                placeholder="Name" value="{{old('name')}}" name="name" id="name"
+                                                required>
+                                            @error('name')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="single-acc-field hidden">
+                                            <label for="email">Email</label>
+                                            <input class="form-control @error('email') is-invalid @enderror"
+                                                type="email" value="{{old('email')}}" placeholder="Email" name="email"
+                                                id="email" required>
+                                            @error('email')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="single-acc-field">
+                                            {{-- <label for="msg">Message</label> --}}
+                                            <textarea class="form-control @error('msg') is-invalid @enderror" name="msg"
+                                                id="msg" name="msg" value="{{old('msg')}}" rows="4" required></textarea>
+                                            @error('msg')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                                {{-- <div class="single-acc-field boxes">
+                                        <input type="checkbox" id="checkbox">
+                                        <label for="checkbox">Remember me</label>
+                                    </div> --}}
+                                <div class="single-acc-field">
+                                    <button type="submit" class="btn btn-outline-primary-2 btn-minwidth-sm">
+                                        <span>SUBMIT</span>
+                                        <i class="icon-long-arrow-right"></i>
+                                    </button>
+
+                                </div>
+                            </form>
+                        </div><!-- End .col-lg-6 -->
                 </div><!-- End .review -->
 
                 <div class="review">
                     <div class="row no-gutters">
                         <div class="col-auto">
-                            <h4><a href="#">John Doe</a></h4>
+                            <h4><a href="#">STATIC</a></h4>
                             <div class="ratings-container">
                                 <div class="ratings">
                                     <div class="ratings-val" style="width: 100%;"></div><!-- End .ratings-val -->
