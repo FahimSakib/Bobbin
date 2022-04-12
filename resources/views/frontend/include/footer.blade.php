@@ -87,9 +87,10 @@
                              <li><a href="#">How to shop on Bobbin</a></li>
                              <li><a href="{{ route('faq') }}">FAQ</a></li>
                              <li><a href="{{ route('contact') }}">Contact us</a></li>
+                             <li class="text-white">Find Us On Google Map</li>
                              <li><iframe
                                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d230.65688929179183!2d91.83363417334833!3d22.334355354066105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30acd9f7b142e911%3A0x919ca40ed9ece9d!2sBobbin!5e0!3m2!1sen!2sbd!4v1649376418672!5m2!1sen!2sbd"
-                                     width="100%" height="250" style="border:0;padding-leftt:100px;" allowfullscreen=""
+                                     width="100%" height="250" style="border:0;padding-leftt:100px;filter: invert(100%);" allowfullscreen=""
                                      loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></li>
                              {{-- <li><a href="{{ route('login') }}">Log in</a></li> --}}
                          </ul><!-- End .widget-list -->
