@@ -1,5 +1,6 @@
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
@@ -28,5 +29,7 @@
     <link rel="stylesheet" href="asset/frontend/assets/css/skins/skin-demo-9.css">
     <link rel="stylesheet" href="asset/frontend/assets/css/demos/demo-9.css">
     <link rel="stylesheet" href="asset/frontend/assets/css/custom.css">
+    {{-- <link rel="stylesheet" href="asset/frontend/assets/css/font-awesome.min.css"> --}}
+    
 
     @stack('style')

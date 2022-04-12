@@ -36,6 +36,7 @@ Route::group(['middleware' => 'auth'], function(){
 Route::get('wishlist','Frontend\WishlistController@index');
 Route::get('contact','Frontend\ContactController@index')->name('contact');
 Route::post('contact/store','Frontend\ContactController@store')->name('contact.store');
+Route::post('review/store','Frontend\ReviewController@store')->name('review.store');
 Route::get('faq','Frontend\FaqController@index')->name('faq');
 Route::get('single-fullwidth/{id}','Frontend\SingleFullWidthController@index')->name('single-fullwidth');
 Route::get('blog','Frontend\BlogController@index')->name('blog');
