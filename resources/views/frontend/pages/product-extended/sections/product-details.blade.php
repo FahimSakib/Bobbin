@@ -2,6 +2,11 @@
 if($message = Session::get('success')){
 toast($message,'success');
 }
+$reviews = App\Models\Review::orderBy('id','desc')->where('product_id',$product->id)->get();
+$reviews_avg = App\Models\Review::where('product_id',$product->id)->avg('rating');
+if ($reviews_avg) {
+    $review_avg_p = (100/5)*$reviews_avg;
+}
 @endphp
 <div class="page-content">
     <div class="container">
@@ -47,12 +52,11 @@ toast($message,'success');
                 <div class="col-md-6">
                     <div class="product-details">
                         <h1 class="product-title">{{$product->name}}</h1><!-- End .product-title -->
-
                         <div class="ratings-container">
                             <div class="ratings">
-                                <div class="ratings-val" style="width: 25%;"></div><!-- End .ratings-val -->
+                                <div class="ratings-val" style="width: {{ $review_avg_p ?? '0'}}%;"></div><!-- End .ratings-val -->
                             </div><!-- End .ratings -->
-                            <a class="ratings-text" href="#product-review-link" id="review-link">( 2 Reviews )</a>
+                            <a class="ratings-text" href="#product-review-link" id="review-link">( {{ count($reviews) }} Reviews )</a>
                         </div><!-- End .rating-container -->
 
                         <div class="product-price">
@@ -157,7 +161,7 @@ toast($message,'success');
                 </li> --}}
                 <li class="nav-item">
                     <a class="nav-link" id="product-review-link" data-toggle="tab" href="#product-review-tab" role="tab"
-                        aria-controls="product-review-tab" aria-selected="false">Reviews (2)</a>
+                        aria-controls="product-review-tab" aria-selected="false">Reviews ({{ count($reviews) }})</a>
                 </li>
             </ul>
         </div><!-- End .container -->
