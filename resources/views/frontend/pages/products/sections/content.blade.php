@@ -42,9 +42,9 @@
                     <div class="product-footer">
                         <div class="ratings-container">
                             <div class="ratings">
-                                <div class="ratings-val" style="width: 40%;"></div><!-- End .ratings-val -->
+                                <div class="ratings-val" style="width: {{ ($product->reviews->avg('rating')*20 ) ?? '0'}}%;"></div><!-- End .ratings-val -->
                             </div><!-- End .ratings -->
-                            <span class="ratings-text">( 4 Reviews )</span>
+                            <span class="ratings-text">( {{ count($product->reviews) }} Reviews )</span>
                         </div><!-- End .rating-container -->
 
                         <div class="product-nav product-nav-thumbs">

@@ -92,7 +92,6 @@ $reviews = App\Models\Review::orderBy('id','desc')->where('product_id',$product-
                 <div class="row no-gutters">
                     <div class="col-auto">
                         <h4>{{ $review->user->name }}</h4>
-                        {{  $review_user_rating  }}
                         <div class="ratings-container">
                             <div class="ratings">
                                 <div class="ratings-val" style="width: {{ $review_user_rating_p  }}%;"></div><!-- End .ratings-val -->

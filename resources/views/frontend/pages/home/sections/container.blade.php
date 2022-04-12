@@ -112,10 +112,10 @@ $single_product = App\Models\Product::where('category_id',$category->id)->inRand
                                 </div><!-- End .product-price -->
                                 <div class="ratings-container">
                                     <div class="ratings">
-                                        <div class="ratings-val" style="width: 60%;"></div>
+                                        <div class="ratings-val" style="width: {{ ($product->reviews->avg('rating')*20 ) ?? '0'}}%;"></div>
                                         <!-- End .ratings-val -->
                                     </div><!-- End .ratings -->
-                                    <span class="ratings-text">( 4 Reviews )</span>
+                                    <span class="ratings-text">( {{ count($product->reviews) }} Reviews )</span>
                                 </div><!-- End .rating-container -->
                             </div><!-- End .product-body -->
                         </div><!-- End .product -->
