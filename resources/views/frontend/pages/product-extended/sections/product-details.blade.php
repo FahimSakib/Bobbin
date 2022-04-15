@@ -194,7 +194,7 @@ if ($reviews_avg) {
                                                     alt="{{ $product->category->size_guide}}" >
              @else
              <div class="mt-2" style="height:80px;">
-             <h4 class="pt-3 text-center" >Sorry!No Size Guide For This Product</h4>
+             <h4 class="pt-3 text-center" >Sorry! No Size Guide Available For This Product</h4>
              
              </div>
                     @endif  
