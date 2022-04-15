@@ -16,6 +16,7 @@ class CreateCategoriesTable extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('size_guide');
             $table->enum('status',['0','1'])->default('1')->comment="0=Inactive,1=Active"; 
             $table->timestamps();
         });
