@@ -50,6 +50,7 @@
                                                 #
                                             </th>
                                             <th>Product Name</th>
+                                            <th>Product Code</th>
                                             <th>Price</th>
                                             <th>Quantity</th>
                                             <th>Image(1)</th>
@@ -71,6 +72,9 @@
                                             </td>
                                             <td>
                                                 {{ $product->name }}
+                                            </td>
+                                            <td>
+                                                {{ $product->product_code }}
                                             </td>
                                             <td>
                                                 {{ $product->price }}

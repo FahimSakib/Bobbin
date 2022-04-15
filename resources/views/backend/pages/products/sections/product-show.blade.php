@@ -38,6 +38,10 @@
                                             <td>{{ $product->name }}</td>
                                         </tr>
                                         <tr>
+                                            <th>Product Code</th>
+                                            <td>{{ $product->product_code}}</td>
+                                        </tr>
+                                        <tr>
                                             <th>Price</th>
                                             <td>{{ $product->price }}</td>
                                         </tr>

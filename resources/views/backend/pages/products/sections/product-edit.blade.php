@@ -38,6 +38,14 @@
                                             @enderror
                                         </div>
                                         <div class="form-group col-md-6">
+                                            <label>Product Code</label>
+                                            <input type="text" class="form-control @error('product_code') is-invalid @enderror"
+                                                name="product_code" value="{{$product->product_code}}">
+                                            @error('product_code')
+                                            <div class="alert alert-danger mt-1">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                        <div class="form-group col-md-6">
                                             <label>Price</label>
                                             <input type="number"
                                                 class="form-control @error('price') is-invalid @enderror" name="price"
