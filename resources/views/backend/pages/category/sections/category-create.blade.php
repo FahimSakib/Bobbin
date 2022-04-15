@@ -20,7 +20,7 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('admin.category.store') }}" method="POST">
+                            <form action="{{ route('admin.category.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
                                     <label for="inputTitle">Title</label>
@@ -31,6 +31,14 @@
                                     <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
+                                  <div class="form-group">
+                                        <label>Size Guide</label>
+                                        <input type="file" class="form-control @error('size_guide') is-invalid @enderror"
+                                            name="size_guide">
+                                        @error('size_guide')
+                                        <div class="alert alert-danger mt-1">{{ $message }}</div>
+                                        @enderror
+                                    </div>
                                 <div class="form-group">
                                     <label for="status">Status</label>
                                     <select class="form-control select2 @error('status') is-invalid @enderror"

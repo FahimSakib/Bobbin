@@ -45,10 +45,14 @@ class CategoryController extends Controller
     {
         $data = $request->validate([
             'title'      => 'required',
+            'size_guide'       => 'nullable|image|mimes:png,jpeg,jpg',
             'status'      => 'required'
               
         ]);
+        $file =  $request->file('size_guide');
+        $uploadName = $this->fileUpload($file,'size_guide');
         $category = new Category($request->all());
+        $category->size_guide = $uploadName;
         if($category->save())
         {
             return redirect()->route('admin.category.index')->with('success','Item added successfully');
@@ -95,10 +99,19 @@ class CategoryController extends Controller
     {
         $request->validate([
             'title'      => 'required',
+            'size_guide'       => 'nullable|image|mimes:png,jpeg,jpg',
             'status'      => 'required'
               
         ]);
+
+        $size_guide = $this->fileUpload($request->file('size_guide'),'size_guide');
+        if(empty($size_guide))$size_guide = $category->size_guide;
+
         $category->update($request->all());
+
+        $category->size_guide = $size_guide;
+
+       
         return redirect()->route('admin.category.index')->with('success','Item Update successfully');
 
     }
@@ -114,5 +127,16 @@ class CategoryController extends Controller
         $category->delete();
         return redirect()->route('admin.category.index')->with('danger','Item delete successfully');
 
+    }
+    private function fileUpload($file, $name){
+        $prefix='Size_Guide_'.time().'_';
+        $picture='';
+        if(!empty($file)){
+            $name=$name.'_img.';
+            $fileext = $file->getClientOriginalExtension();
+            $picture = $prefix.$name.$fileext;
+            $path = $file->storeAs('public/Size_Guide_Image',$picture);
+        }
+        return $picture;
     }
 }

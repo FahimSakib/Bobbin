@@ -94,7 +94,7 @@ if ($reviews_avg) {
                                     </select>
                                 </div><!-- End .select-custom -->
 
-                                <a href="#" class="size-guide"><i class="icon-th-list"></i>size guide</a>
+                                <a href="#size-guide-modal" class="size-guide" data-toggle="modal" ><i class="icon-th-list"></i>size guide</a>
                             </div><!-- End .details-filter-row -->
 
                             {{-- add to cart --}}
@@ -178,3 +178,29 @@ if ($reviews_avg) {
             });
         </script>
         @endpush
+ <!-- Size-Guide Modal -->
+   <div class="modal fade" id="size-guide-modal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+              <div class="modal-body">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true"><i class="icon-close"></i></span>
+                  </button>
+                  <div class="form-box">
+              @if($product->category->size_guide != NULL)        
+              <p class="text-center mb-2"> Size Guide For <b>{{ $product->category->title }}'s</b></p>
+
+<img src="{{ asset('storage/Size_Guide_image/'.$product->category->size_guide) }}"
+                                                    alt="{{ $product->category->size_guide}}" >
+             @else
+             <div class="mt-2" style="height:80px;">
+             <h4 class="pt-3 text-center" >Sorry! No Size Guide Available For This Product</h4>
+             
+             </div>
+                    @endif  
+                  </div><!-- End .form-tab -->
+              </div><!-- End .form-box -->
+          </div><!-- End .modal-body -->
+      </div><!-- End .modal-content -->
+  </div><!-- End .modal-dialog -->
+  </div><!-- End .modal -->
