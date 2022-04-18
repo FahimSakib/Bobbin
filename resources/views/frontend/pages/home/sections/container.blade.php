@@ -99,7 +99,7 @@ $single_product = App\Models\Product::where('category_id',$category->id)->inRand
 
                                 <div class="product-action">
                                     <a href="{{route('product-extended',$product->id)}}"
-                                        class="btn-product btn-cart"><span>add to cart</span></a>
+                                        class="btn-product"><span>Shop Now</span></a>
                                 </div><!-- End .product-action -->
                             </figure><!-- End .product-media -->
 
