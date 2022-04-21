@@ -11,7 +11,8 @@ class SearchController extends Controller
     public function index(Request $request){
 
         $data = [
-            'title' => 'Search'
+            'title' => 'Search',
+            'q'=>$request->q
         ];
 
         $products = Product::where([['name','!=',NULL],
@@ -19,6 +20,7 @@ class SearchController extends Controller
             if(($q = $request->q)){
                 $query->orWhere('name','LIKE','%'.$q.'%')->get();
                 // $query->orWhere('title','LIKE','%'.$q.'%')->get();
+               
             }
         }]
         ])->with('sizes','colors','category')->paginate(16);
