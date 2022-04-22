@@ -37,3 +37,5 @@ div.stars {
     content: '\f006';
     font-family: FontAwesome;
   }
+  #btn-product{
+    text-decoration: none !important;  }

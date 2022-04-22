@@ -93,7 +93,7 @@ use Illuminate\Support\Facades\Auth;
             <div class="header-right">
                 <div class="header-search  header-search-visible d-none d-lg-block" >
                     {{-- <a href="#" class="search-toggle" role="button"><i class="icon-search"></i></a> --}}
-                    <form action="#" method="get">
+                    <form action="{{ route('search.index') }}" method="get" role="search">
                         <div class="header-search-wrapper search-wrapper-wide">
                             {{-- <label for="q" class="sr-only">Search</label> --}}
 

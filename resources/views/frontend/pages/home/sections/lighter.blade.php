@@ -231,8 +231,7 @@ $random_4 = App\Models\Product::with('category')->where('status','1')->inRandomO
                             </div><!-- End .product-action-vertical --> --}}
 
                             <div class="product-action">
-                                <a href="{{route('product-extended',$item->id)}}" class="btn-product btn-cart"><span>add
-                                        to cart</span></a>
+                                <a href="{{route('product-extended',$item->id)}}" class="btn-product"><span>Shop Now</span></a>
                             </div><!-- End .product-action -->
                         </figure><!-- End .product-media -->
 
@@ -253,13 +252,13 @@ $random_4 = App\Models\Product::with('category')->where('status','1')->inRandomO
                             </div><!-- End .rating-container -->
 
                             <div class="product-nav product-nav-thumbs">
-                                <a href="#" class="active">
+                                <a href="{{route('product-extended',$item->id)}}" class="active">
                                     <img src="{{ asset('storage/Product_image/'.$item->image2) }}" alt="product desc">
                                 </a>
-                                <a href="#">
+                                <a href="{{route('product-extended',$item->id)}}">
                                     <img src="{{ asset('storage/Product_image/'.$item->image3) }}" alt="product desc">
                                 </a>
-                                <a href="#">
+                                <a href="{{route('product-extended',$item->id)}}">
                                     <img src="{{ asset('storage/Product_image/'.$item->image4) }}" alt="product desc">
                                 </a>
                             </div><!-- End .product-nav -->
