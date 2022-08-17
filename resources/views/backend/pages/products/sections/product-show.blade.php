@@ -62,22 +62,22 @@
                                             <td>
                                                 <ul class="list-group list-group-horizontal">
                                                     <li class="list-group-item  border-0"><img
-                                                            src="{{ asset('storage/Product_image/'.$product->image1) }}"
+                                                            src="{{ asset('storage/Product_Image/'.$product->image1) }}"
                                                             alt="{{ $product->imageProduct_Image
                                                             style="width:100px">
                                                     </li>
                                                     <li class="list-group-item border-0"><img
-                                                            src="{{ asset('storage/Product_image/'.$product->image2) }}"
+                                                            src="{{ asset('storage/Product_Image/'.$product->image2) }}"
                                                             alt="{{ $product->imageProduct_Image
                                                             style="width:100px">
                                                     </li>
                                                     <li class="list-group-item border-0"><img
-                                                            src="{{ asset('storage/Product_image/'.$product->image3) }}"
+                                                            src="{{ asset('storage/Product_Image/'.$product->image3) }}"
                                                             alt="{{ $product->imageProduct_Image
                                                             style="width:100px">
                                                     </li>
                                                     <li class="list-group-item border-0"><img
-                                                            src="{{ asset('storage/Product_image/'.$product->image4) }}"
+                                                            src="{{ asset('storage/Product_Image/'.$product->image4) }}"
                                                             alt="{{ $product->image4 }}"
                                                             style="width:100px">
                                                     </li>

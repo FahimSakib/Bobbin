@@ -126,11 +126,11 @@
                                                         data-title="Image 2">
                                                     </div>
                                                     <div class="gallery-item"
-                                                        data-image="{{ asset('storage/Product_image/'.$product->image3) }}"
+                                                        data-image="{{ asset('storage/Product_Image/'.$product->image3) }}"
                                                         data-title="Image 3">
                                                     </div>
                                                     <div class="gallery-item"
-                                                        data-image="{{ asset('storage/Product_image/'.$product->image4) }}"
+                                                        data-image="{{ asset('storage/Product_Image/'.$product->image4) }}"
                                                         data-title="Image 4">
                                                     </div>
                                                 </div>

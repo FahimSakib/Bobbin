@@ -83,7 +83,7 @@
                                                 {{ $product->total_qty }}
                                             </td>
                                             <td>
-                                                <img src="{{ asset('storage/Product_image/'.$product->image1) }}"
+                                                <img src="{{ asset('storage/Product_Image/'.$product->image1) }}"
                                                     alt="{{ $product->image1 }}" style="width:65px">
                                             </td>
                                             <td>

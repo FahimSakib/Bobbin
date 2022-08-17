@@ -10,9 +10,9 @@
                         @endif
                         <figure class="product-media">
                             <a href="{{route('product-extended',$item->id)}}">
-                                <img src="{{ asset('storage/Product_image/'.$item->image2) }}" alt="Product image"
+                                <img src="{{ asset('storage/Product_Image/'.$item->image2) }}" alt="Product image"
                                     class="product-image">
-                                <img src="{{ asset('storage/Product_image/'.$item->image3) }}" alt="Product image"
+                                <img src="{{ asset('storage/Product_Image/'.$item->image3) }}" alt="Product image"
                                     class="product-image-hover">
                             </a>
 
@@ -46,13 +46,13 @@
 
                             <div class="product-nav product-nav-thumbs">
                                 <a href="{{route('product-extended',$item->id)}}" class="active">
-                                    <img src="{{ asset('storage/Product_image/'.$item->image2) }}" alt="product desc">
+                                    <img src="{{ asset('storage/Product_Image/'.$item->image2) }}" alt="product desc">
                                 </a>
                                 <a href="{{route('product-extended',$item->id)}}">
-                                    <img src="{{ asset('storage/Product_image/'.$item->image3) }}" alt="product desc">
+                                    <img src="{{ asset('storage/Product_Image/'.$item->image3) }}" alt="product desc">
                                 </a>
                                 <a href="{{route('product-extended',$item->id)}}">
-                                    <img src="{{ asset('storage/Product_image/'.$item->image4) }}" alt="product desc">
+                                    <img src="{{ asset('storage/Product_Image/'.$item->image4) }}" alt="product desc">
                                 </a>
                             </div><!-- End .product-nav -->
                         </div><!-- End .product-body -->
