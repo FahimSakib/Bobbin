@@ -56,7 +56,7 @@
                                 </a>
                             </div><!-- End .product-nav -->
                         </div><!-- End .product-body -->
-                    </div><!-- End .product -->Product_Image
+                    </div><!-- End .product -->
                     @endforeach
             @else
             <h2 class="title text-center mb-3">Sorry! No products found!</h2>
