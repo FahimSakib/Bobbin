@@ -68,7 +68,7 @@
                                                 {{$service->name}}
                                             </td>
                                             <td>
-                                                <img src="{{ asset('storage/Service_image/'.$service->image) }}"
+                                                <img src="{{ asset('storage/Service_Image/'.$service->image) }}"
                                                     alt="{{ $service->image }}" style="height:60px">
                                             </td>
                                             @if($service->status =='1')

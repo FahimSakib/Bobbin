@@ -7,7 +7,7 @@ $reviews = App\Models\Review::orderBy('id','desc')->where('product_id',$product-
     <div class="tab-pane fade show active" id="product-desc-tab" role="tabpanel" aria-labelledby="product-desc-link">
         <div class="product-desc-content">
             <div class="product-desc-row bg-image"
-                style="background-image: url('{{ asset('storage/Product_image/'.$product->image2) }}'); height:500px; object-fit: cover">
+                style="background-image: url('{{ asset('storage/Product_Image/'.$product->image2) }}'); height:500px; object-fit: cover">
                 <div class="container">
                     <div class="row justify-content-end">
                         <div class="col-sm-6 col-lg-6 bg-op">
@@ -19,7 +19,7 @@ $reviews = App\Models\Review::orderBy('id','desc')->where('product_id',$product-
             </div><!-- End .product-desc-row -->
 
             {{-- <div class="product-desc-row bg-image text-white"
-                style="background-image: url('{{ asset('storage/Product_image/'.$product->image4) }}'); height:500px;
+                style="background-image: url('{{ asset('storage/Product_Image/'.$product->image4) }}'); height:500px;
             object-fit: cover">
             <div class="container">
                 <div class="row">

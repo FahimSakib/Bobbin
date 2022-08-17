@@ -11,7 +11,7 @@ $random_4 = App\Models\Product::with('category')->where('status','1')->inRandomO
                 <div class="col-sm-6 col-lg-4">
                     <div class="banner banner-overlay banner-lg">
                         <a href="{{ route('category',$random_1->category->id) }}">
-                            <img src="{{ asset('storage/Product_image/'.$random_1->image1) }}" alt="Banner"
+                            <img src="{{ asset('storage/Product_Image/'.$random_1->image1) }}" alt="Banner"
                                 style="width: 376px; height:500px; object-fit: cover">
                         </a>
 
@@ -36,7 +36,7 @@ $random_4 = App\Models\Product::with('category')->where('status','1')->inRandomO
                 <div class="col-sm-6 col-lg-4 order-lg-last">
                     <div class="banner banner-overlay banner-lg">
                         <a href="{{ route('category',$random_4->category->id) }}">
-                            <img src="{{ asset('storage/Product_image/'.$random_4->image4) }}" alt="Banner"
+                            <img src="{{ asset('storage/Product_Image/'.$random_4->image4) }}" alt="Banner"
                                 style="width: 376px; height:500px; object-fit: cover">
                         </a>
 
@@ -63,7 +63,7 @@ $random_4 = App\Models\Product::with('category')->where('status','1')->inRandomO
                         <div class="col-sm-6 col-lg-12">
                             <div class="banner banner-overlay">
                                 <a href="{{ route('category',$random_2->category->id) }}">
-                                    <img src="{{ asset('storage/Product_image/'.$random_2->image2) }}" alt="Banner"
+                                    <img src="{{ asset('storage/Product_Image/'.$random_2->image2) }}" alt="Banner"
                                         style="width: 376px; height:240px; object-fit: cover">
                                 </a>
 
@@ -83,7 +83,7 @@ $random_4 = App\Models\Product::with('category')->where('status','1')->inRandomO
                         <div class="col-sm-6 col-lg-12">
                             <div class="banner banner-overlay">
                                 <a href="{{ route('category',$random_3->category->id) }}">
-                                    <img src="{{ asset('storage/Product_image/'.$random_3->image3) }}" alt="Banner"
+                                    <img src="{{ asset('storage/Product_Image/'.$random_3->image3) }}" alt="Banner"
                                         style="width: 376px; height:240px; object-fit: cover">
                                 </a>
 
@@ -217,9 +217,9 @@ $random_4 = App\Models\Product::with('category')->where('status','1')->inRandomO
                         @endif
                         <figure class="product-media">
                             <a href="{{route('product-extended',$item->id)}}">
-                                <img src="{{ asset('storage/Product_image/'.$item->image2) }}" alt="Product image"
+                                <img src="{{ asset('storage/Product_Image/'.$item->image2) }}" alt="Product image"
                                     class="product-image">
-                                <img src="{{ asset('storage/Product_image/'.$item->image3) }}" alt="Product image"
+                                <img src="{{ asset('storage/Product_Image/'.$item->image3) }}" alt="Product image"
                                     class="product-image-hover">
                             </a>
 
@@ -253,13 +253,13 @@ $random_4 = App\Models\Product::with('category')->where('status','1')->inRandomO
 
                             <div class="product-nav product-nav-thumbs">
                                 <a href="{{route('product-extended',$item->id)}}" class="active">
-                                    <img src="{{ asset('storage/Product_image/'.$item->image2) }}" alt="product desc">
+                                    <img src="{{ asset('storage/Product_Image/'.$item->image2) }}" alt="product desc">
                                 </a>
                                 <a href="{{route('product-extended',$item->id)}}">
-                                    <img src="{{ asset('storage/Product_image/'.$item->image3) }}" alt="product desc">
+                                    <img src="{{ asset('storage/Product_Image/'.$item->image3) }}" alt="product desc">
                                 </a>
                                 <a href="{{route('product-extended',$item->id)}}">
-                                    <img src="{{ asset('storage/Product_image/'.$item->image4) }}" alt="product desc">
+                                    <img src="{{ asset('storage/Product_Image/'.$item->image4) }}" alt="product desc">
                                 </a>
                             </div><!-- End .product-nav -->
                         </div><!-- End .product-body -->

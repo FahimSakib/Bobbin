@@ -53,7 +53,7 @@
                                         <div class="col-md-4">
                                             <div class="gallery mt-3">
                                                 <div class="gallery-item"
-                                                data-image="{{ asset('storage/Service_image/'.$service->image) }}"
+                                                data-image="{{ asset('storage/Service_Image/'.$service->image) }}"
                                                 data-title="Image 1">
                                             </div>
                                             </div>

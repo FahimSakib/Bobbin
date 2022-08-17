@@ -9,7 +9,7 @@
                             <article class="entry entry-grid text-center">
                                 <figure class="entry-media">
                                     <a href="{{route('single-fullwidth',$item->id)}}">
-                                        <img src="{{ asset('storage/Service_image/'.$item->image) }}" alt="image desc" style="object-fit: cover">
+                                        <img src="{{ asset('storage/Service_Image/'.$item->image) }}" alt="image desc" style="object-fit: cover">
                                     </a>
                                 </figure><!-- End .entry-media -->
                                 <div class="entry-body">

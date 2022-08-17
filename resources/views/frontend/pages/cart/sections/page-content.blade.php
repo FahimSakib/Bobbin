@@ -35,7 +35,7 @@ if($message = Session::get('success')){
                                     <div class="product">
                                         <figure class="product-media">
                                             <a href="{{route('product-extended',$cart->id)}}">
-                                                <img src="{{ asset('storage/Product_image/'.$cart->options->image)}}"
+                                                <img src="{{ asset('storage/Product_Image/'.$cart->options->image)}}"
                                                     alt="Product image">
                                             </a>
                                         </figure>

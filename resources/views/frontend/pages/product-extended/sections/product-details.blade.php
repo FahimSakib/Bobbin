@@ -15,8 +15,8 @@ if ($reviews_avg) {
                 <div class="col-md-6">
                     <div class="product-gallery">
                         <figure class="product-main-image">
-                            <img id="product-zoom" src="{{ asset('storage/Product_image/'.$product->image1) }}"
-                                data-zoom-image="{{ asset('storage/Product_image/'.$product->image1) }}"
+                            <img id="product-zoom" src="{{ asset('storage/Product_Image/'.$product->image1) }}"
+                                data-zoom-image="{{ asset('storage/Product_Image/'.$product->image1) }}"
                                 alt="product image">
 
                             <a href="#" id="btn-product-gallery" class="btn-product-gallery">
@@ -26,24 +26,24 @@ if ($reviews_avg) {
 
                         <div id="product-zoom-gallery" class="product-image-gallery">
                             <a class="product-gallery-item" href="#"
-                                data-image="{{ asset('storage/Product_image/'.$product->image4) }}"
-                                data-zoom-image="{{ asset('storage/Product_image/'.$product->image4) }}">
-                                <img src="{{ asset('storage/Product_image/'.$product->image4) }}" alt="product side">
+                                data-image="{{ asset('storage/Product_Image/'.$product->image4) }}"
+                                data-zoom-image="{{ asset('storage/Product_Image/'.$product->image4) }}">
+                                <img src="{{ asset('storage/Product_Image/'.$product->image4) }}" alt="product side">
                             </a>
                             <a class="product-gallery-item" href="#"
-                                data-image="{{ asset('storage/Product_image/'.$product->image3) }}"
-                                data-zoom-image="{{ asset('storage/Product_image/'.$product->image3) }}">
-                                <img src="{{ asset('storage/Product_image/'.$product->image3) }}" alt="product side">
+                                data-image="{{ asset('storage/Product_Image/'.$product->image3) }}"
+                                data-zoom-image="{{ asset('storage/Product_Image/'.$product->image3) }}">
+                                <img src="{{ asset('storage/Product_Image/'.$product->image3) }}" alt="product side">
                             </a>
                             <a class="product-gallery-item" href="#"
-                                data-image="{{ asset('storage/Product_image/'.$product->image2) }}"
-                                data-zoom-image="{{ asset('storage/Product_image/'.$product->image2) }}">
-                                <img src="{{ asset('storage/Product_image/'.$product->image2) }}" alt="product side">
+                                data-image="{{ asset('storage/Product_Image/'.$product->image2) }}"
+                                data-zoom-image="{{ asset('storage/Product_Image/'.$product->image2) }}">
+                                <img src="{{ asset('storage/Product_Image/'.$product->image2) }}" alt="product side">
                             </a>
                             <a class="product-gallery-item" href="#"
-                                data-image="{{ asset('storage/Product_image/'.$product->image1) }}"
-                                data-zoom-image="{{ asset('storage/Product_image/'.$product->image1) }}">
-                                <img src="{{ asset('storage/Product_image/'.$product->image1) }}" alt="product side">
+                                data-image="{{ asset('storage/Product_Image/'.$product->image1) }}"
+                                data-zoom-image="{{ asset('storage/Product_Image/'.$product->image1) }}">
+                                <img src="{{ asset('storage/Product_Image/'.$product->image1) }}" alt="product side">
                             </a>
                         </div><!-- End .product-image-gallery -->
                     </div><!-- End .product-gallery -->
@@ -190,7 +190,7 @@ if ($reviews_avg) {
               @if($product->category->size_guide != NULL)        
               <p class="text-center mb-2"> Size Guide For <b>{{ $product->category->title }}'s</b></p>
 
-<img src="{{ asset('storage/Size_Guide_image/'.$product->category->size_guide) }}"
+<img src="{{ asset('storage/Size_Guide_Image/'.$product->category->size_guide) }}"
                                                     alt="{{ $product->category->size_guide}}" >
              @else
              <div class="mt-2" style="height:80px;">

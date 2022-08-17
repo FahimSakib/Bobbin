@@ -110,19 +110,19 @@
                                         <div class="alert alert-light alert-has-icon col-md-12 dash-border">
                                             <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
                                             <div class="alert-body">
-                                                <div class="alert-title">Info</div>
+                                                <div class="alert-title">Info</div>Product_Image
                                                 If you want to change or update the images of the current product, then
                                                 upload the new ones; <br> otherwise, keep the image field blank. See the
                                                 gallery for current product images.
-                                            </div>
+                                            </div>Product_Image
                                             <div class="col-md-4">
                                                 <div class="gallery mt-3">
                                                     <div class="gallery-item"
-                                                        data-image="{{ asset('storage/Product_image/'.$product->image1) }}"
+                                                        data-image="{{ asset('storage/Product_Image/'.$product->image1) }}"
                                                         data-title="Image 1">
                                                     </div>
                                                     <div class="gallery-item"
-                                                        data-image="{{ asset('storage/Product_image/'.$product->image2) }}"
+                                                        data-image="{{ asset('storage/Product_Image/'.$product->image2) }}"
                                                         data-title="Image 2">
                                                     </div>
                                                     <div class="gallery-item"

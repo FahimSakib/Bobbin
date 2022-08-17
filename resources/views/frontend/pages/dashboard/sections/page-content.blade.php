@@ -122,7 +122,7 @@ toast($message,'success');
                                             <div class="product">
                                                 <figure class="product-media">
                                                     <a href="{{route('product-extended',$order->product->id)}}">
-                                                        <img src="{{ asset('storage/Product_image/'.$order->product->image1) }}"
+                                                        <img src="{{ asset('storage/Product_Image/'.$order->product->image1) }}"
                                                             alt="{{ $order->image1 }}" style="width:50px">
                                                     </a>
                                                 </figure>

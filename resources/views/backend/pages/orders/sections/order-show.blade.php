@@ -78,7 +78,7 @@
                                             </td>
                                             <td>
                                                 <img class="mb-1"
-                                                    src="{{ asset('storage/Product_image/'.$order->product->image1) }}"
+                                                    src="{{ asset('storage/Product_Image/'.$order->product->image1) }}"
                                                     alt="{{ $order->image1 }}" style="width:60px">
                                             </td>
                                             <td>

@@ -34,7 +34,7 @@
                 <span class="product-label label-new">New</span>
                 @endif
                 <a href="{{route('product-extended',$product->id)}}">
-                    <img src="{{ asset('storage/Product_image/'.$product->image1) }}" alt="Product image"
+                    <img src="{{ asset('storage/Product_Image/'.$product->image1) }}" alt="Product image"
                         class="product-image">
                 </a>
 

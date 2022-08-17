@@ -65,7 +65,7 @@
                                                 {{$i++}}
                                             </td>
                                             <td>{{$item->title}}</td>
-                                            <td><img src="{{ asset('storage/Size_Guide_image/'.$item->size_guide) }}"
+                                            <td><img src="{{ asset('storage/Size_Guide_Image/'.$item->size_guide) }}"
                                                     alt="{{ $item->size_guide}}" style="width:100px"></td>
                                             @if($item->status =='1')
                                             <td> <span class="badge badge-success">Active</span></td>

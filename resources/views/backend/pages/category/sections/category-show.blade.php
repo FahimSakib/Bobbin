@@ -39,7 +39,7 @@
                                         <tr>
                                             <th>Size Guide</th>
                                             <td>
-                                                <img src="{{ asset('storage/Size_Guide_image/'.$category->size_guide) }}"
+                                                <img src="{{ asset('storage/Size_Guide_Image/'.$category->size_guide) }}"
                                                     alt="{{ $category->size_guide}}" style="width:100px">
 
                                             </td>

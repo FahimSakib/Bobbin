@@ -110,19 +110,19 @@
                                             <div class="col-md-4">
                                                 <div class="gallery mt-3">
                                                     <div class="gallery-item"
-                                                        data-image="{{ asset('storage/Product_image/'.$invoice-generator->image1) }}"
+                                                        data-image="{{ asset('storage/Product_Image/'.$invoice-generator->image1) }}"
                                                         data-title="Image 1">
                                                     </div>
                                                     <div class="gallery-item"
-                                                        data-image="{{ asset('storage/Product_image/'.$invoice-generator->image2) }}"
+                                                        data-image="{{ asset('storage/Product_Image/'.$invoice-generator->image2) }}"
                                                         data-title="Image 2">
                                                     </div>
                                                     <div class="gallery-item"
-                                                        data-image="{{ asset('storage/Product_image/'.$invoice-generator->image3) }}"
+                                                        data-image="{{ asset('storage/Product_Image/'.$invoice-generator->image3) }}"
                                                         data-title="Image 3">
                                                     </div>
                                                     <div class="gallery-item"
-                                                        data-image="{{ asset('storage/Product_image/'.$invoice-generator->image4) }}"
+                                                        data-image="{{ asset('storage/Product_Image/'.$invoice-generator->image4) }}"
                                                         data-title="Image 4">
                                                     </div>
                                                 </div>

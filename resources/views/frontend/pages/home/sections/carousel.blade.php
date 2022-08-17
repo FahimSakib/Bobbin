@@ -34,28 +34,28 @@ $random_6 = App\Models\Product::with('category')->where('status','1')->inRandomO
         }
     }'>
     <div class="instagram-feed">
-        <img src="{{ asset('storage/Product_image/'.$random_1->image1) }}" alt="img"
+        <img src="{{ asset('storage/Product_Image/'.$random_1->image1) }}" alt="img"
             style="width: 253.2px; height:253.2px; object-fit: cover">
         <div class="instagram-feed-content">
             <a href="{{route('product-extended',$random_1->id)}}">{{ $random_1->name }}</a>
         </div><!-- End .instagram-feed-content -->
     </div><!-- End .instagram-feed -->
     <div class="instagram-feed">
-        <img src="{{ asset('storage/Product_image/'.$random_2->image2) }}" alt="img"
+        <img src="{{ asset('storage/Product_Image/'.$random_2->image2) }}" alt="img"
             style="width: 253.2px; height:253.2px; object-fit: cover">
         <div class="instagram-feed-content">
             <a href="{{route('product-extended',$random_2->id)}}">{{ $random_2->name }}</a>
         </div><!-- End .instagram-feed-content -->
     </div><!-- End .instagram-feed -->
     <div class="instagram-feed">
-        <img src="{{ asset('storage/Product_image/'.$random_3->image3) }}" alt="img"
+        <img src="{{ asset('storage/Product_Image/'.$random_3->image3) }}" alt="img"
             style="width: 253.2px; height:253.2px; object-fit: cover">
         <div class="instagram-feed-content">
             <a href="{{route('product-extended',$random_3->id)}}">{{ $random_3->name }}</a>
         </div><!-- End .instagram-feed-content -->
     </div><!-- End .instagram-feed -->
     <div class="instagram-feed">
-        <img src="{{ asset('storage/Product_image/'.$random_4->image4) }}" alt="img"
+        <img src="{{ asset('storage/Product_Image/'.$random_4->image4) }}" alt="img"
             style="width: 253.2px; height:253.2px; object-fit: cover">
 
         <div class="instagram-feed-content">
@@ -63,14 +63,14 @@ $random_6 = App\Models\Product::with('category')->where('status','1')->inRandomO
         </div><!-- End .instagram-feed-content -->
     </div><!-- End .instagram-feed -->
     <div class="instagram-feed">
-        <img src="{{ asset('storage/Product_image/'.$random_5->image1) }}" alt="img"
+        <img src="{{ asset('storage/Product_Image/'.$random_5->image1) }}" alt="img"
             style="width: 253.2px; height:253.2px; object-fit: cover">
         <div class="instagram-feed-content">
             <a href="{{route('product-extended',$random_5->id)}}">{{ $random_5->name }}</a>
         </div><!-- End .instagram-feed-content -->
     </div><!-- End .instagram-feed -->
     <div class="instagram-feed">
-        <img src="{{ asset('storage/Product_image/'.$random_6->image3) }}" alt="img"
+        <img src="{{ asset('storage/Product_Image/'.$random_6->image3) }}" alt="img"
             style="width: 253.2px; height:253.2px; object-fit: cover">
 
         <div class="instagram-feed-content">

@@ -10,7 +10,7 @@
                         @endif
                         <figure class="product-media">
                             <a href="{{route('product-extended',$item->id)}}">
-                                <img src="{{ asset('storage/Product_image/'.$item->image2) }}" alt="Product image"
+                                <img src="{{ asset('storProduct_Imagemage/'.$item->image2) }}" alt="Product image"
                                     class="product-image">
                                 <img src="{{ asset('storage/Product_image/'.$item->image3) }}" alt="Product image"
                                     class="product-image-hover">
@@ -49,14 +49,14 @@
                                     <img src="{{ asset('storage/Product_image/'.$item->image2) }}" alt="product desc">
                                 </a>
                                 <a href="{{route('product-extended',$item->id)}}">
-                                    <img src="{{ asset('storage/Product_image/'.$item->image3) }}" alt="product desc">
+                                    <img src="{{ asset('storProduct_Imagemage/'.$item->image3) }}" alt="product desc">
                                 </a>
                                 <a href="{{route('product-extended',$item->id)}}">
-                                    <img src="{{ asset('storage/Product_image/'.$item->image4) }}" alt="product desc">
+                                    <img src="{{ asset('storProduct_Imagemage/'.$item->image4) }}" alt="product desc">
                                 </a>
                             </div><!-- End .product-nav -->
                         </div><!-- End .product-body -->
-                    </div><!-- End .product -->
+                    </div><!-- End .product -->Product_Image
                     @endforeach
             @else
             <h2 class="title text-center mb-3">Sorry! No products found!</h2>

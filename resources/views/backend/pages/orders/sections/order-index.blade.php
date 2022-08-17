@@ -81,7 +81,7 @@
                                             {{ $order->product->name }}
                                         </td>
                                         <td>
-                                            <img src="{{ asset('storage/Product_image/'.$order->product->image1) }}"
+                                            <img src="{{ asset('storage/Product_Image/'.$order->product->image1) }}"
                                                 alt="{{ $order->image1 }}" style="width:50px">
                                         </td>
                                         <td>

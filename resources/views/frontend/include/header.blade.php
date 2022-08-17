@@ -131,7 +131,7 @@ use Illuminate\Support\Facades\Auth;
 
                                 <figure class="product-image-container">
                                     <a href="product.html" class="product-image">
-                                        <img src="{{ asset('storage/Product_image/'.$cart->options->image)}}"
+                                        <img src="{{ asset('storage/Product_Image/'.$cart->options->image)}}"
                                             alt="product">
                                     </a>
                                 </figure>

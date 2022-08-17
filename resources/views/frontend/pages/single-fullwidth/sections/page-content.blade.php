@@ -12,7 +12,7 @@
                         </h2><!-- End .entry-title -->
 
                         <div class="entry-content editor-content">
-                            <img src="{{ asset('storage/Service_image/'.$service->image) }}"
+                            <img src="{{ asset('storage/Service_Image/'.$service->image) }}"
                                 class="rounded mx-auto d-block" alt="image" style="width:50%; object-fit: cover">
                             <div class="pb-1"></div><!-- End .pb-1 -->
                             <p class="text-justify">{{$service->description}}</p>
@@ -45,7 +45,7 @@
                                 <article class="entry entry-grid">
                                     <figure class="entry-media">
                                         <a href="{{route('single-fullwidth',$item->id)}}">
-                                            <img src="{{ asset('storage/Service_image/'.$item->image) }}"
+                                            <img src="{{ asset('storage/Service_Image/'.$item->image) }}"
                                                 alt="image desc" style="object-fit: cover">
                                         </a>
                                     </figure><!-- End .entry-media -->

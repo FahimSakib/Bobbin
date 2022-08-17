@@ -79,7 +79,7 @@
                                             <td>
                                                 {{ $product->price }}
                                             </td>
-                                            <td>
+                                            <td>Product_Image
                                                 {{ $product->total_qty }}
                                             </td>
                                             <td>

@@ -23,7 +23,7 @@ $single_product = App\Models\Product::where('category_id',$category->id)->inRand
         <div class="col-lg-3">
             <div class="banner banner-overlay product-banner">
                 <a href="{{route('product-extended',$single_product->id)}}">
-                    <img src="{{ asset('storage/Product_image/'.$single_product->image1) }}" alt="banner image"
+                    <img src="{{ asset('storage/Product_Image/'.$single_product->image1) }}" alt="banner image"
                         style="height: 530px;width:376; object-fit: cover">
                 </a>
                 <div class="banner-content">
@@ -84,9 +84,9 @@ $single_product = App\Models\Product::where('category_id',$category->id)->inRand
                                 <span class="product-label label-out">Out of Stock</span>
                                 @endif
                                 <a href="{{route('product-extended',$product->id)}}">
-                                    <img src="{{ asset('storage/Product_image/'.$product->image1) }}"
+                                    <img src="{{ asset('storage/Product_Image/'.$product->image1) }}"
                                         alt="Product image" class="product-image">
-                                    <img src="{{ asset('storage/Product_image/'.$product->image2) }}"
+                                    <img src="{{ asset('storage/Product_Image/'.$product->image2) }}"
                                         alt="Product image" class="product-image-hover">
                                 </a>
 

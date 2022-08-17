@@ -46,7 +46,7 @@
                                         </tr>
                                         <tr>
                                             <th>Image</th>
-                                            <td><img src="{{ asset('storage/Banner_image/'.$slider->image) }}"
+                                            <td><img src="{{ asset('storage/Banner_Image/'.$slider->image) }}"
                                                     alt="{{ $slider->image }}" style="height:80px;width:120px"></td>
                                         </tr>
                                         <tr>

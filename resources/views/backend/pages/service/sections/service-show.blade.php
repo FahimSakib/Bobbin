@@ -39,7 +39,7 @@
                                         <tr>
                                             <th>Service image</th>
                                             <td>
-                                                <img src="{{ asset('storage/Service_image/'.$service->image) }}"
+                                                <img src="{{ asset('storage/Service_Image/'.$service->image) }}"
                                                     alt="{{ $service->image }}" style="width:100px">
                                             </td>
                                         </tr>

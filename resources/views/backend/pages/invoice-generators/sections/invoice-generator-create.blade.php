@@ -81,7 +81,7 @@ $data = [];
                                                 {{ $invoice_order->qty }}
                                             </td>
                                             <td>
-                                                <img src="{{ asset('storage/Product_image/'.$invoice_order->options->image) }}"
+                                                <img src="{{ asset('storage/Product_Image/'.$invoice_order->options->image) }}"
                                                     alt="{{ $invoice_order->image1 }}" style="height:50px">
                                             </td>
                                             @php

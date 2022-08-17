@@ -18,8 +18,8 @@
                         <figure class="slide-image">
                             <picture>
                                 <source media="(max-width: 480px)"
-                                    srcset="{{ asset('storage/Banner_image/'.$item->image) }}">
-                                <img src="{{ asset('storage/Banner_image/'.$item->image) }}"  alt="Image Desc">
+                                    srcset="{{ asset('storage/Banner_Image/'.$item->image) }}">
+                                <img src="{{ asset('storage/Banner_Image/'.$item->image) }}"  alt="Image Desc">
                             </picture>
                         </figure><!-- End .slide-image -->
 

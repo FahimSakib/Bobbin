@@ -58,22 +58,22 @@
                                             <td>{{ $product->description }}</td>
                                         </tr>
                                         <tr>
-                                            <th>Images</th>
+                                            <th>Images</th>Product_Image
                                             <td>
                                                 <ul class="list-group list-group-horizontal">
                                                     <li class="list-group-item  border-0"><img
                                                             src="{{ asset('storage/Product_image/'.$product->image1) }}"
-                                                            alt="{{ $product->image1 }}"
+                                                            alt="{{ $product->imageProduct_Image
                                                             style="width:100px">
                                                     </li>
                                                     <li class="list-group-item border-0"><img
                                                             src="{{ asset('storage/Product_image/'.$product->image2) }}"
-                                                            alt="{{ $product->image2 }}"
+                                                            alt="{{ $product->imageProduct_Image
                                                             style="width:100px">
                                                     </li>
                                                     <li class="list-group-item border-0"><img
                                                             src="{{ asset('storage/Product_image/'.$product->image3) }}"
-                                                            alt="{{ $product->image3 }}"
+                                                            alt="{{ $product->imageProduct_Image
                                                             style="width:100px">
                                                     </li>
                                                     <li class="list-group-item border-0"><img
