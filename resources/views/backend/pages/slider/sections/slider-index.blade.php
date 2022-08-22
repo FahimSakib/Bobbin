@@ -63,7 +63,7 @@
                                             <td class="text-center">
                                                 {{$i++}}
                                             </td>
-                                            <td>{{$item->title}}</td>
+                                            <td>{{$item->title ?? 'N/A'}}</td>
                                             @if($item->status =='1')
                                             <td> <span class="badge badge-success">Active</span></td>
                                             @else
