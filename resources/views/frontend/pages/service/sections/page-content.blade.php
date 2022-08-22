@@ -13,12 +13,13 @@
                                     </a>
                                 </figure><!-- End .entry-media -->
                                 <div class="entry-body">
-                                    <div class="entry-meta">
+                                    {{-- <div class="entry-meta">
                                         <a href="{{route('single-fullwidth',$item->id)}}">Since</a>
                                         <span class="meta-separator">|</span>
                                         <a href="{{route('single-fullwidth',$item->id)}}">{!! date('d - M - Y',
                                             strtotime($item->created_at)) !!}</a>
-                                    </div><!-- End .entry-meta -->
+                                    </div> --}}
+                                    <!-- End .entry-meta -->
                                     <h2 class="entry-title">
                                         <a href="{{route('single-fullwidth',$item->id)}}">{{$item->name}}</a>
                                     </h2><!-- End .entry-title -->
