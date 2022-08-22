@@ -14,7 +14,7 @@ class ProductsController extends Controller
             'title' => 'Products'
         ];
 
-        $products = Product::with('sizes','colors','category')->paginate(16);
+        $products = Product::with('sizes','colors','category')->where('status','1')->paginate(16);
         
         return view('frontend.pages.products.products',$data,compact('products'));
     }

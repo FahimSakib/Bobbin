@@ -13,7 +13,7 @@ class CategoryController extends Controller
             'title' => 'Category'
         ];
         
-        $products = Product::with('category')->where('category_id',$category)->paginate(16);
+        $products = Product::with('category')->where('category_id',$category)->where('status','1')->paginate(16);
 
         return view('frontend.pages.category.category', $data, compact('products'));
     } 
