@@ -63,17 +63,17 @@
                                                 <ul class="list-group list-group-horizontal">
                                                     <li class="list-group-item  border-0"><img
                                                             src="{{ asset('storage/Product_Image/'.$product->image1) }}"
-                                                            alt="{{ $product->imageProduct_Image
+                                                            alt="{{ $product->imageProduct_Image }}"
                                                             style="width:100px">
                                                     </li>
                                                     <li class="list-group-item border-0"><img
                                                             src="{{ asset('storage/Product_Image/'.$product->image2) }}"
-                                                            alt="{{ $product->imageProduct_Image
+                                                            alt="{{ $product->imageProduct_Image }}"
                                                             style="width:100px">
                                                     </li>
                                                     <li class="list-group-item border-0"><img
                                                             src="{{ asset('storage/Product_Image/'.$product->image3) }}"
-                                                            alt="{{ $product->imageProduct_Image
+                                                            alt="{{ $product->imageProduct_Image }}"
                                                             style="width:100px">
                                                     </li>
                                                     <li class="list-group-item border-0"><img
