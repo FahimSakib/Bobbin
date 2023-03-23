@@ -1,7 +1,7 @@
 @foreach ($categories as $category)
 @php
-$products = App\Models\Product::where('category_id',$category->id)->limit(5)->get();
-$single_product = App\Models\Product::where('category_id',$category->id)->inRandomOrder()->first();
+$products = App\Models\Product::where('category_id',$category->id)->where('status','1')->limit(5)->get();
+$single_product = App\Models\Product::where('category_id',$category->id)->where('status','1')->inRandomOrder()->first();
 @endphp
 @if (!empty($single_product))
 <div class="container featured mt-4 pb-2">
