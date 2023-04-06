@@ -16,7 +16,7 @@ class ProductextendedController extends Controller
 
         $product = Product::with('category')->find($id);
 
-        $prducts_random = Product::with('category')->inRandomOrder()->limit(6)->get();
+        $prducts_random = Product::with('category')->where('status','1')->inRandomOrder()->limit(6)->get();
 
         return view('frontend.pages.product-extended.product-extended', $data,compact('product','prducts_random'));
     }
