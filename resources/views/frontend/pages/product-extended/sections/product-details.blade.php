@@ -5,7 +5,7 @@ toast($message,'success');
 $reviews = App\Models\Review::orderBy('id','desc')->where('product_id',$product->id)->get();
 $reviews_avg = App\Models\Review::where('product_id',$product->id)->avg('rating');
 if ($reviews_avg) {
-    $review_avg_p = (100/5)*$reviews_avg;
+$review_avg_p = (100/5)*$reviews_avg;
 }
 @endphp
 <div class="page-content">
@@ -54,9 +54,11 @@ if ($reviews_avg) {
                         <h1 class="product-title">{{$product->name}}</h1><!-- End .product-title -->
                         <div class="ratings-container">
                             <div class="ratings">
-                                <div class="ratings-val" style="width: {{ $review_avg_p ?? '0'}}%;"></div><!-- End .ratings-val -->
+                                <div class="ratings-val" style="width: {{ $review_avg_p ?? '0'}}%;"></div>
+                                <!-- End .ratings-val -->
                             </div><!-- End .ratings -->
-                            <a class="ratings-text" href="#product-review-link" id="review-link">( {{ count($reviews) }} Reviews )</a>
+                            <a class="ratings-text" href="#product-review-link" id="review-link">( {{ count($reviews) }}
+                                Reviews )</a>
                         </div><!-- End .rating-container -->
 
                         <div class="product-price">
@@ -94,50 +96,53 @@ if ($reviews_avg) {
                                     </select>
                                 </div><!-- End .select-custom -->
 
-                                <a href="#size-guide-modal" class="size-guide" data-toggle="modal" ><i class="icon-th-list"></i>size guide</a>
+                                <a href="#size-guide-modal" class="size-guide" data-toggle="modal"><i
+                                        class="icon-th-list"></i>size guide</a>
                             </div><!-- End .details-filter-row -->
 
                             {{-- add to cart --}}
                             {{-- <form action="{{route('cart.store')}}" method="POST">
-                            @csrf --}}
-                            {{-- <input type="hidden" name="color" value="{{document.getElementsId("color")}}">
-                            <input type="hidden" name="size" value="{{document.getElementsById("size")}}"> --}}
-                            <input type="hidden" name="product_id" value="{{$product->id}}">
-                            <div class="details-filter-row details-row-size">
-                                <label for="qty">Qty:</label>
-                                <div class="product-details-quantity">
-                                    <input type="number" name="quantity" id="qty" class="form-control" value="1" min="1"
-                                        step="1" data-decimals="0" onkeydown="return false" required>
-                                </div><!-- End .product-details-quantity -->
-                            </div><!-- End .details-filter-row -->
-                            <input type="hidden" name="pivot-qty" id="pivot-qty">
+                                @csrf --}}
+                                {{-- <input type="hidden" name="color" value="{{document.getElementsId(" color")}}">
+                                <input type="hidden" name="size" value="{{document.getElementsById(" size")}}"> --}}
+                                <input type="hidden" name="product_id" value="{{$product->id}}">
+                                <div class="details-filter-row details-row-size">
+                                    <label for="qty">Qty:</label>
+                                    <div class="product-details-quantity">
+                                        <input type="number" name="quantity" id="qty" class="form-control" value="1"
+                                            min="1" step="1" data-decimals="0" onkeydown="return false" required>
+                                    </div><!-- End .product-details-quantity -->
+                                </div><!-- End .details-filter-row -->
+                                <input type="hidden" name="pivot-qty" id="pivot-qty">
 
+                                <div class="product-details-action">
+                                    <button type="submit" class="btn-product btn-cart"><span>add to cart
+                                        </span></button>
+                            </form>
+                            @else
                             <div class="product-details-action">
-                                <button type="submit" class="btn-product btn-cart"><span>add to cart </span></button>
-                        </form>
-                        @else
-                        <div class="product-details-action">
-                            <div>
-                                <button type="button" class="btn-product btn btn-danger" disabled>Out of Stock</button>
-                            </div>
-                            @endif
-                            {{-- <div class="details-action-wrapper">
-                                <a href="#" class="btn-product btn-wishlist" title="Wishlist"><span>Add to
-                                        Wishlist</span></a>
-                                <a href="#" class="btn-product btn-compare" title="Compare"><span>Add to
-                                        Compare</span></a>
-                            </div><!-- End .details-action-wrapper --> --}}
-                        </div><!-- End .product-details-action -->
+                                <div>
+                                    <button type="button" class="btn-product btn btn-danger" disabled>Out of
+                                        Stock</button>
+                                </div>
+                                @endif
+                                {{-- <div class="details-action-wrapper">
+                                    <a href="#" class="btn-product btn-wishlist" title="Wishlist"><span>Add to
+                                            Wishlist</span></a>
+                                    <a href="#" class="btn-product btn-compare" title="Compare"><span>Add to
+                                            Compare</span></a>
+                                </div><!-- End .details-action-wrapper --> --}}
+                            </div><!-- End .product-details-action -->
 
-                        <div class="product-details-footer">
-                            <div class="product-cat">
-                                <span>Category:</span>
-                                <a
-                                    href="{{ route('category',$product->category_id) }}">{{ $product->category->title }}</a>
-                            </div><!-- End .product-cat -->
+                            <div class="product-details-footer">
+                                <div class="product-cat">
+                                    <span>Category:</span>
+                                    <a href="{{ route('category',$product->category_id) }}">{{ $product->category->title
+                                        }}</a>
+                                </div><!-- End .product-cat -->
 
-                        </div><!-- End .product-details-footer -->
-                      
+                            </div><!-- End .product-details-footer -->
+
                     </div><!-- End .product-details -->
                 </div><!-- End .col-md-6 -->
             </div><!-- End .row -->
@@ -159,10 +164,10 @@ if ($reviews_avg) {
                     <a class="nav-link" id="product-shipping-link" data-toggle="tab" href="#product-shipping-tab"
                         role="tab" aria-controls="product-shipping-tab" aria-selected="false">Shipping & Returns</a>
                 </li> --}}
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link" id="product-review-link" data-toggle="tab" href="#product-review-tab" role="tab"
                         aria-controls="product-review-tab" aria-selected="false">Reviews ({{ count($reviews) }})</a>
-                </li>
+                </li> --}}
             </ul>
         </div><!-- End .container -->
         @push('scripts')
@@ -178,29 +183,29 @@ if ($reviews_avg) {
             });
         </script>
         @endpush
- <!-- Size-Guide Modal -->
-   <div class="modal fade" id="size-guide-modal" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-              <div class="modal-body">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true"><i class="icon-close"></i></span>
-                  </button>
-                  <div class="form-box">
-              @if($product->category->size_guide != NULL)        
-              <p class="text-center mb-2"> Size Guide For <b>{{ $product->category->title }}'s</b></p>
+        <!-- Size-Guide Modal -->
+        <div class="modal fade" id="size-guide-modal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true"><i class="icon-close"></i></span>
+                        </button>
+                        <div class="form-box">
+                            @if($product->category->size_guide != NULL)
+                            <p class="text-center mb-2"> Size Guide For <b>{{ $product->category->title }}'s</b></p>
 
-<img src="{{ asset('storage/Size_Guide_Image/'.$product->category->size_guide) }}"
-                                                    alt="{{ $product->category->size_guide}}" >
-             @else
-             <div class="mt-2" style="height:80px;">
-             <h4 class="pt-3 text-center" >Sorry! No Size Guide Available For This Product</h4>
-             
-             </div>
-                    @endif  
-                  </div><!-- End .form-tab -->
-              </div><!-- End .form-box -->
-          </div><!-- End .modal-body -->
-      </div><!-- End .modal-content -->
-  </div><!-- End .modal-dialog -->
-  </div><!-- End .modal -->
+                            <img src="{{ asset('storage/Size_Guide_Image/'.$product->category->size_guide) }}"
+                                alt="{{ $product->category->size_guide}}">
+                            @else
+                            <div class="mt-2" style="height:80px;">
+                                <h4 class="pt-3 text-center">Sorry! No Size Guide Available For This Product</h4>
+
+                            </div>
+                            @endif
+                        </div><!-- End .form-tab -->
+                    </div><!-- End .form-box -->
+                </div><!-- End .modal-body -->
+            </div><!-- End .modal-content -->
+        </div><!-- End .modal-dialog -->
+    </div><!-- End .modal -->
