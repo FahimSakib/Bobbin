@@ -121,6 +121,8 @@
                         class="icon-twitter"></i></a> --}}
                 <a href="https://www.instagram.com/bobbin513/?hl=en" class="social-icon social-instagram"
                     title="Instagram" target="_blank"><i class="icon-instagram"></i></a>
+                <a href="https://www.linkedin.com/company/bobbinbd/" class="social-icon social-linkedin"
+                    title="LinkedIn" target="_blank"><i class="icon-linkedin"></i></a>
                 {{-- <a href="#" class="social-icon social-youtube" title="Youtube" target="_blank"><i
                         class="icon-youtube"></i></a> --}}
                 {{-- <a href="#" class="social-icon social-pinterest" title="Pinterest" target="_blank"><i

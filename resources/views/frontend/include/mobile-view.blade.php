@@ -13,8 +13,8 @@ use Illuminate\Support\Facades\Auth;
 
         <form action="#" method="get" class="mobile-search">
             <label for="mobile-search" class="sr-only">Search</label>
-            <input type="search" class="form-control" name="mobile-search" id="mobile-search"
-                placeholder="Search in..." required>
+            <input type="search" class="form-control" name="mobile-search" id="mobile-search" placeholder="Search in..."
+                required>
             <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
         </form>
 
@@ -23,36 +23,43 @@ use Illuminate\Support\Facades\Auth;
                 <li class="active">
                     <a href="{{ route('home') }}">Home</a>
 
-                   
+
                 </li>
-              <li class="{{ (request()->is('products')) ? 'active' : '' }}">
-                            <a href="{{ route('products') }}">Products</a>
+                <li class="{{ (request()->is('products')) ? 'active' : '' }}">
+                    <a href="{{ route('products') }}">Products</a>
                 <li class="{{ (request()->is('category/*')) ? 'active' : '' }}">
-                            <a href="javascript:void(0)" class="sf-with-ul">Categories</a>
-                            <ul>
-                                @foreach ($categories as $category)
-                                @if (count($category->products)!=0)
-                                <li><a href="{{ route('category',$category->id) }}">{{ $category->title }}</a></li>
-                                @endif
-                                @endforeach
-                            </ul>
-                        </li>
-              <li class="{{ (request()->is('blog')) ? 'active' : '' }}">
-                            <a href="{{ route('blog') }}">Blog</a>
-                        </li>
-               <li class="{{ (request()->is('service')) ? 'active' : '' }}">
-                            <a href="{{ route('service') }}">Services</a>
-                        </li>
-               <li class="{{ (request()->is('about')) ? 'active' : '' }}">
-                            <a href="{{ route('about') }}">About</a>
-                        </li>
+                    <a href="javascript:void(0)" class="sf-with-ul">Categories</a>
+                    <ul>
+                        @foreach ($categories as $category)
+                        @if (count($category->products)!=0)
+                        <li><a href="{{ route('category',$category->id) }}">{{ $category->title }}</a></li>
+                        @endif
+                        @endforeach
+                    </ul>
+                </li>
+                <li class="{{ (request()->is('blog')) ? 'active' : '' }}">
+                    <a href="{{ route('blog') }}">Blog</a>
+                </li>
+                <li class="{{ (request()->is('service')) ? 'active' : '' }}">
+                    <a href="{{ route('service') }}">Services</a>
+                </li>
+                <li class="{{ (request()->is('about')) ? 'active' : '' }}">
+                    <a href="{{ route('about') }}">About</a>
+                </li>
+                <li class="{{ (request()->is('contact')) ? 'active' : '' }}">
+                    <a href="{{ route('contact') }}">Contact</a>
+                </li>
             </ul>
         </nav><!-- End .mobile-nav -->
 
         <div class="social-icons">
-            <a href="https://www.facebook.com/bobbin.ctg" class="social-icon" target="_blank" title="Facebook"><i class="icon-facebook-f"></i></a>
+            <a href="https://www.facebook.com/bobbin.ctg" class="social-icon" target="_blank" title="Facebook"><i
+                    class="icon-facebook-f"></i></a>
             {{-- <a href="#" class="social-icon" target="_blank" title="Twitter"><i class="icon-twitter"></i></a> --}}
-            <a href="https://www.instagram.com/bobbin513/?hl=en" class="social-icon" target="_blank" title="Instagram"><i class="icon-instagram"></i></a>
+            <a href="https://www.instagram.com/bobbin513/?hl=en" class="social-icon" target="_blank"
+                title="Instagram"><i class="icon-instagram"></i></a>
+            <a href="https://www.linkedin.com/company/bobbinbd/" class="social-icon" target="_blank" title="LinkedIn"><i
+                    class="icon-linkedin"></i></a>
             {{-- <a href="#" class="social-icon" target="_blank" title="Youtube"><i class="icon-youtube"></i></a> --}}
         </div><!-- End .social-icons -->
     </div><!-- End .mobile-menu-wrapper -->
